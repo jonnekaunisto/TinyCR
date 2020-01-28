@@ -4,7 +4,7 @@
 simple_server_objects = ClientSocket.o ServerSocket.o Socket.o server.o
 simple_client_objects = ClientSocket.o ServerSocket.o Socket.o client.o
 
-
+QMAKE_CXXFLAGS += -std=c++14
 all : simple_server simple_client
 
 simple_server: $(simple_server_objects)
