@@ -1,3 +1,8 @@
+/**
+ * Holds TinyCRClient implementation
+ * @author Xiaofeng Shi, Jonne Kaunisto 
+ */
+
 #include "../include/TinyCRServer.h"
 #include <thread>
 
