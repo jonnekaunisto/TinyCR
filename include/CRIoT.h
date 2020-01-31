@@ -40,6 +40,8 @@ public:
 	// 	vo_data.install(vo_control);
 	// }
 
+	CRIoT_Control_VO(){}
+
 	CRIoT_Control_VO(vector<K> &pks, vector<K> &nks, float lf = 0.95, float othello_ratio = 1)
 	{
 		this->loadfactor = lf;

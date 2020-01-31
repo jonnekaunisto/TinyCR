@@ -1,26 +1,37 @@
 # Makefile for the socket programming example
 #
+IDIR =../include
+CC=g++
+CFLAGS=-I$(IDIR) -g -Ofast -std=c++11
 
-simple_server_objects = ClientSocket.o ServerSocket.o Socket.o server.o
-simple_client_objects = ClientSocket.o ServerSocket.o Socket.o client.o
+LIBS=-lm
 
-QMAKE_CXXFLAGS += -std=c++14
-all : simple_server simple_client
-
-simple_server: $(simple_server_objects)
-	g++ -o simple_server $(simple_server_objects)
-
-
-simple_client: $(simple_client_objects)
-	g++ -o simple_client $(simple_client_objects)
+_DEPS = CRIoT.h
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+ODIR=obj
 
 
-Socket: Socket.cpp
-ServerSocket: ServerSocket.cpp
-ClientSocket: ClientSocket.cpp
-simple_server_main: simple_server_main.cpp
-simple_client_main: simple_client_main.cpp
+SERVER_OBJ = ClientSocket.o ServerSocket.o Socket.o server.o
+client_objects = ClientSocket.o ServerSocket.o Socket.o client.o
+
+all : server client
+
+client.o: client.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+server.o: server.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+$(ODIR)/%.o: %.cpp $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+
+server: $(SERVER_OBJ)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+
+client: $(client_objects)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 
 clean:
-	rm -f *.o simple_server simple_client
+	rm -f *.o server client

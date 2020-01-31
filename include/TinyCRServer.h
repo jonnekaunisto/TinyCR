@@ -7,10 +7,12 @@
 #ifndef TinyCRServer_class
 #define TinyCRServer_class
 
+
+template<typename K, class V>
 class TinyCRServer
 {
 public:
-    TinyCRServer(int port, vector<uint64_t> positive_keys, vector<uint64_t> negative_keys);
+    TinyCRServer(int port, vector<K> positive_keys, vector<V> negative_keys);
     /**
      * Starts tiny CR server. Send delta updates on changes, monitor port for new devices
      */
@@ -24,7 +26,7 @@ private:
     int port;
     vector<uint64_t> positive_keys;
     vector<uint64_t> negative_keys;
-    CRIoT_Control_VO<uint64_t, uint32_t> daasServer;
+    CRIoT_Control_VO<K, V> daasServer;
     /**
      * Registers a device that is authorized and send the delta summary to all devices
      */

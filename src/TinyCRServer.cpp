@@ -6,15 +6,17 @@
 #include "../include/TinyCRServer.h"
 #include <thread>
 
-TinyCRServer::TinyCRServer(int port, vector<uint64_t> positive_keys, vector<uint64_t> negative_keys)
+template<typename K, class V>
+TinyCRServer<K,V>::TinyCRServer(int port, vector<K> positive_keys, vector<V> negative_keys)
 {
     this->port = port;
     this->positive_keys = positive_keys;
     this->negative_keys = negative_keys;
-    this->daasServer = CRIoT_Control_VO<uint64_t, uint32_t>(positive_keys, negative_keys);
+    CRIoT_Control_VO<uint64_t, uint32_t>daasServer(positive_keys, negative_keys);
 }
 
-bool TinyCRServer::startServer()
+template<typename K, class V>
+bool TinyCRServer<K,V>::startServer()
 {
     std::thread connectionListenerThread(listenForNewDevices);
     std::thread summaryUpdatesThread(sendSummaryUpdates);
@@ -24,11 +26,13 @@ bool TinyCRServer::startServer()
     return 0;
 }
 
-bool TinyCRServer::startSocketAPIServer(){
+template<typename K, class V>
+bool TinyCRServer<K,V>::startSocketAPIServer(){
     return false;
 }
 
-void TinyCRServer::listenForNewDevices()
+template<typename K, class V>
+void TinyCRServer<K,V>::listenForNewDevices()
 {
     try
     {
@@ -46,7 +50,7 @@ void TinyCRServer::listenForNewDevices()
                 while (true)
                 {
                     /*send the CRC packets*/
-                    vector<vector<uint8_t>> v = dassServer.encoding(dassServer.vo_data);
+                    vector<vector<uint8_t>> v = daasServer.encoding(daasServer.vo_data);
                     for (int i = 0; i < v.size(); i++)
                     {
                         char *msg;
@@ -80,7 +84,8 @@ void TinyCRServer::listenForNewDevices()
 }
 
 // TODO: add something to trigger a change and change the code to actually send a summary
-void TinyCRServer::sendSummaryUpdates()
+template<typename K, class V>
+void TinyCRServer<K,V>::sendSummaryUpdates()
 {
     while (true)
     {

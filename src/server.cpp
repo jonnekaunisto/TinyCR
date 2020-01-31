@@ -7,8 +7,8 @@
 int main(int argc, char **argv)
 {
     // Some place holder keys
-    vector <uint64_t> positive_keys;
-	vector <uint64_t> negative_keys;
+    vector <uint32_t> positive_keys;
+	vector <uint32_t> negative_keys;
     int i = 0;
 	while (i < POSITIVE_KEYSIZE) {
 		positive_keys.push_back(i);
@@ -20,4 +20,5 @@ int main(int argc, char **argv)
 		i ++;
 	}
 
-	TinyCRServer server(30000, positive_keys, negative_keys);
+	TinyCRServer<uint32_t, uint32_t>server(30000, positive_keys, negative_keys);
+}
