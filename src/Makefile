@@ -86,7 +86,7 @@ CRIOT_SERVER = $(patsubst %,$(ODIR)/%,$(_CRIOT_SERVER))
 _CRIOT_CLIENT = CRIoT_Client.o ClientSock.o common.o farmhash.o input_types.o ClientSocket.o ServerSocket.o Socket.o 
 CRIOT_CLIENT = $(patsubst %,$(ODIR)/%,$(_CRIOT_CLIENT))
 
-_SERVER_OBJ = server.o ClientSock.o common.o farmhash.o input_types.o ClientSocket.o ServerSocket.o Socket.o 
+_SERVER_OBJ = server.o ClientSock.o common.o farmhash.o input_types.o ClientSocket.o ServerSocket.o Socket.o TinyCRServer.o
 SERVER_OBJ = $(patsubst %,$(ODIR)/%,$(_SERVER_OBJ))
 
 

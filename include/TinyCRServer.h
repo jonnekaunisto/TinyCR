@@ -2,11 +2,9 @@
  * Holds TinyCRServer Class
  * @author Xiaofeng Shi, Jonne Kaunisto
  */
-#include "../include/CRIoT.h"
-
 #ifndef TinyCRServer_class
 #define TinyCRServer_class
-
+#include "../include/CRIoT.h"
 
 template<typename K, class V>
 class TinyCRServer
