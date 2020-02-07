@@ -24,7 +24,8 @@ using namespace std;
 
 const int long_seg = 262144;
 
-unsigned long lower_power_of_two(unsigned long x)
+
+inline unsigned long lower_power_of_two(unsigned long x)
 {
     x = x | (x >> 1);
     x = x | (x >> 2);
@@ -55,7 +56,7 @@ inline int find_highest_bit(int v)
 }
 
 
-int upperpower2(int x)
+inline int upperpower2(int x)
 {
     int ret = 1;
     for (; ret * 2 < x; ) ret <<= 1;
@@ -63,17 +64,17 @@ int upperpower2(int x)
 }
 
 // solve equation : 1 + x(logc - logx + 1) - c = 0
-double F_d(double x, double c)
+inline double F_d(double x, double c)
 {
   return log(c) - log(x);
 }
 
-double F(double x, double c)
+inline double F(double x, double c)
 {
   return 1 + x * (log(c) - log(x) + 1) - c;
 }
 
-double solve_equation(double c) 
+inline double solve_equation(double c) 
 {
   double x = c + 0.1;
   while (abs(F(x, c)) > 0.01)
@@ -81,7 +82,7 @@ double solve_equation(double c)
   return x;
 }
 
-double balls_in_bins_max_load(double balls, double bins)
+inline double balls_in_bins_max_load(double balls, double bins)
 {
     double m = balls;
     double n = bins;
@@ -99,7 +100,7 @@ double balls_in_bins_max_load(double balls, double bins)
     return ret;
 }
 
-int proper_alt_range(int M, int i, int *len)
+inline int proper_alt_range(int M, int i, int *len)
 {
     double b = 4; // slots per bucket
     double lf = 0.95; // target load factor
