@@ -23,7 +23,7 @@ LDIR =../lib
 
 LIBS=-lm
 
-_DEPS = CRIoT.h
+_DEPS = CRIoT.h TinyCRServer.h cuckoo.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _TEST_OBJ = test.o ClientSock.o common.o farmhash.o input_types.o
@@ -89,11 +89,10 @@ CRIOT_CLIENT = $(patsubst %,$(ODIR)/%,$(_CRIOT_CLIENT))
 _SERVER_OBJ = server.o ClientSock.o common.o farmhash.o input_types.o ClientSocket.o ServerSocket.o Socket.o TinyCRServer.o
 SERVER_OBJ = $(patsubst %,$(ODIR)/%,$(_SERVER_OBJ))
 
+#make a file to test cuckoo by itself
+
 
 $(ODIR)/%.o: %.cpp $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
-
-server.o: server.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 

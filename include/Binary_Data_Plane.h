@@ -5,7 +5,7 @@
 #include <iostream>
 #include <time.h>
 #include "Binary_Control_Plane.h"
-#include "cuckoo.h"
+#include "../include/cuckoo.h"
 
 template<typename K, class V>
 class Binary_Data_Plane
