@@ -7,13 +7,15 @@
 #ifndef TinyCRClient_class
 #define TinyCRClient_class
 
+
+template<typename K, class V>
 class TinyCRClient
 {
 public:
-    TinyCRClient(int serverIP)
+    TinyCRClient(std::string serverIP)
     {
         this->serverIP = serverIP;
-        CRIoT_Data_VO<uint64_t, uint32_t>daasClient();
+        CRIoT_Data_VO<K, V>daasClient();
     }
 
     /**
@@ -29,9 +31,12 @@ public:
      */
     bool queryCertificate(long long key);
 
+
+
 private:
-    int serverIP;
-    CRIoT_Data_VO<uint64_t, uint32_t> dassClient;
+    std::string serverIP;
+    CRIoT_Data_VO<K, V> daasClient;
+
 
     void requestInitialSummary()
     {
@@ -75,7 +80,7 @@ private:
         }
 
         /*decoding*/
-        daasClient.decoding(msg);
+        this->daasClient.decoding(msg);
     }
     
     void listenForSummaryUpdates()
