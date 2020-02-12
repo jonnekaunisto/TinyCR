@@ -2,7 +2,7 @@ IDIR =../include
 #MCF_DIR = ./ModifiedCuckooFilter/src/
 CC=g++
 
-CFLAGS=-I$(IDIR) -pg -g -Ofast -std=c++11
+CFLAGS=-I$(IDIR) -pg -g -Ofast -std=c++11 -pthread
 # OPT = -Ofast -pg -g
 
 # CFLAGS += --std=c++11 -fno-strict-aliasing -Wall -c -I. -I$(IDIR) -I$(MCF_DIR) -I./include -I/usr/include/ -I/home/paris/.linuxbrew/Cellar/openssl/1.0.2s/include -I./src/ $(OPT)
@@ -23,7 +23,7 @@ LDIR =../lib
 
 LIBS=-lm
 
-_DEPS = CRIoT.h TinyCRServer.h cuckoo.h
+_DEPS = CRIoT.h cuckoo.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _TEST_OBJ = test.o ClientSock.o common.o farmhash.o input_types.o
@@ -86,7 +86,7 @@ CRIOT_SERVER = $(patsubst %,$(ODIR)/%,$(_CRIOT_SERVER))
 _CRIOT_CLIENT = CRIoT_Client.o ClientSock.o common.o farmhash.o input_types.o ClientSocket.o ServerSocket.o Socket.o 
 CRIOT_CLIENT = $(patsubst %,$(ODIR)/%,$(_CRIOT_CLIENT))
 
-_SERVER_OBJ = server.o ClientSock.o common.o farmhash.o input_types.o ClientSocket.o ServerSocket.o Socket.o TinyCRServer.o
+_SERVER_OBJ = server.o ClientSock.o common.o farmhash.o input_types.o ClientSocket.o ServerSocket.o Socket.o
 SERVER_OBJ = $(patsubst %,$(ODIR)/%,$(_SERVER_OBJ))
 
 #make a file to test cuckoo by itself

@@ -5,17 +5,18 @@
 #ifndef TinyCRServer_class
 #define TinyCRServer_class
 #include "../include/CRIoT.h"
+#include <thread>
 
 template<typename K, class V>
 class TinyCRServer
 {
 public:
-    TinyCRServer(int port, vector<K> positive_keys, vector<V> negative_keys)
+    TinyCRServer(int port, vector<K> positive_keys, vector<K> negative_keys)
     {
         this->port = port;
         this->positive_keys = positive_keys;
         this->negative_keys = negative_keys;
-        CRIoT_Control_VO<uint64_t, uint32_t>daasServer(positive_keys, negative_keys);
+        CRIoT_Control_VO<K, V>daasServer(positive_keys, negative_keys);
     }
 
     /**
@@ -23,8 +24,8 @@ public:
      */
     bool startServer()
     {
-        std::thread connectionListenerThread(listenForNewDevices);
-        std::thread summaryUpdatesThread(sendSummaryUpdates);
+        std::thread connectionListenerThread (listenForNewDevices, this);
+        std::thread summaryUpdatesThread (sendSummaryUpdates, this);
 
         summaryUpdatesThread.join();
         connectionListenerThread.join();
@@ -39,8 +40,8 @@ public:
 
 private:
     int port;
-    vector<uint64_t> positive_keys;
-    vector<uint64_t> negative_keys;
+    vector<K> positive_keys;
+    vector<V> negative_keys;
     CRIoT_Control_VO<K, V> daasServer;
     /**
      * Registers a device that is authorized and send the delta summary to all devices
@@ -55,11 +56,12 @@ private:
      */
     int removeDevice(int device);
 
-    void listenForNewDevices()
+    static void listenForNewDevices(TinyCRServer *tinyCRServer)
     {
         try
         {
-            ServerSocket server(port);
+            ServerSocket server(tinyCRServer->port);
+            std::cout << "Listening For New Devices: " << tinyCRServer->port << "\n";
 
             while (true)
             {
@@ -68,46 +70,41 @@ private:
                 server.accept(new_sock);
                 int msg_size = 0;
 
-                try
+                while (true)
                 {
-                    while (true)
+                    /*send the CRC packets*/
+                    vector<vector<uint8_t>> v = tinyCRServer->daasServer.encoding(tinyCRServer->daasServer.vo_data);
+                    for (int i = 0; i < v.size(); i++)
                     {
-                        /*send the CRC packets*/
-                        vector<vector<uint8_t>> v = daasServer.encoding(daasServer.vo_data);
-                        for (int i = 0; i < v.size(); i++)
+                        char *msg;
+                        msg = new char[v[i].size()];
+                        for (int j = 0; j < v[i].size(); j++)
                         {
-                            char *msg;
-                            msg = new char[v[i].size()];
-                            for (int j = 0; j < v[i].size(); j++)
-                            {
-                                memcpy(&msg[j], &v[i][j], 1);
-                            }
-                            new_sock.send(msg, v[i].size());
-
-                            msg_size += v[i].size();
-
-                            delete[] msg;
+                            memcpy(&msg[j], &v[i][j], 1);
                         }
+                        new_sock.send(msg, v[i].size());
 
-                        cout << "size: " << msg_size << endl;
-                        /*if finished, close*/
-                        new_sock << "finish";
-                        break;
+                        msg_size += v[i].size();
+
+                        delete[] msg;
                     }
-                }
-                catch (SocketException &)
-                {
+
+                    cout << "size: " << msg_size << endl;
+                    /*if finished, close*/
+                    new_sock << "finish";
+                    break;
                 }
             }
         }
         catch (SocketException &e)
         {
             std::cout << "Exception was caught:" << e.description() << "\nExiting.\n";
+            return;
         }
     }
 
 
-    void sendSummaryUpdates()
+    static void sendSummaryUpdates(TinyCRServer *tinyCRServer)
     {
         while (true)
         {
@@ -139,6 +136,7 @@ private:
                 catch (SocketException &e)
                 {
                     std::cout << "Exception was caught:" << e.description() << "\n";
+                    return;
                 }
             }
         }

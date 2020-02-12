@@ -20,4 +20,5 @@ int main(int argc, char **argv)
 		i ++;
 	}
 	TinyCRServer<uint32_t, uint32_t>server(30000, positive_keys, negative_keys);
+	server.startServer();
 }
