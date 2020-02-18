@@ -29,6 +29,7 @@ public:
 
         summaryUpdatesThread.join();
         connectionListenerThread.join();
+        
         return 0;
     }
     /**
@@ -43,6 +44,8 @@ private:
     vector<K> positive_keys;
     vector<V> negative_keys;
     CRIoT_Control_VO<K, V> daasServer;
+    std::thread summaryUpdatesThread;
+    std::thread connectionListenerThread;
     /**
      * Registers a device that is authorized and send the delta summary to all devices
      */
@@ -109,7 +112,7 @@ private:
         while (true)
         {
             // add something to trigger a change
-            if (true)
+            if (false)
             { 
                 std::cout << "Sending Delta Summary...\n";
                 try

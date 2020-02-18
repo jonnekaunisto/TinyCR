@@ -2,11 +2,11 @@
  * Holds TinyCRServer Class
  * @author Xiaofeng Shi, Jonne Kaunisto 
  */
-#include "../include/CRIoT.h"
 
 #ifndef TinyCRClient_class
 #define TinyCRClient_class
-
+#include "../include/CRIoT.h"
+#include <thread>
 
 template<typename K, class V>
 class TinyCRClient
@@ -24,18 +24,26 @@ public:
     bool startClient()
     {
         requestInitialSummary();
-    }
+        std::thread summaryUpdatesThread (listenForSummaryUpdates, this);
+        summaryUpdatesThread.join();
 
+
+    }
     /**
      * Query a peer for certificate, returns bool
      */
-    bool queryCertificate(long long key);
+    V queryCertificate(const K &key)
+	{
+		return daasClient.query(key);
+	}
 
 
 
 private:
     std::string serverIP;
     CRIoT_Data_VO<K, V> daasClient;
+
+    std::thread summaryUpdatesThread;
 
 
     void requestInitialSummary()
@@ -83,7 +91,7 @@ private:
         this->daasClient.decoding(msg);
     }
     
-    void listenForSummaryUpdates()
+    static void listenForSummaryUpdates(TinyCRClient *tinyCRServer)
     {
         std::cout << "Listening For Summary Updates...\n";
         try

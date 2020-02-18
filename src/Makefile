@@ -1,6 +1,6 @@
 IDIR =../include
 #MCF_DIR = ./ModifiedCuckooFilter/src/
-CC=g++
+CC=g++ -g
 
 CFLAGS=-I$(IDIR) -pg -g -Ofast -std=c++11 -pthread
 # OPT = -Ofast -pg -g
@@ -105,7 +105,7 @@ $(ODIR)/%.o: %.cpp $(DEPS)
 #$(ALIB): $(LIBOBJECTS)
 #	$(AR) rcs $@ $(LIBOBJECTS)
 
-all: othello_test balance_othello_test filter_cascades_test eval_all mo
+all: server client
 
 
 CRIoT_Server: $(CRIOT_SERVER)

@@ -309,6 +309,11 @@ public:
 
     fp_t fingerprint(uint64_t ele)
     {
+        if(fp_len == 0)
+        {
+            std::cout << "fp_len must be greater than 0\n";
+            exit(-1);
+        }
         //fp_t h = HashUtil::BobHash32(&ele, 4) % ((1ull << fp_len) -1) + 1;
         fp_t h = HashUtil::MurmurHash64(ele ^ 0x192837319273LL) % ((1ull << fp_len) -1) + 1;
         return h;

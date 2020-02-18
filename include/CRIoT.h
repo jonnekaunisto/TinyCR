@@ -48,7 +48,7 @@ public:
 		this->o_ratio = othello_ratio;
 		vo_control.init(pks.size(), nks.size(), lf, o_ratio);
 		vo_control.batch_insert(pks, nks);
-
+		std::cout << "inserted\n";
 		vo_data.install(vo_control);
 	}
 
@@ -268,6 +268,7 @@ public:
 		uint32_t fp_len = d_crc.vf.fp_len;
 		split_uint32_t(fp_len, fp_len_v);
 		v.push_back(fp_len_v);
+		cout << "fp len: " << fp_len << "\n";
 
 		/*T*/
 		vector<uint8_t> vf_T_v;
@@ -394,6 +395,13 @@ public:
 	CRIoT_Data_VO(Binary_VF_Othello_Data_Plane<K, V> &install_patch)
 	{
 		vo_data = install_patch;
+	}
+
+	V query(const K &key)
+	{
+        V q;
+		vo_data.query(key);
+		return q;
 	}
 
 	void rebuild(Binary_VF_Othello_Data_Plane<K, V> &rebuild_patch)
@@ -560,6 +568,7 @@ public:
 		cout<<"offset "<<offset<<endl;
 
 		vo_data.vf.init_with_params(memory_consumption, e, n, m, filled_cell, max_kick_steps, max_2_power, big_seg, isSmall, len, fp_len, T_len, T);
+		cout << fp_len;
 		cout<<"vf finish "<<endl;
 
 	}
