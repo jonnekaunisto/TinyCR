@@ -21,7 +21,10 @@ int main(int argc, char **argv)
 	std::cout << "timeout end\n";
 
 	uint32_t num = 1;
-	uint32_t v = client.queryCertificate(num);
+	bool v = client.queryCertificate(num);
+	std::cout << v << "\n";
+
+	v = client.queryCertificate(100500);
 	std::cout << v << "\n";
 
 

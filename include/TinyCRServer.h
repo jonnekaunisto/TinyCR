@@ -16,7 +16,7 @@ public:
         this->port = port;
         this->positive_keys = positive_keys;
         this->negative_keys = negative_keys;
-        CRIoT_Control_VO<K, V>daasServer(positive_keys, negative_keys);
+        daasServer.init(positive_keys, negative_keys);
     }
 
     /**

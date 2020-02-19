@@ -27,7 +27,6 @@ public:
 
 	Binary_Control_Plane()
 	{
-
 	}
 
 	Binary_Control_Plane(uint32_t n_pos, uint32_t n_neg)
@@ -334,7 +333,6 @@ public:
 	{
 		this->load_factor = lf;
 		this->o_ratio = othello_ratio;
-
 		fp_len = optimal_fp_len();
 		int n = this->n_positive_keys;
 		int b = 4;
@@ -391,8 +389,9 @@ public:
 		this->n_positive_keys = n_pos;
 		this->n_negative_keys = n_neg;
 		this->key_ratio = this->n_positive_keys/(float)this->n_negative_keys;
-
+		std::cout << "npos: " << n_pos << " n_neg: " << n_neg << "\n";
 		fp_len = optimal_fp_len();
+		std::cout << fp_len << "\n";
 		int n = this->n_positive_keys;
 		int b = 4;
 		uint64_t m = (uint64_t) (n / b / load_factor);
@@ -405,7 +404,7 @@ public:
 
         TNK_table = new vector<K>[vf.n];
         FPK_table = new vector<K>[vf.n];
-        // cout<<"success"<<endl;
+        cout<<"success"<<endl;
 
 	}
 
@@ -415,7 +414,6 @@ public:
 		float optimal_fpr = 0.618*this->key_ratio/0.95;
 		/*ceiling  or floor*/
 		int fp_length = int((log2(1/optimal_fpr)+2)/0.95)+1;
-
 		if (fp_length < 4)
 			fp_length = 4;
 		return fp_length;

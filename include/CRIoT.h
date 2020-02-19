@@ -46,11 +46,28 @@ public:
 	{
 		this->loadfactor = lf;
 		this->o_ratio = othello_ratio;
+		std::cout << "calling init\n";
 		vo_control.init(pks.size(), nks.size(), lf, o_ratio);
+		std::cout << "after init\n";
 		vo_control.batch_insert(pks, nks);
-		std::cout << "inserted\n";
 		vo_data.install(vo_control);
+		std::cout << vo_data.vf.fp_len << "dataLen\n";
 	}
+
+	void init(vector<K> &pks, vector<K> &nks, float lf = 0.95, float othello_ratio = 1)
+	{
+		this->loadfactor = lf;
+		this->o_ratio = othello_ratio;
+		std::cout << "calling init\n";
+		vo_control.init(pks.size(), nks.size(), lf, o_ratio);
+		std::cout << "after init\n";
+		vo_control.batch_insert(pks, nks);
+		vo_data.install(vo_control);
+		std::cout << vo_data.vf.fp_len << "dataLen\n";
+	}
+
+
+	
 
 	void install()
 	{
@@ -266,9 +283,9 @@ public:
 		/*fp_len*/
 		vector<uint8_t> fp_len_v;
 		uint32_t fp_len = d_crc.vf.fp_len;
+		cout << "fp len: " << fp_len << "\n";
 		split_uint32_t(fp_len, fp_len_v);
 		v.push_back(fp_len_v);
-		cout << "fp len: " << fp_len << "\n";
 
 		/*T*/
 		vector<uint8_t> vf_T_v;
@@ -399,9 +416,7 @@ public:
 
 	V query(const K &key)
 	{
-        V q;
-		vo_data.query(key);
-		return q;
+		return vo_data.query(key);
 	}
 
 	void rebuild(Binary_VF_Othello_Data_Plane<K, V> &rebuild_patch)

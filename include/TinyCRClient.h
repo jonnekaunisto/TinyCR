@@ -15,7 +15,6 @@ public:
     TinyCRClient(std::string serverIP)
     {
         this->serverIP = serverIP;
-        CRIoT_Data_VO<K, V>daasClient();
     }
 
     /**
@@ -26,15 +25,13 @@ public:
         requestInitialSummary();
         std::thread summaryUpdatesThread (listenForSummaryUpdates, this);
         summaryUpdatesThread.join();
-
-
     }
     /**
      * Query a peer for certificate, returns bool
      */
-    V queryCertificate(const K &key)
+    bool queryCertificate(const K &key)
 	{
-		return daasClient.query(key);
+		return daasClient.query(key) == 1;
 	}
 
 
