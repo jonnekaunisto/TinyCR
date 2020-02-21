@@ -29,6 +29,8 @@ public:
 
   // Client initialization
   bool connect(const std::string host, const int port);
+  bool connect(sockaddr_in host, const int port);
+
 
   // Data Transimission
   bool send(const std::string) const;
@@ -40,6 +42,8 @@ public:
   void set_non_blocking(const bool);
 
   bool is_valid() const { return m_sock != -1; }
+
+  sockaddr_in get_client();
 
 private:
   int m_sock;

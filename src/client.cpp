@@ -3,7 +3,7 @@
 #include <thread>
 #include <stdlib.h>
 
-TinyCRClient<uint32_t, uint32_t>client("localhost");
+TinyCRClient<uint64_t, uint32_t>client("localhost");
 
 void runClientThread()
 {

@@ -46,24 +46,18 @@ public:
 	{
 		this->loadfactor = lf;
 		this->o_ratio = othello_ratio;
-		std::cout << "calling init\n";
 		vo_control.init(pks.size(), nks.size(), lf, o_ratio);
-		std::cout << "after init\n";
 		vo_control.batch_insert(pks, nks);
 		vo_data.install(vo_control);
-		std::cout << vo_data.vf.fp_len << "dataLen\n";
 	}
 
 	void init(vector<K> &pks, vector<K> &nks, float lf = 0.95, float othello_ratio = 1)
 	{
 		this->loadfactor = lf;
 		this->o_ratio = othello_ratio;
-		std::cout << "calling init\n";
 		vo_control.init(pks.size(), nks.size(), lf, o_ratio);
-		std::cout << "after init\n";
 		vo_control.batch_insert(pks, nks);
 		vo_data.install(vo_control);
-		std::cout << vo_data.vf.fp_len << "dataLen\n";
 	}
 
 

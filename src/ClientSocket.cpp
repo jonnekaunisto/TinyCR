@@ -18,6 +18,18 @@ ClientSocket::ClientSocket ( std::string host, int port )
 
 }
 
+ClientSocket::ClientSocket(sockaddr_in host, int port){
+  if ( ! Socket::create() )
+    {
+      throw SocketException ( "Could not create client socket." );
+    }
+
+  if ( ! Socket::connect ( host, port ) )
+    {
+      throw SocketException ( "Could not bind to port." );
+    }
+}
+
 
 const ClientSocket& ClientSocket::operator << ( const std::string& s ) const
 {

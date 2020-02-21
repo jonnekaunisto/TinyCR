@@ -6,6 +6,7 @@
 #define TinyCRServer_class
 #include "../include/CRIoT.h"
 #include <thread>
+#include <netinet/ip.h>
 
 template<typename K, class V>
 class TinyCRServer
@@ -25,11 +26,8 @@ public:
     bool startServer()
     {
         std::thread connectionListenerThread (listenForNewDevices, this);
-        std::thread summaryUpdatesThread (sendSummaryUpdates, this);
 
-        summaryUpdatesThread.join();
         connectionListenerThread.join();
-        
         return 0;
     }
     /**
@@ -39,21 +37,62 @@ public:
         return false;
     }
 
+    /**
+     * Adds a new certificate, value 1 corresponds to valid certificate and
+     * 0 to invalid
+     */
+    bool addCertificate(pair<K,V> kv)
+    {
+        daasServer.insert(kv);
+        return sendSummaryUpdate();
+    }
+
+    /**
+     * Removes and existing certificate
+     */
+    bool removeCertificate(K k)
+    {
+        daasServer.erase(&k);
+        return sendSummaryUpdate();
+    }
+
+    /**
+     * Unrevoke an existing certificate
+     */
+    bool unrevokeCertificate(K k)
+    {
+        daasServer.valueFlip(&std::make_pair(k, 1));
+        return sendSummaryUpdate();
+    }
+
+    /**
+     * Revoke and existing certificate
+     */
+    bool revokeCertificate(K k)
+    {
+        V rev = 0;
+        daasServer.valueFlip(&std::make_pair(k, rev));
+        return sendSummaryUpdate();
+    }
+    
+
 private:
     int port;
+    //doubly linked list of connected  devices
+    std::list<sockaddr_in> connectedDevices;
     vector<K> positive_keys;
-    vector<V> negative_keys;
+    vector<K> negative_keys;
     CRIoT_Control_VO<K, V> daasServer;
     std::thread summaryUpdatesThread;
     std::thread connectionListenerThread;
-    /**
-     * Registers a device that is authorized and send the delta summary to all devices
-     */
-    int addDeviceToGroup(int device);
-    /**
-     * Registers a device that is unauthorized and send the delta summary to all devices
-     */
-    int removeDeviceFromGroup(int device);
+
+    struct
+    {
+        K key;
+        V value;
+        //send flipped indexes
+    } p;
+
     /**
      * Deregisters a device, no updates
      */
@@ -68,9 +107,9 @@ private:
 
             while (true)
             {
-
                 ServerSocket new_sock;
                 server.accept(new_sock);
+                tinyCRServer->connectedDevices.push_back(server.get_client());
                 int msg_size = 0;
 
                 while (true)
@@ -102,47 +141,40 @@ private:
         catch (SocketException &e)
         {
             std::cout << "Exception was caught:" << e.description() << "\nExiting.\n";
-            return;
         }
     }
 
 
-    static void sendSummaryUpdates(TinyCRServer *tinyCRServer)
+    bool sendSummaryUpdate()
     {
-        while (true)
+        std::cout << "Sending Delta Summary...\n";
+        try
         {
-            // add something to trigger a change
-            if (false)
-            { 
-                std::cout << "Sending Delta Summary...\n";
+            for (sockaddr_in host : connectedDevices)            
+            {
+                ClientSocket client_socket(host, 40000);
+
+                std::string reply;
+
                 try
                 {
-                    char device[1][10] = {"localhost"};
-                    for (int i = 0; i < 1; i++)
-                    {
-                        ClientSocket client_socket(device[i], 40000);
-
-                        std::string reply;
-
-                        try
-                        {
-                            client_socket << "Delta Summary";
-                            client_socket >> reply;
-                        }
-                        catch (SocketException &)
-                        {
-                        }
-
-                        std::cout << "We received this response from the client:\n\"" << reply << "\"\n";
-                    }
+                    client_socket << "Delta Summary";
+                    client_socket >> reply;
                 }
-                catch (SocketException &e)
+                catch (SocketException &)
                 {
-                    std::cout << "Exception was caught:" << e.description() << "\n";
-                    return;
                 }
+
+                std::cout << "We received this response from the client:\n\"" << reply << "\"\n";
             }
         }
+        catch (SocketException &e)
+        {
+            std::cout << "Exception was caught:" << e.description() << "\n";
+            return false;
+        }
+        return true;
     }
+
 };
 #endif

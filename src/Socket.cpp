@@ -8,7 +8,6 @@
 #include <fcntl.h>
 
 
-
 Socket::Socket() :
   m_sock ( -1 )
 {
@@ -98,7 +97,7 @@ bool Socket::accept ( Socket& new_socket ) const
 {
   int addr_length = sizeof ( m_addr );
   new_socket.m_sock = ::accept ( m_sock, ( sockaddr * ) &m_addr, ( socklen_t * ) &addr_length );
-
+  new_socket.m_addr = m_addr;
   if ( new_socket.m_sock <= 0 )
     return false;
   else
@@ -203,6 +202,21 @@ bool Socket::connect ( const std::string host, const int port )
     return false;
 }
 
+bool Socket::connect ( sockaddr_in host, const int port )
+{
+  if ( ! is_valid() ) return false;
+
+  host.sin_family = AF_INET;
+  host.sin_port = htons ( port );
+
+  int status = ::connect ( m_sock, ( sockaddr * ) &m_addr, sizeof ( m_addr ) );
+
+  if ( status == 0 )
+    return true;
+  else
+    return false;
+}
+
 void Socket::set_non_blocking ( const bool b )
 {
 
@@ -224,4 +238,9 @@ void Socket::set_non_blocking ( const bool b )
   fcntl ( m_sock,
     F_SETFL,opts );
 
+}
+
+sockaddr_in Socket::get_client()
+{
+  return m_addr;
 }
