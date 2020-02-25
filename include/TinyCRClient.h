@@ -8,6 +8,8 @@
 #include "../include/CRIoT.h"
 #include <thread>
 
+#define DEVICE_PORT 40000
+
 template<typename K, class V>
 class TinyCRClient
 {
@@ -90,11 +92,11 @@ private:
     
     static void listenForSummaryUpdates(TinyCRClient *tinyCRServer)
     {
-        std::cout << "Listening For Summary Updates...\n";
+        std::cout << "Listening For Summary Updates at port: " << DEVICE_PORT << "\n";
         try
         {
             // Create the socket
-            ServerSocket server(40000);
+            ServerSocket server(DEVICE_PORT);
 
             while (true)
             {
@@ -104,19 +106,16 @@ private:
 
                 try
                 {
-                    while (true)
+                    std::string data;
+                    new_sock >> data;
+                    if (data == "Delta Summary")
                     {
-                        std::string data;
-                        new_sock >> data;
-                        if (data == "Delta Summary")
-                        {
-                            new_sock << "Received Summary";
-                            std::cout << "Received Delta Summary\n";
-                        }
-                        else
-                        {
-                            new_sock << "Some error";
-                        }
+                        new_sock << "Received Summary";
+                        std::cout << "Received Delta Summary\n";
+                    }
+                    else
+                    {
+                        new_sock << "Some error";
                     }
                 }
                 catch (SocketException &)
@@ -129,6 +128,8 @@ private:
             std::cout << "Exception was caught:" << e.description() << "\nExiting.\n";
         }
     }
+
+    
 };
 
 #endif

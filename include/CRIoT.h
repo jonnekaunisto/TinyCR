@@ -126,7 +126,7 @@ public:
 
 	}
 
-	void split_uint32_t(uint32_t &x, vector<uint8_t> &v)
+	void split_uint_t(uint32_t &x, vector<uint8_t> &v)
 	{
 		for(int i =3; i>=0; i--)
 		{
@@ -135,7 +135,7 @@ public:
 		}
 	}
 
-	void split_uint64_t(uint64_t &x, vector<uint8_t> &v)
+	void split_uint_t(uint64_t &x, vector<uint8_t> &v)
 	{
 		for(int i =7; i>=0; i--)
 		{
@@ -144,11 +144,23 @@ public:
 		}
 	}
 
-	void split_uint64_t_vector(vector<uint64_t> &x, vector<uint8_t> &v)
+	void split_uint_t_vector(vector<uint64_t> &x, vector<uint8_t> &v)
 	{
 		for(int i=0; i<x.size(); i++)
 		{
 			for(int j=7;j>=0;j--)
+			{
+				uint8_t temp = (x[i]>>(j*8)) & 0x000000ff;
+				v.push_back(temp);
+			}
+		}
+	}
+
+	void split_uint_t_vector(vector<uint32_t> &x, vector<uint8_t> &v)
+	{
+		for(int i=0; i<x.size(); i++)
+		{
+			for(int j=3;j>=0;j--)
 			{
 				uint8_t temp = (x[i]>>(j*8)) & 0x000000ff;
 				v.push_back(temp);
@@ -176,36 +188,36 @@ public:
 		/*mem_size*/
 		uint32_t mem_size = d_crc.othello.mem.size();
 		vector<uint8_t> mem_size_v;
-		split_uint32_t(mem_size, mem_size_v);
+		split_uint_t(mem_size, mem_size_v);
 		v.push_back(mem_size_v);
 
 		/*mem*/
 		vector<uint8_t> mem_v;
-		split_uint64_t_vector(d_crc.othello.mem, mem_v);
+		split_uint_t_vector(d_crc.othello.mem, mem_v);
 		v.push_back(mem_v);
 
 		/*ma, mb*/
 		vector<uint8_t> ma_v, mb_v;
-		split_uint32_t(d_crc.othello.ma, ma_v);
-		split_uint32_t(d_crc.othello.mb, mb_v);
+		split_uint_t(d_crc.othello.ma, ma_v);
+		split_uint_t(d_crc.othello.mb, mb_v);
 		v.push_back(ma_v);
 		v.push_back(mb_v);
 
 		/*hab. Hasher64 type*/
 		vector<uint8_t> hab_param_v;
-		split_uint64_t(d_crc.othello.hab.s, hab_param_v);
+		split_uint_t(d_crc.othello.hab.s, hab_param_v);
 		v.push_back(hab_param_v);
 
 		/*hd*/
 		vector<uint8_t> hd_param_v;
-		split_uint32_t(d_crc.othello.hd.s, hd_param_v);
+		split_uint_t(d_crc.othello.hd.s, hd_param_v);
 		v.push_back(hd_param_v);
 
 
 		/*vf*/
 		/*memory_consumption*/
 		vector<uint8_t> vf_mem_size_v;
-		split_uint64_t(d_crc.vf.memory_consumption, vf_mem_size_v);
+		split_uint_t(d_crc.vf.memory_consumption, vf_mem_size_v);
 		v.push_back(vf_mem_size_v);
 		cout<<"memory_consumption: "<<d_crc.vf.memory_consumption<<endl;
 
@@ -215,7 +227,7 @@ public:
 		eState << d_crc.vf.e;
 		string tmp = eState.str();
 		uint32_t ess_length = tmp.length();
-		split_uint32_t(ess_length, vf_e_v);
+		split_uint_t(ess_length, vf_e_v);
 		cout<<"ess_length: "<<ess_length<<endl;
 		convert_string_to_uint8_t_vector(tmp, vf_e_v);
 		v.push_back(vf_e_v);
@@ -223,38 +235,38 @@ public:
 		/*n*/
 		vector<uint8_t> vf_n_v;
 		uint64_t n = d_crc.vf.n;
-		split_uint64_t(n, vf_n_v);
+		split_uint_t(n, vf_n_v);
 		v.push_back(vf_n_v);
 		cout<<"n: "<<n<<endl;
 
 		/*m*/
 		vector<uint8_t> vf_m_v;
 		uint32_t m = d_crc.vf.m;
-		split_uint32_t(m, vf_m_v);
+		split_uint_t(m, vf_m_v);
 		v.push_back(vf_m_v);
 
 		/*filled_cell*/
 		vector<uint8_t> vf_filled_cell_v;
 		uint32_t filled_cell = d_crc.vf.filled_cell;
-		split_uint32_t(filled_cell, vf_filled_cell_v);
+		split_uint_t(filled_cell, vf_filled_cell_v);
 		v.push_back(vf_filled_cell_v);
 
 		/*max_kick_steps*/
 		vector<uint8_t> vf_max_kick_steps_v;
 		uint32_t max_kick_steps = d_crc.vf.max_kick_steps;
-		split_uint32_t(max_kick_steps, vf_max_kick_steps_v);
+		split_uint_t(max_kick_steps, vf_max_kick_steps_v);
 		v.push_back(vf_max_kick_steps_v);
 
 		/*max_2_power*/
 		vector<uint8_t> vf_max_2_power_v;
 		uint32_t max_2_power = d_crc.vf.max_2_power;
-		split_uint32_t(max_2_power, vf_max_2_power_v);
+		split_uint_t(max_2_power, vf_max_2_power_v);
 		v.push_back(vf_max_2_power_v);
 
 		/*big_seg*/
 		vector<uint8_t> vf_big_seg_v;
 		uint32_t big_seg = d_crc.vf.big_seg;
-		split_uint32_t(big_seg, vf_big_seg_v);
+		split_uint_t(big_seg, vf_big_seg_v);
 		v.push_back(vf_big_seg_v);
 
 		/*isSmall*/
@@ -270,7 +282,7 @@ public:
 		for(int i=0; i<4; i++)
 		{
 			uint32_t tem = d_crc.vf.len[i];
-			split_uint32_t(tem, vf_len_v);
+			split_uint_t(tem, vf_len_v);
 		}
 		v.push_back(vf_len_v);
 
@@ -278,7 +290,7 @@ public:
 		vector<uint8_t> fp_len_v;
 		uint32_t fp_len = d_crc.vf.fp_len;
 		cout << "fp len: " << fp_len << "\n";
-		split_uint32_t(fp_len, fp_len_v);
+		split_uint_t(fp_len, fp_len_v);
 		v.push_back(fp_len_v);
 
 		/*T*/
@@ -286,12 +298,41 @@ public:
 		int T_len = d_crc.vf.memory_consumption * sizeof(char) /  sizeof(uint32_t);
 		for(int i=0; i<T_len; i++)
 		{
-			split_uint32_t(d_crc.vf.T[i], vf_T_v);
+			split_uint_t(d_crc.vf.T[i], vf_T_v);
 		}
 		v.push_back(vf_T_v);
 
 
 		return v;
+	}
+
+	vector<vector<uint8_t>> encodeSummary(pair<K, V> kv)
+	{
+		vector<vector<uint8_t>> encoded;
+
+		//encode flipped key value pair
+		//encode key
+		K k = kv.first;
+		vector<uint8_t> k_split;
+		split_uint_t(k, k_split);
+		encoded.push_back(k_split);
+
+		V v = kv.second;
+		vector<uint8_t> v_split;
+		split_uint_t(v, v_split);
+		encoded.push_back(v_split);
+
+		//flipped indexes encode size
+		vector<uint8_t> encode_size;
+		encode_size.push_back(flipped_indexes.size());
+		encoded.push_back(encode_size);
+
+		//encode flipped indexes
+		vector<uint8_t> flipped_indexes_split;
+		split_uint_t_vector(flipped_indexes, flipped_indexes_split);
+		encoded.push_back(flipped_indexes_split);
+
+		return encoded;
 	}
 
 	void send(Binary_VF_Othello_Data_Plane<K, V> &data_plane_CRassifier)
@@ -580,6 +621,11 @@ public:
 		cout << fp_len;
 		cout<<"vf finish "<<endl;
 
+	}
+
+	void decode_summary(vector<vector<uint8_t>> &summary)
+	{
+		
 	}
 
 	uint32_t combine_chars_as_uint32_t(vector<uint8_t> &data, uint32_t begin)

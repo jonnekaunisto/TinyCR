@@ -7,6 +7,10 @@
 #include "../include/CRIoT.h"
 #include <thread>
 #include <netinet/ip.h>
+#include <arpa/inet.h>
+
+#define DEVICE_PORT 40000
+
 
 template<typename K, class V>
 class TinyCRServer
@@ -28,6 +32,7 @@ public:
         std::thread connectionListenerThread (listenForNewDevices, this);
 
         connectionListenerThread.join();
+        std::cout << "joined connections\n"; 
         return 0;
     }
     /**
@@ -44,7 +49,7 @@ public:
     bool addCertificate(pair<K,V> kv)
     {
         daasServer.insert(kv);
-        return sendSummaryUpdate();
+        return sendSummaryUpdate(kv);
     }
 
     /**
@@ -52,8 +57,9 @@ public:
      */
     bool removeCertificate(K k)
     {
+        pair<K, V> kv(k, 0);
         daasServer.erase(&k);
-        return sendSummaryUpdate();
+        return sendSummaryUpdate(kv);
     }
 
     /**
@@ -61,8 +67,9 @@ public:
      */
     bool unrevokeCertificate(K k)
     {
+        pair<K, V> kv(k, 1);
         daasServer.valueFlip(&std::make_pair(k, 1));
-        return sendSummaryUpdate();
+        return sendSummaryUpdate(kv);
     }
 
     /**
@@ -70,16 +77,16 @@ public:
      */
     bool revokeCertificate(K k)
     {
-        V rev = 0;
-        daasServer.valueFlip(&std::make_pair(k, rev));
-        return sendSummaryUpdate();
+        pair<K, V> kv(k, 0);
+        daasServer.valueFlip(std::ref(kv));
+        return sendSummaryUpdate(kv);
     }
     
 
 private:
     int port;
     //doubly linked list of connected  devices
-    std::list<sockaddr_in> connectedDevices;
+    std::list<std::string> connectedDevices;
     vector<K> positive_keys;
     vector<K> negative_keys;
     CRIoT_Control_VO<K, V> daasServer;
@@ -98,6 +105,21 @@ private:
      */
     int removeDevice(int device);
 
+    void printSockAddr(sockaddr_in device)
+    {
+        in_addr ip_address = ((sockaddr_in)device).sin_addr;
+        char *addr = inet_ntoa(ip_address);
+        std::cout << "IP: " << addr << "\n";
+        std::cout << "Port: " << ntohs(device.sin_port) << "\n";
+    }
+
+    std::string convert_sockaddr_to_str(sockaddr_in in)
+    {
+        in_addr ip_address = ((sockaddr_in)in).sin_addr;
+        std::string str(inet_ntoa(ip_address));
+        return str;
+    }
+
     static void listenForNewDevices(TinyCRServer *tinyCRServer)
     {
         try
@@ -105,37 +127,36 @@ private:
             ServerSocket server(tinyCRServer->port);
             std::cout << "Listening For New Devices: " << tinyCRServer->port << "\n";
 
+
             while (true)
             {
                 ServerSocket new_sock;
                 server.accept(new_sock);
-                tinyCRServer->connectedDevices.push_back(server.get_client());
+                std::string device_ip_str = tinyCRServer->convert_sockaddr_to_str(server.get_client());
+                tinyCRServer->connectedDevices.push_back(device_ip_str);
+                std::cout << "added new device at " << device_ip_str << "\n";
                 int msg_size = 0;
 
-                while (true)
+                /*send the CRC packets*/
+                vector<vector<uint8_t>> v = tinyCRServer->daasServer.encoding(tinyCRServer->daasServer.vo_data);
+                for (int i = 0; i < v.size(); i++)
                 {
-                    /*send the CRC packets*/
-                    vector<vector<uint8_t>> v = tinyCRServer->daasServer.encoding(tinyCRServer->daasServer.vo_data);
-                    for (int i = 0; i < v.size(); i++)
+                    char *msg;
+                    msg = new char[v[i].size()];
+                    for (int j = 0; j < v[i].size(); j++)
                     {
-                        char *msg;
-                        msg = new char[v[i].size()];
-                        for (int j = 0; j < v[i].size(); j++)
-                        {
-                            memcpy(&msg[j], &v[i][j], 1);
-                        }
-                        new_sock.send(msg, v[i].size());
-
-                        msg_size += v[i].size();
-
-                        delete[] msg;
+                        memcpy(&msg[j], &v[i][j], 1);
                     }
+                    new_sock.send(msg, v[i].size());
 
-                    cout << "size: " << msg_size << endl;
-                    /*if finished, close*/
-                    new_sock << "finish";
-                    break;
+                    msg_size += v[i].size();
+
+                    delete[] msg;
                 }
+
+                cout << "size: " << msg_size << endl;
+                /*if finished, close*/
+                new_sock << "finish";    
             }
         }
         catch (SocketException &e)
@@ -145,20 +166,38 @@ private:
     }
 
 
-    bool sendSummaryUpdate()
+    bool sendSummaryUpdate(pair<K,V> kv)
     {
+        if(connectedDevices.empty()){
+            return true;
+        }
+
         std::cout << "Sending Delta Summary...\n";
         try
         {
-            for (sockaddr_in host : connectedDevices)            
+            vector<vector<uint8_t>> v = daasServer.encodeSummary(kv);
+            
+
+            for (std::string host : connectedDevices)            
             {
-                ClientSocket client_socket(host, 40000);
-
+                ClientSocket client_socket(host, DEVICE_PORT);
+                std::cout << "Sending Summary To " << host << "\n";
                 std::string reply;
-
                 try
                 {
-                    client_socket << "Delta Summary";
+                    for (int i = 0; i < v.size(); i++)
+                    {
+                        char *msg;
+                        msg = new char[v[i].size()];
+                        for (int j = 0; j < v[i].size(); j++)
+                        {
+                            memcpy(&msg[j], &v[i][j], 1);
+                        }
+                        client_socket.send(msg, v[i].size());
+
+                        delete[] msg;
+                    }
+
                     client_socket >> reply;
                 }
                 catch (SocketException &)
