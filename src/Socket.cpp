@@ -163,24 +163,16 @@ int Socket::recv ( std::string& s ) const
 int Socket::recv (char* s ) const
 {
   //s = new char[MAXRECV + 1];
-
   memset ( s, 0, MAXRECV + 1 );
 
   int status = ::recv ( m_sock, s, MAXRECV, 0 );
-
-  if ( status == -1 )
-    {
-      //cout << "status == -1   errno == " << errno << "  in Socket::recv\n";
-      return 0;
-    }
-  else if ( status == 0 )
-    {
-      return 0;
-    }
-  else
-    {
-      return status;
-    }
+  if(status == -1)
+  {
+    int err=errno;
+    fprintf(stderr,"%s",strerror(err));
+    exit(1);
+  }
+  return status;
 }
 
 

@@ -175,7 +175,7 @@ private:
         std::cout << "Sending Delta Summary...\n";
         try
         {
-            vector<vector<uint8_t>> v = daasServer.encodeSummary(kv);
+            vector<uint8_t> v = daasServer.encode_summary(kv);
             
 
             for (std::string host : connectedDevices)            
@@ -185,18 +185,12 @@ private:
                 std::string reply;
                 try
                 {
-                    for (int i = 0; i < v.size(); i++)
-                    {
-                        char *msg;
-                        msg = new char[v[i].size()];
-                        for (int j = 0; j < v[i].size(); j++)
-                        {
-                            memcpy(&msg[j], &v[i][j], 1);
-                        }
-                        client_socket.send(msg, v[i].size());
-
-                        delete[] msg;
-                    }
+                    char *msg;
+                    msg = new char[v.size()];
+                    memcpy(msg, &v[0], v.size());
+                    std::cout << v.size() << " sent\n";
+                    client_socket.send(msg, v.size());
+                    delete[] msg;
 
                     client_socket >> reply;
                 }

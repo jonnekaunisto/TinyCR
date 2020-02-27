@@ -306,31 +306,44 @@ public:
 		return v;
 	}
 
-	vector<vector<uint8_t>> encodeSummary(pair<K, V> kv)
+	vector<uint8_t> encode_summary(pair<K, V> kv)
 	{
-		vector<vector<uint8_t>> encoded;
+		vector<uint8_t> encoded;
 
 		//encode flipped key value pair
 		//encode key
 		K k = kv.first;
+		std::cout << "k: " << k << "\n";
 		vector<uint8_t> k_split;
 		split_uint_t(k, k_split);
-		encoded.push_back(k_split);
+		for(uint8_t val : k_split)
+		{
+			encoded.push_back(val);
+		}
 
 		V v = kv.second;
+		std::cout << "v: " << v << "\n";
+
 		vector<uint8_t> v_split;
 		split_uint_t(v, v_split);
-		encoded.push_back(v_split);
+		for(uint8_t val : v_split)
+		{
+			encoded.push_back(val);
+		}
 
 		//flipped indexes encode size
-		vector<uint8_t> encode_size;
-		encode_size.push_back(flipped_indexes.size());
-		encoded.push_back(encode_size);
+		encoded.push_back(flipped_indexes.size());
+		std::cout << "flipped indexes size: " << flipped_indexes.size() << "\n";
+		
 
 		//encode flipped indexes
 		vector<uint8_t> flipped_indexes_split;
 		split_uint_t_vector(flipped_indexes, flipped_indexes_split);
-		encoded.push_back(flipped_indexes_split);
+		for(uint8_t val : flipped_indexes_split)
+		{
+			encoded.push_back(val);
+		}
+
 
 		return encoded;
 	}
@@ -623,8 +636,67 @@ public:
 
 	}
 
-	void decode_summary(vector<vector<uint8_t>> &summary)
+	void decode_summary(char* summary)
 	{
+		std::cout << "sizeof: " << sizeof(K) << "\n";
+		int offset = 0;
+		int K_size = sizeof(K);
+		auto k_chars = vector<uint8_t>();
+		for(int i = 0; i < K_size; i++){
+			k_chars.push_back(static_cast<uint8_t>(summary[i]));
+		}
+		K k;
+		k = combine_chars_as_uint(k_chars, k);
+		std::cout << "k: " << k << "\n";
+
+
+		offset = K_size;
+		int V_size = sizeof(V);
+		auto v_chars = vector<uint8_t>();
+		for(int i = 0; i < V_size; i++){
+			v_chars.push_back(static_cast<uint8_t>(summary[i + offset]));
+		}
+		V v;
+		v = combine_chars_as_uint(v_chars, v);
+		std::cout << "v: " << v << "\n";
+
+
+		offset += V_size;
+		int flipped_indexes_size = static_cast<uint8_t>(summary[offset]);
+		offset += 1;
+
+		std::cout << "flipped indexes size: " << flipped_indexes_size << "\n";
+
+	}
+
+	uint32_t combine_chars_as_uint(vector<uint8_t> &data, uint32_t val)
+	{
+		/*read 4 chars at begin and combine them as uint32_t*/
+		uint8_t ch1, ch2, ch3, ch4;
+		ch1 = data[0];
+		ch2 = data[1];
+		ch3 = data[2];
+		ch4 = data[3];
+
+		return (ch1<<24) + (ch2<<16) + (ch3<<8) + ch4;
+	}
+
+	uint64_t combine_chars_as_uint(vector<uint8_t> &data, uint64_t val)
+	{
+		/*read 4 chars at begin and combine them as uint32_t*/
+		uint8_t ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8;
+		ch1 = data[0];
+		ch2 = data[1];
+		ch3 = data[2];
+		ch4 = data[3];
+		ch5 = data[4];
+		ch6 = data[5];
+		ch7 = data[6];
+		ch8 = data[7];
+		
+
+		return ((uint64_t)ch1<<56) + ((uint64_t)ch2<<48) + ((uint64_t)ch3<<40) + ((uint64_t)ch4<<32) 
+		+ ((uint64_t)ch5<<24) + ((uint64_t)ch6<<16) + ((uint64_t)ch7<<8) + (uint64_t)ch8;
 		
 	}
 

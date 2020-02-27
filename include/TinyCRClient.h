@@ -10,6 +10,8 @@
 
 #define DEVICE_PORT 40000
 
+#define SUMMARY_MAX_SIZE 1024
+
 template<typename K, class V>
 class TinyCRClient
 {
@@ -90,7 +92,7 @@ private:
         this->daasClient.decoding(msg);
     }
     
-    static void listenForSummaryUpdates(TinyCRClient *tinyCRServer)
+    static void listenForSummaryUpdates(TinyCRClient *tinyCRClient)
     {
         std::cout << "Listening For Summary Updates at port: " << DEVICE_PORT << "\n";
         try
@@ -106,6 +108,7 @@ private:
 
                 try
                 {
+                    /*
                     std::string data;
                     new_sock >> data;
                     if (data == "Delta Summary")
@@ -117,6 +120,16 @@ private:
                     {
                         new_sock << "Some error";
                     }
+                    */
+                    char* data = new char[MAXRECV + 1];
+                    int n_bytes = new_sock.recv(data);
+                    std::cout << "received: " << n_bytes << "\n";
+                    // for(int k=7; k>=0; k--)
+                    // 	cout<<((data[0]>>k)&(uint8_t(1)))<<" ";
+                    // cout<<endl;
+                    tinyCRClient->daasClient.decode_summary(data);
+                    delete[] data;
+                    new_sock << "Done";
                 }
                 catch (SocketException &)
                 {

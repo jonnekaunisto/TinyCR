@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 	std::thread serverThread (runServerThread, &server);
 
 	std::cout << "timeout\n";
-	sleep(15); //sleep for 15 seconds
+	sleep(10); //sleep for 15 seconds
 	std::cout << "timeout end\n";
 
 	server.revokeCertificate(1);
