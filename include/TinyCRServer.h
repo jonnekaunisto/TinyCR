@@ -49,7 +49,7 @@ public:
     bool addCertificate(pair<K,V> kv)
     {
         daasServer.insert(kv);
-        return sendSummaryUpdate(kv);
+        return sendSummaryUpdate(kv, uint8_t(0));
     }
 
     /**
@@ -59,7 +59,7 @@ public:
     {
         pair<K, V> kv(k, 0);
         daasServer.erase(&k);
-        return sendSummaryUpdate(kv);
+        return sendSummaryUpdate(kv, uint8_t(1));
     }
 
     /**
@@ -69,7 +69,7 @@ public:
     {
         pair<K, V> kv(k, 1);
         daasServer.valueFlip(&std::make_pair(k, 1));
-        return sendSummaryUpdate(kv);
+        return sendSummaryUpdate(kv, uint8_t(2));
     }
 
     /**
@@ -79,7 +79,7 @@ public:
     {
         pair<K, V> kv(k, 0);
         daasServer.valueFlip(std::ref(kv));
-        return sendSummaryUpdate(kv);
+        return sendSummaryUpdate(kv, uint8_t(3));
     }
     
 
@@ -166,7 +166,7 @@ private:
     }
 
 
-    bool sendSummaryUpdate(pair<K,V> kv)
+    bool sendSummaryUpdate(pair<K,V> kv, uint8_t action)
     {
         if(connectedDevices.empty()){
             return true;
@@ -175,7 +175,7 @@ private:
         std::cout << "Sending Delta Summary...\n";
         try
         {
-            vector<uint8_t> v = daasServer.encode_summary(kv);
+            vector<uint8_t> v = daasServer.encode_summary(kv, action);
             
 
             for (std::string host : connectedDevices)            

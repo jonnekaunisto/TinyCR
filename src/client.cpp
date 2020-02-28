@@ -27,6 +27,14 @@ int main(int argc, char **argv)
 	v = client.queryCertificate(100500);
 	std::cout << v << "\n";
 
+	sleep(10); //sleep for 5 seconds
+	v = client.queryCertificate(num);
+	std::cout << v << "\n";
+
+	v = client.queryCertificate(100500);
+	std::cout << v << "\n";
+
+
 
 	clientThread.join();
 }

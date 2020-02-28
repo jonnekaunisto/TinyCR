@@ -305,10 +305,16 @@ public:
 
 		return v;
 	}
-
-	vector<uint8_t> encode_summary(pair<K, V> kv)
+	/* Encodes the summary for sending
+	 * Parts are encoded in this order: the type of action, key, value, 
+	 * flipped_indexes size, flipped indexes.
+	 * type of action can be add(0), remove(1), unrevoke(2), revoke(3)
+	 */
+	vector<uint8_t> encode_summary(pair<K, V> kv, uint8_t action)
 	{
 		vector<uint8_t> encoded;
+		std::cout << unsigned(action) << " act\n";
+		encoded.push_back(action);
 
 		//encode flipped key value pair
 		//encode key
@@ -334,6 +340,12 @@ public:
 		//flipped indexes encode size
 		encoded.push_back(flipped_indexes.size());
 		std::cout << "flipped indexes size: " << flipped_indexes.size() << "\n";
+
+		for(int i=0; i < flipped_indexes.size(); i++)
+		{
+      		std::cout << flipped_indexes.at(i) << " ";
+		}
+		std::cout << "\n";
 		
 
 		//encode flipped indexes
@@ -635,22 +647,31 @@ public:
 		cout<<"vf finish "<<endl;
 
 	}
-
+	/* Decodes the summary
+	 * Parts are decoded in this order: the type of action, key, value, 
+	 * flipped_indexes size, flipped indexes.
+	 * type of action can be add(0), remove(1), unrevoke(2), revoke(3)
+	 */
 	void decode_summary(char* summary)
 	{
-		std::cout << "sizeof: " << sizeof(K) << "\n";
-		int offset = 0;
+		unsigned int action = unsigned(static_cast<uint8_t>(summary[0]));
+		std::cout << "action: " << action << "\n";
+		int offset = 1;
+
+
 		int K_size = sizeof(K);
 		auto k_chars = vector<uint8_t>();
 		for(int i = 0; i < K_size; i++){
-			k_chars.push_back(static_cast<uint8_t>(summary[i]));
+			k_chars.push_back(static_cast<uint8_t>(summary[i + offset]));
 		}
 		K k;
 		k = combine_chars_as_uint(k_chars, k);
 		std::cout << "k: " << k << "\n";
 
 
-		offset = K_size;
+		offset += K_size;
+
+
 		int V_size = sizeof(V);
 		auto v_chars = vector<uint8_t>();
 		for(int i = 0; i < V_size; i++){
@@ -665,7 +686,53 @@ public:
 		int flipped_indexes_size = static_cast<uint8_t>(summary[offset]);
 		offset += 1;
 
+		vector<uint32_t> new_flipped_indexes = vector<uint32_t>();
+		for(int i = 0; i < flipped_indexes_size; i++)
+		{
+			auto flipped_chars = vector<uint8_t>();
+			for(int j = 0; j < sizeof(uint32_t); j++)
+			{
+				flipped_chars.push_back(static_cast<uint8_t>(summary[j + offset]));
+			}
+			uint32_t f;
+			f = combine_chars_as_uint(flipped_chars, f);
+			new_flipped_indexes.push_back(f);
+			offset += sizeof(uint32_t);
+		}
+
+
 		std::cout << "flipped indexes size: " << flipped_indexes_size << "\n";
+		//std::cout << new_flipped_indexes << "\n";
+		for(int i=0; i < new_flipped_indexes.size(); i++)
+		{
+      		std::cout << new_flipped_indexes.at(i) << " ";
+		}
+		std::cout << "\n";
+
+		vector<uint32_t>& new_flipped_indexes_ref = new_flipped_indexes;
+
+		//add
+		if(action == 0)
+		{
+			pair<K,V> kv(k, v);
+			insert(kv, new_flipped_indexes_ref);
+		}
+		//remove
+		else if(action == 1)
+		{
+			//nothing
+		}
+		//unrevoke(2), revoke(3)
+		else if(action == 2 || action == 3)
+		{
+			pair<K,V> kv(k, v);
+			pair<K,V> kv_ref = kv;
+			valueFlip(kv_ref, new_flipped_indexes_ref);
+		}
+		else
+		{
+			std::cout << "Encountered unknown action: " << action << "\n"; 
+		}
 
 	}
 
