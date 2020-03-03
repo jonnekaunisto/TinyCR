@@ -33,6 +33,8 @@ public:
     /**
      * Query a peer for certificate, returns bool
      */
+
+    // add lock for thread safety
     bool queryCertificate(const K &key)
 	{
 		return daasClient.query(key) == 1;

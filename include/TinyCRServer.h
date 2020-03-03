@@ -11,6 +11,8 @@
 
 #define DEVICE_PORT 40000
 
+#define COMMAND_PORT 50000
+
 
 template<typename K, class V>
 class TinyCRServer
@@ -26,20 +28,17 @@ public:
 
     /**
      * Starts tiny CR server. Send delta updates on changes, monitor port for new devices
+     * and start a socket server for communication from the Certificate Authority
      */
     bool startServer()
     {
         std::thread connectionListenerThread (listenForNewDevices, this);
+        std::thread commandListenerThread (listenForCACommands, this);
 
         connectionListenerThread.join();
+        commandListenerThread.join();
         std::cout << "joined connections\n"; 
         return 0;
-    }
-    /**
-     * Starts socket server for taking in commands from 3rd party
-     */
-    bool startSocketAPIServer(){
-        return false;
     }
 
     /**
@@ -58,7 +57,8 @@ public:
     bool removeCertificate(K k)
     {
         pair<K, V> kv(k, 0);
-        daasServer.erase(&k);
+        K& kref = k;
+        daasServer.erase(kref);
         return sendSummaryUpdate(kv, uint8_t(1));
     }
 
@@ -68,7 +68,8 @@ public:
     bool unrevokeCertificate(K k)
     {
         pair<K, V> kv(k, 1);
-        daasServer.valueFlip(&std::make_pair(k, 1));
+        pair<K, V>& kvref = kv;
+        daasServer.valueFlip(kvref);
         return sendSummaryUpdate(kv, uint8_t(2));
     }
 
@@ -93,18 +94,6 @@ private:
     std::thread summaryUpdatesThread;
     std::thread connectionListenerThread;
 
-    struct
-    {
-        K key;
-        V value;
-        //send flipped indexes
-    } p;
-
-    /**
-     * Deregisters a device, no updates
-     */
-    int removeDevice(int device);
-
     void printSockAddr(sockaddr_in device)
     {
         in_addr ip_address = ((sockaddr_in)device).sin_addr;
@@ -120,15 +109,122 @@ private:
         return str;
     }
 
+    std::pair<K, V> parseCommandPair(std::string input)
+    {
+        std:string num_str = input.substr(5, input.length());
+        bool second_part = false;
+        std::string first_num = "";
+        std::string second_num = "";
+        for(char c : num_str)
+        {
+            if(c == ' ' && second_part)
+            {
+                break;
+            }
+            else if(c == ' ')
+            {
+                second_num = true;
+                continue;
+            }
+            
+            if(second_part)
+            {
+                first_num += c;
+            }
+            else
+            {
+                second_num += c;
+            }
+        }
+
+        pair<K, V> kv(static_cast<K>(std::stoul(first_num)), static_cast<V>(std::stoul(second_num)));
+        return kv;
+    }
+
+    K parseCommandNum(std::string input) {
+        std:string num_str = input.substr(5, input.length());
+        std::string final_num = "";
+        for(char c : num_str)
+        {
+            if(c == ' ')
+            {
+                break;
+            }
+            else
+            {
+                final_num += c;
+            }
+        }
+        return static_cast<K>(std::stoul(num_str));
+    }
+
+    /* Listens for commands from CA
+     * valid commands are:
+      * "add {k} {v} "
+      * "rem {k} "
+      * "unr {k} "
+      * "rev {k} "
+      * "exi"
+     */
+    static void listenForCACommands(TinyCRServer *tinyCRServer)
+    {
+        ServerSocket server(COMMAND_PORT);
+        std::cout << "Listening For Commands on Port: " << COMMAND_PORT << "\n";
+
+        while (true)
+        {
+            try
+            {
+                ServerSocket new_sock;
+                server.accept(new_sock);
+
+                std::string data;
+                new_sock >> data;
+
+                if(data.length() < 3)
+                {
+                    new_sock << "String is too short";
+                    continue;
+                }
+                
+                std::string command = data.substr(0,3);
+                if(command == "add") 
+                {
+                    
+                }
+                else if(command == "rem")
+                {
+                    tinyCRServer->removeCertificate(tinyCRServer->parseCommandNum(data));
+
+                }
+                else if(command == "unr")
+                {
+                    tinyCRServer->unrevokeCertificate(tinyCRServer->parseCommandNum(data));
+                }
+                else if(command == "rev")
+                {
+                    tinyCRServer->unrevokeCertificate(tinyCRServer->parseCommandNum(data));
+                }
+                else
+                {
+                    new_sock << "Command not recognized";
+                }
+            }
+            catch (SocketException &e)
+            {
+                std::cout << "Exception was caught:" << e.description() << "\n";
+            }  
+        }
+    }
+
     static void listenForNewDevices(TinyCRServer *tinyCRServer)
     {
-        try
+        ServerSocket server(tinyCRServer->port);
+        std::cout << "Listening For New Devices: " << tinyCRServer->port << "\n";
+
+        while (true)
         {
-            ServerSocket server(tinyCRServer->port);
-            std::cout << "Listening For New Devices: " << tinyCRServer->port << "\n";
-
-
-            while (true)
+            try
             {
                 ServerSocket new_sock;
                 server.accept(new_sock);
@@ -156,12 +252,13 @@ private:
 
                 cout << "size: " << msg_size << endl;
                 /*if finished, close*/
-                new_sock << "finish";    
-            }
-        }
-        catch (SocketException &e)
-        {
-            std::cout << "Exception was caught:" << e.description() << "\nExiting.\n";
+                new_sock << "finish"; 
+            } 
+
+            catch (SocketException &e)
+            {
+                std::cout << "Exception was caught:" << e.description() << "\n";
+            }  
         }
     }
 
