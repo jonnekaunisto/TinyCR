@@ -91,12 +91,14 @@ SERVER_OBJ = $(patsubst %,$(ODIR)/%,$(_SERVER_OBJ))
 
 _CLIENT_OBJ = client.o ClientSock.o common.o farmhash.o input_types.o ClientSocket.o ServerSocket.o Socket.o
 CLIENT_OBJ = $(patsubst %,$(ODIR)/%,$(_CLIENT_OBJ))
+
+_mockCA = mockCA.o ClientSock.o ClientSocket.o Socket.o
+mockCA = $(patsubst %,$(ODIR)/%,$(_mockCA))
+
 #make a file to test cuckoo by itself
 
 $(ODIR)/%.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
-
-
 
 
 #$(ODIR)/%.o: %.cc ${HEADERS} Makefile
@@ -105,7 +107,7 @@ $(ODIR)/%.o: %.cpp $(DEPS)
 #$(ALIB): $(LIBOBJECTS)
 #	$(AR) rcs $@ $(LIBOBJECTS)
 
-all: server client
+all: server client mockCA
 
 
 CRIoT_Server: $(CRIOT_SERVER)
@@ -173,6 +175,9 @@ server: $(SERVER_OBJ)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 client: $(CLIENT_OBJ)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+
+mockCA: $(mockCA)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 .PHONY: clean

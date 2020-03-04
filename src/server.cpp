@@ -30,13 +30,13 @@ int main(int argc, char **argv)
 	}
 	TinyCRServer<uint64_t, uint32_t>server(30000, positive_keys, negative_keys);
 	std::thread serverThread (runServerThread, &server);
-
+	/*
 	std::cout << "timeout\n";
 	sleep(10); //sleep for 15 seconds
 	std::cout << "timeout end\n";
 
 	server.revokeCertificate(1);
-
+	*/
 	serverThread.join();
 	std::cout << "server joined\n";
 }

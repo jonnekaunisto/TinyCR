@@ -8,6 +8,7 @@
 #include <thread>
 #include <netinet/ip.h>
 #include <arpa/inet.h>
+#include <regex>
 
 #define DEVICE_PORT 40000
 
@@ -109,55 +110,6 @@ private:
         return str;
     }
 
-    std::pair<K, V> parseCommandPair(std::string input)
-    {
-        std:string num_str = input.substr(5, input.length());
-        bool second_part = false;
-        std::string first_num = "";
-        std::string second_num = "";
-        for(char c : num_str)
-        {
-            if(c == ' ' && second_part)
-            {
-                break;
-            }
-            else if(c == ' ')
-            {
-                second_num = true;
-                continue;
-            }
-            
-            if(second_part)
-            {
-                first_num += c;
-            }
-            else
-            {
-                second_num += c;
-            }
-        }
-
-        pair<K, V> kv(static_cast<K>(std::stoul(first_num)), static_cast<V>(std::stoul(second_num)));
-        return kv;
-    }
-
-    K parseCommandNum(std::string input) {
-        std:string num_str = input.substr(5, input.length());
-        std::string final_num = "";
-        for(char c : num_str)
-        {
-            if(c == ' ')
-            {
-                break;
-            }
-            else
-            {
-                final_num += c;
-            }
-        }
-        return static_cast<K>(std::stoul(num_str));
-    }
-
     /* Listens for commands from CA
      * valid commands are:
       * "add {k} {v} "
@@ -168,6 +120,7 @@ private:
      */
     static void listenForCACommands(TinyCRServer *tinyCRServer)
     {
+        std::regex rgx("([a-z]{3}) ([0-9]+)(?: ([0-9]+))?");
         ServerSocket server(COMMAND_PORT);
         std::cout << "Listening For Commands on Port: " << COMMAND_PORT << "\n";
 
@@ -180,30 +133,38 @@ private:
 
                 std::string data;
                 new_sock >> data;
-
-                if(data.length() < 3)
+                std::smatch matches;
+                if(!std::regex_search(data, matches, rgx)) 
                 {
-                    new_sock << "String is too short";
+                    new_sock << "Command not recognized";
                     continue;
-                }
                 
-                std::string command = data.substr(0,3);
-                if(command == "add") 
+                }
+                std::cout << "Received command: " << data << "\n";
+                std::string command = matches[1];
+                if(command == "add" && matches[3].length() > 0)
                 {
-                    
+                    pair<K, V> kv(static_cast<K>(std::stoul(matches[2])), static_cast<V>(std::stoul(matches[3])));
+                    tinyCRServer->addCertificate(kv);
+                    new_sock << "Added";
                 }
                 else if(command == "rem")
                 {
-                    tinyCRServer->removeCertificate(tinyCRServer->parseCommandNum(data));
-
+                    //TODO fix
+                    //tinyCRServer->removeCertificate(tinyCRServer->parseCommandNum(data));
+                    new_sock << "Not implemented";
                 }
                 else if(command == "unr")
                 {
-                    tinyCRServer->unrevokeCertificate(tinyCRServer->parseCommandNum(data));
+                    tinyCRServer->unrevokeCertificate(static_cast<K>(std::stoul(matches[2])));
+                    new_sock << "unrevoked";
+
                 }
                 else if(command == "rev")
                 {
-                    tinyCRServer->unrevokeCertificate(tinyCRServer->parseCommandNum(data));
+                    tinyCRServer->revokeCertificate(static_cast<K>(std::stoul(matches[2])));
+                    new_sock << "revoked";
+
                 }
                 else
                 {
