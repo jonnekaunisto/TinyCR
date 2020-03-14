@@ -36,3 +36,6 @@
 
 #mac
 .DS_Store
+
+src/client
+src/mockCA
