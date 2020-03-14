@@ -14,7 +14,8 @@ std::string valid_commands = "valid commands are:\n"
                               "\"exi\"\n"; 
 
 /*
- *
+ * Runs the socket server.
+ * Command line inputs are the host name and port number to connect to.
  */
 int main (int argc, char *argv[])
 {

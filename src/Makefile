@@ -186,3 +186,4 @@ clean:
 	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~
 	rm -f mockCA
 	rm -f client
+	rm -f server

@@ -6,13 +6,18 @@
 #define NEGATIVE_KEYSIZE 1000000
 
 
-
+/*
+ * Function for running the server in a thread
+ */
 void runServerThread(TinyCRServer<uint64_t, uint32_t> *server)
 {
 	server->startServer();
 }
 
-int main(int argc, char **argv)
+/*
+ * Runs the server with appropriate input paremeters.
+ */
+int main()
 {
 
     // Some place holder keys
@@ -30,13 +35,7 @@ int main(int argc, char **argv)
 	}
 	TinyCRServer<uint64_t, uint32_t>server(30000, positive_keys, negative_keys);
 	std::thread serverThread (runServerThread, &server);
-	/*
-	std::cout << "timeout\n";
-	sleep(10); //sleep for 15 seconds
-	std::cout << "timeout end\n";
 
-	server.revokeCertificate(1);
-	*/
 	serverThread.join();
 	std::cout << "server joined\n";
 }

@@ -11,7 +11,6 @@
 #include <regex>
 
 #define DEVICE_PORT 40000
-
 #define COMMAND_PORT 50000
 
 
@@ -19,6 +18,12 @@ template<typename K, class V>
 class TinyCRServer
 {
 public:
+    /**
+     * Constructor for TinyCRServer
+     * @param port The port that the server should run on
+     * @param positive_keys The list of unrevoked keys.
+     * @param negative_keys The list of revoked keys.
+     */
     TinyCRServer(int port, vector<K> positive_keys, vector<K> negative_keys)
     {
         this->port = port;
@@ -29,22 +34,22 @@ public:
 
     /**
      * Starts tiny CR server. Send delta updates on changes, monitor port for new devices
-     * and start a socket server for communication from the Certificate Authority
+     * and start a socket server for communication from the Certificate Authority.
      */
-    bool startServer()
+    void startServer()
     {
         std::thread connectionListenerThread (listenForNewDevices, this);
         std::thread commandListenerThread (listenForCACommands, this);
 
         connectionListenerThread.join();
         commandListenerThread.join();
-        std::cout << "joined connections\n"; 
-        return 0;
     }
 
     /**
      * Adds a new certificate, value 1 corresponds to valid certificate and
      * 0 to invalid
+     * @param kv Key value pair of the key that should be added and the value it should hold
+     * @return Status of adding the certificate.
      */
     bool addCertificate(pair<K,V> kv)
     {
@@ -54,6 +59,9 @@ public:
 
     /**
      * Removes and existing certificate
+     * NOT IMPLEMENTED
+     * @param k The key that should be removed.
+     * @return Status of removing the certificate.
      */
     bool removeCertificate(K k)
     {
@@ -65,6 +73,8 @@ public:
 
     /**
      * Unrevoke an existing certificate
+     * @param k Key that should be unrevoked.
+     * @return Status of unrevoking the certificate.
      */
     bool unrevokeCertificate(K k)
     {
@@ -76,6 +86,8 @@ public:
 
     /**
      * Revoke and existing certificate
+     * @param k Key that should be revoked.
+     * @return Status of revoking the certificate.
      */
     bool revokeCertificate(K k)
     {
@@ -83,27 +95,22 @@ public:
         daasServer.valueFlip(std::ref(kv));
         return sendSummaryUpdate(kv, uint8_t(3));
     }
-    
 
 private:
     int port;
-    //doubly linked list of connected  devices
-    std::list<std::string> connectedDevices;
+    std::list<std::string> connectedDevices; //doubly linked list of connected  devices
     vector<K> positive_keys;
     vector<K> negative_keys;
     CRIoT_Control_VO<K, V> daasServer;
     std::thread summaryUpdatesThread;
     std::thread connectionListenerThread;
 
-    void printSockAddr(sockaddr_in device)
-    {
-        in_addr ip_address = ((sockaddr_in)device).sin_addr;
-        char *addr = inet_ntoa(ip_address);
-        std::cout << "IP: " << addr << "\n";
-        std::cout << "Port: " << ntohs(device.sin_port) << "\n";
-    }
-
-    std::string convert_sockaddr_to_str(sockaddr_in in)
+    /**
+     * Converts a sockaddr_in to a string.
+     * @param in The sockaddr that should be converted
+     * @return The string form of sockaddr
+     */
+    std::string convertSockaddrToStr(sockaddr_in in)
     {
         in_addr ip_address = ((sockaddr_in)in).sin_addr;
         std::string str(inet_ntoa(ip_address));
@@ -112,11 +119,11 @@ private:
 
     /* Listens for commands from CA
      * valid commands are:
-      * "add {k} {v} "
-      * "rem {k} "
-      * "unr {k} "
-      * "rev {k} "
-      * "exi"
+     * "add {k} {v} "
+     * "rem {k} "
+     * "unr {k} "
+     * "rev {k} "
+     * "exi"
      */
     static void listenForCACommands(TinyCRServer *tinyCRServer)
     {
@@ -146,7 +153,7 @@ private:
                 {
                     pair<K, V> kv(static_cast<K>(std::stoul(matches[2])), static_cast<V>(std::stoul(matches[3])));
                     tinyCRServer->addCertificate(kv);
-                    new_sock << "Added";
+                    new_sock << "added";
                 }
                 else if(command == "rem")
                 {
@@ -178,6 +185,9 @@ private:
         }
     }
 
+    /**
+     * Listens for new devices and sends the DASS
+     */
     static void listenForNewDevices(TinyCRServer *tinyCRServer)
     {
         ServerSocket server(tinyCRServer->port);
@@ -189,7 +199,7 @@ private:
             {
                 ServerSocket new_sock;
                 server.accept(new_sock);
-                std::string device_ip_str = tinyCRServer->convert_sockaddr_to_str(server.get_client());
+                std::string device_ip_str = tinyCRServer->convertSockaddrToStr(server.get_client());
                 tinyCRServer->connectedDevices.push_back(device_ip_str);
                 std::cout << "added new device at " << device_ip_str << "\n";
                 int msg_size = 0;
@@ -223,7 +233,12 @@ private:
         }
     }
 
-
+    /**
+     * Sends a summary update based on the action.
+     * @param kv Key value pair that is mutated.
+     * @param action Action that is being done to the key value pair.
+     * @return Status of sending the update.
+     */
     bool sendSummaryUpdate(pair<K,V> kv, uint8_t action)
     {
         if(connectedDevices.empty()){

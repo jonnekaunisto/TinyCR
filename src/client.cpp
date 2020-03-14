@@ -9,12 +9,18 @@
 
 TinyCRClient<uint64_t, uint32_t>client("localhost");
 
+/*
+ * Function for running the client in a thread
+ */
 void runClientThread()
 {
 	client.startClient();
 }
 
-int main(int argc, char **argv)
+/*
+ * Runs the client, no command line inputs
+ */
+int main()
 {
 
 	std::thread clientThread (runClientThread);

@@ -7,6 +7,7 @@
 #define TinyCRClient_class
 #include "../include/CRIoT.h"
 #include <thread>
+#include <mutex>
 
 #define DEVICE_PORT 40000
 
@@ -16,13 +17,17 @@ template<typename K, class V>
 class TinyCRClient
 {
 public:
+    /**
+     * Constructor for TinyCRClient
+     * @param serverIP The hostname of the server
+     */
     TinyCRClient(std::string serverIP)
     {
         this->serverIP = serverIP;
     }
 
     /**
-     * Start client, get request from server and listen to updates
+     * Start client, get request from server and listen to updates.
      */
     bool startClient()
     {
@@ -31,24 +36,29 @@ public:
         summaryUpdatesThread.join();
     }
     /**
-     * Query a peer for certificate, returns bool
+     * Query a certificate
+     * @param key Key, which should be queried
+     * @returns bool indicating if the key is revoked or unrevoked
      */
-
-    // add lock for thread safety
     bool queryCertificate(const K &key)
 	{
-		return daasClient.query(key) == 1;
+        queryLock.lock();
+        bool result = daasClient.query(key) == 1;
+        queryLock.unlock();
+		return resutl;
 	}
 
-
-
 private:
-    std::string serverIP;
     CRIoT_Data_VO<K, V> daasClient;
 
+    std::string serverIP;
     std::thread summaryUpdatesThread;
+    std::mutex queryLock;
 
 
+    /**
+     * Requests initial summary from the server
+     */
     void requestInitialSummary()
     {
         vector<uint8_t> msg;
@@ -94,6 +104,9 @@ private:
         this->daasClient.decoding(msg);
     }
     
+    /**
+     * Listens for delta updates from the server continuously
+     */
     static void listenForSummaryUpdates(TinyCRClient *tinyCRClient)
     {
         std::cout << "Listening For Summary Updates at port: " << DEVICE_PORT << "\n";
@@ -104,31 +117,14 @@ private:
 
             while (true)
             {
-
                 ServerSocket new_sock;
                 server.accept(new_sock);
-
+                queryLock.lock();
                 try
                 {
-                    /*
-                    std::string data;
-                    new_sock >> data;
-                    if (data == "Delta Summary")
-                    {
-                        new_sock << "Received Summary";
-                        std::cout << "Received Delta Summary\n";
-                    }
-                    else
-                    {
-                        new_sock << "Some error";
-                    }
-                    */
                     char* data = new char[MAXRECV + 1];
                     int n_bytes = new_sock.recv(data);
                     std::cout << "received: " << n_bytes << "\n";
-                    // for(int k=7; k>=0; k--)
-                    // 	cout<<((data[0]>>k)&(uint8_t(1)))<<" ";
-                    // cout<<endl;
                     tinyCRClient->daasClient.decode_summary(data);
                     delete[] data;
                     new_sock << "Done";
@@ -136,6 +132,7 @@ private:
                 catch (SocketException &)
                 {
                 }
+                queryLock.unlock();
             }
         }
         catch (SocketException &e)
@@ -143,8 +140,5 @@ private:
             std::cout << "Exception was caught:" << e.description() << "\nExiting.\n";
         }
     }
-
-    
 };
-
 #endif
