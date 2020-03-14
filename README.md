@@ -32,7 +32,7 @@ To communicate with the client.
 
 | Command Name | Description                                                                                                           | Arg 1                    | Arg 2                 |
 |--------------|-----------------------------------------------------------------------------------------------------------------------|--------------------------|-----------------------|
-| add          |  Adds a key with a certain value."\"add {k} {v} \"\n" "\"rem {k} \"\n" "\"unr {k} \"\n" "\"rev {k} \"\n" "\"exi\"\n"; | Key number to be added.  | The value of the key. |
+| add          |  Adds a key with a certain value. | Key number to be added.  | The value of the key. |
 | rem          | Removes a key.                                                                                                        | Key number to be removed | N/A                   |
 | unr          | Unrevoke a key. Meaning flipping value from 0 to 1.                                                                   | Key to be unrevoked.     | N/A                   |
 | rev          | Revoke a key. Meaning flipping value from 1 to 0.                                                                     | Key to be revoked.       | N/A                   |
