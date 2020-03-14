@@ -45,7 +45,7 @@ public:
         queryLock.lock();
         bool result = daasClient.query(key) == 1;
         queryLock.unlock();
-		return resutl;
+		return result;
 	}
 
 private:
@@ -119,7 +119,7 @@ private:
             {
                 ServerSocket new_sock;
                 server.accept(new_sock);
-                queryLock.lock();
+                tinyCRClient->queryLock.lock();
                 try
                 {
                     char* data = new char[MAXRECV + 1];
@@ -132,7 +132,7 @@ private:
                 catch (SocketException &)
                 {
                 }
-                queryLock.unlock();
+                tinyCRClient->queryLock.unlock();
             }
         }
         catch (SocketException &e)
