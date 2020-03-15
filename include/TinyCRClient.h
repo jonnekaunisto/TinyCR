@@ -32,8 +32,8 @@ public:
     bool startClient()
     {
         requestInitialSummary();
-        std::thread summaryUpdatesThread (listenForSummaryUpdates, this);
-        summaryUpdatesThread.join();
+        std::thread updatesThread (listenForUpdates, this);
+        updatesThread.join();
     }
     /**
      * Query a certificate
@@ -74,9 +74,6 @@ private:
                 {
                     char* data = new char [MAXRECV + 1];
                     int n_bytes = client_socket.recv(data);
-                    // for(int k=7; k>=0; k--)
-                    // 	cout<<((data[0]>>k)&(uint8_t(1)))<<" ";
-                    // cout<<endl;
                     for(int i=0; i<n_bytes; i++)
                     {
                         uint8_t byte;
@@ -103,11 +100,33 @@ private:
         /*decoding*/
         this->daasClient.decoding(msg);
     }
+
+    vector<uint8_t> readFullSummary(Socket socket)
+    {
+        vector<uint8_t> msg;
+        while(true)
+        {
+            char* data = new char [MAXRECV + 1];
+            int n_bytes = socket.recv(data);
+            for(int i=0; i<n_bytes; i++)
+            {
+                uint8_t byte;
+                memcpy(&byte, &data[i], 1);
+
+                msg.push_back(byte);
+            }
+            if(data[n_bytes-1]=='h' && data[n_bytes-2]=='s' && data[n_bytes-3]=='i' && data[n_bytes-4]=='n' 
+                && data[n_bytes-5]=='i' && data[n_bytes-6]=='f')
+                break;
+            delete[] data;
+        }
+        return msg;
+    }
     
     /**
-     * Listens for delta updates from the server continuously
+     * Listens for delta updates and full updates from the server continuously
      */
-    static void listenForSummaryUpdates(TinyCRClient *tinyCRClient)
+    static void listenForUpdates(TinyCRClient *tinyCRClient)
     {
         std::cout << "Listening For Summary Updates at port: " << DEVICE_PORT << "\n";
         try
@@ -120,18 +139,23 @@ private:
                 ServerSocket new_sock;
                 server.accept(new_sock);
                 tinyCRClient->queryLock.lock();
-                try
+
+                char* data = new char[MAXRECV + 1];
+                int n_bytes = new_sock.recv(data);
+
+                /* Check if the server is sending a full update */
+                if(n_bytes == 1 && data[0] == 'F'){
+                    vector<uint8_t> msg = tinyCRClient->readFullSummary(new_sock);
+                    tinyCRClient->daasClient.decoding(msg);
+                }
+                else
                 {
-                    char* data = new char[MAXRECV + 1];
-                    int n_bytes = new_sock.recv(data);
                     std::cout << "received: " << n_bytes << "\n";
                     tinyCRClient->daasClient.decode_summary(data);
                     delete[] data;
                     new_sock << "Done";
                 }
-                catch (SocketException &)
-                {
-                }
+
                 tinyCRClient->queryLock.unlock();
             }
         }

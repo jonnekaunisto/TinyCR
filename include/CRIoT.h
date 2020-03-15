@@ -92,7 +92,7 @@ public:
 				try
 				{
 					/*send the CRC packets*/
-					vector<vector<uint8_t>> v = encoding(vo_data);
+					vector<vector<uint8_t>> v = encode(vo_data);
 					for(int i=0; i<v.size(); i++)
 					{
 						char* msg;
@@ -179,9 +179,10 @@ public:
 		}
 	}
 
-	/*encoding the data plane CRC as string arrays*/
-	vector<vector<uint8_t>> encoding(Binary_VF_Othello_Data_Plane<K, V> &d_crc)
+	/*encode the data plane CRC as string arrays*/
+	vector<vector<uint8_t>> encode()
 	{
+		Binary_VF_Othello_Data_Plane<K, V> &d_crc = vo_data;
 		vector<vector<uint8_t>> v;
 
 		/*othello*/
@@ -387,6 +388,7 @@ public:
 
 	bool insert(pair<K, V> &kv)
 	{
+		std::cout << flipped_indexes.size() << "\n";
 		flipped_indexes = vo_control.insert(kv);
 		if (flipped_indexes.size() == 0)
 		{
