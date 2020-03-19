@@ -168,8 +168,7 @@ int Socket::recv (char* s ) const
   int status = ::recv ( m_sock, s, MAXRECV, 0 );
   if(status == -1)
   {
-    int err=errno;
-    fprintf(stderr,"%s",strerror(err));
+    fprintf(stderr,"%s",strerror(errno));
     exit(1);
   }
   return status;
@@ -191,9 +190,14 @@ bool Socket::connect ( const std::string host, const int port )
   status = ::connect ( m_sock, ( sockaddr * ) &m_addr, sizeof ( m_addr ) );
 
   if ( status == 0 )
+  {
     return true;
+  }
   else
+  {
+    fprintf(stderr,"%s",strerror(errno));
     return false;
+  }
 }
 
 bool Socket::connect ( sockaddr_in host, const int port )
@@ -206,9 +210,14 @@ bool Socket::connect ( sockaddr_in host, const int port )
   int status = ::connect ( m_sock, ( sockaddr * ) &m_addr, sizeof ( m_addr ) );
 
   if ( status == 0 )
+  {
     return true;
+  }
   else
+  {
+    fprintf(stderr,"%s",strerror(errno));
     return false;
+  }
 }
 
 void Socket::set_non_blocking ( const bool b )

@@ -136,6 +136,7 @@ private:
 
             while (true)
             {
+                std::cout << "waiting for new connection\n";
                 ServerSocket new_sock;
                 server.accept(new_sock);
                 tinyCRClient->queryLock.lock();
@@ -154,6 +155,7 @@ private:
                     tinyCRClient->daasClient.decode_summary(data);
                     delete[] data;
                     new_sock << "Done";
+                    std::cout << "sent ack\n";
                 }
 
                 tinyCRClient->queryLock.unlock();

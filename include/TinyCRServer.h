@@ -38,10 +38,11 @@ public:
      */
     void startServer()
     {
+        running = true;
         std::thread connectionListenerThread (listenForNewDevices, this);
         std::thread commandListenerThread (listenForCACommands, this);
 
-        connectionListenerThread.join();
+        //connectionListenerThread.join();
         commandListenerThread.join();
     }
 
@@ -105,6 +106,7 @@ public:
 
 private:
     int port;
+    bool running;
     std::list<std::string> connectedDevices; //doubly linked list of connected  devices
     vector<K> positive_keys;
     vector<K> negative_keys;
@@ -134,11 +136,13 @@ private:
      */
     static void listenForCACommands(TinyCRServer *tinyCRServer)
     {
-        std::regex rgx("([a-z]{3}) ([0-9]+)(?: ([0-9]+))?");
+        std::regex generalRgx("([a-z]{3}) ([0-9]+)");
+        std::regex addRgx("([a-z]{3}) ([0-9]+) ([0-9]+)");
+        std::regex commandRgx("(^(:?add|rem|unr|rev|exi))");
         ServerSocket server(COMMAND_PORT);
         std::cout << "Listening For Commands on Port: " << COMMAND_PORT << "\n";
 
-        while (true)
+        while (tinyCRServer->running)
         {
             try
             {
@@ -148,7 +152,7 @@ private:
                 std::string data;
                 new_sock >> data;
                 std::smatch matches;
-                if(!std::regex_search(data, matches, rgx)) 
+                if(!std::regex_search(data, matches, commandRgx)) 
                 {
                     new_sock << "Command not recognized";
                     continue;
@@ -156,8 +160,14 @@ private:
                 }
                 std::cout << "Received command: " << data << "\n";
                 std::string command = matches[1];
-                if(command == "add" && matches[3].length() > 0)
+                if(command == "add")
                 {
+                    if(!std::regex_search(data, matches, addRgx)) 
+                    {
+                        new_sock << "Inputs are badly formed";
+                        continue;
+                    
+                    }
                     pair<K, V> kv(static_cast<K>(std::stoul(matches[2])), static_cast<V>(std::stoul(matches[3])));
                     tinyCRServer->addCertificate(kv);
                     new_sock << "added";
@@ -170,26 +180,44 @@ private:
                 }
                 else if(command == "unr")
                 {
+                    if(!std::regex_search(data, matches, generalRgx)) 
+                    {
+                        new_sock << "Inputs are badly formed";
+                        continue;
+                    
+                    }
                     tinyCRServer->unrevokeCertificate(static_cast<K>(std::stoul(matches[2])));
                     new_sock << "unrevoked";
 
                 }
                 else if(command == "rev")
                 {
+                    if(!std::regex_search(data, matches, generalRgx)) 
+                    {
+                        new_sock << "Inputs are badly formed";
+                        continue;
+                    
+                    }
                     tinyCRServer->revokeCertificate(static_cast<K>(std::stoul(matches[2])));
                     new_sock << "revoked";
 
                 }
+                else if(command == "exi")
+                {
+                    tinyCRServer->running = false;
+                    new_sock << "exiting";
+                }
                 else
                 {
-                    new_sock << "Command not recognized";
+                    new_sock << "Bad input";
                 }
             }
             catch (SocketException &e)
             {
-                std::cout << "Exception was caught:" << e.description() << "\n";
+                std::cout << "Exception was caught when receiving commands:" << e.description() << "\n";
             }  
         }
+        exit(1);
     }
 
     void sendFullUpdate(ServerSocket socket)
@@ -250,7 +278,7 @@ private:
         ServerSocket server(tinyCRServer->port);
         std::cout << "Listening For New Devices: " << tinyCRServer->port << "\n";
 
-        while (true)
+        while (tinyCRServer->running)
         {
             try
             {
@@ -265,7 +293,7 @@ private:
 
             catch (SocketException &e)
             {
-                std::cout << "Exception was caught:" << e.description() << "\n";
+                std::cout << "Exception was caught while listening for new devices:" << e.description() << "\n";
             }  
         }
     }
@@ -283,32 +311,36 @@ private:
         }
 
         std::cout << "Sending Delta Summary...\n";
-        try
-        {
-            vector<uint8_t> v = daasServer.encode_summary(kv, action);
+        
+        vector<uint8_t> v = daasServer.encode_summary(kv, action);
             
-            for (std::string host : connectedDevices)            
-            {
-                ClientSocket client_socket(host, DEVICE_PORT);
-                std::cout << "Sending Summary To " << host << "\n";
-                std::string reply;
-
-                char *msg;
-                msg = new char[v.size()];
-                memcpy(msg, &v[0], v.size());
-                std::cout << v.size() << " sent\n";
-                client_socket.send(msg, v.size());
-                delete[] msg;
-
-                client_socket >> reply;
-
-                std::cout << "We received this response from the client:\n\"" << reply << "\"\n";
-            }
-        }
-        catch (SocketException &e)
+        for (std::string host : connectedDevices)            
         {
-            std::cout << "Exception was caught:" << e.description() << "\n";
-            return false;
+            for(int i = 0; i < 10; i++)
+            {
+                try
+                {
+                    ClientSocket client_socket(host, DEVICE_PORT);
+                    std::cout << "Sending Summary To " << host << "\n";
+                    std::string reply;
+
+                    char *msg;
+                    msg = new char[v.size()];
+                    memcpy(msg, &v[0], v.size());
+                    std::cout << v.size() << " sent\n";
+                    client_socket.send(msg, v.size());
+                    delete[] msg;
+
+                    client_socket >> reply;
+                    std::cout << "We received this response from the client:\n\"" << reply << "\"\n";
+                    break;
+                }
+                catch (SocketException &e)
+                {
+                    std::cout << "Exception was caught while sending a summary update:" << e.description() << "\n";
+                    std::cout << "Trying again #" << i << "\n";
+                }
+            }
         }
         return true;
     }
@@ -354,7 +386,7 @@ private:
         }
         catch (SocketException &e)
         {
-            std::cout << "Exception was caught:" << e.description() << "\n";
+            std::cout << "Exception was caught while sending a full update:" << e.description() << "\n";
             return false;
         }
         return true;

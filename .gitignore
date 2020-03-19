@@ -37,5 +37,8 @@
 #mac
 .DS_Store
 
+src/server
 src/client
 src/mockCA
+
+__pycache__
