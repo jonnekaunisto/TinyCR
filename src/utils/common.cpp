@@ -3,11 +3,11 @@
  * gen at the best effort.
  * Need the VIP:port list
  */
-#include "../include/common.h"
+#include "common.h"
 #include <csignal>
 #include <cstdarg>
 //#include <gperftools/profiler.h>
-#include "../include/input_types.h"
+#include "input_types.h"
 
 int Clocker::currentLevel = 0;
 list<Counter> Counter::counters;

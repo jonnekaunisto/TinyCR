@@ -4,7 +4,7 @@
  */
 #ifndef TinyCRServer_class
 #define TinyCRServer_class
-#include "../include/CRIoT.h"
+#include "../platform/CRIoT.h"
 #include <thread>
 #include <netinet/ip.h>
 #include <arpa/inet.h>

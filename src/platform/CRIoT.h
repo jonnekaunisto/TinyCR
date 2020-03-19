@@ -3,13 +3,13 @@
 #include <vector>
 #include <time.h>
 #include <random>
-#include "../include/Binary_Data_Plane.h"
+#include "Binary_Data_Plane.h"
 #include <fstream>
 #include <string>
-#include "../include/ServerSocket.h"
-#include "../include/SocketException.h"
-#include "../include/ClientSocket.h"
-#include "../include/SocketException.h"
+#include "../Socket/ServerSocket.h"
+#include "../Socket/SocketException.h"
+#include "../Socket/ClientSocket.h"
+#include "../Socket/SocketException.h"
 //#include "../Simulation/othello_output.h"
 using namespace std;
 

@@ -1,5 +1,5 @@
 #include <vector>
-#include "../include/TinyCRServer.h"
+#include "TinyCR/TinyCRServer.h"
 #include <thread>
 #include <stdlib.h>
 

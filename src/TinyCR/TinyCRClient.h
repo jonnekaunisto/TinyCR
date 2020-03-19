@@ -5,7 +5,7 @@
 
 #ifndef TinyCRClient_class
 #define TinyCRClient_class
-#include "../include/CRIoT.h"
+#include "../platform/CRIoT.h"
 #include <thread>
 #include <mutex>
 

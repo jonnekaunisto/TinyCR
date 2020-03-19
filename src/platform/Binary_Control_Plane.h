@@ -1,8 +1,8 @@
-#include "../include/common.h"
-#include "../include/control_plane_othello.h"
-#include "../include/data_plane_othello.h"
-#include "../include/bloom_filter.h"
-#include "../include/cuckoo.h"
+#include "../utils/common.h"
+#include "control_plane_othello.h"
+#include "data_plane_othello.h"
+#include "bloom_filter.h"
+#include "../utils/cuckoo.h"
 #include <assert.h>
 #include <math.h>
 #include <iostream>

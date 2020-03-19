@@ -40,11 +40,11 @@
 #include <list>
 #include <forward_list>
 
-#include "../include/disjointset.h"
+#include "disjointset.h"
 #include "hash.h"
-#include "../include/lfsr64.h"
-#include "../include/debugbreak.h"
-#include "../include/json.hpp"
+#include "lfsr64.h"
+#include "debugbreak.h"
+#include "json.hpp"
 
 using json = nlohmann::json;
 

@@ -1,9 +1,9 @@
 #include <vector>
-#include "../include/TinyCRClient.h"
+#include "TinyCR/TinyCRClient.h"
 #include <thread>
 #include <stdlib.h>
-#include "../include/ClientSocket.h"
-#include "../include/SocketException.h"
+#include "Socket/ClientSocket.h"
+#include "Socket/SocketException.h"
 #include <regex>
 #define COMMAND_PORT 60000
 

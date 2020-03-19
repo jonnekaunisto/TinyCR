@@ -1,4 +1,4 @@
-#include "../include/ClientSock.h"
+#include "ClientSock.h"
 using namespace std;
 
 ClientSock::ClientSock(string host, unsigned int port) {
