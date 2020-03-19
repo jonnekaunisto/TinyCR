@@ -10,7 +10,7 @@
 #include <cinttypes>
 #include <string>
 #include <iostream>
-#include "../include/farmhash.h"
+#include "farmhash.h"
 
 //! \brief A hash function that hashes keyType to uint32_t. When SSE4.2 support is found, use sse4.2 instructions, otherwise use default hash function  std::hash.
 template<class K>

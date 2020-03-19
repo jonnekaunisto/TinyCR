@@ -2,7 +2,7 @@
 // Created by ssqstone on 2018/7/19.
 //
 
-#include "../include/input_types.h"
+#include "input_types.h"
 
 Distribution InputBase::distribution = Distribution::uniform;
 std::default_random_engine InputBase::generator;

@@ -1,7 +1,7 @@
 // Implementation of the ServerSocket class
 
-#include "../include/ServerSocket.h"
-#include "../include/SocketException.h"
+#include "ServerSocket.h"
+#include "SocketException.h"
 
 
 ServerSocket::ServerSocket ( int port )

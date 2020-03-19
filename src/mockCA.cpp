@@ -2,8 +2,8 @@
  * Simulates a Certificate Authority
  * @author Jonne Kaunisto 
  */
-#include "../include/ClientSocket.h"
-#include "../include/SocketException.h"
+#include "Socket/ClientSocket.h"
+#include "Socket/SocketException.h"
 #include <iostream>
 
 std::string valid_commands = "valid commands are:\n"
