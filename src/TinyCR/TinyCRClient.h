@@ -128,14 +128,40 @@ private:
                 if(data[0] == 'F'){
                     std::cout << "reading full" << std::endl;
                     tinyCRClient->readFullSummary(new_sock);
-                    std::cout << "full read";
+                    std::cout << "full read" << std::endl;
                 }
                 else
                 {
-                    std::cout << "received: " << n_bytes << std::endl;
-                    std::cout << "action: " << data << std::endl;
-                    tinyCRClient->daasClient.decode_summary(data);
+                    bool done_receiving = false;
+                    std::cout << "action: " << unsigned(static_cast<uint8_t>(data[0])) << std::endl;
+                    std::cout << "size: " << n_bytes << std::endl;
+                    char* msg = new char [MAXRECV + 1];
+                    memcpy(&msg[0], data, n_bytes);
+                    uint offset = n_bytes;
+                    if(data[n_bytes-1]=='h' && data[n_bytes-2]=='s' && data[n_bytes-3]=='i' && data[n_bytes-4]=='n' 
+                            && data[n_bytes-5]=='i' && data[n_bytes-6]=='f')
+                    {
+                        done_receiving = true;
+                    }
+
                     delete[] data;
+
+                    while(!done_receiving)
+                    {
+                        char* data = new char [MAXRECV + 1];
+                        n_bytes = new_sock.recv(data);
+                        memcpy(&msg[offset], data, n_bytes);
+                        offset += n_bytes;
+                        std::cout << n_bytes << std::endl;
+                        if(data[n_bytes-1]=='h' && data[n_bytes-2]=='s' && data[n_bytes-3]=='i' && data[n_bytes-4]=='n' 
+                            && data[n_bytes-5]=='i' && data[n_bytes-6]=='f')
+                        {
+                            done_receiving = true;
+                        }
+                            
+                        delete[] data;
+                    }
+                    tinyCRClient->daasClient.decode_summary(msg);
                     new_sock << "DoneSummary";
                     std::cout << "sent ack" << std::endl;
                 }

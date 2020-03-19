@@ -296,9 +296,6 @@ private:
         std::cout << "Sending Delta Summary..." << std::endl;
         
         vector<uint8_t> v = daasServer.encode_summary(kv, action);
-        char *msg;
-        msg = new char[v.size()];
-        memcpy(msg, &v[0], v.size());
             
         for (std::string host : connectedDevices)            
         {
@@ -311,14 +308,16 @@ private:
                     std::string reply;
 
                     
-                    int bytesSent = client_socket.send(msg, v.size());
-                    std::cout << v.size() << " sent" << std::endl;
-                    std::cout << bytesSent << " actually sent" << std::endl;
-                    if(bytesSent != v.size())
+                    for (int i = 0; i < v.size(); i++)
                     {
-                        std::cout << "Not everything sent" << std::endl;
+                        char *msg;
+                        msg = new char[sizeof(v[i])];
+                        memcpy(msg, &v[i], sizeof(v[i]));
+                        client_socket.send(msg, 1);
+                        std::cout << "sent: " << unsigned(static_cast<uint8_t>(msg[0])) << std::endl;
+                        delete[] msg;
                     }
-
+                    client_socket << "finish";
 
                     client_socket >> reply;
                     std::cout << "We received this response from the client: \"" << reply << "\"" << std::endl;
