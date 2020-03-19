@@ -1,6 +1,18 @@
-# ClientServerSummaryFramework
+# TinyCR
 
 ## Usage
+
+Go to source directory and make build dir
+```bash
+cd src
+mkdir build
+cd build
+```
+
+Run cmake
+```bash
+cmake -G "Unix Makefiles" ..
+```
 
 To compile the binaries.
 ```bash
