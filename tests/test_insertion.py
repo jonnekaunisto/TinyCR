@@ -32,7 +32,7 @@ def test_inserting():
     success = True
     output = ""
 
-    total_certificates = 1000 #10 million
+    total_certificates = 10000 #10 million
     print(str(int(0.99*total_certificates)))
     print(str(int(0.01*total_certificates)))
 
@@ -44,7 +44,7 @@ def test_inserting():
             server_process = subprocess.Popen([server_path, str(int(0.99*total_certificates)), str(int(0.01*total_certificates))],
                                         stdout=f)
     
-    time.sleep(3)
+    time.sleep(10)
 
     if enable_client_print:
         client_process = subprocess.Popen([client_path])
@@ -69,7 +69,7 @@ def test_inserting():
         server_process.kill()
 
     print("sleeping")
-    time.sleep(10)
+    time.sleep(13)
     send_to_server("exi")
     stdout,stderr = server_process.communicate()
     print(stdout)
