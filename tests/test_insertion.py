@@ -5,7 +5,7 @@ import socket
 import time
 import curses
 
-src_dir_path = os.path.dirname(os.path.abspath(__file__)) + '/../src'
+src_dir_path = os.path.dirname(os.path.abspath(__file__)) + '/../src/build'
 server_path = src_dir_path + '/server'
 client_path = src_dir_path + '/client'
 
