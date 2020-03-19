@@ -72,60 +72,6 @@ public:
 		send_init(vo_data);
 	}
 
-	void send_init(Binary_VF_Othello_Data_Plane<K, V> &vo_data)
-	{
-
-		try
-	    {
-			// Create the socket
-			ServerSocket server ( 30000 );
-
-			while ( true )
-			{
-
-				/*keep listening from the clients' requests*/
-				ServerSocket new_sock;
-
-				/*may add authentication here*/
-				server.accept ( new_sock );
-				int msg_size = 0;
-				try
-				{
-					/*send the CRC packets*/
-					vector<vector<uint8_t>> v = encode(vo_data);
-					for(int i=0; i<v.size(); i++)
-					{
-						char* msg;
-						msg = new char[v[i].size()];
-						for(int j=0; j<v[i].size(); j++)
-						{
-							memcpy(&msg[j], &v[i][j], 1);
-
-						}
-						new_sock.send(msg, v[i].size());
-						
-						msg_size += v[i].size();
-						
-						delete[] msg;
-					}
-					
-					cout<<"size: "<<msg_size<<endl;
-					/*if finished, close*/
-					new_sock << "finish";
-					break;
-				}
-				catch ( SocketException& ) {}
-				
-			}
-	    }
-		catch ( SocketException& e )
-		{
-		  std::cout << "Exception was caught:" << e.description() << "\nExiting.\n";
-		}
-		
-
-	}
-
 	void split_uint_t(uint32_t &x, vector<uint8_t> &v)
 	{
 		for(int i =3; i>=0; i--)
@@ -290,7 +236,7 @@ public:
 		/*fp_len*/
 		vector<uint8_t> fp_len_v;
 		uint32_t fp_len = d_crc.vf.fp_len;
-		cout << "fp len: " << fp_len << "\n";
+		cout << "fp len: " << fp_len << std::endl;
 		split_uint_t(fp_len, fp_len_v);
 		v.push_back(fp_len_v);
 
@@ -314,13 +260,13 @@ public:
 	vector<uint8_t> encode_summary(pair<K, V> kv, uint8_t action)
 	{
 		vector<uint8_t> encoded;
-		std::cout << unsigned(action) << " act\n";
+		std::cout << unsigned(action) << " act" << std::endl;
 		encoded.push_back(action);
 
 		//encode flipped key value pair
 		//encode key
 		K k = kv.first;
-		std::cout << "k: " << k << "\n";
+		std::cout << "k: " << k << std::endl;
 		vector<uint8_t> k_split;
 		split_uint_t(k, k_split);
 		for(uint8_t val : k_split)
@@ -329,7 +275,7 @@ public:
 		}
 
 		V v = kv.second;
-		std::cout << "v: " << v << "\n";
+		std::cout << "v: " << v << std::endl;
 
 		vector<uint8_t> v_split;
 		split_uint_t(v, v_split);
@@ -340,13 +286,13 @@ public:
 
 		//flipped indexes encode size
 		encoded.push_back(flipped_indexes.size());
-		std::cout << "flipped indexes size: " << flipped_indexes.size() << "\n";
+		std::cout << "flipped indexes size: " << flipped_indexes.size() << std::endl;
 
 		for(int i=0; i < flipped_indexes.size(); i++)
 		{
       		std::cout << flipped_indexes.at(i) << " ";
 		}
-		std::cout << "\n";
+		std::cout << std::endl;
 		
 
 		//encode flipped indexes
@@ -388,7 +334,7 @@ public:
 
 	bool insert(pair<K, V> &kv)
 	{
-		std::cout << flipped_indexes.size() << "\n";
+		std::cout << flipped_indexes.size() << std::endl;
 		flipped_indexes = vo_control.insert(kv);
 		if (flipped_indexes.size() == 0)
 		{
@@ -484,52 +430,6 @@ public:
 	void rebuild(Binary_VF_Othello_Data_Plane<K, V> &rebuild_patch)
 	{
 		vo_data = rebuild_patch;
-	}
-
-	void install_from_server()
-	{
-		vector<uint8_t> msg;
-		try
-		{
-			/*initialize connnection to server*/
-			ClientSocket client_socket ( "128.114.53.237", 30000 );
-			
-			try
-			{
-				/*recieve the CRC packets*/
-				
-				while(true)
-				{
-					char* data = new char [MAXRECV + 1];
-					int n_bytes = client_socket.recv(data);
-					// for(int k=7; k>=0; k--)
-					// 	cout<<((data[0]>>k)&(uint8_t(1)))<<" ";
-					// cout<<endl;
-					for(int i=0; i<n_bytes; i++)
-					{
-						uint8_t byte;
-						memcpy(&byte, &data[i], 1);
-
-						msg.push_back(byte);
-					}
-					if(data[n_bytes-1]=='h' && data[n_bytes-2]=='s' && data[n_bytes-3]=='i' && data[n_bytes-4]=='n' 
-						&& data[n_bytes-5]=='i' && data[n_bytes-6]=='f')
-						break;
-					delete[] data;
-				}
-				
-			}
-			catch ( SocketException& ) {}
-
-
-		}
-		catch ( SocketException& e )
-		{
-			std::cout << "Exception was caught:" << e.description() << "\n";
-		}
-
-		/*decoding*/
-		decoding(msg);
 	}
 
 	void decoding(vector<uint8_t> &s)
@@ -646,8 +546,7 @@ public:
 
 		vo_data.vf.init_with_params(memory_consumption, e, n, m, filled_cell, max_kick_steps, max_2_power, big_seg, isSmall, len, fp_len, T_len, T);
 		cout << fp_len;
-		cout<<"vf finish "<<endl;
-
+		cout<<"vf finish" << std::endl;
 	}
 	/* Decodes the summary
 	 * Parts are decoded in this order: the type of action, key, value, 
@@ -657,7 +556,7 @@ public:
 	void decode_summary(char* summary)
 	{
 		unsigned int action = unsigned(static_cast<uint8_t>(summary[0]));
-		std::cout << "action: " << action << "\n";
+		std::cout << "action: " << action << std::endl;
 		int offset = 1;
 
 
@@ -668,7 +567,7 @@ public:
 		}
 		K k;
 		k = combine_chars_as_uint(k_chars, k);
-		std::cout << "k: " << k << "\n";
+		std::cout << "k: " << k << std::endl;
 
 
 		offset += K_size;
@@ -681,7 +580,7 @@ public:
 		}
 		V v;
 		v = combine_chars_as_uint(v_chars, v);
-		std::cout << "v: " << v << "\n";
+		std::cout << "v: " << v << std::endl;
 
 
 		offset += V_size;
@@ -703,13 +602,13 @@ public:
 		}
 
 
-		std::cout << "flipped indexes size: " << flipped_indexes_size << "\n";
-		//std::cout << new_flipped_indexes << "\n";
+		std::cout << "flipped indexes size: " << flipped_indexes_size << std::endl;
+		//std::cout << new_flipped_indexes << std::endl;
 		for(int i=0; i < new_flipped_indexes.size(); i++)
 		{
       		std::cout << new_flipped_indexes.at(i) << " ";
 		}
-		std::cout << "\n";
+		std::cout << std::endl;
 
 		vector<uint32_t>& new_flipped_indexes_ref = new_flipped_indexes;
 
@@ -733,7 +632,7 @@ public:
 		}
 		else
 		{
-			std::cout << "Encountered unknown action: " << action << "\n"; 
+			std::cout << "Encountered unknown action: " << action << std::endl; 
 		}
 
 	}

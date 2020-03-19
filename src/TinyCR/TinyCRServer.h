@@ -140,7 +140,7 @@ private:
         std::regex addRgx("([a-z]{3}) ([0-9]+) ([0-9]+)");
         std::regex commandRgx("(^(:?add|rem|unr|rev|exi))");
         ServerSocket server(COMMAND_PORT);
-        std::cout << "Listening For Commands on Port: " << COMMAND_PORT << "\n";
+        std::cout << "Listening For Commands on Port: " << COMMAND_PORT << std::endl;
 
         while (tinyCRServer->running)
         {
@@ -158,7 +158,7 @@ private:
                     continue;
                 
                 }
-                std::cout << "Received command: " << data << "\n";
+                std::cout << "Received command: " << data << std::endl;
                 std::string command = matches[1];
                 if(command == "add")
                 {
@@ -214,39 +214,16 @@ private:
             }
             catch (SocketException &e)
             {
-                std::cout << "Exception was caught when receiving commands:" << e.description() << "\n";
+                std::cout << "Exception was caught when receiving commands:" << e.description() << std::endl;
             }  
         }
         exit(1);
     }
 
-    void sendFullUpdate(ServerSocket socket)
-    {
-        int msg_size = 0;
-        /*send the CRC packets*/
-        vector<vector<uint8_t>> v = daasServer.encode();
-        for (int i = 0; i < v.size(); i++)
-        {
-            char *msg;
-            msg = new char[v[i].size()];
-            for (int j = 0; j < v[i].size(); j++)
-            {
-                memcpy(&msg[j], &v[i][j], 1);
-            }
-            socket.send(msg, v[i].size());
-
-            msg_size += v[i].size();
-
-            delete[] msg;
-        }
-
-        cout << "size: " << msg_size << endl;
-        /*if finished, close*/
-        socket << "finish";
-    }
-
     void sendFullUpdate(Socket socket)
     {
+        socket << "F";
+
         int msg_size = 0;
         /*send the CRC packets*/
         vector<vector<uint8_t>> v = daasServer.encode();
@@ -268,6 +245,12 @@ private:
         cout << "size: " << msg_size << endl;
         /*if finished, close*/
         socket.send("finish");
+        std::string response;
+        socket >> response;
+        std::cout << "received: " << response << std::endl;
+        if(response.compare("FullDone") != 0){
+            std::cout << "Sending Full Update Failed" << std::endl;
+        }
     }
 
     /**
@@ -276,7 +259,7 @@ private:
     static void listenForNewDevices(TinyCRServer *tinyCRServer)
     {
         ServerSocket server(tinyCRServer->port);
-        std::cout << "Listening For New Devices: " << tinyCRServer->port << "\n";
+        std::cout << "Listening For New Devices: " << tinyCRServer->port << std::endl;
 
         while (tinyCRServer->running)
         {
@@ -286,14 +269,14 @@ private:
                 server.accept(new_sock);
                 std::string device_ip_str = tinyCRServer->convertSockaddrToStr(server.get_client());
                 tinyCRServer->connectedDevices.push_back(device_ip_str);
-                std::cout << "added new device at " << device_ip_str << "\n";
+                std::cout << "added new device at " << device_ip_str << std::endl;
                 
                 tinyCRServer->sendFullUpdate(new_sock);
             } 
 
             catch (SocketException &e)
             {
-                std::cout << "Exception was caught while listening for new devices:" << e.description() << "\n";
+                std::cout << "Exception was caught while listening for new devices:" << e.description() << std::endl;
             }  
         }
     }
@@ -310,9 +293,12 @@ private:
             return true;
         }
 
-        std::cout << "Sending Delta Summary...\n";
+        std::cout << "Sending Delta Summary..." << std::endl;
         
         vector<uint8_t> v = daasServer.encode_summary(kv, action);
+        char *msg;
+        msg = new char[v.size()];
+        memcpy(msg, &v[0], v.size());
             
         for (std::string host : connectedDevices)            
         {
@@ -321,24 +307,28 @@ private:
                 try
                 {
                     ClientSocket client_socket(host, DEVICE_PORT);
-                    std::cout << "Sending Summary To " << host << "\n";
+                    std::cout << "Sending Summary To " << host << std::endl;
                     std::string reply;
 
-                    char *msg;
-                    msg = new char[v.size()];
-                    memcpy(msg, &v[0], v.size());
-                    std::cout << v.size() << " sent\n";
-                    client_socket.send(msg, v.size());
-                    delete[] msg;
+                    
+                    int bytesSent = client_socket.send(msg, v.size());
+                    std::cout << v.size() << " sent" << std::endl;
+                    std::cout << bytesSent << " actually sent" << std::endl;
+                    if(bytesSent != v.size())
+                    {
+                        std::cout << "Not everything sent" << std::endl;
+                    }
+
 
                     client_socket >> reply;
-                    std::cout << "We received this response from the client:\n\"" << reply << "\"\n";
+                    std::cout << "We received this response from the client: \"" << reply << "\"" << std::endl;
                     break;
                 }
                 catch (SocketException &e)
                 {
-                    std::cout << "Exception was caught while sending a summary update:" << e.description() << "\n";
-                    std::cout << "Trying again #" << i << "\n";
+                    std::cout << "Exception was caught while sending a summary update:" << e.description() << std::endl;
+                    std::cout << "Trying again #" << i << std::endl;
+                    exit(1);
                 }
             }
         }
@@ -354,39 +344,19 @@ private:
         try
         {
             vector<vector<uint8_t>> v = daasServer.encode();
-
             for (std::string host : connectedDevices)            
             {
                 ClientSocket client_socket(host, DEVICE_PORT);
-                std::cout << "Sending Full Update to " << host << "\n";
-                int msg_size = 0;
+                std::string response;
+                std::cout << "Sending Full Update to " << host << std::endl;
 
-                client_socket << "F";
-                /*send the CRC packets*/
-                vector<vector<uint8_t>> v = daasServer.encode();
-                for (int i = 0; i < v.size(); i++)
-                {
-                    char *msg;
-                    msg = new char[v[i].size()];
-                    for (int j = 0; j < v[i].size(); j++)
-                    {
-                        memcpy(&msg[j], &v[i][j], 1);
-                    }
-                    client_socket.send(msg, v[i].size());
-
-                    msg_size += v[i].size();
-
-                    delete[] msg;
-                }
-
-                cout << "size: " << msg_size << endl;
-                /*if finished, close*/
-                client_socket << "finish";
+                sendFullUpdate(client_socket);
+                
             }
         }
         catch (SocketException &e)
         {
-            std::cout << "Exception was caught while sending a full update:" << e.description() << "\n";
+            std::cout << "Exception was caught while sending a full update:" << e.description() << std::endl;
             return false;
         }
         return true;

@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 		i ++;
 	}
 	TinyCRServer<uint64_t, uint32_t>server(30000, positive_keys, negative_keys);
-	std::cout << "Server Initialized\n";
+	std::cout << "Server Initialized" << std::endl;
 	std::thread serverThread (runServerThread, &server);
 
 	serverThread.join();

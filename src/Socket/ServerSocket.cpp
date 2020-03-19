@@ -2,58 +2,39 @@
 
 #include "ServerSocket.h"
 #include "SocketException.h"
+#include <string.h>
 
 
 ServerSocket::ServerSocket ( int port )
 {
-  if ( ! Socket::create() )
+    int errornum = Socket::create();
+    if (errornum != 0)
     {
-      throw SocketException ( "Could not create server socket." );
+        throw SocketException(strerror(errornum));
     }
 
-  if ( ! Socket::bind ( port ) )
+    errornum = Socket::bind ( port );
+    if (errornum != 0)
     {
-      throw SocketException ( "Could not bind to port." );
+        throw SocketException(strerror(errornum));
     }
 
-  if ( ! Socket::listen() )
+    errornum = Socket::listen();
+    if (errornum != 0)
     {
-      throw SocketException ( "Could not listen to socket." );
+        throw SocketException(strerror(errornum));
     }
-
 }
 
 ServerSocket::~ServerSocket()
 {
 }
 
-
-const ServerSocket& ServerSocket::operator << ( const std::string& s ) const
-{
-  if ( ! Socket::send ( s ) )
-    {
-      throw SocketException ( "Could not write to socket." );
-    }
-
-  return *this;
-
-}
-
-
-const ServerSocket& ServerSocket::operator >> ( std::string& s ) const
-{
-  if ( ! Socket::recv ( s ) )
-    {
-      throw SocketException ( "Could not read from socket." );
-    }
-
-  return *this;
-}
-
 void ServerSocket::accept ( ServerSocket& sock )
 {
-  if ( ! Socket::accept ( sock ) )
+    int errornum = Socket::accept(sock);
+    if (errornum != 0)
     {
-      throw SocketException ( "Could not accept socket." );
+        throw SocketException(strerror(errornum));
     }
 }
