@@ -434,7 +434,7 @@ public:
 
 	void decoding(vector<uint8_t> &s)
 	{
-		uint32_t offset = 0;
+		uint32_t offset = 1;
 		/*read othello*/
 		/*read mem size*/
 		uint32_t mem_size = combine_chars_as_uint32_t(s, offset);
@@ -553,17 +553,17 @@ public:
 	 * flipped_indexes size, flipped indexes.
 	 * type of action can be add(0), remove(1), unrevoke(2), revoke(3)
 	 */
-	void decode_summary(char* summary)
+	void decode_summary(vector<uint8_t> summary)
 	{
-		unsigned int action = unsigned(static_cast<uint8_t>(summary[0]));
+		unsigned int action = unsigned(summary[0]);
 		std::cout << "action: " << action << std::endl;
 		int offset = 1;
-
+		
 
 		int K_size = sizeof(K);
 		auto k_chars = vector<uint8_t>();
 		for(int i = 0; i < K_size; i++){
-			k_chars.push_back(static_cast<uint8_t>(summary[i + offset]));
+			k_chars.push_back(summary[i + offset]);
 		}
 		K k;
 		k = combine_chars_as_uint(k_chars, k);
@@ -576,7 +576,7 @@ public:
 		int V_size = sizeof(V);
 		auto v_chars = vector<uint8_t>();
 		for(int i = 0; i < V_size; i++){
-			v_chars.push_back(static_cast<uint8_t>(summary[i + offset]));
+			v_chars.push_back(summary[i + offset]);
 		}
 		V v;
 		v = combine_chars_as_uint(v_chars, v);
@@ -584,7 +584,7 @@ public:
 
 
 		offset += V_size;
-		int flipped_indexes_size = static_cast<uint8_t>(summary[offset]);
+		int flipped_indexes_size = summary[offset];
 		offset += 1;
 
 		vector<uint32_t> new_flipped_indexes = vector<uint32_t>();
@@ -593,7 +593,7 @@ public:
 			auto flipped_chars = vector<uint8_t>();
 			for(int j = 0; j < sizeof(uint32_t); j++)
 			{
-				flipped_chars.push_back(static_cast<uint8_t>(summary[j + offset]));
+				flipped_chars.push_back(summary[j + offset]);
 			}
 			uint32_t f;
 			f = combine_chars_as_uint(flipped_chars, f);
@@ -634,7 +634,6 @@ public:
 		{
 			std::cout << "Encountered unknown action: " << action << std::endl; 
 		}
-
 	}
 
 	uint32_t combine_chars_as_uint(vector<uint8_t> &data, uint32_t val)

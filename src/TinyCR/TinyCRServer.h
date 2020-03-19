@@ -314,7 +314,6 @@ private:
                         msg = new char[sizeof(v[i])];
                         memcpy(msg, &v[i], sizeof(v[i]));
                         client_socket.send(msg, 1);
-                        std::cout << "sent: " << unsigned(static_cast<uint8_t>(msg[0])) << std::endl;
                         delete[] msg;
                     }
                     client_socket << "finish";
