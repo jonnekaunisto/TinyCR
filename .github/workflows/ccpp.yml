@@ -21,6 +21,6 @@ jobs:
       run: make
       working-directory: ./src
     - name: pytest
-    - run: pytest
+      run: pytest
       working-directory: ./tests
 
