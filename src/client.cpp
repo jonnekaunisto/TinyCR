@@ -26,7 +26,7 @@ int main()
 	std::thread clientThread (runClientThread);
 
 	ServerSocket server(COMMAND_PORT);
-	std::cout << "Listening For Commands on Port: " << COMMAND_PORT << "\n";
+	std::cout << "Listening For Commands on Port: " << COMMAND_PORT << std::endl;
 	//implement something to take commands and stuff
 	std::regex rgx("show ([0-9]+)");
 
@@ -53,16 +53,16 @@ int main()
 			bool v = client.queryCertificate(num);
 			if(v)
 			{
-				new_sock << str_num << " is valid"<< "\n";
+				new_sock << str_num << " is valid\n";
 			}
 			else
 			{
-				new_sock << str_num << " is not valid"<< "\n";
+				new_sock << str_num << " is not valid\n";
 			}
 		}
 		catch (SocketException &e)
 		{
-			std::cout << "Exception was caught:" << e.description() << "\n";
+			std::cout << "Exception was caught:" << e.description() << std::endl;
 		}  
 	}
 

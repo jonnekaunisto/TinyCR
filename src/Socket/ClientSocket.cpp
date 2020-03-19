@@ -2,53 +2,37 @@
 
 #include "ClientSocket.h"
 #include "SocketException.h"
+#include <string.h>
+
 
 
 ClientSocket::ClientSocket ( std::string host, int port )
 {
-  if ( ! Socket::create() )
+    int errornum = Socket::create();
+    if (errornum != 0)
     {
-      throw SocketException ( "Could not create client socket." );
+        throw SocketException(strerror(errornum));
     }
 
-  if ( ! Socket::connect ( host, port ) )
+    errornum = Socket::connect (host, port);
+    if (errornum != 0)
     {
-      throw SocketException ( "Could not bind to port." );
+        throw SocketException (strerror(errornum));
     }
 
 }
 
-ClientSocket::ClientSocket(sockaddr_in host, int port){
-  if ( ! Socket::create() )
-    {
-      throw SocketException ( "Could not create client socket." );
-    }
-
-  if ( ! Socket::connect ( host, port ) )
-    {
-      throw SocketException ( "Could not bind to port." );
-    }
-}
-
-
-const ClientSocket& ClientSocket::operator << ( const std::string& s ) const
+ClientSocket::ClientSocket(sockaddr_in host, int port)
 {
-  if ( ! Socket::send ( s ) )
+    int errornum = Socket::create();
+    if (errornum != 0)
     {
-      throw SocketException ( "Could not write to socket." );
+        throw SocketException(strerror(errornum));
     }
 
-  return *this;
-
-}
-
-
-const ClientSocket& ClientSocket::operator >> ( std::string& s ) const
-{
-  if ( ! Socket::recv ( s ) )
+    errornum = Socket::connect(host, port);
+    if (errornum != 0)
     {
-      throw SocketException ( "Could not read from socket." );
+        throw SocketException(strerror(errornum));
     }
-
-  return *this;
 }
