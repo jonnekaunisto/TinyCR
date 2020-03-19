@@ -1,5 +1,11 @@
 # TinyCR
 
+## Running Tests
+```bash
+cd tests
+python3 -m pytest -s
+```
+
 ## Usage
 
 Go to source directory and make build dir
