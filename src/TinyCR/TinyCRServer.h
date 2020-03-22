@@ -9,6 +9,7 @@
 #include <netinet/ip.h>
 #include <arpa/inet.h>
 #include <regex>
+#include <mutex>
 
 #define DEVICE_PORT 40000
 #define COMMAND_PORT 50000
@@ -113,6 +114,8 @@ private:
     CRIoT_Control_VO<K, V> daasServer;
     std::thread summaryUpdatesThread;
     std::thread connectionListenerThread;
+    std::mutex updateLock;
+
 
     /**
      * Converts a sockaddr_in to a string.
@@ -138,7 +141,7 @@ private:
     {
         std::regex generalRgx("([a-z]{3}) ([0-9]+)");
         std::regex addRgx("([a-z]{3}) ([0-9]+) ([0-9]+)");
-        std::regex commandRgx("(^(:?add|rem|unr|rev|exi))");
+        std::regex commandRgx("(^(:?add|rem|unr|rev|exi|ping))");
         ServerSocket server(COMMAND_PORT);
         std::cout << "Listening For Commands on Port: " << COMMAND_PORT << std::endl;
 
@@ -148,7 +151,7 @@ private:
             {
                 ServerSocket new_sock;
                 server.accept(new_sock);
-
+                tinyCRServer->updateLock.lock();
                 std::string data;
                 new_sock >> data;
                 std::smatch matches;
@@ -207,6 +210,10 @@ private:
                     tinyCRServer->running = false;
                     new_sock << "exiting";
                 }
+                else if(command == "ping")
+                {
+                    new_sock << "pong";
+                }
                 else
                 {
                     new_sock << "Bad input";
@@ -215,7 +222,8 @@ private:
             catch (SocketException &e)
             {
                 std::cout << "Exception was caught when receiving commands:" << e.description() << std::endl;
-            }  
+            }
+            tinyCRServer->updateLock.unlock();
         }
         exit(1);
     }
@@ -267,6 +275,7 @@ private:
             {
                 ServerSocket new_sock;
                 server.accept(new_sock);
+                tinyCRServer->updateLock.lock();
                 std::string device_ip_str = tinyCRServer->convertSockaddrToStr(server.get_client());
                 tinyCRServer->connectedDevices.push_back(device_ip_str);
                 std::cout << "added new device at " << device_ip_str << std::endl;
@@ -277,7 +286,8 @@ private:
             catch (SocketException &e)
             {
                 std::cout << "Exception was caught while listening for new devices:" << e.description() << std::endl;
-            }  
+            } 
+            tinyCRServer->updateLock.unlock(); 
         }
     }
 
