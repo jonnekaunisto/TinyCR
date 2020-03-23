@@ -10,6 +10,7 @@
 #include <arpa/inet.h>
 #include <regex>
 #include <mutex>
+#include <chrono> 
 
 #define DEVICE_PORT 40000
 #define COMMAND_PORT 50000
@@ -108,6 +109,7 @@ public:
 private:
     int port;
     bool running;
+    std::chrono::duration<double> lastRTT;
     std::list<std::string> connectedDevices; //doubly linked list of connected  devices
     vector<K> positive_keys;
     vector<K> negative_keys;
@@ -159,7 +161,6 @@ private:
                 {
                     new_sock << "Command not recognized";
                     continue;
-                
                 }
                 std::cout << "Received command: " << data << std::endl;
                 std::string command = matches[1];
@@ -173,7 +174,9 @@ private:
                     }
                     pair<K, V> kv(static_cast<K>(std::stoul(matches[2])), static_cast<V>(std::stoul(matches[3])));
                     tinyCRServer->addCertificate(kv);
-                    new_sock << "added";
+                    std::string time = std::to_string(tinyCRServer->lastRTT.count());
+                    std::string response = "Add Duration: " + time;
+                    new_sock << response;
                 }
                 else if(command == "rem")
                 {
@@ -190,7 +193,9 @@ private:
                     
                     }
                     tinyCRServer->unrevokeCertificate(static_cast<K>(std::stoul(matches[2])));
-                    new_sock << "unrevoked";
+                    std::string time = std::to_string(tinyCRServer->lastRTT.count());
+                    std::string response = "Unr Duration: " + time;
+                    new_sock << response;
 
                 }
                 else if(command == "rev")
@@ -202,7 +207,9 @@ private:
                     
                     }
                     tinyCRServer->revokeCertificate(static_cast<K>(std::stoul(matches[2])));
-                    new_sock << "revoked";
+                    std::string time = std::to_string(tinyCRServer->lastRTT.count());
+                    std::string response = "Rev Duration: " + time;
+                    new_sock << response;
 
                 }
                 else if(command == "exi")
@@ -316,7 +323,8 @@ private:
                     ClientSocket client_socket(host, DEVICE_PORT);
                     std::cout << "Sending Summary To " << host << std::endl;
                     std::string reply;
-
+                    
+                    auto start = std::chrono::high_resolution_clock::now();
                     
                     for (int i = 0; i < v.size(); i++)
                     {
@@ -329,6 +337,8 @@ private:
                     client_socket << "finish";
 
                     client_socket >> reply;
+                    auto finish = std::chrono::high_resolution_clock::now();
+                    lastRTT = finish - start;
                     std::cout << "We received this response from the client: \"" << reply << "\"" << std::endl;
                     break;
                 }
