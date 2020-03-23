@@ -1,3 +1,10 @@
+/**
+ * Holds Binary Data Plane classes
+ * @author Xiaofeng Shi 
+ */
+#ifndef BINARY_DATA_PLANE_H
+#define BINARY_DATA_PLANE_H
+
 #include <assert.h>
 #include <math.h>
 #include <iostream>
@@ -23,10 +30,7 @@ class Binary_Filter_Cascades_Data_Plane:  public Binary_Data_Plane<K, V>
 public:
 	vector <BloomFilter<K, 1>> bf_array;
 
-	Binary_Filter_Cascades_Data_Plane()
-	{
-
-	}
+	Binary_Filter_Cascades_Data_Plane(){}
 
 
 	Binary_Filter_Cascades_Data_Plane(Binary_Filter_Cascades_Control_Plane<K, V> &fc_control)
@@ -115,7 +119,6 @@ public:
 						v = 0;
 						break;
 					}
-
 					else
 					{
 						v = 1;
@@ -289,9 +292,7 @@ public:
 	VacuumFilter<K> vf;
 
 	Binary_VF_Othello_Data_Plane()
-	{
-
-	}
+	{}
 
 	Binary_VF_Othello_Data_Plane(Binary_VF_Othello_Control_Plane<K, V> &vo_control)
 	{
@@ -307,9 +308,7 @@ public:
 
 	void operator = (Binary_VF_Othello_Data_Plane<K, V> const &vo_data)
 	{
-		// cout<<"aaaaaaaaaa"<<endl;
 		this->vf = vo_data.vf;
-		// cout<<"bbbbbbbbb"<<endl;
 		this->othello = DataPlaneOthello<K, V, 1, 0>(vo_data.othello);
 	}
 
@@ -418,9 +417,6 @@ public:
 					othello.mem_value_flipping(flipped_indexes);
 			}
 		}
-
-		// cout<<"ccc "<<vf.get_load_factor()<<endl;
-
 	}
 
 	void valueFlip(pair<K, V> kv, vector<uint32_t> &flipped_indexes)
@@ -465,3 +461,5 @@ public:
 		}
 	}
 };
+
+#endif

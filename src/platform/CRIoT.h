@@ -2,15 +2,18 @@
  * Holds Crioth Control and Data Classes
  * @author Xiaofeng Shi 
  */
+#ifndef CRIoT_H
+#define CRIoT_H
 
 #include <iostream>
 #include <map>
 #include <vector>
 #include <time.h>
 #include <random>
-#include "Binary_Data_Plane.h"
 #include <fstream>
 #include <string>
+#include "Binary_Data_Plane.h"
+#include "Binary_Control_Plane.h"
 #include "../utils/helpers.h"
 using namespace std;
 
@@ -329,6 +332,7 @@ public:
 
 	/**
 	 * Erases a key from the structure.
+	 * TODO: IMPLEMENT
 	 * @param k The key to be erased.
 	 */
 	void erase(K &k)
@@ -360,18 +364,11 @@ class CRIoT_Data_VO
 {
 public:
 	Binary_VF_Othello_Data_Plane<K, V> vo_data;
-	CRIoT_Data_VO()
-	{
+	CRIoT_Data_VO(){}
 
-	}
 	CRIoT_Data_VO(Binary_VF_Othello_Data_Plane<K, V> &install_patch)
 	{
 		vo_data = install_patch;
-	}
-
-	V query(const K &key)
-	{
-		return vo_data.query(key);
 	}
 
 	void rebuild(Binary_VF_Othello_Data_Plane<K, V> &rebuild_patch)
@@ -379,6 +376,20 @@ public:
 		vo_data = rebuild_patch;
 	}
 
+	/**
+	 * Queries a key from the structure.
+	 * @param key Key to be queried.
+	 * @returns The value associated with the key.
+	 */
+	V query(const K &key)
+	{
+		return vo_data.query(key);
+	}
+
+	/**
+	 * Decodes the full update received.
+	 * @param s The data received from the server
+	 */
 	void decode_full(vector<uint8_t> &s)
 	{
 		uint32_t offset = 1;
@@ -584,13 +595,25 @@ public:
 		}
 	}
 
+	/**
+	 * Inserts a key with a values.
+	 * @param kv Key value pair to be inserted.
+	 * @param flipped_indexes The vector of flipped indexes received.
+	 */
 	void insert(pair<K, V> kv, vector<uint32_t> &flipped_indexes)
 	{
 		vo_data.insert(kv, flipped_indexes);
 	}
 
+	/**
+	 * Flips a value.
+	 * @param kv Key value pair to be flipped.
+	 * @param flipped_indexes The vector of flipped indexes received.
+	 */
 	void valueFlip(pair<K, V> &kv, vector<uint32_t> &flipped_indexes)
 	{
 		vo_data.valueFlip(kv, flipped_indexes);
 	}
 };
+
+#endif

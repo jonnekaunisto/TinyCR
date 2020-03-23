@@ -1,3 +1,9 @@
+/**
+ * Holds binary control plane classes
+ * @author Xiaofeng Shi 
+ */
+#ifndef BINARY_CONTROL_PLANE_H
+#define BINARY_CONTROL_PLANE_H
 #include "../utils/common.h"
 #include "control_plane_othello.h"
 #include "data_plane_othello.h"
@@ -8,10 +14,7 @@
 #include <iostream>
 #include <vector>
 #include <iostream>
-
-
 using namespace std;
-
 
 /*
 	Binary classifier:
@@ -25,9 +28,7 @@ public:
 	uint32_t n_negative_keys;
 	float key_ratio;
 
-	Binary_Control_Plane()
-	{
-	}
+	Binary_Control_Plane(){}
 
 	Binary_Control_Plane(uint32_t n_pos, uint32_t n_neg)
 	{
@@ -37,10 +38,7 @@ public:
 	}
 
 	virtual bool batch_insert(const vector<K> &positive_keys, const vector<K> &negative_keys) = 0;
-	// virtual V query(const K &key);
-	// virtual vector<V> batch_query(const vector<K> &keys);
 };
-
 
 /*
 	Filter Cascades:
@@ -56,10 +54,7 @@ public:
 	vector<K> PK; /*positive key set*/
 	vector<K> NK; /*negative key set*/
 
-	Binary_Filter_Cascades_Control_Plane()
-	{
-
-	}
+	Binary_Filter_Cascades_Control_Plane(){}
 
 	void init(uint32_t n_pos, uint32_t n_neg, float fpr_lv1_customize = 0, float fpr_base_customize = 0)
 	{
@@ -97,11 +92,6 @@ public:
 		bf_array.push_back(bf_lv1);
 	}
 
-	// ~Binary_Filter_Cascades_Control_Plane()
-	// {
-		
-	// }
-
 	bool batch_insert(const vector<K> &positive_keys, const vector<K> &negative_keys)
 	{
 		if (this->n_positive_keys != positive_keys.size() || this->n_negative_keys != negative_keys.size())
@@ -125,14 +115,11 @@ public:
 		}
 		while(true)
 		{
-			
 			if(fp_vector.size()==0)
 				break;
 			else
 			{
 				BloomFilter<K, 1> bf_next(fp_vector.size(), fpr_base);
-				// cout<<fp_vector.size()<<bf_next.k<<" "<<bf_next.m<<endl;
-				// cout<<fp_vector.size()<<" "<<fp_vector[0]<<endl;
 				for(int i=0; i<fp_vector.size();i++)
 				{
 					bf_next.insert(fp_vector[i]);
@@ -152,16 +139,6 @@ public:
 		return true;
 	}
 
-	// void online_insert(pair<K, V> kv)
-	// {
-	// 	if(kv.second == 1)
-	// 		PK.push_back(kv.second);
-	// 	else if(kv.second == 0)
-	// 		NK.push_back(kv.second);
-
-	// 	/*rebuild*/
-	// 	Binary_Filter_Cascades_Control_Plane <K, V>fc_new(PK.size(), NK.size());
-	// }
 	V query(const K &key)
 	{
 		for(int i = 0; i<bf_array.size()-1;i++)
@@ -195,10 +172,7 @@ class Binary_Othello_Control_Plane: public Binary_Control_Plane<K, V>
 public:
 	ControlPlaneOthello<K, V, 1, 0> othello;
 
-	Binary_Othello_Control_Plane()
-	{
-
-	}
+	Binary_Othello_Control_Plane(){}
 
 	void init(uint32_t n_pos, uint32_t n_neg)
 	{
@@ -324,10 +298,7 @@ public:
 	float load_factor = 0.95;
 	float o_ratio = 1;
 
-	Binary_VF_Othello_Control_Plane()
-	{
-
-	}
+	Binary_VF_Othello_Control_Plane(){}
 
 	Binary_VF_Othello_Control_Plane(uint32_t n_pos, uint32_t n_neg, float lf = 0.95, float othello_ratio = 1):Binary_Control_Plane<K, V>(n_pos, n_neg)
 	{
@@ -344,13 +315,6 @@ public:
         TNK_table = new vector<K>[vf.n];
         FPK_table = new vector<K>[vf.n];
 	}
-
-	// ~Binary_VF_Othello_Control_Plane()
-	// {
-	// 	// delete(TNK_table);
-	// 	// delete(FPK_table);
-	// 	// cout<<"delete"<<endl;
-	// }
 	
 	Binary_VF_Othello_Control_Plane(Binary_VF_Othello_Control_Plane const &obj)
 	{
@@ -373,12 +337,8 @@ public:
 		vector<K> negative_keys(NK.begin(), NK.end());
 		PK.clear();
 		NK.clear();
-		// cout<<"1. clear"<<endl;
 		init(positive_keys.size(), negative_keys.size(), lf, othello_ratio);
-		// cout<<"2. init"<<endl;
 		batch_insert(positive_keys, negative_keys);
-		// cout<<"3. insert"<<endl;
-
 	}
 
 	void init(uint32_t n_pos, uint32_t n_neg, float lf = 0.95, float othello_ratio = 1)
@@ -405,12 +365,10 @@ public:
         TNK_table = new vector<K>[vf.n];
         FPK_table = new vector<K>[vf.n];
         cout<<"success"<<endl;
-
 	}
 
 	int optimal_fp_len()
 	{
-
 		float optimal_fpr = 0.618*this->key_ratio/0.95;
 		/*ceiling  or floor*/
 		int fp_length = int((log2(1/optimal_fpr)+2)/0.95)+1;
@@ -445,13 +403,11 @@ public:
 		        int maxSteps = 400;
 		        vf.init(m, b, maxSteps, fp_len);
 
-				// cout<<"4. return to insert"<<endl;
 				return batch_insert(positive_keys, negative_keys);
 			}
 			PK.insert(positive_keys[i]);
 
 		}
-		// cout<<"vf success!!!!"<<endl;
 		vector<K> FPK; /*false positive key set*/
 		for(uint64_t i = 0; i<this->n_negative_keys; i++)
 		{
@@ -480,8 +436,6 @@ public:
 
 		}
 
-		// cout<<"fpr"<<fp_keys.size()/(float)n_negative_keys<<endl;
-		// cout<<"fpk success!!!!"<<endl;
 		othello = ControlPlaneOthello<K, V, 1, 0>(this->n_positive_keys+FPK.size(), this->o_ratio);
 
 		for(int i = 0; i<this->n_positive_keys; i++)
@@ -489,10 +443,8 @@ public:
 		
 		for(int i = 0; i<FPK.size(); i++)
 		{
-			// cout<<fp_keys[i]<<endl;
 			othello.insert(pair <K, V> (FPK[i],0));
 		}
-		// cout<<"othello success!!!!"<<endl;
 		return true;
 	}
 
@@ -514,7 +466,6 @@ public:
 
 				return flipped_indexes;
 			}
-			// cout<<"ccc "<<vf.get_load_factor()<<" "<<kv.first<<endl;
 			/*vf.insert creates a risk for other negative key predictions:
 			after insertion, an existing negtive key might be recognized as a FP key, 
 			and this key is not stored by othello, thus yeilding an error
@@ -522,17 +473,14 @@ public:
 			pair<int, int> pos_pair = vf.position_pair(kv.first);
 			int pos1 = pos_pair.first;
 			int pos2 = pos_pair.second;
-			// cout<<"pos1: "<<TNK_table[pos1].size()<<" pos2: "<<TNK_table[pos2].size()<<endl;
 			auto it = TNK_table[pos1].begin();	
 			while (it != TNK_table[pos1].end())
 			{
-				// cout<<"it1 "<<*it<<endl;
 				if(vf.lookup(*it) == 1)
 				{
 					FPK_table[pos1].push_back(*it);
 					pair<K, V> fpkv (*it, 0);
 					it = TNK_table[pos1].erase(it);
-					// cout<<"new fp key: "<<fpkv.first<<" "<<othello.isMember(fpkv.first)<<endl;
 					if(!othello.insert_on_demand(fpkv, flipped_indexes))
 					{
 						cout<<"othello is too full to insert!"<<endl;
@@ -567,16 +515,12 @@ public:
 							return flipped_indexes;
 						}
 					}
-					
 				}
 				else 
 				{
 					++it;
 				}
 			}
-
-
-
 
 			V v1;
 			othello.query(kv.first, v1);
@@ -585,7 +529,6 @@ public:
 			{
 				/*no rebuild*/
 				return flipped_indexes;
-				
 			}
 			else
 			{
@@ -624,7 +567,6 @@ public:
 			}
 			else
 			{
-				// cout<<"no change for othello "<<endl;
 				pair<int, int> pos_pair = vf.position_pair(kv.first);
 				int pos1 = pos_pair.first;
 				int pos2 = pos_pair.second;
@@ -632,18 +574,13 @@ public:
 				TNK_table[pos2].push_back(kv.first);
 				flipped_indexes.clear();
 				return flipped_indexes;
-			}
-				
-			
+			}	
 		}
 	}
 
 	vector<uint32_t> valueFlip(pair<K, V> kv)
 	{
-		// cout<<kv.first<<" "<<kv.second<<endl; 
 		vector<uint32_t> flipped_indexes{};
-
-		
 
 		V v = query(kv.first);
 
@@ -729,14 +666,6 @@ public:
 
 				return flipped_indexes;
 			}
-			// /*othello.valueFlip(kv)*/
-			// vector<uint64_t> pre_othello_mem = othello.mem;
-			// othello.valueFlip(kv);
-			// vector<uint64_t> post_othello_mem = othello.mem;
-			// flipped_indexes = othello_flipped_indexes(pre_othello_mem, post_othello_mem);
-			// return flipped_indexes;
-			
-
 		}
 		else if(v == 0 and kv.second == 1)
 		{
@@ -762,7 +691,6 @@ public:
 				TNK_table[pos2].erase(remove(TNK_table[pos2].begin(), TNK_table[pos2].end(), kv.first), TNK_table[pos2].end());
 			}
 
-			// cout<<"1087430 before: "<<vf.lookup(1087430)<<" "<<othello.isMember(1087430)<<endl;
 			if (vf.insert(kv.first) == 1)
 			{
 				cout<<"vf is too full to insert!"<<endl;
@@ -770,7 +698,6 @@ public:
 				flipped_indexes.push_back(0xffffffff);
 				return flipped_indexes;
 			}
-			// cout<<"1087430 after: "<<vf.lookup(1087430)<<" "<<othello.isMember(1087430)<<endl;
 
 			pair<int, int> pos_pair = vf.position_pair(kv.first);
 			int pos1 = pos_pair.first;
@@ -819,7 +746,6 @@ public:
 							return flipped_indexes;
 						}
 					}
-					
 				}
 				else 
 				{
@@ -841,10 +767,7 @@ public:
 			}
 			else
 			{
-				
 				/*othello.insert(k,1)*/
-				
-				
 				bool is_success = othello.insert_on_demand(kv, flipped_indexes);
 				if(is_success)
 				{
@@ -859,12 +782,8 @@ public:
 					flipped_indexes.push_back(0xffffffff);
 					return flipped_indexes;
 				}
-
 			}
-
 		}
-
-
 	}
 
 	void erase(K k)
@@ -876,16 +795,7 @@ public:
 			pair<int, int> pos_pair = vf.position_pair(k);
 			int pos1 = pos_pair.first;
 			int pos2 = pos_pair.second;
-			// if(vf.query(k) == 1)
-			// {
-			// 	TNK_table[pos1].push_back(k);
-			// 	TNK_table[pos2].push_back(k);
-			// }
-			// else
-			// {
-			// 	FPK_table[pos1].push_back(k);
-			// 	FPK_table[pos2].push_back(k);
-			// }
+			
 			auto it = FPK_table[pos1].begin();	
 			while (it != FPK_table[pos1].end())
 			{
@@ -981,38 +891,4 @@ public:
 
 };
 
-
-
-/*
-	Optimal Balanced Othello:
-	Balanced Othello Optimized by Cuckoo or Bloom Filter
-*/
-// template<typename K, class V>
-// class Binary_Opt_Balanced_Othello_Control_Plane: public Binary_Control_Plane<K, V>
-// {
-// public:
-// 	Binary_Control_Plane<K,V> opt_balanced_othello;
-
-// 	/*
-// 		The ratio threshold to switch BF_othello to VF_othello such that throughput and memory are optimized.
-// 		May differ in different appilications.
-// 		Requires further analysis.
-// 	*/
-// 	int ratio_threshold = 8;
-// 	Binary_Opt_Balanced_Othello_Control_Plane(uint32_t n_pos, uint32_t n_neg):Binary_Control_Plane<K, V>(n_pos, n_neg)
-// 	{
-// 		if(this->key_ratio > ratio_threshold)
-// 		{
-// 			opt_balanced_othello = Binary_VF_Othello_Control_Plane<K, V>(n_pos, n_neg);
-// 		}
-// 		else
-// 		{
-// 			opt_balanced_othello = Binary_BF_Othello_Control_Plane<K, V>(n_pos, n_neg);
-// 		}
-// 	}
-
-// 	bool batch_insert(const vector<K> &positive_keys, const vector<K> &negative_keys)
-// 	{
-// 		return opt_balanced_othello.batch_insert(positive_keys, negative_keys);
-// 	}
-// };
+#endif
