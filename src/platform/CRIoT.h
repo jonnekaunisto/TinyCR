@@ -1,3 +1,8 @@
+/**
+ * Holds Crioth Control and Data Classes
+ * @author Xiaofeng Shi 
+ */
+
 #include <iostream>
 #include <map>
 #include <vector>
@@ -6,18 +11,8 @@
 #include "Binary_Data_Plane.h"
 #include <fstream>
 #include <string>
-#include "../Socket/ServerSocket.h"
-#include "../Socket/SocketException.h"
-#include "../Socket/ClientSocket.h"
-#include "../Socket/SocketException.h"
-//#include "../Simulation/othello_output.h"
+#include "../utils/helpers.h"
 using namespace std;
-
-
-
-/**
-vo
-**/
 
 template<typename K, class V>
 class CRIoT_Control_VO
@@ -32,16 +27,15 @@ public:
 	float loadfactor = 0.95;
 	float o_ratio = 1;
 
-	// CRIoT_Control_VO(vector<K> &pks, vector<K> &nks)
-	// {
-	// 	vo_control.init(pks.size(), nks.size());
-	// 	vo_control.batch_insert(pks, nks);
-
-	// 	vo_data.install(vo_control);
-	// }
-
 	CRIoT_Control_VO(){}
 
+	/**
+     * Constructor for CRIoT Control VO
+     * @param pks A vector of positive keys
+	 * @param nks A vector of negative keys
+	 * @param lf Load factor
+	 * @param othello_ratio Othello Ratio
+     */
 	CRIoT_Control_VO(vector<K> &pks, vector<K> &nks, float lf = 0.95, float othello_ratio = 1)
 	{
 		this->loadfactor = lf;
@@ -51,6 +45,13 @@ public:
 		vo_data.install(vo_control);
 	}
 
+	/**
+     * Alternate constructor for CRIoT Control VO
+     * @param pks A vector of positive keys
+	 * @param nks A vector of negative keys
+	 * @param lf Load factor
+	 * @param othello_ratio Othello Ratio
+     */
 	void init(vector<K> &pks, vector<K> &nks, float lf = 0.95, float othello_ratio = 1)
 	{
 		this->loadfactor = lf;
@@ -60,72 +61,9 @@ public:
 		vo_data.install(vo_control);
 	}
 
-
-	
-
-	void install()
-	{
-		/*
-		sending the initialization/updating msg to the clients
-		*/
-		cout<<"e size: "<<sizeof(vo_data.vf.e)<<endl;
-		send_init(vo_data);
-	}
-
-	void split_uint_t(uint32_t &x, vector<uint8_t> &v)
-	{
-		for(int i =3; i>=0; i--)
-		{
-			uint8_t temp = (x>>(i*8)) & 0x000000ff;
-			v.push_back(temp);
-		}
-	}
-
-	void split_uint_t(uint64_t &x, vector<uint8_t> &v)
-	{
-		for(int i =7; i>=0; i--)
-		{
-			uint8_t temp = (x>>(i*8)) & 0x000000ff;
-			v.push_back(temp);
-		}
-	}
-
-	void split_uint_t_vector(vector<uint64_t> &x, vector<uint8_t> &v)
-	{
-		for(int i=0; i<x.size(); i++)
-		{
-			for(int j=7;j>=0;j--)
-			{
-				uint8_t temp = (x[i]>>(j*8)) & 0x000000ff;
-				v.push_back(temp);
-			}
-		}
-	}
-
-	void split_uint_t_vector(vector<uint32_t> &x, vector<uint8_t> &v)
-	{
-		for(int i=0; i<x.size(); i++)
-		{
-			for(int j=3;j>=0;j--)
-			{
-				uint8_t temp = (x[i]>>(j*8)) & 0x000000ff;
-				v.push_back(temp);
-			}
-		}
-	}
-
-	void convert_string_to_uint8_t_vector(string &x, vector<uint8_t> &v)
-	{
-		const char* cx = x.c_str();
-		for(int i=0; i<x.length(); i++)
-		{
-			uint8_t vt;
-			memcpy(&vt, &cx[i], 1);
-			v.push_back(vt);
-		}
-	}
-
-	/*encode the data plane CRC as string arrays*/
+	/**
+	 * Encodes the data plane CRC as string arrays.
+	 */
 	vector<vector<uint8_t>> encode()
 	{
 		Binary_VF_Othello_Data_Plane<K, V> &d_crc = vo_data;
@@ -249,9 +187,9 @@ public:
 		}
 		v.push_back(vf_T_v);
 
-
 		return v;
 	}
+
 	/* Encodes the summary for sending
 	 * Parts are encoded in this order: the type of action, key, value, 
 	 * flipped_indexes size, flipped indexes.
@@ -303,105 +241,114 @@ public:
 			encoded.push_back(val);
 		}
 
-
 		return encoded;
 	}
 
-	void send(Binary_VF_Othello_Data_Plane<K, V> &data_plane_CRassifier)
+	/**
+	 * Updates message statistic
+	 * @param data_planeCRassifier The data plane that is sent.
+	 */
+	void update_message_statistic(Binary_VF_Othello_Data_Plane<K, V> &data_plane_CRassifier)
 	{
-		// cout<<"send size(rebuild): "<<1 + data_plane_CRassifier.getMemoryCost()<<endl;
 		total_msg_size += (1 + data_plane_CRassifier.getMemoryCost());
 		updating_times += 1;
-		// return data_plane_CRassifier;
 	}
 
-	void send(vector<uint32_t> &msg)
+	/**
+	 * Updates message statistic.
+	 * @param msg The vector message that is sent
+	 */
+	void update_message_statistic(vector<uint32_t> &msg)
 	{
-		// cout<<"rebuild!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<endl;
-		// cout<<"send size (including 1 byte OP): "<<1 + msg.size()*sizeof(msg[0])<<endl;
 		total_msg_size += (1 + msg.size()*sizeof(msg[0]));
 		updating_times += 1;
 		
 	}
 
-	void send(K k, V v, vector<uint32_t> &msg)
+	/**
+	 * Updates message statistic.
+	 * @param k key that is being sent.
+	 * @param v value that is being sent
+	 * @param msg the flipped indexes being sent.
+	 */
+	void update_message_statistic(K k, V v, vector<uint32_t> &msg)
 	{
-		// cout<<"send size (including 1 byte OP): "<<1 + sizeof(k) + sizeof(v) + msg.size()*sizeof(msg[0])<<endl;
 		total_msg_size += (1 + 1 + sizeof(k) + sizeof(v) + msg.size()*sizeof(msg[0]));
 		updating_times += 1;
 	}
 
-
+	/**
+	 * Inserts a key value pair into the structure.
+	 * @param kv The key value pair to be inserted.
+	 * @returns bool Indicating if the insert succeded without rebuild.
+	 */
 	bool insert(pair<K, V> &kv)
 	{
 		std::cout << flipped_indexes.size() << std::endl;
 		flipped_indexes = vo_control.insert(kv);
-		if (flipped_indexes.size() == 0)
-		{
-			/*send key and value pair to data plane*/
-			send(kv.first, kv.second, flipped_indexes);
-			return 1;
-
-		}
-		else if(flipped_indexes.size() == 1 && flipped_indexes[0] == 0xffffffff)
+		
+		if(flipped_indexes.size() == 1 && flipped_indexes[0] == 0xffffffff)
 		{
 			/*rebuild*/
 			vo_control.rebuild(loadfactor, o_ratio); 
 
 			vo_data.install(vo_control);
-			send(vo_data);
-			// exit (EXIT_FAILURE);
-			return 0;
+			update_message_statistic(vo_data);
+			return false;
 		}
 		else
 		{
-			/*send key and value pair to data plane, then send flipped indexes*/
-			send(kv.first, kv.second, flipped_indexes);
-			return 1;
+			update_message_statistic(kv.first, kv.second, flipped_indexes);
+			return true;
 		}
-
 	}
 
+	/**
+	 * Flips a key value pair in the structure.
+	 * @param kv The key value pair to be flipped.
+	 * @returns bool Indicating if the flip succeded without rebuild.
+	 */
 	bool valueFlip(pair<K, V> &kv)
 	{
 		flipped_indexes = vo_control.valueFlip(kv);
-		if (flipped_indexes.size() == 0)
-		{
-			/*send key and value pair to data plane*/
-			send(kv.first, kv.second, flipped_indexes);
-			return 1;
-
-		}
-		else if(flipped_indexes.size() == 1 && flipped_indexes[0] == 0xffffffff)
+		if(flipped_indexes.size() == 1 && flipped_indexes[0] == 0xffffffff)
 		{
 			/*rebuild*/
 			vo_control.rebuild(loadfactor, o_ratio);
 
 			vo_data.install(vo_control);
-			send(vo_data);
-			return 0;
+			update_message_statistic(vo_data);
+			return false;
 		}
 		else
 		{
-			/*send key and value pair to data plane, then send flipped indexes*/
-			send(kv.first, kv.second, flipped_indexes);
-			return 1;
+			update_message_statistic(kv.first, kv.second, flipped_indexes);
+			return true;
 		}
 	}
 
+	/**
+	 * Erases a key from the structure.
+	 * @param k The key to be erased.
+	 */
 	void erase(K &k)
 	{
 		vo_control.erase(k);
 	}
 
+	/**
+	 * Returns the average size of the messages sent.
+	 * @returns The average size of the messages sent.
+	 */
 	double average_msg_size()
 	{
-		// // cout<<total_msg_size<<endl;
-		// cout<<updating_times<<endl;
 		return double(total_msg_size) / double(updating_times);
 	}
 
-	void msg_size_reset()
+	/**
+	 * Resets the message statistic.
+	 */
+	void msg_size_statistic_reset()
 	{
 		total_msg_size = 0;
 		updating_times = 0;
@@ -432,7 +379,7 @@ public:
 		vo_data = rebuild_patch;
 	}
 
-	void decoding(vector<uint8_t> &s)
+	void decode_full(vector<uint8_t> &s)
 	{
 		uint32_t offset = 1;
 		/*read othello*/
@@ -548,6 +495,7 @@ public:
 		cout << fp_len;
 		cout<<"vf finish" << std::endl;
 	}
+
 	/* Decodes the summary
 	 * Parts are decoded in this order: the type of action, key, value, 
 	 * flipped_indexes size, flipped indexes.
@@ -636,71 +584,6 @@ public:
 		}
 	}
 
-	uint32_t combine_chars_as_uint(vector<uint8_t> &data, uint32_t val)
-	{
-		/*read 4 chars at begin and combine them as uint32_t*/
-		uint8_t ch1, ch2, ch3, ch4;
-		ch1 = data[0];
-		ch2 = data[1];
-		ch3 = data[2];
-		ch4 = data[3];
-
-		return (ch1<<24) + (ch2<<16) + (ch3<<8) + ch4;
-	}
-
-	uint64_t combine_chars_as_uint(vector<uint8_t> &data, uint64_t val)
-	{
-		/*read 4 chars at begin and combine them as uint32_t*/
-		uint8_t ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8;
-		ch1 = data[0];
-		ch2 = data[1];
-		ch3 = data[2];
-		ch4 = data[3];
-		ch5 = data[4];
-		ch6 = data[5];
-		ch7 = data[6];
-		ch8 = data[7];
-		
-
-		return ((uint64_t)ch1<<56) + ((uint64_t)ch2<<48) + ((uint64_t)ch3<<40) + ((uint64_t)ch4<<32) 
-		+ ((uint64_t)ch5<<24) + ((uint64_t)ch6<<16) + ((uint64_t)ch7<<8) + (uint64_t)ch8;
-		
-	}
-
-	uint32_t combine_chars_as_uint32_t(vector<uint8_t> &data, uint32_t begin)
-	{
-		/*read 4 chars at begin and combine them as uint32_t*/
-		uint8_t ch1, ch2, ch3, ch4;
-		ch1 = data[begin];
-		ch2 = data[begin+1];
-		ch3 = data[begin+2];
-		ch4 = data[begin+3];
-
-		uint32_t x = (ch1<<24) + (ch2<<16) + (ch3<<8) + ch4;
-		return x;
-	}
-
-
-	uint64_t combine_chars_as_uint64_t(vector<uint8_t> &data, uint32_t begin)
-	{
-		/*read 4 chars at begin and combine them as uint32_t*/
-		uint8_t ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8;
-		ch1 = data[begin];
-		ch2 = data[begin+1];
-		ch3 = data[begin+2];
-		ch4 = data[begin+3];
-		ch5 = data[begin+4];
-		ch6 = data[begin+5];
-		ch7 = data[begin+6];
-		ch8 = data[begin+7];
-		
-
-		uint64_t x = ((uint64_t)ch1<<56) + ((uint64_t)ch2<<48) + ((uint64_t)ch3<<40) + ((uint64_t)ch4<<32) 
-		+ ((uint64_t)ch5<<24) + ((uint64_t)ch6<<16) + ((uint64_t)ch7<<8) + (uint64_t)ch8;
-		return x;
-	}
-
-
 	void insert(pair<K, V> kv, vector<uint32_t> &flipped_indexes)
 	{
 		vo_data.insert(kv, flipped_indexes);
@@ -710,5 +593,4 @@ public:
 	{
 		vo_data.valueFlip(kv, flipped_indexes);
 	}
-
 };

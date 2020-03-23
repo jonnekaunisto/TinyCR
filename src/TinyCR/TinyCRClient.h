@@ -5,6 +5,9 @@
 
 #ifndef TinyCRClient_class
 #define TinyCRClient_class
+#include "../Socket/ClientSocket.h"
+#include "../Socket/ServerSocket.h"
+#include "../Socket/SocketException.h"
 #include "../platform/CRIoT.h"
 #include <thread>
 #include <mutex>
@@ -95,7 +98,7 @@ private:
             delete[] data;
         }
         std::cout << "decoding" << std::endl;
-        daasClient.decoding(msg);
+        daasClient.decode_full(msg);
         std::cout << "decoded" << std::endl;
         socket.send("FullDone");
         std::cout << "sent ack" << std::endl;
@@ -140,7 +143,7 @@ private:
                 if(msg[0] == 70)
                 {
                     std::cout << "Doing a full update" << std::endl;
-                    tinyCRClient->daasClient.decoding(msg);
+                    tinyCRClient->daasClient.decode_full(msg);
                     new_sock << "FullDone";
                 }
                 else

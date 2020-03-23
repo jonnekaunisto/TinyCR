@@ -4,13 +4,16 @@
  */
 #ifndef TinyCRServer_class
 #define TinyCRServer_class
+#include "../Socket/ClientSocket.h"
+#include "../Socket/ServerSocket.h"
+#include "../Socket/SocketException.h"
 #include "../platform/CRIoT.h"
 #include <thread>
 #include <netinet/ip.h>
 #include <arpa/inet.h>
 #include <regex>
 #include <mutex>
-#include <chrono> 
+#include <chrono>
 
 #define DEVICE_PORT 40000
 #define COMMAND_PORT 50000
