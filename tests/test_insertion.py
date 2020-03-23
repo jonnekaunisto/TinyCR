@@ -20,19 +20,20 @@ enable_server_print = False
 enable_client_print = False
 
 def send_to_server(message):
-    print("sending: " + message)
+    #print("sending: " + message)
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((server_ip, server_port))
         s.sendall(str.encode(message))
         data = s.recv(1024)
-    print("received: " + str(data, encoding="utf-8"))
+    data = str(data, encoding="utf-8")
+    #print("received: " + data)
     return data
 
 def test_inserting():
     success = True
     output = ""
 
-    total_certificates = 10000 #10 million
+    total_certificates = 10000000 #10 million
     print(str(int(0.99*total_certificates)))
     print(str(int(0.01*total_certificates)))
 
@@ -43,8 +44,16 @@ def test_inserting():
         with open("server.out", "w") as f:
             server_process = subprocess.Popen([server_path, str(int(0.99*total_certificates)), str(int(0.01*total_certificates))],
                                         stdout=f)
-    
-    time.sleep(10)
+    while(True):
+        time.sleep(1)
+        try:
+            data = send_to_server("ping")
+            print(data)
+            if data == "pong":
+                break
+        except:
+            print("Not reachable")
+        
 
     if enable_client_print:
         client_process = subprocess.Popen([client_path])
@@ -55,10 +64,14 @@ def test_inserting():
     time.sleep(3)
     try:
         print("inserting")
-        for i in range(int(total_certificates), int(1.99 * total_certificates)):
+        for i in range(int(total_certificates) + 1, int(1.99 * total_certificates)):
+            start = time.time()
             send_to_server("add {} 1".format(i))
+            end = time.time()
+            print(end - start)
+            
             #time.sleep(0.5)
-        for i in range(int(1.99 * total_certificates), int(2 * total_certificates)):
+        for i in range(int(1.99 * total_certificates) + 1, int(2 * total_certificates)):
             send_to_server("add {} 0".format(i))
             #time.sleep(0.5)
         print("done inserting")

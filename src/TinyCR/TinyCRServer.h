@@ -4,11 +4,16 @@
  */
 #ifndef TinyCRServer_class
 #define TinyCRServer_class
+#include "../Socket/ClientSocket.h"
+#include "../Socket/ServerSocket.h"
+#include "../Socket/SocketException.h"
 #include "../platform/CRIoT.h"
 #include <thread>
 #include <netinet/ip.h>
 #include <arpa/inet.h>
 #include <regex>
+#include <mutex>
+#include <chrono>
 
 #define DEVICE_PORT 40000
 #define COMMAND_PORT 50000
@@ -107,12 +112,15 @@ public:
 private:
     int port;
     bool running;
+    std::chrono::duration<double> lastRTT;
     std::list<std::string> connectedDevices; //doubly linked list of connected  devices
     vector<K> positive_keys;
     vector<K> negative_keys;
     CRIoT_Control_VO<K, V> daasServer;
     std::thread summaryUpdatesThread;
     std::thread connectionListenerThread;
+    std::mutex updateLock;
+
 
     /**
      * Converts a sockaddr_in to a string.
@@ -138,7 +146,7 @@ private:
     {
         std::regex generalRgx("([a-z]{3}) ([0-9]+)");
         std::regex addRgx("([a-z]{3}) ([0-9]+) ([0-9]+)");
-        std::regex commandRgx("(^(:?add|rem|unr|rev|exi))");
+        std::regex commandRgx("(^(:?add|rem|unr|rev|exi|ping))");
         ServerSocket server(COMMAND_PORT);
         std::cout << "Listening For Commands on Port: " << COMMAND_PORT << std::endl;
 
@@ -148,7 +156,7 @@ private:
             {
                 ServerSocket new_sock;
                 server.accept(new_sock);
-
+                tinyCRServer->updateLock.lock();
                 std::string data;
                 new_sock >> data;
                 std::smatch matches;
@@ -156,7 +164,6 @@ private:
                 {
                     new_sock << "Command not recognized";
                     continue;
-                
                 }
                 std::cout << "Received command: " << data << std::endl;
                 std::string command = matches[1];
@@ -170,7 +177,9 @@ private:
                     }
                     pair<K, V> kv(static_cast<K>(std::stoul(matches[2])), static_cast<V>(std::stoul(matches[3])));
                     tinyCRServer->addCertificate(kv);
-                    new_sock << "added";
+                    std::string time = std::to_string(tinyCRServer->lastRTT.count());
+                    std::string response = "Add Duration: " + time;
+                    new_sock << response;
                 }
                 else if(command == "rem")
                 {
@@ -187,7 +196,9 @@ private:
                     
                     }
                     tinyCRServer->unrevokeCertificate(static_cast<K>(std::stoul(matches[2])));
-                    new_sock << "unrevoked";
+                    std::string time = std::to_string(tinyCRServer->lastRTT.count());
+                    std::string response = "Unr Duration: " + time;
+                    new_sock << response;
 
                 }
                 else if(command == "rev")
@@ -199,13 +210,19 @@ private:
                     
                     }
                     tinyCRServer->revokeCertificate(static_cast<K>(std::stoul(matches[2])));
-                    new_sock << "revoked";
+                    std::string time = std::to_string(tinyCRServer->lastRTT.count());
+                    std::string response = "Rev Duration: " + time;
+                    new_sock << response;
 
                 }
                 else if(command == "exi")
                 {
                     tinyCRServer->running = false;
                     new_sock << "exiting";
+                }
+                else if(command == "ping")
+                {
+                    new_sock << "pong";
                 }
                 else
                 {
@@ -215,7 +232,8 @@ private:
             catch (SocketException &e)
             {
                 std::cout << "Exception was caught when receiving commands:" << e.description() << std::endl;
-            }  
+            }
+            tinyCRServer->updateLock.unlock();
         }
         exit(1);
     }
@@ -267,6 +285,7 @@ private:
             {
                 ServerSocket new_sock;
                 server.accept(new_sock);
+                tinyCRServer->updateLock.lock();
                 std::string device_ip_str = tinyCRServer->convertSockaddrToStr(server.get_client());
                 tinyCRServer->connectedDevices.push_back(device_ip_str);
                 std::cout << "added new device at " << device_ip_str << std::endl;
@@ -277,7 +296,8 @@ private:
             catch (SocketException &e)
             {
                 std::cout << "Exception was caught while listening for new devices:" << e.description() << std::endl;
-            }  
+            } 
+            tinyCRServer->updateLock.unlock(); 
         }
     }
 
@@ -306,7 +326,8 @@ private:
                     ClientSocket client_socket(host, DEVICE_PORT);
                     std::cout << "Sending Summary To " << host << std::endl;
                     std::string reply;
-
+                    
+                    auto start = std::chrono::high_resolution_clock::now();
                     
                     for (int i = 0; i < v.size(); i++)
                     {
@@ -319,6 +340,8 @@ private:
                     client_socket << "finish";
 
                     client_socket >> reply;
+                    auto finish = std::chrono::high_resolution_clock::now();
+                    lastRTT = finish - start;
                     std::cout << "We received this response from the client: \"" << reply << "\"" << std::endl;
                     break;
                 }
