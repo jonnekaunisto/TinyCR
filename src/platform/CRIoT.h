@@ -12,8 +12,8 @@
 #include <random>
 #include <fstream>
 #include <string>
-#include "Binary_Data_Plane.h"
-#include "Binary_Control_Plane.h"
+#include "DASS_Verifier.h"
+#include "DASS_Tracker.h"
 #include "../utils/helpers.h"
 using namespace std;
 
@@ -21,11 +21,9 @@ template<typename K, class V>
 class CRIoT_Control_VO
 {
 public:
-	Binary_VF_Othello_Control_Plane <K, V> vo_control;
-	Binary_VF_Othello_Data_Plane<K, V> vo_data;
+	DASS_Tracker <K, V> vo_control;
+	DASS_Verifier<K, V> vo_data;
 	vector<uint32_t> flipped_indexes{};
-	uint64_t total_msg_size = 0;
-	uint64_t updating_times = 0;
 
 	float loadfactor = 0.95;
 	float o_ratio = 1;
@@ -69,7 +67,7 @@ public:
 	 */
 	vector<vector<uint8_t>> encode()
 	{
-		Binary_VF_Othello_Data_Plane<K, V> &d_crc = vo_data;
+		DASS_Verifier<K, V> &d_crc = vo_data;
 		vector<vector<uint8_t>> v;
 
 		/*othello*/
@@ -248,39 +246,6 @@ public:
 	}
 
 	/**
-	 * Updates message statistic
-	 * @param data_planeCRassifier The data plane that is sent.
-	 */
-	void update_message_statistic(Binary_VF_Othello_Data_Plane<K, V> &data_plane_CRassifier)
-	{
-		total_msg_size += (1 + data_plane_CRassifier.getMemoryCost());
-		updating_times += 1;
-	}
-
-	/**
-	 * Updates message statistic.
-	 * @param msg The vector message that is sent
-	 */
-	void update_message_statistic(vector<uint32_t> &msg)
-	{
-		total_msg_size += (1 + msg.size()*sizeof(msg[0]));
-		updating_times += 1;
-		
-	}
-
-	/**
-	 * Updates message statistic.
-	 * @param k key that is being sent.
-	 * @param v value that is being sent
-	 * @param msg the flipped indexes being sent.
-	 */
-	void update_message_statistic(K k, V v, vector<uint32_t> &msg)
-	{
-		total_msg_size += (1 + 1 + sizeof(k) + sizeof(v) + msg.size()*sizeof(msg[0]));
-		updating_times += 1;
-	}
-
-	/**
 	 * Inserts a key value pair into the structure.
 	 * @param kv The key value pair to be inserted.
 	 * @returns bool Indicating if the insert succeded without rebuild.
@@ -296,14 +261,9 @@ public:
 			vo_control.rebuild(loadfactor, o_ratio); 
 
 			vo_data.install(vo_control);
-			update_message_statistic(vo_data);
 			return false;
 		}
-		else
-		{
-			update_message_statistic(kv.first, kv.second, flipped_indexes);
-			return true;
-		}
+		return true;
 	}
 
 	/**
@@ -311,23 +271,24 @@ public:
 	 * @param kv The key value pair to be flipped.
 	 * @returns bool Indicating if the flip succeded without rebuild.
 	 */
-	bool valueFlip(pair<K, V> &kv)
+	bool setValue(pair<K, V> &kv)
 	{
-		flipped_indexes = vo_control.valueFlip(kv);
+		flipped_indexes = vo_control.setValue(kv);
 		if(flipped_indexes.size() == 1 && flipped_indexes[0] == 0xffffffff)
 		{
 			/*rebuild*/
 			vo_control.rebuild(loadfactor, o_ratio);
 
 			vo_data.install(vo_control);
-			update_message_statistic(vo_data);
 			return false;
 		}
-		else
-		{
-			update_message_statistic(kv.first, kv.second, flipped_indexes);
-			return true;
-		}
+		return true;
+	}
+
+	bool valueFlip(K &k)
+	{
+		//IMPLEMENT
+		return false;
 	}
 
 	/**
@@ -339,39 +300,21 @@ public:
 	{
 		vo_control.erase(k);
 	}
-
-	/**
-	 * Returns the average size of the messages sent.
-	 * @returns The average size of the messages sent.
-	 */
-	double average_msg_size()
-	{
-		return double(total_msg_size) / double(updating_times);
-	}
-
-	/**
-	 * Resets the message statistic.
-	 */
-	void msg_size_statistic_reset()
-	{
-		total_msg_size = 0;
-		updating_times = 0;
-	}
 };
 
 template<typename K, class V>
 class CRIoT_Data_VO
 {
 public:
-	Binary_VF_Othello_Data_Plane<K, V> vo_data;
+	DASS_Verifier<K, V> vo_data;
 	CRIoT_Data_VO(){}
 
-	CRIoT_Data_VO(Binary_VF_Othello_Data_Plane<K, V> &install_patch)
+	CRIoT_Data_VO(DASS_Verifier<K, V> &install_patch)
 	{
 		vo_data = install_patch;
 	}
 
-	void rebuild(Binary_VF_Othello_Data_Plane<K, V> &rebuild_patch)
+	void rebuild(DASS_Verifier<K, V> &rebuild_patch)
 	{
 		vo_data = rebuild_patch;
 	}
@@ -528,9 +471,7 @@ public:
 		k = combine_chars_as_uint(k_chars, k);
 		std::cout << "k: " << k << std::endl;
 
-
 		offset += K_size;
-
 
 		int V_size = sizeof(V);
 		auto v_chars = vector<uint8_t>();
@@ -560,7 +501,6 @@ public:
 			offset += sizeof(uint32_t);
 		}
 
-
 		std::cout << "flipped indexes size: " << flipped_indexes_size << std::endl;
 		//std::cout << new_flipped_indexes << std::endl;
 		for(int i=0; i < new_flipped_indexes.size(); i++)
@@ -587,7 +527,7 @@ public:
 		{
 			pair<K,V> kv(k, v);
 			pair<K,V> kv_ref = kv;
-			valueFlip(kv_ref, new_flipped_indexes_ref);
+			setValue(kv_ref, new_flipped_indexes_ref);
 		}
 		else
 		{
@@ -596,7 +536,7 @@ public:
 	}
 
 	/**
-	 * Inserts a key with a values.
+	 * Inserts a key with a value.
 	 * @param kv Key value pair to be inserted.
 	 * @param flipped_indexes The vector of flipped indexes received.
 	 */
@@ -606,13 +546,13 @@ public:
 	}
 
 	/**
-	 * Flips a value.
-	 * @param kv Key value pair to be flipped.
+	 * Sets a value.
+	 * @param kv Key .
 	 * @param flipped_indexes The vector of flipped indexes received.
 	 */
-	void valueFlip(pair<K, V> &kv, vector<uint32_t> &flipped_indexes)
+	void setValue(pair<K, V> &kv, vector<uint32_t> &flipped_indexes)
 	{
-		vo_data.valueFlip(kv, flipped_indexes);
+		vo_data.setValue(kv, flipped_indexes);
 	}
 };
 

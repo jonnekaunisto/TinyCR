@@ -33,7 +33,7 @@ def test_inserting():
     success = True
     output = ""
 
-    total_certificates = 10000000 #10 million
+    total_certificates = 1000 #10 million
     print(str(int(0.99*total_certificates)))
     print(str(int(0.01*total_certificates)))
 

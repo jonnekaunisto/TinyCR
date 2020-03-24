@@ -4,16 +4,13 @@
  */
 #ifndef BINARY_CONTROL_PLANE_H
 #define BINARY_CONTROL_PLANE_H
+#include <vector>
+#include <iostream>
 #include "../utils/common.h"
 #include "control_plane_othello.h"
 #include "data_plane_othello.h"
 #include "bloom_filter.h"
 #include "../utils/cuckoo.h"
-#include <assert.h>
-#include <math.h>
-#include <iostream>
-#include <vector>
-#include <iostream>
 using namespace std;
 
 /*
@@ -41,250 +38,11 @@ public:
 };
 
 /*
-	Filter Cascades:
-	Optimized with the CRLite settings by defalut
-*/
-template<typename K, class V>
-class Binary_Filter_Cascades_Control_Plane:  public Binary_Control_Plane<K, V>
-{
-public:
-	float fpr_lv1;
-	float fpr_base;
-	vector <BloomFilter<K, 1>> bf_array;
-	vector<K> PK; /*positive key set*/
-	vector<K> NK; /*negative key set*/
-
-	Binary_Filter_Cascades_Control_Plane(){}
-
-	void init(uint32_t n_pos, uint32_t n_neg, float fpr_lv1_customize = 0, float fpr_base_customize = 0)
-	{
-		this->n_positive_keys = n_pos;
-		this->n_negative_keys = n_neg;
-		this->key_ratio = this->n_positive_keys/(float)this->n_negative_keys;
-
-		if(fpr_base_customize == 0)
-			fpr_base = 0.5;
-		else
-			fpr_base = fpr_base_customize;
-
-		if(fpr_lv1_customize == 0)
-			fpr_lv1 = this->key_ratio * sqrt(0.5);
-		else
-			fpr_lv1 = fpr_lv1_customize;
-
-		BloomFilter<K, 1> bf_lv1(this->n_positive_keys, fpr_lv1);
-		bf_array.push_back(bf_lv1);
-	}
-
-	Binary_Filter_Cascades_Control_Plane(uint32_t n_pos, uint32_t n_neg, float fpr_lv1_customize = 0, float fpr_base_customize = 0):Binary_Control_Plane<K, V>(n_pos, n_neg)
-	{
-		if(fpr_base_customize == 0)
-			fpr_base = 0.5;
-		else
-			fpr_base = fpr_base_customize;
-
-		if(fpr_lv1_customize == 0)
-			fpr_lv1 = this->key_ratio * sqrt(0.5);
-		else
-			fpr_lv1 = fpr_lv1_customize;
-
-		BloomFilter<K, 1> bf_lv1(this->n_positive_keys, fpr_lv1);
-		bf_array.push_back(bf_lv1);
-	}
-
-	bool batch_insert(const vector<K> &positive_keys, const vector<K> &negative_keys)
-	{
-		if (this->n_positive_keys != positive_keys.size() || this->n_negative_keys != negative_keys.size())
-		{
-			cout<<"Key error, insertion failed"<<endl;
-		}
-		vector<K> fp_vector;
-		vector<K> tp_vector;
-		tp_vector = positive_keys;
-		for(int i = 0; i<this->n_positive_keys; i++)
-		{
-			PK.push_back(positive_keys[i]);
-			bf_array[0].insert(positive_keys[i]);
-		}
-
-		for(int i = 0; i<this->n_negative_keys; i++)
-		{
-			NK.push_back(negative_keys[i]);
-			if (bf_array[0].isMember(negative_keys[i]))
-				fp_vector.push_back(negative_keys[i]);
-		}
-		while(true)
-		{
-			if(fp_vector.size()==0)
-				break;
-			else
-			{
-				BloomFilter<K, 1> bf_next(fp_vector.size(), fpr_base);
-				for(int i=0; i<fp_vector.size();i++)
-				{
-					bf_next.insert(fp_vector[i]);
-				}
-				vector<K> tp_vector_next = fp_vector;
-				bf_array.push_back(bf_next);
-				fp_vector.clear();
-				for(int i = 0; i<tp_vector.size(); i++)
-				{
-					if (bf_next.isMember(tp_vector[i]))
-						fp_vector.push_back(tp_vector[i]);
-				}
-				tp_vector.clear();
-				tp_vector = tp_vector_next;
-			}
-		}
-		return true;
-	}
-
-	V query(const K &key)
-	{
-		for(int i = 0; i<bf_array.size()-1;i++)
-		{
-			if(!bf_array[i].isMember(key))
-			{
-				if(i%2 == 0)
-					return V(0);
-				else
-					return V(1);
-			}
-			else if(i == (bf_array.size()-1))
-			{
-				if(i%2 == 0)
-					return V(1);
-				else
-					return V(0);
-			}
-		}
-	}
-};
-
-
-/*
-	Binary Othello:
-	Vanilla othello
-*/
-template<typename K, class V>
-class Binary_Othello_Control_Plane: public Binary_Control_Plane<K, V>
-{
-public:
-	ControlPlaneOthello<K, V, 1, 0> othello;
-
-	Binary_Othello_Control_Plane(){}
-
-	void init(uint32_t n_pos, uint32_t n_neg)
-	{
-		this->n_positive_keys = n_pos;
-		this->n_negative_keys = n_neg;
-		this->key_ratio = this->n_positive_keys/(float)this->n_negative_keys;
-
-		othello = ControlPlaneOthello<K, V, 1, 0>(n_pos+n_neg);
-	}
-
-	Binary_Othello_Control_Plane(uint32_t n_pos, uint32_t n_neg):Binary_Control_Plane<K, V>(n_pos, n_neg)
-	{
-		othello = ControlPlaneOthello<K, V, 1, 0>(n_pos+n_neg);
-
-	}
-
-	bool batch_insert(const vector<K> &positive_keys, const vector<K> &negative_keys)
-	{
-		if (this->n_positive_keys != positive_keys.size() || this->n_negative_keys != negative_keys.size())
-		{
-			cout<<"Key error, insertion failed"<<endl;
-		}
-		int i = 0;
-		while (i < positive_keys.size()) {
-			othello.insert(	pair <K, V> (positive_keys[i],1));
-			i ++;
-		}
-		i = 0;
-		while (i < negative_keys.size()) {
-			othello.insert(	pair <K, V> (negative_keys[i],0));
-			i ++;
-		}
-		return true;
-	}
-
-	V query(const K &key)
-	{
-		V q;
-		othello.query(key,q);
-		return q;
-	}
-
-
-};
-
-
-/*
-	BloomFilter Othello:
-	BloomFilter + Othello
-*/
-template<typename K, class V>
-class Binary_BF_Othello_Control_Plane: public Binary_Control_Plane<K, V>
-{
-public:
-	ControlPlaneOthello<K, V, 1, 0> othello;
-	BloomFilter<K, 1> bf;
-	float bf_fpr;
-
-
-	Binary_BF_Othello_Control_Plane(uint32_t n_pos, uint32_t n_neg):Binary_Control_Plane<K, V>(n_pos, n_neg)
-	{
-		bf_fpr = optimal_fpr();
-		bf = BloomFilter<K, 1>(this->n_positive_keys, bf_fpr);
-	}
-
-	float optimal_fpr()
-	{
-		/*optimal fpr of Bloom Filter to achieve minimal memory cost*/
-		return this->key_ratio * 1.44/(log(2)*2.33);
-	}
-
-	bool batch_insert(const vector<K> &positive_keys, const vector<K> &negative_keys)
-	{
-		if (this->n_positive_keys != positive_keys.size() || this->n_negative_keys != negative_keys.size())
-		{
-			cout<<"Key error, insertion failed"<<endl;
-		}
-		for(int i = 0; i<this->n_positive_keys; i++)
-		{
-			bf.insert(positive_keys[i]);
-		}
-		vector <K> fp_keys{};
-		for(int i = 0; i<this->n_negative_keys; i++)
-		{
-			if(bf.isMember(negative_keys[i]))
-			{
-				fp_keys.push_back(negative_keys[i]);
-			}
-				
-		}
-
-		cout<<"bf fpr: "<<fp_keys.size()/(float)this->n_negative_keys<<endl;
-		othello = ControlPlaneOthello<K, V, 1, 0>(this->n_positive_keys+fp_keys.size());
-		for(int i = 0; i<this->n_positive_keys; i++)
-			othello.insert(pair <K, V> (positive_keys[i],1));
-		
-		for(int i = 0; i<fp_keys.size(); i++)
-		{
-			othello.insert(pair <K, V> (fp_keys[i],0));
-		}
-		return true;
-	}
-
-};
-
-
-/*
 	CuckooFilter Othello:
 	CuckooFilter + Othello
 */
 template<typename K, class V>
-class Binary_VF_Othello_Control_Plane: public Binary_Control_Plane<K, V>
+class DASS_Tracker: public Binary_Control_Plane<K, V>
 {
 public:
 	ControlPlaneOthello<K, V, 1, 0> othello;
@@ -298,9 +56,9 @@ public:
 	float load_factor = 0.95;
 	float o_ratio = 1;
 
-	Binary_VF_Othello_Control_Plane(){}
+	DASS_Tracker(){}
 
-	Binary_VF_Othello_Control_Plane(uint32_t n_pos, uint32_t n_neg, float lf = 0.95, float othello_ratio = 1):Binary_Control_Plane<K, V>(n_pos, n_neg)
+	DASS_Tracker(uint32_t n_pos, uint32_t n_neg, float lf = 0.95, float othello_ratio = 1):Binary_Control_Plane<K, V>(n_pos, n_neg)
 	{
 		this->load_factor = lf;
 		this->o_ratio = othello_ratio;
@@ -316,7 +74,7 @@ public:
         FPK_table = new vector<K>[vf.n];
 	}
 	
-	Binary_VF_Othello_Control_Plane(Binary_VF_Othello_Control_Plane const &obj)
+	DASS_Tracker(DASS_Tracker const &obj)
 	{
 		this->n_positive_keys = obj.n_positive_keys;
 		this->n_negative_keys = obj.n_negative_keys;
@@ -578,7 +336,7 @@ public:
 		}
 	}
 
-	vector<uint32_t> valueFlip(pair<K, V> kv)
+	vector<uint32_t> setValue(pair<K, V> kv)
 	{
 		vector<uint32_t> flipped_indexes{};
 

@@ -8,12 +8,14 @@
 #include "../Socket/ServerSocket.h"
 #include "../Socket/SocketException.h"
 #include "../platform/CRIoT.h"
+#include "../utils/perf_tool.h"
 #include <thread>
 #include <netinet/ip.h>
 #include <arpa/inet.h>
 #include <regex>
 #include <mutex>
 #include <chrono>
+#include <unordered_map>
 
 #define DEVICE_PORT 40000
 #define COMMAND_PORT 50000
@@ -35,6 +37,8 @@ public:
         this->positive_keys = positive_keys;
         this->negative_keys = negative_keys;
         daasServer.init(positive_keys, negative_keys);
+
+        commandsMap["add"] = &addCommand;
     }
 
     /**
@@ -59,8 +63,10 @@ public:
      */
     bool addCertificate(pair<K,V> kv)
     {
+        StopWatch stopWatch = StopWatch();
         bool status = daasServer.insert(kv);
-        if (status) 
+        calc_latency_total += stopWatch.stop();
+        if (status)
         {
             return sendSummaryUpdate(kv, uint8_t(0));
         }
@@ -80,8 +86,17 @@ public:
     {
         pair<K, V> kv(k, 0);
         K& kref = k;
-        daasServer.erase(kref);
-        return sendSummaryUpdate(kv, uint8_t(1));
+        StopWatch stopWatch = StopWatch();
+        bool status = daasServer.erase(kref);
+        calc_latency_total += stopWatch.stop();
+        if (status) 
+        {
+            return sendSummaryUpdate(kv, uint8_t(1));
+        }
+        else
+        {
+            return sendFullUpdates();
+        } 
     }
 
     /**
@@ -93,8 +108,17 @@ public:
     {
         pair<K, V> kv(k, 1);
         pair<K, V>& kvref = kv;
-        daasServer.valueFlip(kvref);
-        return sendSummaryUpdate(kv, uint8_t(2));
+        StopWatch stopWatch = StopWatch();
+        bool status = daasServer.setValue(kvref);
+        calc_latency_total += stopWatch.stop();
+        if (status) 
+        {
+            return sendSummaryUpdate(kv, uint8_t(2));
+        }
+        else
+        {
+            return sendFullUpdates();
+        }
     }
 
     /**
@@ -105,11 +129,33 @@ public:
     bool revokeCertificate(K k)
     {
         pair<K, V> kv(k, 0);
-        daasServer.valueFlip(std::ref(kv));
+        StopWatch stopWatch = StopWatch();
+        daasServer.setValue(std::ref(kv));
+        calc_latency_total += stopWatch.stop();
         return sendSummaryUpdate(kv, uint8_t(3));
     }
 
+    /**
+     * Average latnecy of a successful DASS update.
+     */
+    double get_average_calc_latency()
+    {
+        return calc_latency_total / calc_count;
+    }
+
+    double get_average_delta_ack_latency()
+    {
+        return delta_ack_latency / delta_ack_count;
+    }
+
+    double get_average_full_ack_latency()
+    {
+        return full_ack_latency / full_ack_count;
+    }
+
 private:
+    typedef std::string (*CommandFunction)(std::string data, TinyCRServer<K, V>  *tinyCRServer);
+
     int port;
     bool running;
     std::chrono::duration<double> lastRTT;
@@ -121,6 +167,16 @@ private:
     std::thread connectionListenerThread;
     std::mutex updateLock;
 
+    std::unordered_map<std::string, CommandFunction> commandsMap;
+
+    double calc_latency_total = 0;
+    int calc_count = 0;
+
+    double delta_ack_latency = 0;
+    int delta_ack_count = 0;
+
+    double full_ack_latency = 0;
+    int full_ack_count = 0;
 
     /**
      * Converts a sockaddr_in to a string.
@@ -134,6 +190,66 @@ private:
         return str;
     }
 
+    static std::string addCommand(std::string data, TinyCRServer *tinyCRServer)
+    {
+        std::regex addRgx("([a-z]{3}) ([0-9]+) ([0-9]+)");
+        std::smatch matches;
+        if(!std::regex_search(data, matches, addRgx)) 
+        {
+            return "Inputs are badly formed";
+        }
+        pair<K, V> kv(static_cast<K>(std::stoul(matches[2])), static_cast<V>(std::stoul(matches[3])));
+        tinyCRServer->addCertificate(kv);
+        std::string time = std::to_string(tinyCRServer->lastRTT.count());
+        return "Add Duration: " + time;
+    }
+
+    static std::string removeCommand(std::string data, TinyCRServer *tinyCRServer)
+    {
+        //TODO fix
+        //tinyCRServer->removeCertificate(tinyCRServer->parseCommandNum(data));
+        return"Not implemented";
+    }
+
+    static std::string unrevokeCommand(std::string data, TinyCRServer *tinyCRServer)
+    {
+        std::regex rgx("([a-z]{3}) ([0-9]+)");
+        std::smatch matches;
+        if(!std::regex_search(data, matches, rgx)) 
+        {
+            return "Inputs are badly formed";        
+        }
+        tinyCRServer->unrevokeCertificate(static_cast<K>(std::stoul(matches[2])));
+        std::string time = std::to_string(tinyCRServer->lastRTT.count());
+        std::string response = "Unr Duration: " + time;
+        return response;
+    }
+
+    static std::string revokeCommand(std::string data, TinyCRServer *tinyCRServer)
+    {
+        std::regex rgx("([a-z]{3}) ([0-9]+)");
+        std::smatch matches;
+        if(!std::regex_search(data, matches, rgx)) 
+        {
+            return "Inputs are badly formed";
+        }
+        tinyCRServer->revokeCertificate(static_cast<K>(std::stoul(matches[2])));
+        std::string time = std::to_string(tinyCRServer->lastRTT.count());
+        std::string response = "Rev Duration: " + time;
+        return response;
+    }
+
+    static std::string exitCommand(std::string data, TinyCRServer *tinyCRServer)
+    {
+        tinyCRServer->running = false;
+        return "exiting";
+    }
+
+    static std::string pingCommand(std::string data, TinyCRServer *tinyCRServer)
+    {
+        return "pong";
+    }
+
     /* Listens for commands from CA
      * valid commands are:
      * "add {k} {v} "
@@ -144,8 +260,6 @@ private:
      */
     static void listenForCACommands(TinyCRServer *tinyCRServer)
     {
-        std::regex generalRgx("([a-z]{3}) ([0-9]+)");
-        std::regex addRgx("([a-z]{3}) ([0-9]+) ([0-9]+)");
         std::regex commandRgx("(^(:?add|rem|unr|rev|exi|ping))");
         ServerSocket server(COMMAND_PORT);
         std::cout << "Listening For Commands on Port: " << COMMAND_PORT << std::endl;
@@ -167,63 +281,11 @@ private:
                 }
                 std::cout << "Received command: " << data << std::endl;
                 std::string command = matches[1];
-                if(command == "add")
+                if(tinyCRServer->commandsMap.find(command) != tinyCRServer->commandsMap.end())
                 {
-                    if(!std::regex_search(data, matches, addRgx)) 
-                    {
-                        new_sock << "Inputs are badly formed";
-                        continue;
-                    
-                    }
-                    pair<K, V> kv(static_cast<K>(std::stoul(matches[2])), static_cast<V>(std::stoul(matches[3])));
-                    tinyCRServer->addCertificate(kv);
-                    std::string time = std::to_string(tinyCRServer->lastRTT.count());
-                    std::string response = "Add Duration: " + time;
+                    std::string response = tinyCRServer->commandsMap[command](data, tinyCRServer);
                     new_sock << response;
-                }
-                else if(command == "rem")
-                {
-                    //TODO fix
-                    //tinyCRServer->removeCertificate(tinyCRServer->parseCommandNum(data));
-                    new_sock << "Not implemented";
-                }
-                else if(command == "unr")
-                {
-                    if(!std::regex_search(data, matches, generalRgx)) 
-                    {
-                        new_sock << "Inputs are badly formed";
-                        continue;
-                    
-                    }
-                    tinyCRServer->unrevokeCertificate(static_cast<K>(std::stoul(matches[2])));
-                    std::string time = std::to_string(tinyCRServer->lastRTT.count());
-                    std::string response = "Unr Duration: " + time;
-                    new_sock << response;
-
-                }
-                else if(command == "rev")
-                {
-                    if(!std::regex_search(data, matches, generalRgx)) 
-                    {
-                        new_sock << "Inputs are badly formed";
-                        continue;
-                    
-                    }
-                    tinyCRServer->revokeCertificate(static_cast<K>(std::stoul(matches[2])));
-                    std::string time = std::to_string(tinyCRServer->lastRTT.count());
-                    std::string response = "Rev Duration: " + time;
-                    new_sock << response;
-
-                }
-                else if(command == "exi")
-                {
-                    tinyCRServer->running = false;
-                    new_sock << "exiting";
-                }
-                else if(command == "ping")
-                {
-                    new_sock << "pong";
-                }
+                }   
                 else
                 {
                     new_sock << "Bad input";
@@ -240,6 +302,7 @@ private:
 
     void sendFullUpdate(Socket socket)
     {
+        StopWatch stopWatch = StopWatch();
         socket << "F";
 
         int msg_size = 0;
@@ -260,12 +323,15 @@ private:
             delete[] msg;
         }
 
-        cout << "size: " << msg_size << endl;
         /*if finished, close*/
         socket.send("finish");
         std::string response;
         socket >> response;
         std::cout << "received: " << response << std::endl;
+
+        full_ack_latency = stopWatch.stop();
+        full_ack_count++;
+
         if(response.compare("FullDone") != 0){
             std::cout << "Sending Full Update Failed" << std::endl;
         }
@@ -371,8 +437,7 @@ private:
                 std::string response;
                 std::cout << "Sending Full Update to " << host << std::endl;
 
-                sendFullUpdate(client_socket);
-                
+                sendFullUpdate(client_socket); 
             }
         }
         catch (SocketException &e)

@@ -148,7 +148,7 @@ private:
                 }
                 else
                 {
-                    std::cout << "DOing a summary Update" << std::endl;
+                    std::cout << "Doing a summary Update" << std::endl;
                     tinyCRClient->daasClient.decode_summary(msg);
                     new_sock << "SummaryDone";
                 }
