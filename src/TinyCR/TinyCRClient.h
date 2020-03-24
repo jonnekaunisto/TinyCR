@@ -9,6 +9,7 @@
 #include "../Socket/ServerSocket.h"
 #include "../Socket/SocketException.h"
 #include "../platform/CRIoT.h"
+#include "../utils/perf_tool.h"
 #include <thread>
 #include <mutex>
 
@@ -27,6 +28,8 @@ public:
     TinyCRClient(std::string serverIP)
     {
         this->serverIP = serverIP;
+
+        statistics.addStatistic("client_updating_latency");
     }
 
     /**
@@ -51,12 +54,22 @@ public:
 		return result;
 	}
 
+    /**
+     * Get statistic with the name.
+     */
+    double getLatencyStatistic(std::string statistic)
+    {
+        statistics.getAverageLatency(statistic);
+    }
+
 private:
     CRIoT_Data_VO<K, V> daasClient;
 
     std::string serverIP;
     std::thread summaryUpdatesThread;
     std::mutex queryLock;
+
+    LatencyStatistics statistics;
 
 
     /**
@@ -98,7 +111,9 @@ private:
             delete[] data;
         }
         std::cout << "decoding" << std::endl;
+        StopWatch stopWatch = StopWatch();
         daasClient.decode_full(msg);
+        statistics.addStatistic("client_updating_latency", stopWatch.stop());
         std::cout << "decoded" << std::endl;
         socket.send("FullDone");
         std::cout << "sent ack" << std::endl;
@@ -139,6 +154,7 @@ private:
                         break;
                     delete[] data;
                 }
+
                 //Full Update 70 = F
                 if(msg[0] == 70)
                 {

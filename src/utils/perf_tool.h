@@ -15,8 +15,8 @@ public:
     LatencyStatistics();
 
     void addStatistic(std::string statistic);
-    bool addLatency(std::string statistic, double latency);
-    double getStatistic(std::string statistic);
+    void addLatency(std::string statistic, double latency);
+    double getAverageLatency(std::string statistic);
 
 private:
     std::unordered_map<std::string, std::pair<double, int>> statisticsMap;

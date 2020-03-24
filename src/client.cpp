@@ -9,6 +9,7 @@
 
 TinyCRClient<uint64_t, uint32_t>client("localhost");
 
+
 /*
  * Function for running the client in a thread
  */

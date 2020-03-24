@@ -45,8 +45,10 @@ public:
         commandsMap["rev"] = &revokeCommand;
         commandsMap["exi"] = &exitCommand;
         commandsMap["ping"] = &pingCommand;
+        commandsMap["get"] = &statisticsCommand;
 
-        statistics.addStatistic("calc_latency_total");
+        statistics.addStatistic("calc_latency");
+        statistics.addStatistic("overall_RTT");
     }
 
     /**
@@ -73,7 +75,7 @@ public:
     {
         StopWatch stopWatch = StopWatch();
         bool status = daasServer.insert(kv);
-        statistics.addLatency("calc_latency_total", stopWatch.stop());
+        statistics.addLatency("calc_latency", stopWatch.stop());
         if (status)
         {
             return sendSummaryUpdate(kv, uint8_t(0));
@@ -96,7 +98,7 @@ public:
         K& kref = k;
         StopWatch stopWatch = StopWatch();
         bool status = daasServer.erase(kref);
-        statistics.addLatency("calc_latency_total", stopWatch.stop());
+        statistics.addLatency("calc_latency", stopWatch.stop());
         if (status) 
         {
             return sendSummaryUpdate(kv, uint8_t(1));
@@ -118,7 +120,7 @@ public:
         pair<K, V>& kvref = kv;
         StopWatch stopWatch = StopWatch();
         bool status = daasServer.setValue(kvref);
-        statistics.addLatency("calc_latency_total", stopWatch.stop());
+        statistics.addLatency("calc_latency", stopWatch.stop());
         if (status) 
         {
             return sendSummaryUpdate(kv, uint8_t(2));
@@ -139,16 +141,16 @@ public:
         pair<K, V> kv(k, 0);
         StopWatch stopWatch = StopWatch();
         daasServer.setValue(std::ref(kv));
-        statistics.addLatency("calc_latency_total", stopWatch.stop());
+        statistics.addLatency("calc_latency", stopWatch.stop());
         return sendSummaryUpdate(kv, uint8_t(3));
     }
 
     /**
      * Average latnecy of a successful DASS update.
      */
-    double get_latency_statistic(std::string statistic)
+    double getLatencyStatistic(std::string statistic)
     {
-        statistics.getStatistic(statistic);
+        statistics.getAverageLatency(statistic);
     }
 
 private:
@@ -196,7 +198,9 @@ private:
             return "Inputs are badly formed";
         }
         pair<K, V> kv(static_cast<K>(std::stoul(matches[2])), static_cast<V>(std::stoul(matches[3])));
+        StopWatch stopWatch = StopWatch();
         tinyCRServer->addCertificate(kv);
+        tinyCRServer->statistics.addLatency("overall_RTT", stopWatch.stop());
         std::string time = std::to_string(tinyCRServer->lastRTT.count());
         return "Add Duration: " + time;
     }
@@ -216,7 +220,9 @@ private:
         {
             return "Inputs are badly formed";        
         }
+        StopWatch stopWatch = StopWatch();
         tinyCRServer->unrevokeCertificate(static_cast<K>(std::stoul(matches[2])));
+        tinyCRServer->statistics.addLatency("overall_RTT", stopWatch.stop());
         std::string time = std::to_string(tinyCRServer->lastRTT.count());
         std::string response = "Unr Duration: " + time;
         return response;
@@ -230,7 +236,9 @@ private:
         {
             return "Inputs are badly formed";
         }
+        StopWatch stopWatch = StopWatch();
         tinyCRServer->revokeCertificate(static_cast<K>(std::stoul(matches[2])));
+        tinyCRServer->statistics.addLatency("overall_RTT", stopWatch.stop());
         std::string time = std::to_string(tinyCRServer->lastRTT.count());
         std::string response = "Rev Duration: " + time;
         return response;
@@ -247,6 +255,19 @@ private:
         return "pong";
     }
 
+    static std::string statisticsCommand(std::string data, TinyCRServer *tinyCRServer)
+    {
+        std::regex rgx("^\\w+ (\\w+)");
+        std::smatch matches;
+        if(!std::regex_search(data, matches, rgx)) 
+        {
+            return "Inputs are badly formed";
+        }
+        std::string statistic = matches[1];
+        return std::to_string(tinyCRServer->statistics.getAverageLatency(statistic));
+    }
+    
+
     /* Listens for commands from CA
      * valid commands are:
      * "add {k} {v} "
@@ -257,7 +278,7 @@ private:
      */
     static void listenForCACommands(TinyCRServer *tinyCRServer)
     {
-        std::regex commandRgx("(^(:?add|rem|unr|rev|exi|ping))");
+        std::regex commandRgx("(^\\w+)");
         ServerSocket server(COMMAND_PORT);
         std::cout << "Listening For Commands on Port: " << COMMAND_PORT << std::endl;
 
