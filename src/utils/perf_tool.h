@@ -1,14 +1,30 @@
 /**
- * Holds Stopwatch Class
+ * Holds Performance Tools Classes
  * @author Jonne Kaunisto
  */
 #ifndef PERF_TOOL_H
 #define PERF_TOOL_H
 #include <chrono>
+#include <string>
+#include <unordered_map>
+#include <utility>
+
+class LatencyStatistics
+{
+public:
+    LatencyStatistics();
+
+    void addStatistic(std::string statistic);
+    bool addLatency(std::string statistic, double latency);
+    double getStatistic(std::string statistic);
+
+private:
+    std::unordered_map<std::string, std::pair<double, int>> statisticsMap;
+};
 
 
-class StopWatch {
-
+class StopWatch
+{
 public:
     StopWatch();
 

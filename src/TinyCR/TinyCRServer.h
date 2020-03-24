@@ -16,6 +16,7 @@
 #include <mutex>
 #include <chrono>
 #include <unordered_map>
+#include <utility>
 
 #define DEVICE_PORT 40000
 #define COMMAND_PORT 50000
@@ -39,6 +40,13 @@ public:
         daasServer.init(positive_keys, negative_keys);
 
         commandsMap["add"] = &addCommand;
+        commandsMap["rem"] = &removeCommand;
+        commandsMap["unr"] = &unrevokeCommand;
+        commandsMap["rev"] = &revokeCommand;
+        commandsMap["exi"] = &exitCommand;
+        commandsMap["ping"] = &pingCommand;
+
+        statistics.addStatistic("calc_latency_total");
     }
 
     /**
@@ -65,7 +73,7 @@ public:
     {
         StopWatch stopWatch = StopWatch();
         bool status = daasServer.insert(kv);
-        calc_latency_total += stopWatch.stop();
+        statistics.addLatency("calc_latency_total", stopWatch.stop());
         if (status)
         {
             return sendSummaryUpdate(kv, uint8_t(0));
@@ -88,7 +96,7 @@ public:
         K& kref = k;
         StopWatch stopWatch = StopWatch();
         bool status = daasServer.erase(kref);
-        calc_latency_total += stopWatch.stop();
+        statistics.addLatency("calc_latency_total", stopWatch.stop());
         if (status) 
         {
             return sendSummaryUpdate(kv, uint8_t(1));
@@ -110,7 +118,7 @@ public:
         pair<K, V>& kvref = kv;
         StopWatch stopWatch = StopWatch();
         bool status = daasServer.setValue(kvref);
-        calc_latency_total += stopWatch.stop();
+        statistics.addLatency("calc_latency_total", stopWatch.stop());
         if (status) 
         {
             return sendSummaryUpdate(kv, uint8_t(2));
@@ -131,26 +139,16 @@ public:
         pair<K, V> kv(k, 0);
         StopWatch stopWatch = StopWatch();
         daasServer.setValue(std::ref(kv));
-        calc_latency_total += stopWatch.stop();
+        statistics.addLatency("calc_latency_total", stopWatch.stop());
         return sendSummaryUpdate(kv, uint8_t(3));
     }
 
     /**
      * Average latnecy of a successful DASS update.
      */
-    double get_average_calc_latency()
+    double get_latency_statistic(std::string statistic)
     {
-        return calc_latency_total / calc_count;
-    }
-
-    double get_average_delta_ack_latency()
-    {
-        return delta_ack_latency / delta_ack_count;
-    }
-
-    double get_average_full_ack_latency()
-    {
-        return full_ack_latency / full_ack_count;
+        statistics.getStatistic(statistic);
     }
 
 private:
@@ -169,8 +167,7 @@ private:
 
     std::unordered_map<std::string, CommandFunction> commandsMap;
 
-    double calc_latency_total = 0;
-    int calc_count = 0;
+    LatencyStatistics statistics;
 
     double delta_ack_latency = 0;
     int delta_ack_count = 0;
