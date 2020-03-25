@@ -7,6 +7,8 @@
 
 uint32_t combine_chars_as_uint(std::vector<uint8_t> &data, uint32_t val);
 
+uint64_t combine_chars_as_uint(std::vector<uint8_t> &data, uint64_t val);
+
 uint32_t combine_chars_as_uint32_t(std::vector<uint8_t> &data, uint32_t begin);
 
 uint64_t combine_chars_as_uint64_t(std::vector<uint8_t> &data, uint32_t begin);

@@ -9,6 +9,9 @@
 
 TinyCRClient<uint64_t, uint32_t>client("localhost");
 
+typedef std::string (*CommandFunction)(std::string data);
+std::unordered_map<std::string, CommandFunction> commandsMap;
+
 
 /*
  * Function for running the client in a thread
@@ -18,18 +21,50 @@ void runClientThread()
 	client.startClient();
 }
 
-/*
- * Runs the client, no command line inputs
- */
-int main()
+std::string showCommand(std::string data)
 {
+	std::regex rgx("show ([0-9]+)");
 
-	std::thread clientThread (runClientThread);
+	std::smatch matches;
+	if(!std::regex_search(data, matches, rgx)) 
+	{
+		return "Inputs are badly formed\n";	
+	}
 
+	uint32_t num = stoul(matches[1]);
+
+	bool v = client.queryCertificate(num);
+	std::string response = matches[1];
+	if(v)
+	{
+		response += " is valid\n";
+	}
+	else
+	{
+		response +=  " is not valid\n";
+	}
+	return response;
+}
+
+std::string getCommand(std::string data)
+{
+	std::regex rgx("get (\\w+)");
+
+	std::smatch matches;
+	if(!std::regex_search(data, matches, rgx)) 
+	{
+		return "Inputs are badly formed\n";	
+	}
+	return std::to_string(client.getLatencyStatistic(matches[1])) + "\n";
+}
+
+
+static void listenForCommands()
+{
 	ServerSocket server(COMMAND_PORT);
 	std::cout << "Listening For Commands on Port: " << COMMAND_PORT << std::endl;
 	//implement something to take commands and stuff
-	std::regex rgx("show ([0-9]+)");
+	std::regex commandRgx("(^\\w+)");
 
 	while(true)
 	{
@@ -41,32 +76,41 @@ int main()
             new_sock >> data;
 
 			std::smatch matches;
-			if(!std::regex_search(data, matches, rgx)) 
+			if(!std::regex_search(data, matches, commandRgx)) 
 			{
 				new_sock << "Command not recognized";
 				continue;
-			
 			}
 
-			std::string str_num = matches[1];
-			uint32_t num = stoul(str_num);
+			std::string command = matches[1];
 
-			bool v = client.queryCertificate(num);
-			if(v)
+			if(commandsMap.find(command) != commandsMap.end())
 			{
-				new_sock << str_num << " is valid\n";
-			}
+				std::string response =commandsMap[command](data);
+				new_sock << response;
+			}   
 			else
 			{
-				new_sock << str_num << " is not valid\n";
+				new_sock << "Bad input";
 			}
+	
 		}
 		catch (SocketException &e)
 		{
 			std::cout << "Exception was caught:" << e.description() << std::endl;
 		}  
 	}
+}
+
+/*
+ * Runs the client, no command line inputs
+ */
+int main()
+{
+	commandsMap["show"] = &showCommand;
+	commandsMap["get"] = &getCommand;
+	std::thread clientThread (runClientThread);
+	listenForCommands();
 
 	clientThread.join();
 }
-

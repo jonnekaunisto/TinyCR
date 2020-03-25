@@ -1,6 +1,5 @@
 #include "helpers.h"
 
-
 uint32_t combine_chars_as_uint(std::vector<uint8_t> &data, uint32_t val)
 {
     /*read 4 chars at begin and combine them as uint32_t*/
@@ -25,7 +24,6 @@ uint64_t combine_chars_as_uint(std::vector<uint8_t> &data, uint64_t val)
     ch6 = data[5];
     ch7 = data[6];
     ch8 = data[7];
-    
 
     return ((uint64_t)ch1<<56) + ((uint64_t)ch2<<48) + ((uint64_t)ch3<<40) + ((uint64_t)ch4<<32) 
     + ((uint64_t)ch5<<24) + ((uint64_t)ch6<<16) + ((uint64_t)ch7<<8) + (uint64_t)ch8;

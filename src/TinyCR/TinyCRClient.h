@@ -29,7 +29,8 @@ public:
     {
         this->serverIP = serverIP;
 
-        statistics.addStatistic("client_updating_latency");
+        statistics.addStatistic("full_updating_latency");
+        statistics.addStatistic("delta_updating_latency");
     }
 
     /**
@@ -59,7 +60,7 @@ public:
      */
     double getLatencyStatistic(std::string statistic)
     {
-        statistics.getAverageLatency(statistic);
+        return statistics.getAverageLatency(statistic);
     }
 
 private:
@@ -88,7 +89,6 @@ private:
         {
             std::cout << "Exception was caught while requesting initial summary:" << e.description() << std::endl;
         }
-
     }
 
     void readFullSummary(Socket socket)
@@ -110,11 +110,9 @@ private:
                 break;
             delete[] data;
         }
-        std::cout << "decoding" << std::endl;
         StopWatch stopWatch = StopWatch();
         daasClient.decode_full(msg);
-        statistics.addStatistic("client_updating_latency", stopWatch.stop());
-        std::cout << "decoded" << std::endl;
+        statistics.addLatency("full_updating_latency", stopWatch.stop());
         socket.send("FullDone");
         std::cout << "sent ack" << std::endl;
     }
@@ -159,13 +157,17 @@ private:
                 if(msg[0] == 70)
                 {
                     std::cout << "Doing a full update" << std::endl;
+                    StopWatch stopWatchFull = StopWatch();
                     tinyCRClient->daasClient.decode_full(msg);
+                    tinyCRClient->statistics.addLatency("full_updating_latency", stopWatchFull.stop());
                     new_sock << "FullDone";
                 }
                 else
                 {
-                    std::cout << "Doing a summary Update" << std::endl;
+                    std::cout << "Doing a summary Update: " << sizeof(msg) << std::endl;
+                    StopWatch stopWatchDelta = StopWatch();
                     tinyCRClient->daasClient.decode_summary(msg);
+                    tinyCRClient->statistics.addLatency("delta_updating_latency", stopWatchDelta.stop());
                     new_sock << "SummaryDone";
                 }
                 tinyCRClient->queryLock.unlock();

@@ -48,6 +48,8 @@ public:
         commandsMap["get"] = &statisticsCommand;
 
         statistics.addStatistic("calc_latency");
+        statistics.addStatistic("full_encoding_latency");
+        statistics.addStatistic("delta_encoding_latency");
         statistics.addStatistic("overall_RTT");
     }
 
@@ -263,8 +265,7 @@ private:
         {
             return "Inputs are badly formed";
         }
-        std::string statistic = matches[1];
-        return std::to_string(tinyCRServer->statistics.getAverageLatency(statistic));
+        return std::to_string(tinyCRServer->statistics.getAverageLatency(matches[1]));
     }
     
 
@@ -320,12 +321,16 @@ private:
 
     void sendFullUpdate(Socket socket)
     {
-        StopWatch stopWatch = StopWatch();
+        StopWatch stopWatchFullRTT = StopWatch();
         socket << "F";
 
         int msg_size = 0;
         /*send the CRC packets*/
+        StopWatch stopWatchEncode = StopWatch();
         vector<vector<uint8_t>> v = daasServer.encode();
+        double time = stopWatchEncode.stop();
+        std::cout << "Full encode latency: " << time << std::endl;
+        statistics.addLatency("full_encoding_latency", time);
         for (int i = 0; i < v.size(); i++)
         {
             char *msg;
@@ -347,7 +352,7 @@ private:
         socket >> response;
         std::cout << "received: " << response << std::endl;
 
-        full_ack_latency = stopWatch.stop();
+        full_ack_latency = stopWatchFullRTT.stop();
         full_ack_count++;
 
         if(response.compare("FullDone") != 0){
@@ -398,8 +403,9 @@ private:
         }
 
         std::cout << "Sending Delta Summary..." << std::endl;
-        
+        StopWatch stopWatch = StopWatch();
         vector<uint8_t> v = daasServer.encode_summary(kv, action);
+        statistics.addLatency("delta_encoding_latency", stopWatch.stop());
             
         for (std::string host : connectedDevices)            
         {
@@ -422,6 +428,7 @@ private:
                         delete[] msg;
                     }
                     client_socket << "finish";
+                    std::cout << "Sent: " << sizeof(v) << std::endl;
 
                     client_socket >> reply;
                     auto finish = std::chrono::high_resolution_clock::now();
@@ -448,7 +455,9 @@ private:
 
         try
         {
+            StopWatch stopWatch = StopWatch();
             vector<vector<uint8_t>> v = daasServer.encode();
+            statistics.addLatency("full_encoding_latency", stopWatch.stop());
             for (std::string host : connectedDevices)            
             {
                 ClientSocket client_socket(host, DEVICE_PORT);
