@@ -8,7 +8,7 @@
 #include <iostream>
 #include <vector>
 #include "DASS_Tracker.h"
-#include "../utils/cuckoo.h"
+#include "cuckoo.h"
 
 template<typename K, class V>
 class DASS_Verifier

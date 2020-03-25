@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <iostream>
-#include "hashutil.h"
+#include "../utils/hashutil.h"
 #include <cstdio>
 #include <cstdint>
 #include <cstring>
@@ -756,9 +756,5 @@ public:
     }
 
 };
-
-
-
-
 
 #endif

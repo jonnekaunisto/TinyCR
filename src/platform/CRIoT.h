@@ -64,6 +64,7 @@ public:
 
 	/**
 	 * Encodes the data plane CRC as string arrays.
+	 * @returns The encoded bytes
 	 */
 	vector<vector<uint8_t>> encode()
 	{
@@ -191,10 +192,14 @@ public:
 		return v;
 	}
 
-	/* Encodes the summary for sending
+	/**
+	 * Encodes the summary for sending
 	 * Parts are encoded in this order: the type of action, key, value, 
 	 * flipped_indexes size, flipped indexes.
 	 * type of action can be add(0), remove(1), unrevoke(2), revoke(3)
+	 * @param kv The key value pair that the action is done to.
+	 * @param action The action done.
+	 * @returns The encoded summary of bytes.
 	 */
 	vector<uint8_t> encode_summary(pair<K, V> kv, uint8_t action)
 	{
@@ -453,10 +458,12 @@ public:
 		cout<<"vf finish" << std::endl;
 	}
 
-	/* Decodes the summary
+	/**
+	 * Decodes the summary
 	 * Parts are decoded in this order: the type of action, key, value, 
 	 * flipped_indexes size, flipped indexes.
 	 * type of action can be add(0), remove(1), unrevoke(2), revoke(3)
+     * @param summary The vector of bytes of summary.
 	 */
 	void decode_summary(vector<uint8_t> summary)
 	{

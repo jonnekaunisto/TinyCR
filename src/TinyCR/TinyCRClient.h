@@ -56,7 +56,9 @@ public:
 	}
 
     /**
-     * Get statistic with the name.
+     * Get statistic with the name of the statistic
+     * @param statistic The name of the statistic
+     * @result The value of the statistic
      */
     double getLatencyStatistic(std::string statistic)
     {
@@ -91,6 +93,10 @@ private:
         }
     }
 
+    /**
+     * Reads the full summary from the server.
+     * @param socket The socket connected to the server
+     */
     void readFullSummary(Socket socket)
     {
         vector<uint8_t> msg;

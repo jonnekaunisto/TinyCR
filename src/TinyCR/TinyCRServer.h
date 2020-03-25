@@ -149,6 +149,8 @@ public:
 
     /**
      * Average latnecy of a successful DASS update.
+     * @param statistic The name of the statistic
+     * @return The value of the statistic
      */
     double getLatencyStatistic(std::string statistic)
     {

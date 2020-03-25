@@ -10,7 +10,7 @@
 #include "control_plane_othello.h"
 #include "data_plane_othello.h"
 #include "bloom_filter.h"
-#include "../utils/cuckoo.h"
+#include "cuckoo.h"
 using namespace std;
 
 /*
