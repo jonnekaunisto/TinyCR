@@ -83,6 +83,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a86a2e610a5b34ff29464eecf9b453c30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae17dc1e64b42ce7130573ca3ffb3e6f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_c_r_server.html#ae17dc1e64b42ce7130573ca3ffb3e6f1">revokeCertificate</a> (K k)</td></tr>
 <tr class="separator:ae17dc1e64b42ce7130573ca3ffb3e6f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0d6221d449dfbc50f07b15c4630924e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_c_r_server.html#ab0d6221d449dfbc50f07b15c4630924e">getLatencyStatistic</a> (std::string statistic)</td></tr>
+<tr class="separator:ab0d6221d449dfbc50f07b15c4630924e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa2c7b0df8bd99d9ddb3ff49483e476cc"></a>
@@ -170,6 +172,35 @@ template&lt;typename K , class V &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Status of adding the certificate. </dd></dl>
+
+</div>
+</div>
+<a id="ab0d6221d449dfbc50f07b15c4630924e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0d6221d449dfbc50f07b15c4630924e">&#9670;&nbsp;</a></span>getLatencyStatistic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , class V &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_tiny_c_r_server.html">TinyCRServer</a>&lt; K, V &gt;::getLatencyStatistic </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>statistic</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Average latnecy of a successful DASS update. </p>
 
 </div>
 </div>
@@ -307,7 +338,7 @@ template&lt;typename K , class V &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="_tiny_c_r_server_8h_source.html">TinyCRServer.h</a></li>
+<li>src/TinyCR/<a class="el" href="_tiny_c_r_server_8h_source.html">TinyCRServer.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

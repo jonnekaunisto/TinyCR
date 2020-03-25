@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TinyCR: include/data_plane_othello.h Source File</title>
+<title>TinyCR: src/platform/data_plane_othello.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_4b68c2fef3e151b6b93d5e93b14f1857.html">platform</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -100,8 +100,8 @@ $(function() {
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  vector&lt;uint64_t&gt; mem{};        <span class="comment">// memory space for array A and array B. All elements are stored compactly into consecutive uint64_t</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  uint32_t ma = 0;               <span class="comment">// number of elements of array A</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  uint32_t mb = 0;               <span class="comment">// number of elements of array B</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="class_hasher64.html">Hasher64&lt;K&gt;</a> hab;          <span class="comment">// hash function Ha</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="class_hasher32.html">Hasher32&lt;K&gt;</a> hd;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  Hasher64&lt;K&gt; hab;          <span class="comment">// hash function Ha</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  Hasher32&lt;K&gt; hd;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">inline</span> uint32_t multiply_high_u32(uint32_t x, uint32_t y)<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> (uint32_t) (((uint64_t) x * (uint64_t) y) &gt;&gt; 32);</div>
@@ -290,7 +290,7 @@ $(function() {
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    fullSync(cpOthello);</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  }</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <a class="code" href="class_data_plane_othello.html">DataPlaneOthello</a>(vector&lt;uint64_t&gt; &amp; _mem, uint32_t _ma, uint32_t _mb, <a class="code" href="class_hasher64.html">Hasher64&lt;K&gt;</a> _hab, <a class="code" href="class_hasher32.html">Hasher32&lt;K&gt;</a> _hd)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <a class="code" href="class_data_plane_othello.html">DataPlaneOthello</a>(vector&lt;uint64_t&gt; &amp; _mem, uint32_t _ma, uint32_t _mb, Hasher64&lt;K&gt; _hab, Hasher32&lt;K&gt; _hd)</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  {</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    this-&gt;ma = _ma;</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    this-&gt;mb = _mb;</div>
@@ -328,8 +328,6 @@ $(function() {
 <div class="line"><a name="l00281"></a><span class="lineno"><a class="line" href="class_othello_with_filter.html">  281</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_othello_with_filter.html">OthelloWithFilter</a> : <span class="keyword">public</span> <a class="code" href="class_data_plane_othello.html">DataPlaneOthello</a>&lt;K, V, L, DL&gt; {</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_hasher32_html"><div class="ttname"><a href="class_hasher32.html">Hasher32</a></div><div class="ttdoc">A hash function that hashes keyType to uint32_t. When SSE4.2 support is found, use sse4....</div><div class="ttdef"><b>Definition:</b> hash.h:17</div></div>
-<div class="ttc" id="aclass_hasher64_html"><div class="ttname"><a href="class_hasher64.html">Hasher64</a></div><div class="ttdoc">A hash function that hashes keyType to uint32_t. When SSE4.2 support is found, use sse4....</div><div class="ttdef"><b>Definition:</b> hash.h:71</div></div>
 <div class="ttc" id="aclass_control_plane_othello_html"><div class="ttname"><a href="class_control_plane_othello.html">ControlPlaneOthello</a></div><div class="ttdef"><b>Definition:</b> control_plane_othello.h:40</div></div>
 <div class="ttc" id="aclass_othello_with_filter_html"><div class="ttname"><a href="class_othello_with_filter.html">OthelloWithFilter</a></div><div class="ttdef"><b>Definition:</b> data_plane_othello.h:281</div></div>
 <div class="ttc" id="aclass_data_plane_othello_html"><div class="ttname"><a href="class_data_plane_othello.html">DataPlaneOthello</a></div><div class="ttdef"><b>Definition:</b> control_plane_othello.h:8</div></div>

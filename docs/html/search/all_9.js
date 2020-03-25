@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['json_195',['json',['../namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474',1,'nlohmann']]],
-  ['json_5fpointer_196',['json_pointer',['../classnlohmann_1_1json__pointer.html',1,'nlohmann::json_pointer&lt; BasicJsonType &gt;'],['../classnlohmann_1_1basic__json.html#a352187a5ebf3cde865be1b833c18f208',1,'nlohmann::basic_json::json_pointer()'],['../classnlohmann_1_1json__pointer.html#a7f32d7c62841f0c4a6784cf741a6e4f8',1,'nlohmann::json_pointer::json_pointer()']]],
-  ['json_5fref_197',['json_ref',['../classnlohmann_1_1detail_1_1json__ref.html',1,'nlohmann::detail']]],
-  ['json_5freverse_5fiterator_198',['json_reverse_iterator',['../classnlohmann_1_1detail_1_1json__reverse__iterator.html',1,'nlohmann::detail::json_reverse_iterator&lt; Base &gt;'],['../classnlohmann_1_1detail_1_1json__reverse__iterator.html#a0246de16ece16293f2917dfa5d96e278',1,'nlohmann::detail::json_reverse_iterator::json_reverse_iterator(const typename base_iterator::iterator_type &amp;it) noexcept'],['../classnlohmann_1_1detail_1_1json__reverse__iterator.html#a6c2d025530114ed989188e8adfc8467e',1,'nlohmann::detail::json_reverse_iterator::json_reverse_iterator(const base_iterator &amp;it) noexcept']]]
+  ['max_5frehash_34',['MAX_REHASH',['../class_control_plane_othello.html#abe719ca231778366d03f91e27b440b35',1,'ControlPlaneOthello::MAX_REHASH()'],['../class_data_plane_othello.html#a06dc7a8794c820a49f316e994e85da5b',1,'DataPlaneOthello::MAX_REHASH()']]],
+  ['memget_35',['memGet',['../class_control_plane_othello.html#a492f6423114cf3eac94c9e7c58c1f6f5',1,'ControlPlaneOthello::memGet()'],['../class_data_plane_othello.html#af325036f380c5eb1f9c6b8cf2ced7458',1,'DataPlaneOthello::memGet()']]],
+  ['memresize_36',['memResize',['../class_control_plane_othello.html#adec591e48d4d2bae9408fb5f11736320',1,'ControlPlaneOthello']]],
+  ['memset_37',['memSet',['../class_control_plane_othello.html#aea9bf4ab36c087072d6546db2d796a5a',1,'ControlPlaneOthello::memSet()'],['../class_data_plane_othello.html#ad30c8a8350f78d9bc742662c490e03fd',1,'DataPlaneOthello::memSet()']]]
 ];

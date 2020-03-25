@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['connectivityforest_679',['connectivityForest',['../class_control_plane_othello.html#a06c998e7d42fe07d0f9747b2b78acfc9',1,'ControlPlaneOthello']]],
-  ['currentlevel_680',['currentLevel',['../class_clocker.html#a2e9714b8641919e8e7ebf18099e311cd',1,'Clocker']]]
+  ['max_5frehash_120',['MAX_REHASH',['../class_control_plane_othello.html#abe719ca231778366d03f91e27b440b35',1,'ControlPlaneOthello::MAX_REHASH()'],['../class_data_plane_othello.html#a06dc7a8794c820a49f316e994e85da5b',1,'DataPlaneOthello::MAX_REHASH()']]]
 ];

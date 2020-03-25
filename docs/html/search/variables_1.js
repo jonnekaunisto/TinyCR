@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['byte_678',['byte',['../classnlohmann_1_1detail_1_1parse__error.html#a9505aaa1ca943be927eec7cc579592ff',1,'nlohmann::detail::parse_error']]]
+  ['head_119',['head',['../class_control_plane_othello.html#aac66f2ed68a4352423a2d73f320a6c39',1,'ControlPlaneOthello']]]
 ];

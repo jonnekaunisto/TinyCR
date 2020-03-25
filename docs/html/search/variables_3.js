@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['head_681',['head',['../class_control_plane_othello.html#aac66f2ed68a4352423a2d73f320a6c39',1,'ControlPlaneOthello']]]
+  ['nextata_121',['nextAtA',['../class_control_plane_othello.html#afe56fd8c4cfa26e24394dbf4e4d040c6',1,'ControlPlaneOthello']]]
 ];
