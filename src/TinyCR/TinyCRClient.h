@@ -48,12 +48,12 @@ public:
      * @returns bool indicating if the key is revoked or unrevoked
      */
     bool queryCertificate(const K &key)
-	{
+    {
         queryLock.lock();
         bool result = daasClient.query(key) == 1;
         queryLock.unlock();
-		return result;
-	}
+        return result;
+    }
 
     /**
      * Get statistic with the name of the statistic
