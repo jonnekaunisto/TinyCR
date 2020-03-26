@@ -96,19 +96,10 @@ public:
      */
     bool removeCertificate(K k)
     {
-        pair<K, V> kv(k, 0);
-        K& kref = k;
         StopWatch stopWatch = StopWatch();
-        bool status = daasServer.erase(kref);
+        daasServer.erase(k);
         statistics.addLatency("calc_latency", stopWatch.stop());
-        if (status) 
-        {
-            return sendSummaryUpdate(kv, uint8_t(1));
-        }
-        else
-        {
-            return sendFullUpdates();
-        } 
+        return sendSummaryUpdate(pair<K, V>(k, 0), uint8_t(1));
     }
 
     /**
@@ -119,9 +110,8 @@ public:
     bool unrevokeCertificate(K k)
     {
         pair<K, V> kv(k, 1);
-        pair<K, V>& kvref = kv;
         StopWatch stopWatch = StopWatch();
-        bool status = daasServer.setValue(kvref);
+        bool status = daasServer.setValue(kv);
         statistics.addLatency("calc_latency", stopWatch.stop());
         if (status) 
         {
@@ -142,7 +132,7 @@ public:
     {
         pair<K, V> kv(k, 0);
         StopWatch stopWatch = StopWatch();
-        daasServer.setValue(std::ref(kv));
+        daasServer.setValue(kv);
         statistics.addLatency("calc_latency", stopWatch.stop());
         return sendSummaryUpdate(kv, uint8_t(3));
     }
@@ -212,8 +202,18 @@ private:
     static std::string removeCommand(std::string data, TinyCRServer *tinyCRServer)
     {
         //TODO fix
-        //tinyCRServer->removeCertificate(tinyCRServer->parseCommandNum(data));
-        return"Not implemented";
+        std::regex rgx("([a-z]{3}) ([0-9]+)");
+        std::smatch matches;
+        if(!std::regex_search(data, matches, rgx)) 
+        {
+            return "Inputs are badly formed";        
+        }
+        StopWatch stopWatch = StopWatch();
+        tinyCRServer->removeCertificate(static_cast<K>(std::stoul(matches[2])));
+        tinyCRServer->statistics.addLatency("overall_RTT", stopWatch.stop());
+        std::string time = std::to_string(tinyCRServer->lastRTT.count());
+        std::string response = "Unr Duration: " + time;
+        return response;
     }
 
     static std::string unrevokeCommand(std::string data, TinyCRServer *tinyCRServer)
@@ -329,7 +329,7 @@ private:
         int msg_size = 0;
         /*send the CRC packets*/
         StopWatch stopWatchEncode = StopWatch();
-        vector<vector<uint8_t>> v = daasServer.encode();
+        vector<vector<uint8_t>> v = daasServer.encode_full();
         double time = stopWatchEncode.stop();
         std::cout << "Full encode latency: " << time << std::endl;
         statistics.addLatency("full_encoding_latency", time);
@@ -458,7 +458,7 @@ private:
         try
         {
             StopWatch stopWatch = StopWatch();
-            vector<vector<uint8_t>> v = daasServer.encode();
+            vector<vector<uint8_t>> v = daasServer.encode_full();
             statistics.addLatency("full_encoding_latency", stopWatch.stop());
             for (std::string host : connectedDevices)            
             {

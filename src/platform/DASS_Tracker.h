@@ -13,42 +13,23 @@
 #include "cuckoo.h"
 using namespace std;
 
-/*
-	Binary classifier:
-	Assume n_positive_keys <= n_negative_keys
-*/
-template<typename K, class V>
-class Binary_Control_Plane
-{
-public:
-	uint32_t n_positive_keys;
-	uint32_t n_negative_keys;
-	float key_ratio;
-
-	Binary_Control_Plane(){}
-
-	Binary_Control_Plane(uint32_t n_pos, uint32_t n_neg)
-	{
-		n_positive_keys = n_pos;
-		n_negative_keys = n_neg;
-		key_ratio = n_positive_keys/(float)n_negative_keys;
-	}
-
-	virtual bool batch_insert(const vector<K> &positive_keys, const vector<K> &negative_keys) = 0;
-};
 
 /*
 	CuckooFilter Othello:
 	CuckooFilter + Othello
 */
 template<typename K, class V>
-class DASS_Tracker: public Binary_Control_Plane<K, V>
+class DASS_Tracker
 {
 public:
 	ControlPlaneOthello<K, V, 1, 0> othello;
 	VacuumFilter<K> vf;
 	unordered_set<K> PK; /*positive key set*/
 	unordered_set<K> NK; /*negative key set*/
+
+	uint32_t n_positive_keys;
+	uint32_t n_negative_keys;
+	float key_ratio;
 	
 	vector<K> *TNK_table; /*table of true negative keys stored at their corresponding cuckoo position*/
 	vector<K> *FPK_table; /*table of flase positive keys stored at their corresponding cuckoo position*/
@@ -58,7 +39,7 @@ public:
 
 	DASS_Tracker(){}
 
-	DASS_Tracker(uint32_t n_pos, uint32_t n_neg, float lf = 0.95, float othello_ratio = 1):Binary_Control_Plane<K, V>(n_pos, n_neg)
+	DASS_Tracker(uint32_t n_pos, uint32_t n_neg, float lf = 0.95, float othello_ratio = 1)
 	{
 		this->load_factor = lf;
 		this->o_ratio = othello_ratio;
@@ -590,7 +571,8 @@ public:
 		else
 		{
 			NK.erase(k);
-			if(vf.query(k) == 1)
+			//used to have vf.query(k) == 1
+			if(vf.lookup(k) == 1)
 			{
 				pair<int, int> pos_pair = vf.position_pair(k);
 				int pos1 = pos_pair.first;

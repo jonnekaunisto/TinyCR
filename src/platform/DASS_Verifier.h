@@ -37,7 +37,7 @@ public:
 		this->othello = DataPlaneOthello<K, V, 1, 0>(vo_data.othello);
 	}
 
-	V query(const K &key)
+	V query(const K key)
 	{
 		bool vf_query;
 		if(vf.lookup(key))
@@ -113,7 +113,7 @@ public:
 				if (vf.insert(kv.first) == 1)
 				{
 					// cout<<"aaa "<<vf.get_load_factor()<<endl;
-					cout<<"aaa data vf is too full to insert!"<<endl;
+					cout<<"data vf is too full to insert!"<<endl;
 					exit (EXIT_FAILURE);
 				}
 

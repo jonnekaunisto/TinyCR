@@ -6,115 +6,13 @@
 #include <vector>
 #include <iostream>
 #include "../utils/hashutil.h"
+#include "../utils/helpers.h"
 #include <cstdio>
 #include <cstdint>
 #include <cstring>
 #include <algorithm>
 #include <random>
 using namespace std;
-
-#define memcle(a) memset(a, 0, sizeof(a))
-#define sqr(a) ((a) * (a))
-#define debug(a) cerr << #a << " = " << a << ' '
-#define deln(a) cerr << #a << " = " << a << endl
-#define MIN(a, b) ((a) < (b) ? (a) : (b))
-#define MAX(a, b) ((a) > (b) ? (a) : (b))
-#define ROUNDDOWN(a, b) ((a) - ((a) % (b)))
-#define ROUNDUP(a, b) ROUNDDOWN((a) + (b - 1), b)
-
-const int long_seg = 262144;
-
-
-inline unsigned long lower_power_of_two(unsigned long x)
-{
-    x = x | (x >> 1);
-    x = x | (x >> 2);
-    x = x | (x >> 4);
-    x = x | (x >> 8);
-    x = x | (x >> 16);
-    return x - (x >> 1);
-}
-
-inline int find_highest_bit(int v)
-{
-// tricks of bit 
-// from http://graphics.stanford.edu/~seander/bithacks.html
-    static const int MultiplyDeBruijnBitPosition[32] = 
-    {
-      0, 9, 1, 10, 13, 21, 2, 29, 11, 14, 16, 18, 22, 25, 3, 30,
-      8, 12, 20, 28, 15, 17, 24, 7, 19, 27, 23, 6, 26, 5, 4, 31
-    };
-
-    v |= v >> 1; // first round down to one less than a power of 2 
-    v |= v >> 2;
-    v |= v >> 4;
-    v |= v >> 8;
-    v |= v >> 16;
-
-    int r = MultiplyDeBruijnBitPosition[(uint32_t)(v * 0x07C4ACDDU) >> 27];
-    return r;
-}
-
-
-inline int upperpower2(int x)
-{
-    int ret = 1;
-    for (; ret * 2 < x; ) ret <<= 1;
-    return ret;
-}
-
-// solve equation : 1 + x(logc - logx + 1) - c = 0
-inline double F_d(double x, double c)
-{
-  return log(c) - log(x);
-}
-
-inline double F(double x, double c)
-{
-  return 1 + x * (log(c) - log(x) + 1) - c;
-}
-
-inline double solve_equation(double c) 
-{
-  double x = c + 0.1;
-  while (abs(F(x, c)) > 0.01)
-    x -= F(x, c) / F_d(x, c);
-  return x;
-}
-
-inline double balls_in_bins_max_load(double balls, double bins)
-{
-    double m = balls;
-    double n = bins;
-    double c = m / (n * log(n));
-
-    if (c < 5)
-    {
-      printf("c = %.5f\n", c);
-      double dc = solve_equation(c);
-      double ret = (dc - 1 + 2) * log(n);
-      return ret;
-    }
-
-    double ret = (m / n) + 1.5 * sqrt(2 * m / n * log(n));
-    return ret;
-}
-
-inline int proper_alt_range(int M, int i, int *len)
-{
-    double b = 4; // slots per bucket
-    double lf = 0.95; // target load factor
-    int alt_range = 8;
-    for (; alt_range < M;)
-    {
-        double f = (4 - i) * 0.25;
-      if (balls_in_bins_max_load(f * b * lf * M, M * 1.0 / alt_range) < 0.97 * b * alt_range)
-        return alt_range;
-      alt_range <<= 1;
-    }
-    return -1;
-}
-
 
 template <typename fp_t>
 class Filter

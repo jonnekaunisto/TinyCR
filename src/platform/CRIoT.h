@@ -66,7 +66,7 @@ public:
 	 * Encodes the data plane CRC as string arrays.
 	 * @returns The encoded bytes
 	 */
-	vector<vector<uint8_t>> encode()
+	vector<vector<uint8_t>> encode_full()
 	{
 		DASS_Verifier<K, V> &d_crc = vo_data;
 		vector<vector<uint8_t>> v;
@@ -213,10 +213,8 @@ public:
 		std::cout << "k: " << k << std::endl;
 		vector<uint8_t> k_split;
 		split_uint_t(k, k_split);
-		std::cout << "split keys: " << std::endl;
 		for(uint8_t val : k_split)
 		{
-			std::cout << unsigned(val) + "h ";
 			encoded.push_back(val);
 		}
 		std::cout << std::endl;
@@ -279,7 +277,7 @@ public:
 	 * @param kv The key value pair to be flipped.
 	 * @returns bool Indicating if the flip succeded without rebuild.
 	 */
-	bool setValue(pair<K, V> &kv)
+	bool setValue(pair<K, V> kv)
 	{
 		flipped_indexes = vo_control.setValue(kv);
 		if(flipped_indexes.size() == 1 && flipped_indexes[0] == 0xffffffff)
@@ -304,7 +302,7 @@ public:
 	 * TODO: IMPLEMENT
 	 * @param k The key to be erased.
 	 */
-	void erase(K &k)
+	void erase(K k)
 	{
 		vo_control.erase(k);
 	}
@@ -332,7 +330,7 @@ public:
 	 * @param key Key to be queried.
 	 * @returns The value associated with the key.
 	 */
-	V query(const K &key)
+	V query(const K key)
 	{
 		return vo_data.query(key);
 	}
@@ -471,17 +469,11 @@ public:
 		std::cout << "action: " << action << std::endl;
 		int offset = 1;
 		
-
 		int K_size = sizeof(K);
 		auto k_chars = vector<uint8_t>();
-		std::cout << "split key: ";
 		for(int i = 0; i < K_size; i++){
-			std::cout << unsigned(summary[i + offset]) << " ";
 			k_chars.push_back(summary[i + offset]);
 		}
-		std::cout << std::endl;
-		std::cout << "key size: " << K_size << std::endl;
-		std::cout << "uint32 size: " << sizeof(uint32_t) << std::endl;
 		K k;
 		k = combine_chars_as_uint(k_chars, k);
 		std::cout << "k: " << k << std::endl;
