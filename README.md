@@ -46,7 +46,7 @@ To communicate with the client.
 ```
 
 
-## Server Interface
+## Server Socket Interface
 
 | Command Name | Description                                                                                                           | Arg 1                    | Arg 2                 |
 |--------------|-----------------------------------------------------------------------------------------------------------------------|--------------------------|-----------------------|
@@ -56,7 +56,7 @@ To communicate with the client.
 | rev          | Revoke a key. Meaning flipping value from 1 to 0.                                                                     | Key to be revoked.       | N/A                   |
 | exi          | Exits the server safely.                                                                                              | N/A                      | N/A                   |
 
-## Client Interface
+## Client Socket Interface
 | Command Name | Description                                   | Arg 1           |
 |--------------|-----------------------------------------------|-----------------|
 | show         | Queries the value in associated with the key. | The key number. |
