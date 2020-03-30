@@ -81,6 +81,9 @@ public:
         free(T); 
     }
 
+    /**
+     * Constructor for SemiSortCuckooFilter
+     */
     void init_with_params(uint64_t _mc, default_random_engine &_e, long long _n, int _m, int _filled_cell, int _max_kick_steps,
     int _max_2_power, int _big_seg, bool _isSmall, int *_len, int _fp_len, int _T_len, uint32_t *_T)
     {
@@ -198,6 +201,9 @@ public:
         e.seed(1);
     }
 
+    /**
+     * Clears the structure
+     */
     virtual void clear()
     {
         this -> filled_cell = 0;
@@ -205,6 +211,9 @@ public:
         memset(this -> T, 0, this -> memory_consumption);
     }
 
+    /**
+     * Gets the fingerprint
+     */
     fp_t fingerprint(uint64_t ele)
     {
         if(fp_len == 0)
@@ -217,6 +226,9 @@ public:
         return h;
     }
 
+    /**
+     * Gets the bucket
+     */
     void get_bucket(int pos, fp_t *store)
     {
         // Default : 

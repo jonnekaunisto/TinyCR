@@ -18,6 +18,9 @@ target_link_libraries(client socketLibrary utilsLibrary)
 add_executable(mockCA mockCA.cpp) 
 target_link_libraries(mockCA socketLibrary)
 
+add_executable(platform_test platform_test.cpp)
+target_link_libraries(platform_test socketLibrary utilsLibrary)
+
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 11)

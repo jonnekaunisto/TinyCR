@@ -37,11 +37,11 @@ std::string showCommand(std::string data)
 	std::string response = matches[1];
 	if(v)
 	{
-		response += " is valid\n";
+		response += " is revoked\n";
 	}
 	else
 	{
-		response +=  " is not valid\n";
+		response +=  " is unrevoked\n";
 	}
 	return response;
 }

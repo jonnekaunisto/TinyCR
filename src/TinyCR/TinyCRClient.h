@@ -50,7 +50,7 @@ public:
     bool queryCertificate(const K &key)
     {
         queryLock.lock();
-        bool result = daasClient.query(key) == 1;
+        bool result = dassVerifier.query(key) == 1;
         queryLock.unlock();
         return result;
     }
@@ -66,7 +66,7 @@ public:
     }
 
 private:
-    CRIoT_Data_VO<K, V> daasClient;
+    CRIoT_Data_VO<K, V> dassVerifier;
 
     std::string serverIP;
     std::thread summaryUpdatesThread;
@@ -117,7 +117,7 @@ private:
             delete[] data;
         }
         StopWatch stopWatch = StopWatch();
-        daasClient.decode_full(msg);
+        dassVerifier.decode_full(msg);
         statistics.addLatency("full_updating_latency", stopWatch.stop());
         socket.send("FullDone");
         std::cout << "sent ack" << std::endl;
@@ -164,7 +164,7 @@ private:
                 {
                     std::cout << "Doing a full update" << std::endl;
                     StopWatch stopWatchFull = StopWatch();
-                    tinyCRClient->daasClient.decode_full(msg);
+                    tinyCRClient->dassVerifier.decode_full(msg);
                     tinyCRClient->statistics.addLatency("full_updating_latency", stopWatchFull.stop());
                     new_sock << "FullDone";
                 }
@@ -172,7 +172,7 @@ private:
                 {
                     std::cout << "Doing a summary Update: " << sizeof(msg) << std::endl;
                     StopWatch stopWatchDelta = StopWatch();
-                    tinyCRClient->daasClient.decode_summary(msg);
+                    tinyCRClient->dassVerifier.decode_summary(msg);
                     tinyCRClient->statistics.addLatency("delta_updating_latency", stopWatchDelta.stop());
                     new_sock << "SummaryDone";
                 }

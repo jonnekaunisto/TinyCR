@@ -37,7 +37,7 @@ public:
         this->port = port;
         this->positive_keys = positive_keys;
         this->negative_keys = negative_keys;
-        daasServer.init(positive_keys, negative_keys);
+        dassTracker.init(positive_keys, negative_keys);
 
         commandsMap["add"] = &addCommand;
         commandsMap["rem"] = &removeCommand;
@@ -76,7 +76,7 @@ public:
     bool addCertificate(pair<K,V> kv)
     {
         StopWatch stopWatch = StopWatch();
-        bool status = daasServer.insert(kv);
+        bool status = dassTracker.insert(kv);
         statistics.addLatency("calc_latency", stopWatch.stop());
         if (status)
         {
@@ -97,7 +97,7 @@ public:
     bool removeCertificate(K k)
     {
         StopWatch stopWatch = StopWatch();
-        daasServer.erase(k);
+        dassTracker.erase(k);
         statistics.addLatency("calc_latency", stopWatch.stop());
         return sendSummaryUpdate(pair<K, V>(k, 0), uint8_t(1));
     }
@@ -111,7 +111,7 @@ public:
     {
         pair<K, V> kv(k, 1);
         StopWatch stopWatch = StopWatch();
-        bool status = daasServer.setValue(kv);
+        bool status = dassTracker.setValue(kv);
         statistics.addLatency("calc_latency", stopWatch.stop());
         if (status) 
         {
@@ -132,7 +132,7 @@ public:
     {
         pair<K, V> kv(k, 0);
         StopWatch stopWatch = StopWatch();
-        daasServer.setValue(kv);
+        dassTracker.setValue(kv);
         statistics.addLatency("calc_latency", stopWatch.stop());
         return sendSummaryUpdate(kv, uint8_t(3));
     }
@@ -156,7 +156,7 @@ private:
     std::list<std::string> connectedDevices; //doubly linked list of connected  devices
     vector<K> positive_keys;
     vector<K> negative_keys;
-    CRIoT_Control_VO<K, V> daasServer;
+    CRIoT_Control_VO<K, V> dassTracker;
     std::thread summaryUpdatesThread;
     std::thread connectionListenerThread;
     std::mutex updateLock;
@@ -329,7 +329,7 @@ private:
         int msg_size = 0;
         /*send the CRC packets*/
         StopWatch stopWatchEncode = StopWatch();
-        vector<vector<uint8_t>> v = daasServer.encode_full();
+        vector<vector<uint8_t>> v = dassTracker.encode_full();
         double time = stopWatchEncode.stop();
         std::cout << "Full encode latency: " << time << std::endl;
         statistics.addLatency("full_encoding_latency", time);
@@ -406,7 +406,7 @@ private:
 
         std::cout << "Sending Delta Summary..." << std::endl;
         StopWatch stopWatch = StopWatch();
-        vector<uint8_t> v = daasServer.encode_summary(kv, action);
+        vector<uint8_t> v = dassTracker.encode_summary(kv, action);
         statistics.addLatency("delta_encoding_latency", stopWatch.stop());
             
         for (std::string host : connectedDevices)            
@@ -458,7 +458,7 @@ private:
         try
         {
             StopWatch stopWatch = StopWatch();
-            vector<vector<uint8_t>> v = daasServer.encode_full();
+            vector<vector<uint8_t>> v = dassTracker.encode_full();
             statistics.addLatency("full_encoding_latency", stopWatch.stop());
             for (std::string host : connectedDevices)            
             {
