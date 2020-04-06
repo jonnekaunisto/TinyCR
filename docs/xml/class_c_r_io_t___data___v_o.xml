@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="class_c_r_io_t___data___v_o" kind="class" language="C++" prot="public">
+    <compoundname>CRIoT_Data_VO</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename K</type>
+      </param>
+      <param>
+        <type>class V</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_c_r_io_t___data___v_o_1a7929d974f1cf6c1f34965a8b241c68a1" prot="public" static="no" mutable="no">
+        <type><ref refid="class_d_a_s_s___verifier" kindref="compound">DASS_Verifier</ref>&lt; K, V &gt;</type>
+        <definition>DASS_Verifier&lt;K, V&gt; CRIoT_Data_VO&lt; K, V &gt;::vo_data</definition>
+        <argsstring></argsstring>
+        <name>vo_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="344" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_c_r_io_t___data___v_o_1a7e0fe039f28a120d0d1c8e1d2eb83ae9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CRIoT_Data_VO&lt; K, V &gt;::CRIoT_Data_VO</definition>
+        <argsstring>()</argsstring>
+        <name>CRIoT_Data_VO</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="345" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="345" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_r_io_t___data___v_o_1a5832feb1f2663e6ba89a822fdba3f8dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CRIoT_Data_VO&lt; K, V &gt;::CRIoT_Data_VO</definition>
+        <argsstring>(DASS_Verifier&lt; K, V &gt; &amp;install_patch)</argsstring>
+        <name>CRIoT_Data_VO</name>
+        <param>
+          <type><ref refid="class_d_a_s_s___verifier" kindref="compound">DASS_Verifier</ref>&lt; K, V &gt; &amp;</type>
+          <declname>install_patch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="347" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="347" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_r_io_t___data___v_o_1aabfaccdf5d322191630dd450c1971951" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CRIoT_Data_VO&lt; K, V &gt;::rebuild</definition>
+        <argsstring>(DASS_Verifier&lt; K, V &gt; &amp;rebuild_patch)</argsstring>
+        <name>rebuild</name>
+        <param>
+          <type><ref refid="class_d_a_s_s___verifier" kindref="compound">DASS_Verifier</ref>&lt; K, V &gt; &amp;</type>
+          <declname>rebuild_patch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="352" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="352" bodyend="355"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_r_io_t___data___v_o_1a8c25289184a20529e49870e7c8bb34c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>V</type>
+        <definition>V CRIoT_Data_VO&lt; K, V &gt;::query</definition>
+        <argsstring>(const K key)</argsstring>
+        <name>query</name>
+        <param>
+          <type>const K</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Queries a key from the structure. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key to be queried. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The value associated with the key. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="362" column="7" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="362" bodyend="365"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_r_io_t___data___v_o_1ae7cf87dbe2abda5c0a74b1a51f4234e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CRIoT_Data_VO&lt; K, V &gt;::decode_full</definition>
+        <argsstring>(vector&lt; uint8_t &gt; &amp;s)</argsstring>
+        <name>decode_full</name>
+        <param>
+          <type>vector&lt; uint8_t &gt; &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Decodes the full update received. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data received from the server </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="371" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="371" bodyend="486"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_r_io_t___data___v_o_1ad2fa18539411ac9f6f78e9177d27d2f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CRIoT_Data_VO&lt; K, V &gt;::decode_summary</definition>
+        <argsstring>(vector&lt; uint8_t &gt; summary)</argsstring>
+        <name>decode_summary</name>
+        <param>
+          <type>vector&lt; uint8_t &gt;</type>
+          <declname>summary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Decodes the summary Parts are decoded in this order: the type of action, key, value, flipped_indexes size, flipped indexes. type of action can be add(0), remove(1), unrevoke(2), revoke(3) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>summary</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The vector of bytes of summary. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="495" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="495" bodyend="572"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_r_io_t___data___v_o_1aca7d21140b0a13891312ae098e5e33ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CRIoT_Data_VO&lt; K, V &gt;::insert</definition>
+        <argsstring>(pair&lt; K, V &gt; kv, vector&lt; uint32_t &gt; &amp;flipped_indexes)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>pair&lt; K, V &gt;</type>
+          <declname>kv</declname>
+        </param>
+        <param>
+          <type>vector&lt; uint32_t &gt; &amp;</type>
+          <declname>flipped_indexes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts a key with a value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key value pair to be inserted. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flipped_indexes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The vector of flipped indexes received. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="579" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="579" bodyend="582"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_r_io_t___data___v_o_1ace63445a03bd8ef75388b94fdd593185" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CRIoT_Data_VO&lt; K, V &gt;::setValue</definition>
+        <argsstring>(pair&lt; K, V &gt; &amp;kv, vector&lt; uint32_t &gt; &amp;flipped_indexes)</argsstring>
+        <name>setValue</name>
+        <param>
+          <type>pair&lt; K, V &gt; &amp;</type>
+          <declname>kv</declname>
+        </param>
+        <param>
+          <type>vector&lt; uint32_t &gt; &amp;</type>
+          <declname>flipped_indexes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets a value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key . </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flipped_indexes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The vector of flipped indexes received. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="589" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="589" bodyend="592"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="342" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="341" bodyend="593"/>
+    <listofallmembers>
+      <member refid="class_c_r_io_t___data___v_o_1a7e0fe039f28a120d0d1c8e1d2eb83ae9" prot="public" virt="non-virtual"><scope>CRIoT_Data_VO</scope><name>CRIoT_Data_VO</name></member>
+      <member refid="class_c_r_io_t___data___v_o_1a5832feb1f2663e6ba89a822fdba3f8dc" prot="public" virt="non-virtual"><scope>CRIoT_Data_VO</scope><name>CRIoT_Data_VO</name></member>
+      <member refid="class_c_r_io_t___data___v_o_1ae7cf87dbe2abda5c0a74b1a51f4234e7" prot="public" virt="non-virtual"><scope>CRIoT_Data_VO</scope><name>decode_full</name></member>
+      <member refid="class_c_r_io_t___data___v_o_1ad2fa18539411ac9f6f78e9177d27d2f0" prot="public" virt="non-virtual"><scope>CRIoT_Data_VO</scope><name>decode_summary</name></member>
+      <member refid="class_c_r_io_t___data___v_o_1aca7d21140b0a13891312ae098e5e33ba" prot="public" virt="non-virtual"><scope>CRIoT_Data_VO</scope><name>insert</name></member>
+      <member refid="class_c_r_io_t___data___v_o_1a8c25289184a20529e49870e7c8bb34c1" prot="public" virt="non-virtual"><scope>CRIoT_Data_VO</scope><name>query</name></member>
+      <member refid="class_c_r_io_t___data___v_o_1aabfaccdf5d322191630dd450c1971951" prot="public" virt="non-virtual"><scope>CRIoT_Data_VO</scope><name>rebuild</name></member>
+      <member refid="class_c_r_io_t___data___v_o_1ace63445a03bd8ef75388b94fdd593185" prot="public" virt="non-virtual"><scope>CRIoT_Data_VO</scope><name>setValue</name></member>
+      <member refid="class_c_r_io_t___data___v_o_1a7929d974f1cf6c1f34965a8b241c68a1" prot="public" virt="non-virtual"><scope>CRIoT_Data_VO</scope><name>vo_data</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

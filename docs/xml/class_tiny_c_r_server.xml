@@ -1,0 +1,785 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="class_tiny_c_r_server" kind="class" language="C++" prot="public">
+    <compoundname>TinyCRServer</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename K</type>
+      </param>
+      <param>
+        <type>class V</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="class_tiny_c_r_server_1ae74dad75e013c58b8107e43f3d52bb4a" prot="private" static="no">
+        <type>std::string(*</type>
+        <definition>typedef std::string(* TinyCRServer&lt; K, V &gt;::CommandFunction) (std::string data, TinyCRServer&lt; K, V &gt; *tinyCRServer)</definition>
+        <argsstring>)(std::string data, TinyCRServer&lt; K, V &gt; *tinyCRServer)</argsstring>
+        <name>CommandFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="151" column="13" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_tiny_c_r_server_1a12c1774d6def1ac5cd34222743b6f8c6" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int TinyCRServer&lt; K, V &gt;::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="153" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1a3b8a0544a25b48b574a12de35e489947" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool TinyCRServer&lt; K, V &gt;::running</definition>
+        <argsstring></argsstring>
+        <name>running</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="154" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1a81e597efc9d881a71a2751431ab5b8e4" prot="private" static="no" mutable="no">
+        <type>std::chrono::duration&lt; double &gt;</type>
+        <definition>std::chrono::duration&lt;double&gt; TinyCRServer&lt; K, V &gt;::lastRTT</definition>
+        <argsstring></argsstring>
+        <name>lastRTT</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="155" column="27" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1a4fa2a87a49ed64ac0054fcd405f4c91b" prot="private" static="no" mutable="no">
+        <type>std::list&lt; std::string &gt;</type>
+        <definition>std::list&lt;std::string&gt; TinyCRServer&lt; K, V &gt;::connectedDevices</definition>
+        <argsstring></argsstring>
+        <name>connectedDevices</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="156" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1a5b6dae70e4ffa94485246c4b5d67597f" prot="private" static="no" mutable="no">
+        <type>vector&lt; K &gt;</type>
+        <definition>vector&lt;K&gt; TinyCRServer&lt; K, V &gt;::positive_keys</definition>
+        <argsstring></argsstring>
+        <name>positive_keys</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="157" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1a05327f9415d36d3ac1cc80b53502551f" prot="private" static="no" mutable="no">
+        <type>vector&lt; K &gt;</type>
+        <definition>vector&lt;K&gt; TinyCRServer&lt; K, V &gt;::negative_keys</definition>
+        <argsstring></argsstring>
+        <name>negative_keys</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="158" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1afe17dd44e32279f16a142da45fdadbc5" prot="private" static="no" mutable="no">
+        <type><ref refid="class_c_r_io_t___control___v_o" kindref="compound">CRIoT_Control_VO</ref>&lt; K, V &gt;</type>
+        <definition>CRIoT_Control_VO&lt;K, V&gt; TinyCRServer&lt; K, V &gt;::dassTracker</definition>
+        <argsstring></argsstring>
+        <name>dassTracker</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="159" column="22" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1acbcc408bb5ab214d61c085e2689c57c9" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread TinyCRServer&lt; K, V &gt;::summaryUpdatesThread</definition>
+        <argsstring></argsstring>
+        <name>summaryUpdatesThread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="160" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1ab1f2d5fbbdfb90ff704a0f0b4df2b6cc" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread TinyCRServer&lt; K, V &gt;::connectionListenerThread</definition>
+        <argsstring></argsstring>
+        <name>connectionListenerThread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="161" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1ad6b3837b90d1e6be86e2753c8e06db14" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex TinyCRServer&lt; K, V &gt;::updateLock</definition>
+        <argsstring></argsstring>
+        <name>updateLock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="162" column="16" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1a6aaef0235b1cff3f25d1fda6d86a310c" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, CommandFunction &gt;</type>
+        <definition>std::unordered_map&lt;std::string, CommandFunction&gt; TinyCRServer&lt; K, V &gt;::commandsMap</definition>
+        <argsstring></argsstring>
+        <name>commandsMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="164" column="24" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1afb0e7eef47154a71528c27a15d3358e0" prot="private" static="no" mutable="no">
+        <type>LatencyStatistics</type>
+        <definition>LatencyStatistics TinyCRServer&lt; K, V &gt;::statistics</definition>
+        <argsstring></argsstring>
+        <name>statistics</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="166" column="23" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1a6a1b8827d252fb8061638b0c52068885" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double TinyCRServer&lt; K, V &gt;::delta_ack_latency</definition>
+        <argsstring></argsstring>
+        <name>delta_ack_latency</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="168" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1a16027f61d1eea980b98144ad8ccc38aa" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int TinyCRServer&lt; K, V &gt;::delta_ack_count</definition>
+        <argsstring></argsstring>
+        <name>delta_ack_count</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="169" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1a7a4b4658e5417acf5a19bab6c6707b34" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double TinyCRServer&lt; K, V &gt;::full_ack_latency</definition>
+        <argsstring></argsstring>
+        <name>full_ack_latency</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="171" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_c_r_server_1a150be5cc831b538f7ab3a2b029dd4dca" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int TinyCRServer&lt; K, V &gt;::full_ack_count</definition>
+        <argsstring></argsstring>
+        <name>full_ack_count</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="172" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_tiny_c_r_server_1aa2c7b0df8bd99d9ddb3ff49483e476cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TinyCRServer&lt; K, V &gt;::TinyCRServer</definition>
+        <argsstring>(int port, vector&lt; K &gt; positive_keys, vector&lt; K &gt; negative_keys)</argsstring>
+        <name>TinyCRServer</name>
+        <param>
+          <type>int</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>vector&lt; K &gt;</type>
+          <declname>positive_keys</declname>
+        </param>
+        <param>
+          <type>vector&lt; K &gt;</type>
+          <declname>negative_keys</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for <ref refid="class_tiny_c_r_server" kindref="compound">TinyCRServer</ref> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The port that the server should run on </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>positive_keys</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The list of unrevoked keys. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>negative_keys</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The list of revoked keys. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="35" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="35" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1a15064da9a2c44f6acb0f5aaf31665406" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void TinyCRServer&lt; K, V &gt;::startServer</definition>
+        <argsstring>()</argsstring>
+        <name>startServer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Starts tiny CR server. Send delta updates on changes, monitor port for new devices and start a socket server for communication from the Certificate Authority. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="60" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="60" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1a7d9942966ce21eb213cea1ea21fb6c61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool TinyCRServer&lt; K, V &gt;::addCertificate</definition>
+        <argsstring>(pair&lt; K, V &gt; kv)</argsstring>
+        <name>addCertificate</name>
+        <param>
+          <type>pair&lt; K, V &gt;</type>
+          <declname>kv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a new certificate, value 1 corresponds to valid certificate and 0 to invalid <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key value pair of the key that should be added and the value it should hold </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Status of adding the certificate. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="76" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="76" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1a84e05294a646d97ca397bd797b30ce71" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool TinyCRServer&lt; K, V &gt;::removeCertificate</definition>
+        <argsstring>(K k)</argsstring>
+        <name>removeCertificate</name>
+        <param>
+          <type>K</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes and existing certificate NOT IMPLEMENTED <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key that should be removed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Status of removing the certificate. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="97" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="97" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1a86a2e610a5b34ff29464eecf9b453c30" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool TinyCRServer&lt; K, V &gt;::unrevokeCertificate</definition>
+        <argsstring>(K k)</argsstring>
+        <name>unrevokeCertificate</name>
+        <param>
+          <type>K</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Unrevoke an existing certificate <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key that should be unrevoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Status of unrevoking the certificate. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="110" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="110" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1ae17dc1e64b42ce7130573ca3ffb3e6f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool TinyCRServer&lt; K, V &gt;::revokeCertificate</definition>
+        <argsstring>(K k)</argsstring>
+        <name>revokeCertificate</name>
+        <param>
+          <type>K</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Revoke and existing certificate <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key that should be revoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Status of revoking the certificate. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="131" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="131" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1ab0d6221d449dfbc50f07b15c4630924e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double TinyCRServer&lt; K, V &gt;::getLatencyStatistic</definition>
+        <argsstring>(std::string statistic)</argsstring>
+        <name>getLatencyStatistic</name>
+        <param>
+          <type>std::string</type>
+          <declname>statistic</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Average latnecy of a successful DASS update. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>statistic</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the statistic </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The value of the statistic </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="145" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="145" bodyend="148"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_tiny_c_r_server_1a0d8160e3de18de8e8a40790c72da4afd" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string TinyCRServer&lt; K, V &gt;::convertSockaddrToStr</definition>
+        <argsstring>(sockaddr_in in)</argsstring>
+        <name>convertSockaddrToStr</name>
+        <param>
+          <type>sockaddr_in</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts a sockaddr_in to a string. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The sockaddr that should be converted </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The string form of sockaddr </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="179" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="179" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1aa002140e212ec0bb1ab825f0aebbe4a6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void TinyCRServer&lt; K, V &gt;::sendFullUpdate</definition>
+        <argsstring>(Socket socket)</argsstring>
+        <name>sendFullUpdate</name>
+        <param>
+          <type>Socket</type>
+          <declname>socket</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="324" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="324" bodyend="363"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1a58478e0bdc9555cfaba7bffefb273205" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool TinyCRServer&lt; K, V &gt;::sendSummaryUpdate</definition>
+        <argsstring>(pair&lt; K, V &gt; kv, uint8_t action)</argsstring>
+        <name>sendSummaryUpdate</name>
+        <param>
+          <type>pair&lt; K, V &gt;</type>
+          <declname>kv</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a summary update based on the action. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key value pair that is mutated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>action</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Action that is being done to the key value pair. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Status of sending the update. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="401" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="401" bodyend="450"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1ae99f5d20bbf47c06c85f97b40affc8ae" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool TinyCRServer&lt; K, V &gt;::sendFullUpdates</definition>
+        <argsstring>()</argsstring>
+        <name>sendFullUpdates</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="452" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="452" bodyend="478"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_tiny_c_r_server_1ae43a0b54177060e2c9586f73bdcb600c" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string TinyCRServer&lt; K, V &gt;::addCommand</definition>
+        <argsstring>(std::string data, TinyCRServer *tinyCRServer)</argsstring>
+        <name>addCommand</name>
+        <param>
+          <type>std::string</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="class_tiny_c_r_server" kindref="compound">TinyCRServer</ref> *</type>
+          <declname>tinyCRServer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="186" column="24" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="186" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1ad09615d954668494dd582c939753bb92" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string TinyCRServer&lt; K, V &gt;::removeCommand</definition>
+        <argsstring>(std::string data, TinyCRServer *tinyCRServer)</argsstring>
+        <name>removeCommand</name>
+        <param>
+          <type>std::string</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="class_tiny_c_r_server" kindref="compound">TinyCRServer</ref> *</type>
+          <declname>tinyCRServer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="202" column="24" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="202" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1a19f1685847c8e4535812a2bb72211b6e" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string TinyCRServer&lt; K, V &gt;::unrevokeCommand</definition>
+        <argsstring>(std::string data, TinyCRServer *tinyCRServer)</argsstring>
+        <name>unrevokeCommand</name>
+        <param>
+          <type>std::string</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="class_tiny_c_r_server" kindref="compound">TinyCRServer</ref> *</type>
+          <declname>tinyCRServer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="219" column="24" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="219" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1a1b9455829d69ba3bf19ddc93337ee64e" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string TinyCRServer&lt; K, V &gt;::revokeCommand</definition>
+        <argsstring>(std::string data, TinyCRServer *tinyCRServer)</argsstring>
+        <name>revokeCommand</name>
+        <param>
+          <type>std::string</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="class_tiny_c_r_server" kindref="compound">TinyCRServer</ref> *</type>
+          <declname>tinyCRServer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="235" column="24" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="235" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1ab48613f0ad9d86cfc7e81784e9e0268b" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string TinyCRServer&lt; K, V &gt;::exitCommand</definition>
+        <argsstring>(std::string data, TinyCRServer *tinyCRServer)</argsstring>
+        <name>exitCommand</name>
+        <param>
+          <type>std::string</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="class_tiny_c_r_server" kindref="compound">TinyCRServer</ref> *</type>
+          <declname>tinyCRServer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="251" column="24" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="251" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1a11a92fcc70906d4eeec4d021ca4a9df7" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string TinyCRServer&lt; K, V &gt;::pingCommand</definition>
+        <argsstring>(std::string data, TinyCRServer *tinyCRServer)</argsstring>
+        <name>pingCommand</name>
+        <param>
+          <type>std::string</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="class_tiny_c_r_server" kindref="compound">TinyCRServer</ref> *</type>
+          <declname>tinyCRServer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="257" column="24" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="257" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1a41265526e1ba5be2b7239462c1f1b1c5" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string TinyCRServer&lt; K, V &gt;::statisticsCommand</definition>
+        <argsstring>(std::string data, TinyCRServer *tinyCRServer)</argsstring>
+        <name>statisticsCommand</name>
+        <param>
+          <type>std::string</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="class_tiny_c_r_server" kindref="compound">TinyCRServer</ref> *</type>
+          <declname>tinyCRServer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="262" column="24" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="262" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1a05d97a6db112583590963136fc460977" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void TinyCRServer&lt; K, V &gt;::listenForCACommands</definition>
+        <argsstring>(TinyCRServer *tinyCRServer)</argsstring>
+        <name>listenForCACommands</name>
+        <param>
+          <type><ref refid="class_tiny_c_r_server" kindref="compound">TinyCRServer</ref> *</type>
+          <declname>tinyCRServer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="282" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="282" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_server_1a0b178918b498ebcebb7115cbe6ecfd23" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void TinyCRServer&lt; K, V &gt;::listenForNewDevices</definition>
+        <argsstring>(TinyCRServer *tinyCRServer)</argsstring>
+        <name>listenForNewDevices</name>
+        <param>
+          <type><ref refid="class_tiny_c_r_server" kindref="compound">TinyCRServer</ref> *</type>
+          <declname>tinyCRServer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Listens for new devices and sends the DASS </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="368" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="368" bodyend="393"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" line="27" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h" bodystart="26" bodyend="480"/>
+    <listofallmembers>
+      <member refid="class_tiny_c_r_server_1a7d9942966ce21eb213cea1ea21fb6c61" prot="public" virt="non-virtual"><scope>TinyCRServer</scope><name>addCertificate</name></member>
+      <member refid="class_tiny_c_r_server_1ae43a0b54177060e2c9586f73bdcb600c" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>addCommand</name></member>
+      <member refid="class_tiny_c_r_server_1ae74dad75e013c58b8107e43f3d52bb4a" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>CommandFunction</name></member>
+      <member refid="class_tiny_c_r_server_1a6aaef0235b1cff3f25d1fda6d86a310c" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>commandsMap</name></member>
+      <member refid="class_tiny_c_r_server_1a4fa2a87a49ed64ac0054fcd405f4c91b" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>connectedDevices</name></member>
+      <member refid="class_tiny_c_r_server_1ab1f2d5fbbdfb90ff704a0f0b4df2b6cc" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>connectionListenerThread</name></member>
+      <member refid="class_tiny_c_r_server_1a0d8160e3de18de8e8a40790c72da4afd" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>convertSockaddrToStr</name></member>
+      <member refid="class_tiny_c_r_server_1afe17dd44e32279f16a142da45fdadbc5" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>dassTracker</name></member>
+      <member refid="class_tiny_c_r_server_1a16027f61d1eea980b98144ad8ccc38aa" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>delta_ack_count</name></member>
+      <member refid="class_tiny_c_r_server_1a6a1b8827d252fb8061638b0c52068885" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>delta_ack_latency</name></member>
+      <member refid="class_tiny_c_r_server_1ab48613f0ad9d86cfc7e81784e9e0268b" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>exitCommand</name></member>
+      <member refid="class_tiny_c_r_server_1a150be5cc831b538f7ab3a2b029dd4dca" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>full_ack_count</name></member>
+      <member refid="class_tiny_c_r_server_1a7a4b4658e5417acf5a19bab6c6707b34" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>full_ack_latency</name></member>
+      <member refid="class_tiny_c_r_server_1ab0d6221d449dfbc50f07b15c4630924e" prot="public" virt="non-virtual"><scope>TinyCRServer</scope><name>getLatencyStatistic</name></member>
+      <member refid="class_tiny_c_r_server_1a81e597efc9d881a71a2751431ab5b8e4" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>lastRTT</name></member>
+      <member refid="class_tiny_c_r_server_1a05d97a6db112583590963136fc460977" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>listenForCACommands</name></member>
+      <member refid="class_tiny_c_r_server_1a0b178918b498ebcebb7115cbe6ecfd23" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>listenForNewDevices</name></member>
+      <member refid="class_tiny_c_r_server_1a05327f9415d36d3ac1cc80b53502551f" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>negative_keys</name></member>
+      <member refid="class_tiny_c_r_server_1a11a92fcc70906d4eeec4d021ca4a9df7" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>pingCommand</name></member>
+      <member refid="class_tiny_c_r_server_1a12c1774d6def1ac5cd34222743b6f8c6" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>port</name></member>
+      <member refid="class_tiny_c_r_server_1a5b6dae70e4ffa94485246c4b5d67597f" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>positive_keys</name></member>
+      <member refid="class_tiny_c_r_server_1a84e05294a646d97ca397bd797b30ce71" prot="public" virt="non-virtual"><scope>TinyCRServer</scope><name>removeCertificate</name></member>
+      <member refid="class_tiny_c_r_server_1ad09615d954668494dd582c939753bb92" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>removeCommand</name></member>
+      <member refid="class_tiny_c_r_server_1ae17dc1e64b42ce7130573ca3ffb3e6f1" prot="public" virt="non-virtual"><scope>TinyCRServer</scope><name>revokeCertificate</name></member>
+      <member refid="class_tiny_c_r_server_1a1b9455829d69ba3bf19ddc93337ee64e" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>revokeCommand</name></member>
+      <member refid="class_tiny_c_r_server_1a3b8a0544a25b48b574a12de35e489947" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>running</name></member>
+      <member refid="class_tiny_c_r_server_1aa002140e212ec0bb1ab825f0aebbe4a6" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>sendFullUpdate</name></member>
+      <member refid="class_tiny_c_r_server_1ae99f5d20bbf47c06c85f97b40affc8ae" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>sendFullUpdates</name></member>
+      <member refid="class_tiny_c_r_server_1a58478e0bdc9555cfaba7bffefb273205" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>sendSummaryUpdate</name></member>
+      <member refid="class_tiny_c_r_server_1a15064da9a2c44f6acb0f5aaf31665406" prot="public" virt="non-virtual"><scope>TinyCRServer</scope><name>startServer</name></member>
+      <member refid="class_tiny_c_r_server_1afb0e7eef47154a71528c27a15d3358e0" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>statistics</name></member>
+      <member refid="class_tiny_c_r_server_1a41265526e1ba5be2b7239462c1f1b1c5" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>statisticsCommand</name></member>
+      <member refid="class_tiny_c_r_server_1acbcc408bb5ab214d61c085e2689c57c9" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>summaryUpdatesThread</name></member>
+      <member refid="class_tiny_c_r_server_1aa2c7b0df8bd99d9ddb3ff49483e476cc" prot="public" virt="non-virtual"><scope>TinyCRServer</scope><name>TinyCRServer</name></member>
+      <member refid="class_tiny_c_r_server_1a86a2e610a5b34ff29464eecf9b453c30" prot="public" virt="non-virtual"><scope>TinyCRServer</scope><name>unrevokeCertificate</name></member>
+      <member refid="class_tiny_c_r_server_1a19f1685847c8e4535812a2bb72211b6e" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>unrevokeCommand</name></member>
+      <member refid="class_tiny_c_r_server_1ad6b3837b90d1e6be86e2753c8e06db14" prot="private" virt="non-virtual"><scope>TinyCRServer</scope><name>updateLock</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

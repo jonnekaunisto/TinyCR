@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="struct_othello_c_p_cell" kind="struct" language="C++" prot="public">
+    <compoundname>OthelloCPCell</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_othello_c_p_cell_1a1018bbefa6f64cddf8c244ed21e95f27" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t OthelloCPCell::keyId</definition>
+        <argsstring></argsstring>
+        <name>keyId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="14" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_othello_c_p_cell_1a2dae224f64d9765f1774f744509d0f2a" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t OthelloCPCell::nodeId</definition>
+        <argsstring></argsstring>
+        <name>nodeId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="15" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="13" column="20" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="13" bodyend="16"/>
+    <listofallmembers>
+      <member refid="struct_othello_c_p_cell_1a1018bbefa6f64cddf8c244ed21e95f27" prot="public" virt="non-virtual"><scope>OthelloCPCell</scope><name>keyId</name></member>
+      <member refid="struct_othello_c_p_cell_1a2dae224f64d9765f1774f744509d0f2a" prot="public" virt="non-virtual"><scope>OthelloCPCell</scope><name>nodeId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

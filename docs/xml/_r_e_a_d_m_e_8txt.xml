@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="_r_e_a_d_m_e_8txt" kind="file" language="C++">
+    <compoundname>README.txt</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">This<sp/>file<sp/>is<sp/>here<sp/>to<sp/>keep<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>folder<sp/>here.</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/obj/README.txt"/>
+  </compounddef>
+</doxygen>

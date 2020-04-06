@@ -1,0 +1,609 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="class_d_a_s_s___tracker" kind="class" language="C++" prot="public">
+    <compoundname>DASS_Tracker</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename K</type>
+      </param>
+      <param>
+        <type>class V</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_d_a_s_s___tracker_1a78612f63920d3ea515322e76d6fd89f3" prot="public" static="no" mutable="no">
+        <type><ref refid="class_control_plane_othello" kindref="compound">ControlPlaneOthello</ref>&lt; K, V, 1, 0 &gt;</type>
+        <definition>ControlPlaneOthello&lt;K, V, 1, 0&gt; DASS_Tracker&lt; K, V &gt;::othello</definition>
+        <argsstring></argsstring>
+        <name>othello</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="25" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_s_s___tracker_1a75a0436288eb37fe0154587dfd504dea" prot="public" static="no" mutable="no">
+        <type><ref refid="class_vacuum_filter" kindref="compound">VacuumFilter</ref>&lt; K &gt;</type>
+        <definition>VacuumFilter&lt;K&gt; DASS_Tracker&lt; K, V &gt;::vf</definition>
+        <argsstring></argsstring>
+        <name>vf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="26" column="18" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_s_s___tracker_1a0026ed3b39905ef049559e9cb2f08e57" prot="public" static="no" mutable="no">
+        <type>unordered_set&lt; K &gt;</type>
+        <definition>unordered_set&lt;K&gt; DASS_Tracker&lt; K, V &gt;::PK</definition>
+        <argsstring></argsstring>
+        <name>PK</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="27" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_s_s___tracker_1aceacc1f884d09f4baa9aef05b6b7f2f8" prot="public" static="no" mutable="no">
+        <type>unordered_set&lt; K &gt;</type>
+        <definition>unordered_set&lt;K&gt; DASS_Tracker&lt; K, V &gt;::NK</definition>
+        <argsstring></argsstring>
+        <name>NK</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="28" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_s_s___tracker_1a11d8f444ae1eaf4e1b736c8ca41e1a5e" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t DASS_Tracker&lt; K, V &gt;::n_positive_keys</definition>
+        <argsstring></argsstring>
+        <name>n_positive_keys</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="30" column="14" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_s_s___tracker_1a4e09b63fdf6bb5c45e9b9780d610ed7c" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t DASS_Tracker&lt; K, V &gt;::n_negative_keys</definition>
+        <argsstring></argsstring>
+        <name>n_negative_keys</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="31" column="14" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_s_s___tracker_1a8eb498efb31b764803b1dd9af0c382b3" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float DASS_Tracker&lt; K, V &gt;::key_ratio</definition>
+        <argsstring></argsstring>
+        <name>key_ratio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="32" column="11" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_s_s___tracker_1a120db9d30dad758652a176fe01211a04" prot="public" static="no" mutable="no">
+        <type>vector&lt; K &gt; *</type>
+        <definition>vector&lt;K&gt;* DASS_Tracker&lt; K, V &gt;::TNK_table</definition>
+        <argsstring></argsstring>
+        <name>TNK_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="34" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_s_s___tracker_1af31d5c78a1d0e013b737b723f915d7ee" prot="public" static="no" mutable="no">
+        <type>vector&lt; K &gt; *</type>
+        <definition>vector&lt;K&gt;* DASS_Tracker&lt; K, V &gt;::FPK_table</definition>
+        <argsstring></argsstring>
+        <name>FPK_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="35" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_s_s___tracker_1a14a3b754bbb2c4913029220dad9a2021" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int DASS_Tracker&lt; K, V &gt;::fp_len</definition>
+        <argsstring></argsstring>
+        <name>fp_len</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="36" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_s_s___tracker_1a839fbd074a1e75cae09eb9634184a203" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float DASS_Tracker&lt; K, V &gt;::load_factor</definition>
+        <argsstring></argsstring>
+        <name>load_factor</name>
+        <initializer>= 0.95</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="37" column="11" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_s_s___tracker_1aaa8e68a20cb4a7c15276d531c00fe814" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float DASS_Tracker&lt; K, V &gt;::o_ratio</definition>
+        <argsstring></argsstring>
+        <name>o_ratio</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="38" column="11" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_s_s___tracker_1ac635250bbb4b261bf54423349cadb070" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DASS_Tracker&lt; K, V &gt;::DASS_Tracker</definition>
+        <argsstring>()</argsstring>
+        <name>DASS_Tracker</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="40" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_s_s___tracker_1acbab044fc2dd73eecb6d6362ad08d95a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DASS_Tracker&lt; K, V &gt;::DASS_Tracker</definition>
+        <argsstring>(uint32_t n_pos, uint32_t n_neg, float lf=0.95, float othello_ratio=1)</argsstring>
+        <name>DASS_Tracker</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>n_pos</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>n_neg</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>lf</declname>
+          <defval>0.95</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>othello_ratio</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="42" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="42" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_s_s___tracker_1a7c7379750de72998ab03fa78a16cb629" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DASS_Tracker&lt; K, V &gt;::DASS_Tracker</definition>
+        <argsstring>(DASS_Tracker const &amp;obj)</argsstring>
+        <name>DASS_Tracker</name>
+        <param>
+          <type><ref refid="class_d_a_s_s___tracker" kindref="compound">DASS_Tracker</ref> const &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="58" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="58" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_s_s___tracker_1a8beb4bedd05915e10cf07435daa0f6b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DASS_Tracker&lt; K, V &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the vacuum filter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="69" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_s_s___tracker_1a8d5330870e0a9aea5861c60754b599bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DASS_Tracker&lt; K, V &gt;::rebuild</definition>
+        <argsstring>(float lf, float othello_ratio)</argsstring>
+        <name>rebuild</name>
+        <param>
+          <type>float</type>
+          <declname>lf</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>othello_ratio</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rebuilds the Tracker <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TODO:write what this is </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>othello_ratio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The othello ratio </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="79" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="79" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_s_s___tracker_1ae9e8387f18b380a2658f063b13132e09" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DASS_Tracker&lt; K, V &gt;::init</definition>
+        <argsstring>(uint32_t n_pos, uint32_t n_neg, float lf=0.95, float othello_ratio=1)</argsstring>
+        <name>init</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>n_pos</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>n_neg</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>lf</declname>
+          <defval>0.95</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>othello_ratio</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A constructor for <ref refid="class_d_a_s_s___tracker" kindref="compound">DASS_Tracker</ref> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>n_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of positive keys. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n_neg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of negative keys. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TODO:write what this is </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>othello_ratio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The othello ratio </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="98" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="98" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_s_s___tracker_1a637fdec78c77611bc2958e596d9f9f89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int DASS_Tracker&lt; K, V &gt;::optimal_fp_len</definition>
+        <argsstring>()</argsstring>
+        <name>optimal_fp_len</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates the optimal fp len <simplesect kind="return"><para>The optimal fp len </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="128" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="128" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_s_s___tracker_1af270fb181a785241bd52cd139e6ac030" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DASS_Tracker&lt; K, V &gt;::batch_insert</definition>
+        <argsstring>(const vector&lt; K &gt; &amp;positive_keys, const vector&lt; K &gt; &amp;negative_keys)</argsstring>
+        <name>batch_insert</name>
+        <param>
+          <type>const vector&lt; K &gt; &amp;</type>
+          <declname>positive_keys</declname>
+        </param>
+        <param>
+          <type>const vector&lt; K &gt; &amp;</type>
+          <declname>negative_keys</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts keys in batch <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>positive_keys</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of positive keys </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>negative_keys</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of negative keys </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>false is if the structure was rebuilt and true if it wasn&apos;t </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="144" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="144" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_s_s___tracker_1a4c79ab7debf717134d11b2ddc71bf2dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; uint32_t &gt;</type>
+        <definition>vector&lt;uint32_t&gt; DASS_Tracker&lt; K, V &gt;::insert</definition>
+        <argsstring>(pair&lt; K, V &gt; kv)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>pair&lt; K, V &gt;</type>
+          <declname>kv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts a key value pair <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key value pair to be inserted. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The flipped indexes from this insertion. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="223" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="223" bodyend="348"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_s_s___tracker_1a5b16d6a8d1abc8af7ba75476404ab2a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; uint32_t &gt;</type>
+        <definition>vector&lt;uint32_t&gt; DASS_Tracker&lt; K, V &gt;::setValue</definition>
+        <argsstring>(pair&lt; K, V &gt; kv)</argsstring>
+        <name>setValue</name>
+        <param>
+          <type>pair&lt; K, V &gt;</type>
+          <declname>kv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the value of a key <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key value of the key to be set to a value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="354" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="354" bodyend="560"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_s_s___tracker_1aa0d7f4a58b908d2053b7aca942154d20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DASS_Tracker&lt; K, V &gt;::erase</definition>
+        <argsstring>(K k)</argsstring>
+        <name>erase</name>
+        <param>
+          <type>K</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Erases a key <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key to be erased. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="566" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="566" bodyend="623"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_s_s___tracker_1a15b9c8788c73ed135f9778b95cd7c5cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; uint32_t &gt;</type>
+        <definition>vector&lt;uint32_t&gt; DASS_Tracker&lt; K, V &gt;::othello_flipped_indexes</definition>
+        <argsstring>(vector&lt; uint64_t &gt; &amp;pre_mem, vector&lt; uint64_t &gt; &amp;post_mem)</argsstring>
+        <name>othello_flipped_indexes</name>
+        <param>
+          <type>vector&lt; uint64_t &gt; &amp;</type>
+          <declname>pre_mem</declname>
+        </param>
+        <param>
+          <type>vector&lt; uint64_t &gt; &amp;</type>
+          <declname>post_mem</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="625" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="625" bodyend="647"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_s_s___tracker_1a91d58666b83b27a19ef23c6a6673d09a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>V</type>
+        <definition>V DASS_Tracker&lt; K, V &gt;::query</definition>
+        <argsstring>(const K key)</argsstring>
+        <name>query</name>
+        <param>
+          <type>const K</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Queries the value of the key. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key to be queried. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The value of the key. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="654" column="7" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="654" bodyend="666"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>SemiSortCuckooFilter&lt; K &gt;</label>
+        <link refid="class_semi_sort_cuckoo_filter"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ControlPlaneOthello&lt; K, V, 1, 0 &gt;</label>
+        <link refid="class_control_plane_othello"/>
+      </node>
+      <node id="1">
+        <label>DASS_Tracker&lt; K, V &gt;</label>
+        <link refid="class_d_a_s_s___tracker"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>othello</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>vf</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>VacuumFilter&lt; K &gt;</label>
+        <link refid="class_vacuum_filter"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Filter&lt; K &gt;</label>
+        <link refid="class_filter"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" line="23" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h" bodystart="22" bodyend="668"/>
+    <listofallmembers>
+      <member refid="class_d_a_s_s___tracker_1af270fb181a785241bd52cd139e6ac030" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>batch_insert</name></member>
+      <member refid="class_d_a_s_s___tracker_1a8beb4bedd05915e10cf07435daa0f6b5" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>clear</name></member>
+      <member refid="class_d_a_s_s___tracker_1ac635250bbb4b261bf54423349cadb070" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>DASS_Tracker</name></member>
+      <member refid="class_d_a_s_s___tracker_1acbab044fc2dd73eecb6d6362ad08d95a" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>DASS_Tracker</name></member>
+      <member refid="class_d_a_s_s___tracker_1a7c7379750de72998ab03fa78a16cb629" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>DASS_Tracker</name></member>
+      <member refid="class_d_a_s_s___tracker_1aa0d7f4a58b908d2053b7aca942154d20" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>erase</name></member>
+      <member refid="class_d_a_s_s___tracker_1a14a3b754bbb2c4913029220dad9a2021" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>fp_len</name></member>
+      <member refid="class_d_a_s_s___tracker_1af31d5c78a1d0e013b737b723f915d7ee" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>FPK_table</name></member>
+      <member refid="class_d_a_s_s___tracker_1ae9e8387f18b380a2658f063b13132e09" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>init</name></member>
+      <member refid="class_d_a_s_s___tracker_1a4c79ab7debf717134d11b2ddc71bf2dc" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>insert</name></member>
+      <member refid="class_d_a_s_s___tracker_1a8eb498efb31b764803b1dd9af0c382b3" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>key_ratio</name></member>
+      <member refid="class_d_a_s_s___tracker_1a839fbd074a1e75cae09eb9634184a203" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>load_factor</name></member>
+      <member refid="class_d_a_s_s___tracker_1a4e09b63fdf6bb5c45e9b9780d610ed7c" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>n_negative_keys</name></member>
+      <member refid="class_d_a_s_s___tracker_1a11d8f444ae1eaf4e1b736c8ca41e1a5e" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>n_positive_keys</name></member>
+      <member refid="class_d_a_s_s___tracker_1aceacc1f884d09f4baa9aef05b6b7f2f8" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>NK</name></member>
+      <member refid="class_d_a_s_s___tracker_1aaa8e68a20cb4a7c15276d531c00fe814" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>o_ratio</name></member>
+      <member refid="class_d_a_s_s___tracker_1a637fdec78c77611bc2958e596d9f9f89" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>optimal_fp_len</name></member>
+      <member refid="class_d_a_s_s___tracker_1a78612f63920d3ea515322e76d6fd89f3" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>othello</name></member>
+      <member refid="class_d_a_s_s___tracker_1a15b9c8788c73ed135f9778b95cd7c5cb" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>othello_flipped_indexes</name></member>
+      <member refid="class_d_a_s_s___tracker_1a0026ed3b39905ef049559e9cb2f08e57" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>PK</name></member>
+      <member refid="class_d_a_s_s___tracker_1a91d58666b83b27a19ef23c6a6673d09a" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>query</name></member>
+      <member refid="class_d_a_s_s___tracker_1a8d5330870e0a9aea5861c60754b599bf" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>rebuild</name></member>
+      <member refid="class_d_a_s_s___tracker_1a5b16d6a8d1abc8af7ba75476404ab2a8" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>setValue</name></member>
+      <member refid="class_d_a_s_s___tracker_1a120db9d30dad758652a176fe01211a04" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>TNK_table</name></member>
+      <member refid="class_d_a_s_s___tracker_1a75a0436288eb37fe0154587dfd504dea" prot="public" virt="non-virtual"><scope>DASS_Tracker</scope><name>vf</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

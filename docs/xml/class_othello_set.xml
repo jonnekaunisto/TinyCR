@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="class_othello_set" kind="class" language="C++" prot="public">
+    <compoundname>OthelloSet</compoundname>
+    <basecompoundref refid="class_control_plane_othello" prot="public" virt="non-virtual">ControlPlaneOthello&lt; K, bool, 0, false, true &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>class K</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_othello_set_1a23bbd3d2c914c521fbf6410e13486855" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>OthelloSet&lt; K &gt;::OthelloSet</definition>
+        <argsstring>(uint32_t keyCapacity=256)</argsstring>
+        <name>OthelloSet</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>keyCapacity</declname>
+          <defval>256</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1381" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1381" bodyend="1381"/>
+      </memberdef>
+      <memberdef kind="function" id="class_othello_set_1a70b5f5576e1c18367227539379d2e001" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OthelloSet&lt; K &gt;::insert</definition>
+        <argsstring>(const K &amp;k)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1383" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1383" bodyend="1385"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ControlPlaneOthello&lt; K, bool, 0, false, true &gt;</label>
+        <link refid="class_control_plane_othello"/>
+      </node>
+      <node id="1">
+        <label>OthelloSet&lt; K &gt;</label>
+        <link refid="class_othello_set"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ControlPlaneOthello&lt; K, bool, 0, false, true &gt;</label>
+        <link refid="class_control_plane_othello"/>
+      </node>
+      <node id="1">
+        <label>OthelloSet&lt; K &gt;</label>
+        <link refid="class_othello_set"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1379" column="49" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1379" bodyend="1386"/>
+    <listofallmembers>
+      <member refid="class_control_plane_othello_1af90fc3b63bb599a7b6edab5f1753972a" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>addEdge</name></member>
+      <member refid="class_control_plane_othello_1ab9afb6bba6c1b6ad17fdb53577bf4f0b" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>build</name></member>
+      <member refid="class_control_plane_othello_1a5a7a169a39306706c376694b47bcc819" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>changeSeed</name></member>
+      <member refid="class_control_plane_othello_1a0f2750f24eda910fa685508e442f9d36" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>checkIntegrity</name></member>
+      <member refid="class_control_plane_othello_1a41ccc157a371010904c9593a6c2a21d5" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>clear</name></member>
+      <member refid="class_control_plane_othello_1a4d0534d0205629ca9acf100496a2e008" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>compose</name></member>
+      <member refid="class_control_plane_othello_1a58cd82573a97b86005611adbe55e07da" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>connectBFS</name></member>
+      <member refid="class_control_plane_othello_1a0d2d4eacc2f67e0325cf938d69c32621" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>connectBFS_on_demand</name></member>
+      <member refid="class_control_plane_othello_1a06c998e7d42fe07d0f9747b2b78acfc9" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>connectivityForest</name></member>
+      <member refid="class_control_plane_othello_1a9921044972fefc691e07cbf34eab7bba" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>ControlPlaneOthello</name></member>
+      <member refid="class_control_plane_othello_1aed4b2c7fbcaea5c4b152c08a4484cb59" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>DEMASK</name></member>
+      <member refid="class_control_plane_othello_1a6b10dadfa83140b4e2d4196b6a72572a" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>erase</name></member>
+      <member refid="class_control_plane_othello_1ad127acdb7c401a1b84545fae2a8ba08c" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>erase_on_demand</name></member>
+      <member refid="class_control_plane_othello_1a6630b78c1477e02e02576b6dbfcf9a42" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>eraseAt</name></member>
+      <member refid="class_control_plane_othello_1ae4276eef4468ae10131abd7c5fac382c" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>fast_map_to_A</name></member>
+      <member refid="class_control_plane_othello_1a1dc629610c971eb1fa8c0cdcc3b854d9" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>fast_map_to_B</name></member>
+      <member refid="class_control_plane_othello_1ab95906a3bf53de4d81221dbd44edc059" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>fillOnlyValue</name></member>
+      <member refid="class_control_plane_othello_1ae6a21434f8c549aa202bc917e1f9c4e7" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>fillSingle</name></member>
+      <member refid="class_control_plane_othello_1adc4fcb321e1d4efedde64ff7c95f1ce5" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>fillTreeDFS</name></member>
+      <member refid="class_control_plane_othello_1af59f02d3a8f74a3dab8c5dd163216c63" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>fillValue</name></member>
+      <member refid="class_control_plane_othello_1aa2b988d0c4624715d39a6f8fd7ec163d" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>fixHalfTreeDFS</name></member>
+      <member refid="class_control_plane_othello_1ac80d382c8c787597114cccb946b18e2c" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>fixHalfTreeDFS_on_demand</name></member>
+      <member refid="class_control_plane_othello_1a6ab2413a6ac439467063026c5859d7cd" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>fixSingle</name></member>
+      <member refid="class_control_plane_othello_1add4098b05ea008c296c3de9fef5c0fc1" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>getCnt</name></member>
+      <member refid="class_control_plane_othello_1a59c7319adef8cd9b2bdd8fb10241a81d" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>getConnectedComponent</name></member>
+      <member refid="class_control_plane_othello_1a05bdf0a1f098dbef506fc692f1c69137" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>getH</name></member>
+      <member refid="class_control_plane_othello_1a78dcc4beb15e3797e554e71e89499e2b" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>getHd</name></member>
+      <member refid="class_control_plane_othello_1a8c37996bf4e0b81deaad9f63bffd1eb7" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>getIndexMemory</name></member>
+      <member refid="class_control_plane_othello_1a4b609c0bfae957af25237cbcab3cf1bf" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>getIndices</name></member>
+      <member refid="class_control_plane_othello_1a35442d22f6b7ba3845b327826249b101" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>getKeys</name></member>
+      <member refid="class_control_plane_othello_1a8e140f2f73de673b5f55a3df645dda0f" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>getMa</name></member>
+      <member refid="class_control_plane_othello_1a83bd41d95f969fede47417d2b9270cef" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>getMb</name></member>
+      <member refid="class_control_plane_othello_1acddfd1a05662c5313e28c45bc7d4a80e" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>getMemoryCost</name></member>
+      <member refid="class_control_plane_othello_1aa9ffc4433e5db2dd27764274577f21bb" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>getStaticCnt</name></member>
+      <member refid="class_control_plane_othello_1a1bb72285ead76a24fe4d37086015e7d8" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>getValues</name></member>
+      <member refid="class_control_plane_othello_1acb941b9e1ac187876f102e921a1f7e89" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>getValues</name></member>
+      <member refid="class_control_plane_othello_1a1164e122b07bd2dbc4cd87baa33c8a71" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>hab</name></member>
+      <member refid="class_control_plane_othello_1af40cb9917674a431e53fd2b503a0c7c9" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>hd</name></member>
+      <member refid="class_control_plane_othello_1aac66f2ed68a4352423a2d73f320a6c39" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>head</name></member>
+      <member refid="class_control_plane_othello_1af2dced1dbed55458a9b373820f044c55" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>indMem</name></member>
+      <member refid="class_othello_set_1a70b5f5576e1c18367227539379d2e001" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>insert</name></member>
+      <member refid="class_control_plane_othello_1a88d8bfd7bf8ab2e13baf7986dc6a4769" prot="public" virt="non-virtual" ambiguityscope="ControlPlaneOthello&lt; K, bool, 0, false, true &gt;::"><scope>OthelloSet</scope><name>insert</name></member>
+      <member refid="class_control_plane_othello_1a48876fb27b668f113626fb5462d8b2a9" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>insert_on_demand</name></member>
+      <member refid="class_control_plane_othello_1aff99f09fe9c7eba6dc8a3ebc6a5294cd" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>isConnectedDFS</name></member>
+      <member refid="class_control_plane_othello_1a7d64d2d2eca2d83013231799a9ffe8f5" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>isEmpty</name></member>
+      <member refid="class_control_plane_othello_1a78540b42e692f6c6cc000e4b9c21097b" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>isMember</name></member>
+      <member refid="class_control_plane_othello_1a0d8c0fc19979f97f53777a86dc047022" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>keyCnt</name></member>
+      <member refid="class_control_plane_othello_1a94b16024bb82bf1f9a1a686890c01114" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>keys</name></member>
+      <member refid="class_control_plane_othello_1a00726b12a2a74d22818248311380c78d" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>ma</name></member>
+      <member refid="class_control_plane_othello_1a8510cb612eb1ecad9f5f652de4da8f89" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>maintainingDP</name></member>
+      <member refid="class_control_plane_othello_1abe719ca231778366d03f91e27b440b35" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>MAX_REHASH</name></member>
+      <member refid="class_control_plane_othello_1a14c1092a188d24d51e6100a05535fcd9" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>mb</name></member>
+      <member refid="class_control_plane_othello_1aaf3405c4ccbb852b8a80a23d3013912f" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>mem</name></member>
+      <member refid="class_control_plane_othello_1a492f6423114cf3eac94c9e7c58c1f6f5" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>memGet</name></member>
+      <member refid="class_control_plane_othello_1adec591e48d4d2bae9408fb5f11736320" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>memResize</name></member>
+      <member refid="class_control_plane_othello_1aea9bf4ab36c087072d6546db2d796a5a" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>memSet</name></member>
+      <member refid="class_control_plane_othello_1a663526156d1d01a008e0446fcdd7fbd4" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>memValueGet</name></member>
+      <member refid="class_control_plane_othello_1a4ee6230a09e260896e4d0f6d829f16e5" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>memValueSet</name></member>
+      <member refid="class_control_plane_othello_1acf9f01637723be3eacb1a22b341555ee" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>minimalKeyCapacity</name></member>
+      <member refid="class_control_plane_othello_1a1aad907bcc21223ba180a111354fa901" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>multiply_high_u32</name></member>
+      <member refid="class_control_plane_othello_1afe56fd8c4cfa26e24394dbf4e4d040c6" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>nextAtA</name></member>
+      <member refid="class_control_plane_othello_1a22058a108b94c9adfd3e961bfabdc2c0" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>nextAtB</name></member>
+      <member refid="class_othello_set_1a23bbd3d2c914c521fbf6410e13486855" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>OthelloSet</name></member>
+      <member refid="class_control_plane_othello_1a1346e66e73c39b85a6144aca84463a12" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>outputMappedValues</name></member>
+      <member refid="class_control_plane_othello_1af707b7dcf0fa824c6eb8d397cfa52570" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>prepareDP</name></member>
+      <member refid="class_control_plane_othello_1aaa7383a313da57dda4bb7ead9a46cc40" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>query</name></member>
+      <member refid="class_control_plane_othello_1aeb814a60b551f256f86f6aca894cd924" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>queryIndex</name></member>
+      <member refid="class_control_plane_othello_1a94d4ef0f210e55783859a2429aa37278" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>queryIndex</name></member>
+      <member refid="class_control_plane_othello_1a3305404618dcc7f8951b19289b7cd5f0" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>randVal</name></member>
+      <member refid="class_control_plane_othello_1a79b98af1336db4a9d0c1dfdd013c4357" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>reportDataPlaneMemUsage</name></member>
+      <member refid="class_control_plane_othello_1a2f690001a8b0a88187b44309aae68bdd" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>resetBuildState</name></member>
+      <member refid="class_control_plane_othello_1a8b2e5da3c5dcd3fdaceb5653435ef105" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>resizeKey</name></member>
+      <member refid="class_control_plane_othello_1a4a3fa7a0e3765a59e9c8d5814fc50502" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>setMinimalKeyCapacity</name></member>
+      <member refid="class_control_plane_othello_1a3d9785a6e7a62d535470e579e13a93a0" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>setSeed</name></member>
+      <member refid="class_control_plane_othello_1ab36701aa8b1f8c956ddd047aff2b54a4" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>size</name></member>
+      <member refid="class_control_plane_othello_1a7d494ff4312346693f1bc4fe16c05fd8" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>testHash</name></member>
+      <member refid="class_control_plane_othello_1af8947acec7f8a3e4d5e259a88297f3da" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>tryBuild</name></member>
+      <member refid="class_control_plane_othello_1a57cbb98f7d0c741e91f49e19fb2f6a3e" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>updateMapping</name></member>
+      <member refid="class_control_plane_othello_1a30f8cb78af02604097a15a5368732ca3" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>updateMapping</name></member>
+      <member refid="class_control_plane_othello_1a2042d9803c4111aebdfc689e730b641e" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>updateValueAt</name></member>
+      <member refid="class_control_plane_othello_1ac26c32223bf70b76ef02551652009c08" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>updateValueAt_on_demand</name></member>
+      <member refid="class_control_plane_othello_1ac284f72359848275e9eb096f63387de4" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>valueFlip</name></member>
+      <member refid="class_control_plane_othello_1aaccc45bae4325b9f447e3de300b399d3" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>valueFlip_on_demand</name></member>
+      <member refid="class_control_plane_othello_1aec89d45c4d471b4a52f735ce2f8a60cc" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>values</name></member>
+      <member refid="class_control_plane_othello_1acc8164acf06f30283cbb1f89cf8071e3" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>VDEMASK</name></member>
+      <member refid="class_control_plane_othello_1a430d4266275b0bc961227f5a4d02d027" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>VDL</name></member>
+      <member refid="class_control_plane_othello_1a1c7a6cb45c090560e7632a39a01bc1d7" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>VDMASK</name></member>
+      <member refid="class_control_plane_othello_1a6569288ea11f240a4434bafb134ae4c2" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>VMASK</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

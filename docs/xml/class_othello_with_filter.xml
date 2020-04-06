@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="class_othello_with_filter" kind="class" language="C++" prot="public">
+    <compoundname>OthelloWithFilter</compoundname>
+    <basecompoundref refid="class_data_plane_othello" prot="public" virt="non-virtual">DataPlaneOthello&lt; K, V, sizeof(V) *8, 6 &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>class K</type>
+      </param>
+      <param>
+        <type>class V</type>
+      </param>
+      <param>
+        <type>uint8_t</type>
+        <declname>L</declname>
+        <defname>L</defname>
+        <defval>sizeof(V) * 8</defval>
+      </param>
+      <param>
+        <type>uint8_t</type>
+        <declname>DL</declname>
+        <defname>DL</defname>
+        <defval>6</defval>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>OthelloWithFilter&lt; K, V, L, DL &gt;</label>
+        <link refid="class_othello_with_filter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DataPlaneOthello&lt; K, V, sizeof(V) *8, 6 &gt;</label>
+        <link refid="class_data_plane_othello"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>OthelloWithFilter&lt; K, V, L, DL &gt;</label>
+        <link refid="class_othello_with_filter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DataPlaneOthello&lt; K, V, sizeof(V) *8, 6 &gt;</label>
+        <link refid="class_data_plane_othello"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="281" column="52" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="281" bodyend="282"/>
+    <listofallmembers>
+      <member refid="class_data_plane_othello_1a81d99d12e7c1a7bbfbe72e1639d45071" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>DataPlaneOthello</name></member>
+      <member refid="class_data_plane_othello_1a3827304b9d862d669da647c656a59e9c" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>DataPlaneOthello</name></member>
+      <member refid="class_data_plane_othello_1a5f734c4988a3d7be0dfdb5c70771b459" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>DataPlaneOthello</name></member>
+      <member refid="class_data_plane_othello_1a5c077c3e7541a5b7f868098159e60931" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>DEMASK</name></member>
+      <member refid="class_data_plane_othello_1adbb57c8c0dc7f8bf28e5fe62766ee07f" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>fast_map_to_A</name></member>
+      <member refid="class_data_plane_othello_1a213a4f63fd3d5454c9605701a8cbf0e8" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>fast_map_to_B</name></member>
+      <member refid="class_data_plane_othello_1a98eb35351f97b0801da0bdb44599e004" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>fillSingle</name></member>
+      <member refid="class_data_plane_othello_1afcb36ca773affca12e4a01b691f47f66" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>fixHalfTreeByConnectedComponent</name></member>
+      <member refid="class_data_plane_othello_1a9e8e70324501979784f9e7d6c902cb61" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>fixSingle</name></member>
+      <member refid="class_data_plane_othello_1a80323c0b2ed58ec7884c9b13b452090b" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>fullSync</name></member>
+      <member refid="class_data_plane_othello_1a626aaa9ae193439a9bef860f61fee204" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>fullSync</name></member>
+      <member refid="class_data_plane_othello_1a6b570d07c31e3e65b23af5c57d674b2e" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>getIndices</name></member>
+      <member refid="class_data_plane_othello_1a5acb6baa51dc038ce6dc6acbd8d15d97" prot="public" virt="virtual"><scope>OthelloWithFilter</scope><name>getMemoryCost</name></member>
+      <member refid="class_data_plane_othello_1ade7d38e41aa7740aec090f42bc6f24b7" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>hab</name></member>
+      <member refid="class_data_plane_othello_1a0f8846aaa2db733557ab8bd6ed2cba76" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>hd</name></member>
+      <member refid="class_data_plane_othello_1a33a37ac4711198dcba0c128f7d286191" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>ma</name></member>
+      <member refid="class_data_plane_othello_1a06dc7a8794c820a49f316e994e85da5b" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>MAX_REHASH</name></member>
+      <member refid="class_data_plane_othello_1a28da8d72b6c61d84d4b2d73f1d7e466a" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>mb</name></member>
+      <member refid="class_data_plane_othello_1a5636fd0ad71cce7f0580422c532d4741" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>mem</name></member>
+      <member refid="class_data_plane_othello_1a5a205b5e2f83c0c2dae7791efb6eef97" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>mem_value_flipping</name></member>
+      <member refid="class_data_plane_othello_1af325036f380c5eb1f9c6b8cf2ced7458" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>memGet</name></member>
+      <member refid="class_data_plane_othello_1ad30c8a8350f78d9bc742662c490e03fd" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>memSet</name></member>
+      <member refid="class_data_plane_othello_1a8f3f0552bbae7a651c77f5ad5fb57cc9" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>memValueGet</name></member>
+      <member refid="class_data_plane_othello_1a92e66f345dc6b593b1a56a4f13c78cfe" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>memValueSet</name></member>
+      <member refid="class_data_plane_othello_1a45f85007eaefb0d2e74ffbb9aa274084" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>multiply_high_u32</name></member>
+      <member refid="class_data_plane_othello_1a15d82fd043a4c494de5a762b2b3f40ca" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>query</name></member>
+      <member refid="class_data_plane_othello_1aa3b2247674df119b1b822295ac5e53f2" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>query</name></member>
+      <member refid="class_data_plane_othello_1a6c4e0c03f3e2f1ed1f0ecdd7ec384fa8" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>setEmpty</name></member>
+      <member refid="class_data_plane_othello_1a1d3634cd4f33940c5dcd8b60967b72ba" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>setTaken</name></member>
+      <member refid="class_data_plane_othello_1a989190795db904481f473d9cfcddb6d0" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>VDEMASK</name></member>
+      <member refid="class_data_plane_othello_1adb9094eb7f414038da0702a7260e69ba" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>VDL</name></member>
+      <member refid="class_data_plane_othello_1a2512a1068f705dda7ed353c1911c404b" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>VDMASK</name></member>
+      <member refid="class_data_plane_othello_1a81b6fa54a151fe4769ed7f705c6de402" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>VMASK</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

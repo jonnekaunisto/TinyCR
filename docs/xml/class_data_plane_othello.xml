@@ -1,0 +1,808 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="class_data_plane_othello" kind="class" language="C++" prot="public">
+    <compoundname>DataPlaneOthello</compoundname>
+    <includes refid="data__plane__othello_8h" local="no">data_plane_othello.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class K</type>
+      </param>
+      <param>
+        <type>class V</type>
+      </param>
+      <param>
+        <type>uint8_t</type>
+        <declname>L</declname>
+        <defname>L</defname>
+        <defval>sizeof(V) * 8</defval>
+      </param>
+      <param>
+        <type>uint8_t</type>
+        <declname>DL</declname>
+        <defname>DL</defname>
+        <defval>0</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="class_data_plane_othello_1af4510df0cfb3141911ed358a681f3dfa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class K1</type>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>l2</declname>
+            <defname>l2</defname>
+          </param>
+          <param>
+            <type>uint8_t</type>
+            <declname>DL1</declname>
+            <defname>DL1</defname>
+          </param>
+        </templateparamlist>
+        <type>friend class</type>
+        <definition>friend class OthelloFilterControlPlane</definition>
+        <argsstring></argsstring>
+        <name>OthelloFilterControlPlane</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="18" column="3" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_data_plane_othello_1a06dc7a8794c820a49f316e994e85da5b" prot="public" static="yes" mutable="no">
+        <type>const static int</type>
+        <definition>const static int DataPlaneOthello&lt; K, V, L, DL &gt;::MAX_REHASH</definition>
+        <argsstring></argsstring>
+        <name>MAX_REHASH</name>
+        <initializer>= 50</initializer>
+        <briefdescription>
+<para>Maximum number of rehash tries before report an error. If this limit is reached, Othello build fails. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="22" column="20" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_plane_othello_1adb9094eb7f414038da0702a7260e69ba" prot="public" static="yes" mutable="no">
+        <type>const static int</type>
+        <definition>const static int DataPlaneOthello&lt; K, V, L, DL &gt;::VDL</definition>
+        <argsstring></argsstring>
+        <name>VDL</name>
+        <initializer>= L + DL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="23" column="20" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_plane_othello_1a989190795db904481f473d9cfcddb6d0" prot="public" static="yes" mutable="no">
+        <type>const static uint64_t</type>
+        <definition>const static uint64_t DataPlaneOthello&lt; K, V, L, DL &gt;::VDEMASK</definition>
+        <argsstring></argsstring>
+        <name>VDEMASK</name>
+        <initializer>= ~(uint64_t(-1) &lt;&lt; VDL)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="25" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_plane_othello_1a5c077c3e7541a5b7f868098159e60931" prot="public" static="yes" mutable="no">
+        <type>const static uint64_t</type>
+        <definition>const static uint64_t DataPlaneOthello&lt; K, V, L, DL &gt;::DEMASK</definition>
+        <argsstring></argsstring>
+        <name>DEMASK</name>
+        <initializer>= ~(uint64_t(-1) &lt;&lt; DL)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="26" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_plane_othello_1a81b6fa54a151fe4769ed7f705c6de402" prot="public" static="yes" mutable="no">
+        <type>const static uint64_t</type>
+        <definition>const static uint64_t DataPlaneOthello&lt; K, V, L, DL &gt;::VMASK</definition>
+        <argsstring></argsstring>
+        <name>VMASK</name>
+        <initializer>= ~(uint64_t(-1) &lt;&lt; L)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="27" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_plane_othello_1a2512a1068f705dda7ed353c1911c404b" prot="public" static="yes" mutable="no">
+        <type>const static uint64_t</type>
+        <definition>const static uint64_t DataPlaneOthello&lt; K, V, L, DL &gt;::VDMASK</definition>
+        <argsstring></argsstring>
+        <name>VDMASK</name>
+        <initializer>= (VDEMASK &lt;&lt; 1) &amp; VDEMASK</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="28" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_data_plane_othello_1a5636fd0ad71cce7f0580422c532d4741" prot="public" static="no" mutable="no">
+        <type>vector&lt; uint64_t &gt;</type>
+        <definition>vector&lt;uint64_t&gt; DataPlaneOthello&lt; K, V, L, DL &gt;::mem</definition>
+        <argsstring></argsstring>
+        <name>mem</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="33" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_plane_othello_1a33a37ac4711198dcba0c128f7d286191" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t DataPlaneOthello&lt; K, V, L, DL &gt;::ma</definition>
+        <argsstring></argsstring>
+        <name>ma</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="34" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_plane_othello_1a28da8d72b6c61d84d4b2d73f1d7e466a" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t DataPlaneOthello&lt; K, V, L, DL &gt;::mb</definition>
+        <argsstring></argsstring>
+        <name>mb</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="35" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_plane_othello_1ade7d38e41aa7740aec090f42bc6f24b7" prot="public" static="no" mutable="no">
+        <type>Hasher64&lt; K &gt;</type>
+        <definition>Hasher64&lt;K&gt; DataPlaneOthello&lt; K, V, L, DL &gt;::hab</definition>
+        <argsstring></argsstring>
+        <name>hab</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="36" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_plane_othello_1a0f8846aaa2db733557ab8bd6ed2cba76" prot="public" static="no" mutable="no">
+        <type>Hasher32&lt; K &gt;</type>
+        <definition>Hasher32&lt;K&gt; DataPlaneOthello&lt; K, V, L, DL &gt;::hd</definition>
+        <argsstring></argsstring>
+        <name>hd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="37" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_data_plane_othello_1a45f85007eaefb0d2e74ffbb9aa274084" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t DataPlaneOthello&lt; K, V, L, DL &gt;::multiply_high_u32</definition>
+        <argsstring>(uint32_t x, uint32_t y) const</argsstring>
+        <name>multiply_high_u32</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="39" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="39" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1adbb57c8c0dc7f8bf28e5fe62766ee07f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t DataPlaneOthello&lt; K, V, L, DL &gt;::fast_map_to_A</definition>
+        <argsstring>(uint32_t x) const</argsstring>
+        <name>fast_map_to_A</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="43" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="43" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a213a4f63fd3d5454c9605701a8cbf0e8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t DataPlaneOthello&lt; K, V, L, DL &gt;::fast_map_to_B</definition>
+        <argsstring>(uint32_t x) const</argsstring>
+        <name>fast_map_to_B</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="51" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a6b570d07c31e3e65b23af5c57d674b2e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataPlaneOthello&lt; K, V, L, DL &gt;::getIndices</definition>
+        <argsstring>(const K &amp;k, uint32_t &amp;aInd, uint32_t &amp;bInd) const</argsstring>
+        <name>getIndices</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>uint32_t &amp;</type>
+          <declname>aInd</declname>
+        </param>
+        <param>
+          <type>uint32_t &amp;</type>
+          <declname>bInd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ma + the index of k into array B </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="57" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="57" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1ad30c8a8350f78d9bc742662c490e03fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataPlaneOthello&lt; K, V, L, DL &gt;::memSet</definition>
+        <argsstring>(uint32_t index, uint64_t value)</argsstring>
+        <name>memSet</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the index-th element to be value. if the index &gt; ma, it is the (index - ma)-th element in array B <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in array A or array B </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="66" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="66" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1af325036f380c5eb1f9c6b8cf2ced7458" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t DataPlaneOthello&lt; K, V, L, DL &gt;::memGet</definition>
+        <argsstring>(uint32_t index) const</argsstring>
+        <name>memGet</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in array A or array B </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the index-th element. if the index &gt; ma, it is the (index - ma)-th element in array B </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="89" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="89" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a92e66f345dc6b593b1a56a4f13c78cfe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataPlaneOthello&lt; K, V, L, DL &gt;::memValueSet</definition>
+        <argsstring>(uint32_t index, uint64_t value)</argsstring>
+        <name>memValueSet</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="107" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="107" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a8f3f0552bbae7a651c77f5ad5fb57cc9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t DataPlaneOthello&lt; K, V, L, DL &gt;::memValueGet</definition>
+        <argsstring>(uint32_t index) const</argsstring>
+        <name>memValueGet</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="128" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="128" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a98eb35351f97b0801da0bdb44599e004" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>keepDigest</declname>
+            <defname>keepDigest</defname>
+            <defval>false</defval>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void DataPlaneOthello&lt; K, V, L, DL &gt;::fillSingle</definition>
+        <argsstring>(uint32_t valueToFill, uint32_t nodeToFill)</argsstring>
+        <name>fillSingle</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>valueToFill</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>nodeToFill</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="148" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="148" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a1d3634cd4f33940c5dcd8b60967b72ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataPlaneOthello&lt; K, V, L, DL &gt;::setTaken</definition>
+        <argsstring>(uint32_t nodeIndex)</argsstring>
+        <name>setTaken</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>nodeIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="156" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="156" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a6c4e0c03f3e2f1ed1f0ecdd7ec384fa8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataPlaneOthello&lt; K, V, L, DL &gt;::setEmpty</definition>
+        <argsstring>(uint32_t nodeIndex)</argsstring>
+        <name>setEmpty</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>nodeIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="161" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="161" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a9e8e70324501979784f9e7d6c902cb61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>keepDigest</declname>
+            <defname>keepDigest</defname>
+            <defval>false</defval>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void DataPlaneOthello&lt; K, V, L, DL &gt;::fixSingle</definition>
+        <argsstring>(uint32_t nodeToFix, uint64_t x)</argsstring>
+        <name>fixSingle</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>nodeToFix</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>fix the value and index at single node by xoring x <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the xor&apos;ed number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="169" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="169" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1afcb36ca773affca12e4a01b691f47f66" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataPlaneOthello&lt; K, V, L, DL &gt;::fixHalfTreeByConnectedComponent</definition>
+        <argsstring>(vector&lt; uint32_t &gt; indices, uint32_t xorTemplate)</argsstring>
+        <name>fixHalfTreeByConnectedComponent</name>
+        <param>
+          <type>vector&lt; uint32_t &gt;</type>
+          <declname>indices</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>xorTemplate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fix the values of a connected tree starting at the root node and avoid searching keyId Assume:<orderedlist>
+<listitem><para>the value of root is not properly set before the function call</para>
+</listitem><listitem><para>the values are in the value array</para>
+</listitem><listitem><para>the root is always from array A Side effect: all node in this tree is set and if updateToFilled </para>
+</listitem></orderedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="185" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="185" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a15d82fd043a4c494de5a762b2b3f40ca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DataPlaneOthello&lt; K, V, L, DL &gt;::query</definition>
+        <argsstring>(const K &amp;k, V &amp;v) const</argsstring>
+        <name>query</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>V &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the lookup value for k </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the lookup is successfully passed the digest match, but it does not mean the key is really a member </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="195" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="195" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1aa3b2247674df119b1b822295ac5e53f2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>V</type>
+        <definition>V DataPlaneOthello&lt; K, V, L, DL &gt;::query</definition>
+        <argsstring>(const K &amp;k) const</argsstring>
+        <name>query</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="215" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="215" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a5a205b5e2f83c0c2dae7791efb6eef97" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataPlaneOthello&lt; K, V, L, DL &gt;::mem_value_flipping</definition>
+        <argsstring>(vector&lt; uint32_t &gt; &amp;flipped_indexes)</argsstring>
+        <name>mem_value_flipping</name>
+        <param>
+          <type>vector&lt; uint32_t &gt; &amp;</type>
+          <declname>flipped_indexes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="226" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="226" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a81d99d12e7c1a7bbfbe72e1639d45071" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DataPlaneOthello&lt; K, V, L, DL &gt;::DataPlaneOthello</definition>
+        <argsstring>()=default</argsstring>
+        <name>DataPlaneOthello</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="238" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a3827304b9d862d669da647c656a59e9c" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>maintainDisjointSet</declname>
+            <defname>maintainDisjointSet</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>randomized</declname>
+            <defname>randomized</defname>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>DataPlaneOthello&lt; K, V, L, DL &gt;::DataPlaneOthello</definition>
+        <argsstring>(ControlPlaneOthello&lt; K, V, L, DL, true, maintainDisjointSet, randomized &gt; &amp;cpOthello)</argsstring>
+        <name>DataPlaneOthello</name>
+        <param>
+          <type><ref refid="class_control_plane_othello" kindref="compound">ControlPlaneOthello</ref>&lt; K, V, L, DL, true, maintainDisjointSet, randomized &gt; &amp;</type>
+          <declname>cpOthello</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="241" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="241" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a5f734c4988a3d7be0dfdb5c70771b459" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DataPlaneOthello&lt; K, V, L, DL &gt;::DataPlaneOthello</definition>
+        <argsstring>(vector&lt; uint64_t &gt; &amp;_mem, uint32_t _ma, uint32_t _mb, Hasher64&lt; K &gt; _hab, Hasher32&lt; K &gt; _hd)</argsstring>
+        <name>DataPlaneOthello</name>
+        <param>
+          <type>vector&lt; uint64_t &gt; &amp;</type>
+          <declname>_mem</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>_ma</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>_mb</declname>
+        </param>
+        <param>
+          <type>Hasher64&lt; K &gt;</type>
+          <declname>_hab</declname>
+        </param>
+        <param>
+          <type>Hasher32&lt; K &gt;</type>
+          <declname>_hd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="245" column="3" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="245" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a80323c0b2ed58ec7884c9b13b452090b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>maintainDisjointSet</declname>
+            <defname>maintainDisjointSet</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>randomized</declname>
+            <defname>randomized</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void DataPlaneOthello&lt; K, V, L, DL &gt;::fullSync</definition>
+        <argsstring>(ControlPlaneOthello&lt; K, V, L, DL, true, maintainDisjointSet, randomized &gt; &amp;cpOthello)</argsstring>
+        <name>fullSync</name>
+        <param>
+          <type><ref refid="class_control_plane_othello" kindref="compound">ControlPlaneOthello</ref>&lt; K, V, L, DL, true, maintainDisjointSet, randomized &gt; &amp;</type>
+          <declname>cpOthello</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="255" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="255" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a626aaa9ae193439a9bef860f61fee204" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>maintainDisjointSet</declname>
+            <defname>maintainDisjointSet</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>randomized</declname>
+            <defname>randomized</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void DataPlaneOthello&lt; K, V, L, DL &gt;::fullSync</definition>
+        <argsstring>(ControlPlaneOthello&lt; K, V, L, DL, false, maintainDisjointSet, randomized &gt; &amp;cpOthello)</argsstring>
+        <name>fullSync</name>
+        <param>
+          <type><ref refid="class_control_plane_othello" kindref="compound">ControlPlaneOthello</ref>&lt; K, V, L, DL, false, maintainDisjointSet, randomized &gt; &amp;</type>
+          <declname>cpOthello</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="264" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="264" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_plane_othello_1a5acb6baa51dc038ce6dc6acbd8d15d97" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>uint64_t</type>
+        <definition>virtual uint64_t DataPlaneOthello&lt; K, V, L, DL &gt;::getMemoryCost</definition>
+        <argsstring>() const</argsstring>
+        <name>getMemoryCost</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="274" column="20" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="274" bodyend="276"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Describes the data structure <emphasis>l-Othello</emphasis>. It classifies keys of <emphasis>keyType</emphasis> into <emphasis>2^L</emphasis> classes. The array are all stored in an array of uint64_t. There are actually m_a+m_b cells in this array, each of length L. <simplesect kind="note"><para>Be VERY careful!!!! valueType must be some kind of int with no more than 8 bytes&apos; length </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="8" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="8" bodyend="-1"/>
+    <listofallmembers>
+      <member refid="class_data_plane_othello_1a81d99d12e7c1a7bbfbe72e1639d45071" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>DataPlaneOthello</name></member>
+      <member refid="class_data_plane_othello_1a3827304b9d862d669da647c656a59e9c" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>DataPlaneOthello</name></member>
+      <member refid="class_data_plane_othello_1a5f734c4988a3d7be0dfdb5c70771b459" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>DataPlaneOthello</name></member>
+      <member refid="class_data_plane_othello_1a5c077c3e7541a5b7f868098159e60931" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>DEMASK</name></member>
+      <member refid="class_data_plane_othello_1adbb57c8c0dc7f8bf28e5fe62766ee07f" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>fast_map_to_A</name></member>
+      <member refid="class_data_plane_othello_1a213a4f63fd3d5454c9605701a8cbf0e8" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>fast_map_to_B</name></member>
+      <member refid="class_data_plane_othello_1a98eb35351f97b0801da0bdb44599e004" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>fillSingle</name></member>
+      <member refid="class_data_plane_othello_1afcb36ca773affca12e4a01b691f47f66" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>fixHalfTreeByConnectedComponent</name></member>
+      <member refid="class_data_plane_othello_1a9e8e70324501979784f9e7d6c902cb61" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>fixSingle</name></member>
+      <member refid="class_data_plane_othello_1a80323c0b2ed58ec7884c9b13b452090b" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>fullSync</name></member>
+      <member refid="class_data_plane_othello_1a626aaa9ae193439a9bef860f61fee204" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>fullSync</name></member>
+      <member refid="class_data_plane_othello_1a6b570d07c31e3e65b23af5c57d674b2e" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>getIndices</name></member>
+      <member refid="class_data_plane_othello_1a5acb6baa51dc038ce6dc6acbd8d15d97" prot="public" virt="virtual"><scope>DataPlaneOthello</scope><name>getMemoryCost</name></member>
+      <member refid="class_data_plane_othello_1ade7d38e41aa7740aec090f42bc6f24b7" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>hab</name></member>
+      <member refid="class_data_plane_othello_1a0f8846aaa2db733557ab8bd6ed2cba76" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>hd</name></member>
+      <member refid="class_data_plane_othello_1a33a37ac4711198dcba0c128f7d286191" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>ma</name></member>
+      <member refid="class_data_plane_othello_1a06dc7a8794c820a49f316e994e85da5b" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>MAX_REHASH</name></member>
+      <member refid="class_data_plane_othello_1a28da8d72b6c61d84d4b2d73f1d7e466a" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>mb</name></member>
+      <member refid="class_data_plane_othello_1a5636fd0ad71cce7f0580422c532d4741" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>mem</name></member>
+      <member refid="class_data_plane_othello_1a5a205b5e2f83c0c2dae7791efb6eef97" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>mem_value_flipping</name></member>
+      <member refid="class_data_plane_othello_1af325036f380c5eb1f9c6b8cf2ced7458" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>memGet</name></member>
+      <member refid="class_data_plane_othello_1ad30c8a8350f78d9bc742662c490e03fd" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>memSet</name></member>
+      <member refid="class_data_plane_othello_1a8f3f0552bbae7a651c77f5ad5fb57cc9" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>memValueGet</name></member>
+      <member refid="class_data_plane_othello_1a92e66f345dc6b593b1a56a4f13c78cfe" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>memValueSet</name></member>
+      <member refid="class_data_plane_othello_1a45f85007eaefb0d2e74ffbb9aa274084" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>multiply_high_u32</name></member>
+      <member refid="class_data_plane_othello_1af4510df0cfb3141911ed358a681f3dfa" prot="private" virt="non-virtual"><scope>DataPlaneOthello</scope><name>OthelloFilterControlPlane</name></member>
+      <member refid="class_data_plane_othello_1a15d82fd043a4c494de5a762b2b3f40ca" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>query</name></member>
+      <member refid="class_data_plane_othello_1aa3b2247674df119b1b822295ac5e53f2" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>query</name></member>
+      <member refid="class_data_plane_othello_1a6c4e0c03f3e2f1ed1f0ecdd7ec384fa8" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>setEmpty</name></member>
+      <member refid="class_data_plane_othello_1a1d3634cd4f33940c5dcd8b60967b72ba" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>setTaken</name></member>
+      <member refid="class_data_plane_othello_1a989190795db904481f473d9cfcddb6d0" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>VDEMASK</name></member>
+      <member refid="class_data_plane_othello_1adb9094eb7f414038da0702a7260e69ba" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>VDL</name></member>
+      <member refid="class_data_plane_othello_1a2512a1068f705dda7ed353c1911c404b" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>VDMASK</name></member>
+      <member refid="class_data_plane_othello_1a81b6fa54a151fe4769ed7f705c6de402" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>VMASK</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

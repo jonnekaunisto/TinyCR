@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_4b68c2fef3e151b6b93d5e93b14f1857" kind="dir">
+    <compoundname>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform</compoundname>
+    <innerfile refid="bloom__filter_8h">bloom_filter.h</innerfile>
+    <innerfile refid="control__plane__othello_8h">control_plane_othello.h</innerfile>
+    <innerfile refid="_c_r_io_t_8h">CRIoT.h</innerfile>
+    <innerfile refid="cuckoo_8h">cuckoo.h</innerfile>
+    <innerfile refid="_d_a_s_s___tracker_8h">DASS_Tracker.h</innerfile>
+    <innerfile refid="_d_a_s_s___verifier_8h">DASS_Verifier.h</innerfile>
+    <innerfile refid="data__plane__othello_8h">data_plane_othello.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/"/>
+  </compounddef>
+</doxygen>

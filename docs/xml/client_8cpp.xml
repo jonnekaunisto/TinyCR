@@ -1,0 +1,832 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="client_8cpp" kind="file" language="C++">
+    <compoundname>client.cpp</compoundname>
+    <includes local="no">vector</includes>
+    <includes refid="_tiny_c_r_client_8h" local="yes">TinyCR/TinyCRClient.h</includes>
+    <includes local="yes">/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/Socket/Socket.h</includes>
+    <includes local="no">sys/types.h</includes>
+    <includes local="no">sys/socket.h</includes>
+    <includes local="no">netinet/in.h</includes>
+    <includes local="no">netdb.h</includes>
+    <includes local="no">unistd.h</includes>
+    <includes local="no">string</includes>
+    <includes local="no">arpa/inet.h</includes>
+    <includes local="no">cstdlib</includes>
+    <includes local="no">cstdio</includes>
+    <includes local="no">cstring</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">ctime</includes>
+    <includes local="no">cassert</includes>
+    <includes local="no">cinttypes</includes>
+    <includes local="no">sys/time.h</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">sstream</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">iomanip</includes>
+    <includes local="no">functional</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">iterator</includes>
+    <includes local="no">utility</includes>
+    <includes local="no">random</includes>
+    <includes local="no">queue</includes>
+    <includes local="no">stack</includes>
+    <includes local="no">unordered_set</includes>
+    <includes local="no">unordered_map</includes>
+    <includes local="no">map</includes>
+    <includes local="no">tuple</includes>
+    <includes local="no">array</includes>
+    <includes local="no">set</includes>
+    <includes local="no">list</includes>
+    <includes local="no">forward_list</includes>
+    <includes local="yes">/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/utils/disjointset.h</includes>
+    <includes local="yes">/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/utils/hash.h</includes>
+    <includes local="no">type_traits</includes>
+    <includes local="yes">/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/utils/farmhash.h</includes>
+    <includes local="no">assert.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="yes">/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/utils/lfsr64.h</includes>
+    <includes local="no">cstdint</includes>
+    <includes local="yes">/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/utils/debugbreak.h</includes>
+    <includes local="yes">/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/utils/json.hpp</includes>
+    <includes local="no">ciso646</includes>
+    <includes local="no">cstddef</includes>
+    <includes local="no">initializer_list</includes>
+    <includes local="no">iosfwd</includes>
+    <includes local="no">numeric</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">limits</includes>
+    <includes local="no">exception</includes>
+    <includes local="no">stdexcept</includes>
+    <includes local="no">valarray</includes>
+    <includes local="no">ios</includes>
+    <includes local="no">istream</includes>
+    <includes local="no">clocale</includes>
+    <includes local="no">ostream</includes>
+    <includes local="no">sched.h</includes>
+    <includes local="no">execinfo.h</includes>
+    <includes local="no">chrono</includes>
+    <includes local="no">math.h</includes>
+    <includes local="no">thread</includes>
+    <includes local="yes">Socket/ClientSocket.h</includes>
+    <includes local="yes">Socket/SocketException.h</includes>
+    <includes local="no">regex</includes>
+    <incdepgraph>
+      <node id="57">
+        <label>list</label>
+      </node>
+      <node id="62">
+        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/utils/farmhash.h</label>
+      </node>
+      <node id="78">
+        <label>valarray</label>
+      </node>
+      <node id="7">
+        <label>../platform/CRIoT.h</label>
+        <link refid="_c_r_io_t_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="68">
+        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/utils/json.hpp</label>
+      </node>
+      <node id="23">
+        <label>../utils/hashutil.h</label>
+      </node>
+      <node id="35">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="38">
+        <label>arpa/inet.h</label>
+      </node>
+      <node id="47">
+        <label>functional</label>
+      </node>
+      <node id="46">
+        <label>iomanip</label>
+      </node>
+      <node id="50">
+        <label>queue</label>
+      </node>
+      <node id="75">
+        <label>limits</label>
+      </node>
+      <node id="21">
+        <label>assert.h</label>
+      </node>
+      <node id="48">
+        <label>iterator</label>
+      </node>
+      <node id="3">
+        <label>TinyCR/TinyCRClient.h</label>
+        <link refid="_tiny_c_r_client_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="87">
+        <label>Socket/SocketException.h</label>
+      </node>
+      <node id="26">
+        <label>cstdint</label>
+      </node>
+      <node id="24">
+        <label>../utils/helpers.h</label>
+      </node>
+      <node id="63">
+        <label>stdint.h</label>
+      </node>
+      <node id="64">
+        <label>stdlib.h</label>
+      </node>
+      <node id="40">
+        <label>cmath</label>
+      </node>
+      <node id="42">
+        <label>cassert</label>
+      </node>
+      <node id="77">
+        <label>stdexcept</label>
+      </node>
+      <node id="73">
+        <label>numeric</label>
+      </node>
+      <node id="13">
+        <label>string</label>
+      </node>
+      <node id="86">
+        <label>Socket/ClientSocket.h</label>
+      </node>
+      <node id="43">
+        <label>cinttypes</label>
+      </node>
+      <node id="9">
+        <label>map</label>
+      </node>
+      <node id="88">
+        <label>regex</label>
+      </node>
+      <node id="52">
+        <label>unordered_set</label>
+      </node>
+      <node id="76">
+        <label>exception</label>
+      </node>
+      <node id="1">
+        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp</label>
+        <link refid="client_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>fstream</label>
+      </node>
+      <node id="16">
+        <label>../utils/common.h</label>
+      </node>
+      <node id="36">
+        <label>netdb.h</label>
+      </node>
+      <node id="82">
+        <label>ostream</label>
+      </node>
+      <node id="19">
+        <label>bloom_filter.h</label>
+        <link refid="bloom__filter_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../Socket/ClientSocket.h</label>
+      </node>
+      <node id="11">
+        <label>random</label>
+      </node>
+      <node id="33">
+        <label>sys/types.h</label>
+      </node>
+      <node id="79">
+        <label>ios</label>
+      </node>
+      <node id="65">
+        <label>string.h</label>
+      </node>
+      <node id="59">
+        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/utils/disjointset.h</label>
+      </node>
+      <node id="25">
+        <label>cstdio</label>
+      </node>
+      <node id="54">
+        <label>tuple</label>
+      </node>
+      <node id="41">
+        <label>ctime</label>
+      </node>
+      <node id="37">
+        <label>unistd.h</label>
+      </node>
+      <node id="51">
+        <label>stack</label>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+      <node id="69">
+        <label>ciso646</label>
+      </node>
+      <node id="5">
+        <label>../Socket/ServerSocket.h</label>
+      </node>
+      <node id="49">
+        <label>utility</label>
+      </node>
+      <node id="14">
+        <label>DASS_Verifier.h</label>
+        <link refid="_d_a_s_s___verifier_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>array</label>
+      </node>
+      <node id="45">
+        <label>sstream</label>
+      </node>
+      <node id="18">
+        <label>data_plane_othello.h</label>
+        <link refid="data__plane__othello_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>time.h</label>
+      </node>
+      <node id="22">
+        <label>math.h</label>
+      </node>
+      <node id="72">
+        <label>iosfwd</label>
+      </node>
+      <node id="39">
+        <label>cstdlib</label>
+      </node>
+      <node id="81">
+        <label>clocale</label>
+      </node>
+      <node id="17">
+        <label>control_plane_othello.h</label>
+        <link refid="control__plane__othello_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>sys/time.h</label>
+      </node>
+      <node id="8">
+        <label>iostream</label>
+      </node>
+      <node id="70">
+        <label>cstddef</label>
+      </node>
+      <node id="53">
+        <label>unordered_map</label>
+      </node>
+      <node id="32">
+        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/Socket/Socket.h</label>
+      </node>
+      <node id="66">
+        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/utils/lfsr64.h</label>
+      </node>
+      <node id="20">
+        <label>cuckoo.h</label>
+        <link refid="cuckoo_8h_source"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>mutex</label>
+      </node>
+      <node id="85">
+        <label>chrono</label>
+      </node>
+      <node id="29">
+        <label>../utils/perf_tool.h</label>
+      </node>
+      <node id="34">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="30">
+        <label>thread</label>
+      </node>
+      <node id="61">
+        <label>type_traits</label>
+      </node>
+      <node id="56">
+        <label>set</label>
+      </node>
+      <node id="58">
+        <label>forward_list</label>
+      </node>
+      <node id="28">
+        <label>algorithm</label>
+      </node>
+      <node id="83">
+        <label>sched.h</label>
+      </node>
+      <node id="60">
+        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/utils/hash.h</label>
+      </node>
+      <node id="67">
+        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/utils/debugbreak.h</label>
+      </node>
+      <node id="6">
+        <label>../Socket/SocketException.h</label>
+      </node>
+      <node id="84">
+        <label>execinfo.h</label>
+      </node>
+      <node id="27">
+        <label>cstring</label>
+      </node>
+      <node id="15">
+        <label>DASS_Tracker.h</label>
+        <link refid="_d_a_s_s___tracker_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>memory</label>
+      </node>
+      <node id="80">
+        <label>istream</label>
+      </node>
+      <node id="71">
+        <label>initializer_list</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="client_8cpp_1a28d7b2fe766d7265f986d920f18c94b3" prot="public" static="no">
+        <name>COMMAND_PORT</name>
+        <initializer>60000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" line="8" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="client_8cpp_1a4d4a051be03c2fb08443a88766256d98" prot="public" static="no">
+        <type>std::string(*</type>
+        <definition>typedef std::string(* CommandFunction) (std::string data)</definition>
+        <argsstring>)(std::string data)</argsstring>
+        <name>CommandFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" line="12" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="client_8cpp_1afe884ac4eb72baa21f563b0a447bcb38" prot="public" static="no" mutable="no">
+        <type><ref refid="class_tiny_c_r_client" kindref="compound">TinyCRClient</ref>&lt; uint64_t, uint32_t &gt;</type>
+        <definition>TinyCRClient&lt;uint64_t, uint32_t&gt; client(&quot;localhost&quot;)</definition>
+        <argsstring>(&quot;localhost&quot;)</argsstring>
+        <name>client</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" line="10" column="13"/>
+      </memberdef>
+      <memberdef kind="variable" id="client_8cpp_1a96fa1ae77a19d08f49aa0b35080f26d9" prot="public" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, CommandFunction &gt;</type>
+        <definition>std::unordered_map&lt;std::string, CommandFunction&gt; commandsMap</definition>
+        <argsstring></argsstring>
+        <name>commandsMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" line="13" column="20" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="client_8cpp_1aa9d68d16419f8587ae6493a092934c62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void runClientThread</definition>
+        <argsstring>()</argsstring>
+        <name>runClientThread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" line="19" column="6" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="client_8cpp_1a086111289b95e47f6a96aea20393a38e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string showCommand</definition>
+        <argsstring>(std::string data)</argsstring>
+        <name>showCommand</name>
+        <param>
+          <type>std::string</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" line="24" column="13" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" bodystart="24" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="client_8cpp_1adfa5cd7cf30999f9203e1ee8aeabed3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string getCommand</definition>
+        <argsstring>(std::string data)</argsstring>
+        <name>getCommand</name>
+        <param>
+          <type>std::string</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" line="49" column="13" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" bodystart="49" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="client_8cpp_1a5e179b197ff1dc382ed06650e4710132" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void listenForCommands</definition>
+        <argsstring>()</argsstring>
+        <name>listenForCommands</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" line="62" column="13" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" bodystart="62" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="client_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" line="108" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp" bodystart="108" bodyend="116"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;TinyCR/TinyCRClient.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Socket/ClientSocket.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Socket/SocketException.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;regex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COMMAND_PORT<sp/>60000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><ref refid="class_tiny_c_r_client" kindref="compound">TinyCRClient&lt;uint64_t, uint32_t&gt;</ref>client(</highlight><highlight class="stringliteral">&quot;localhost&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::string<sp/>(*CommandFunction)(std::string<sp/>data);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">std::unordered_map&lt;std::string,<sp/>CommandFunction&gt;<sp/>commandsMap;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>Function<sp/>for<sp/>running<sp/>the<sp/>client<sp/>in<sp/>a<sp/>thread</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>runClientThread()</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>client.startClient();</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">std::string<sp/>showCommand(std::string<sp/>data)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>std::regex<sp/>rgx(</highlight><highlight class="stringliteral">&quot;show<sp/>([0-9]+)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>std::smatch<sp/>matches;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!std::regex_search(data,<sp/>matches,<sp/>rgx))<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Inputs<sp/>are<sp/>badly<sp/>formed\n&quot;</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>num<sp/>=<sp/>stoul(matches[1]);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>v<sp/>=<sp/>client.queryCertificate(num);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>response<sp/>=<sp/>matches[1];</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(v)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>response<sp/>+=<sp/></highlight><highlight class="stringliteral">&quot;<sp/>is<sp/>revoked\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>response<sp/>+=<sp/><sp/></highlight><highlight class="stringliteral">&quot;<sp/>is<sp/>unrevoked\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>response;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">std::string<sp/>getCommand(std::string<sp/>data)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>std::regex<sp/>rgx(</highlight><highlight class="stringliteral">&quot;get<sp/>(\\w+)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>std::smatch<sp/>matches;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!std::regex_search(data,<sp/>matches,<sp/>rgx))<sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Inputs<sp/>are<sp/>badly<sp/>formed\n&quot;</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::to_string(client.getLatencyStatistic(matches[1]))<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>listenForCommands()</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>ServerSocket<sp/>server(COMMAND_PORT);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Listening<sp/>For<sp/>Commands<sp/>on<sp/>Port:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>COMMAND_PORT<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//implement<sp/>something<sp/>to<sp/>take<sp/>commands<sp/>and<sp/>stuff</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>std::regex<sp/>commandRgx(</highlight><highlight class="stringliteral">&quot;(^\\w+)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(</highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ServerSocket<sp/>new_sock;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>server.accept(new_sock);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>data;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>new_sock<sp/>&gt;&gt;<sp/>data;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::smatch<sp/>matches;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!std::regex_search(data,<sp/>matches,<sp/>commandRgx))<sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>new_sock<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Command<sp/>not<sp/>recognized&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>command<sp/>=<sp/>matches[1];</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(commandsMap.find(command)<sp/>!=<sp/>commandsMap.end())</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>response<sp/>=commandsMap[command](data);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>new_sock<sp/>&lt;&lt;<sp/>response;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>new_sock<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Bad<sp/>input&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(SocketException<sp/>&amp;e)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Exception<sp/>was<sp/>caught:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>e.description()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*<sp/>Runs<sp/>the<sp/>client,<sp/>no<sp/>command<sp/>line<sp/>inputs</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>commandsMap[</highlight><highlight class="stringliteral">&quot;show&quot;</highlight><highlight class="normal">]<sp/>=<sp/>&amp;showCommand;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>commandsMap[</highlight><highlight class="stringliteral">&quot;get&quot;</highlight><highlight class="normal">]<sp/>=<sp/>&amp;getCommand;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>std::thread<sp/>clientThread<sp/>(runClientThread);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>listenForCommands();</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>clientThread.join();</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/client.cpp"/>
+  </compounddef>
+</doxygen>

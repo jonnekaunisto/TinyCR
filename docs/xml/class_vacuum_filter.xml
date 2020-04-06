@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="class_vacuum_filter" kind="class" language="C++" prot="public">
+    <compoundname>VacuumFilter</compoundname>
+    <basecompoundref refid="class_semi_sort_cuckoo_filter" prot="public" virt="non-virtual">SemiSortCuckooFilter&lt; fp_t &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>typename fp_t</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_vacuum_filter_1ad494e9b2dd35c8ebf9a662b9065039f6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>int</type>
+        <definition>virtual int VacuumFilter&lt; fp_t &gt;::alternate</definition>
+        <argsstring>(int pos, fp_t fp)</argsstring>
+        <name>alternate</name>
+        <reimplements refid="class_semi_sort_cuckoo_filter_1ad9be620741e66177f974e5d1f38dd25c">alternate</reimplements>
+        <param>
+          <type>int</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>fp_t</type>
+          <declname>fp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="535" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="535" bodyend="583"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_vacuum_filter_1a65bb831863c9592cc292ba989ae79bd7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>int</type>
+        <definition>int VacuumFilter&lt; fp_t &gt;::insert</definition>
+        <argsstring>(uint64_t ele)</argsstring>
+        <name>insert</name>
+        <reimplements refid="class_semi_sort_cuckoo_filter_1ada9d489394b54b45127e6f84535a2a71">insert</reimplements>
+        <param>
+          <type>uint64_t</type>
+          <declname>ele</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="586" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="586" bodyend="666"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Filter&lt; fp_t &gt;</label>
+        <link refid="class_filter"/>
+      </node>
+      <node id="1">
+        <label>VacuumFilter&lt; fp_t &gt;</label>
+        <link refid="class_vacuum_filter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SemiSortCuckooFilter&lt; fp_t &gt;</label>
+        <link refid="class_semi_sort_cuckoo_filter"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Filter&lt; fp_t &gt;</label>
+        <link refid="class_filter"/>
+      </node>
+      <node id="1">
+        <label>VacuumFilter&lt; fp_t &gt;</label>
+        <link refid="class_vacuum_filter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SemiSortCuckooFilter&lt; fp_t &gt;</label>
+        <link refid="class_semi_sort_cuckoo_filter"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="532" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="531" bodyend="668"/>
+    <listofallmembers>
+      <member refid="class_vacuum_filter_1ad494e9b2dd35c8ebf9a662b9065039f6" prot="private" virt="virtual"><scope>VacuumFilter</scope><name>alternate</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1af0bc4da84cb2f2f4518cece201a0b609" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>balance</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1aabfdc9c9322e669745987af9f2c5340a" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>big_seg</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1af9e5abfebdaa6082dedfd63238aacdcb" prot="public" virt="virtual"><scope>VacuumFilter</scope><name>clear</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1ada41c8a510c593b3656f8cd075dac9f2" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>debug_flag</name></member>
+      <member refid="class_filter_1a29519bd08a029da1535518457d75e3c2" prot="public" virt="virtual"><scope>VacuumFilter</scope><name>debug_test</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a34a03b29e12b88d8e07b4917a1baefdf" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>decode_table</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a313298f9a27133b95d33bf5ab94bac32" prot="public" virt="virtual"><scope>VacuumFilter</scope><name>del</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1adca36c292235fa9f845f0656bf271dbd" prot="public" virt="virtual"><scope>VacuumFilter</scope><name>del_in_bucket</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a4f8fd7b6d0f2d1a51a7a266fb94e926b" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>e</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1ae4f631172440379f5a0fda1b35b47a22" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>encode_table</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a3eaef77860b399bbbfda02ac3b92454a" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>filled_cell</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a51dfdfde4659b56d36f9212f597c0803" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>fingerprint</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a052e34ae9ba211d4ec70c063e1174c59" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>fp_len</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a5b627f577f5000388c72076de4f52cbf" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>full_bucket</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a90778eb94a0573688ab7c3d38ba5a636" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>get_bucket</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1ac3dc2e32041333b666b473e6d1a42b37" prot="public" virt="virtual"><scope>VacuumFilter</scope><name>get_full_bucket_factor</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1af4b125b2b613d265bfc241da0fce43f0" prot="public" virt="virtual"><scope>VacuumFilter</scope><name>get_load_factor</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1adc02f33bc19b3fe280a31384bde5b0eb" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>high_bit</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a494149396edb1daa504fbcb27b660b4b" prot="public" virt="virtual"><scope>VacuumFilter</scope><name>init</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a9b428314533f7b626ae5904059199233" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>init_with_params</name></member>
+      <member refid="class_vacuum_filter_1a65bb831863c9592cc292ba989ae79bd7" prot="public" virt="virtual"><scope>VacuumFilter</scope><name>insert</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a9041e03d1d1856d94539f9f4a9e21a61" prot="public" virt="virtual"><scope>VacuumFilter</scope><name>insert_to_bucket</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1ae0323f61e8b2115a32b33f42d759a09f" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>isSmall</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1aff6876172d78f2b34673f65ee4baccdf" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>len</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1aed9dadce58f182a848c79d85837a50a4" prot="public" virt="virtual"><scope>VacuumFilter</scope><name>lookup</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a0936dcad4bac0f234680fe08f8213cda" prot="public" virt="virtual"><scope>VacuumFilter</scope><name>lookup_in_bucket</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a0ff3982981e9de41e8de10488bca9d72" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>low_bit</name></member>
+      <member refid="class_filter_1aa3e04b6e93f4e775cab62f6873165ce8" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>m</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a08d9fd4dc13be1b6ad328f661c406175" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>make_balance</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1ac42b57f8ec077227b6276ce4cf65ec0b" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>max_2_power</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1ae039a3855295b185ff3b7018549e160a" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>max_kick_steps</name></member>
+      <member refid="class_filter_1a18471781d29d15e33aeecfbddfb698d7" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>memory_consumption</name></member>
+      <member refid="class_filter_1ae21e5de97e1dcd3b933b04ff500fc76f" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>n</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a9bb7debe5fbd3be76e80f9cfe0b1b4aa" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>operator=</name></member>
+      <member refid="class_filter_1a7aafc90781629925050ed44078630106" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>position_hash</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1ab3d3bb5e951c1fbc726c9878f395c174" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>position_pair</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a6e660b20725194de6894506d41711a85" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>set_bucket</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a7046d257c49faa639284efb07d3e299c" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>sort_pair</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1ad727ae38fa52ff0cdd0a2ad72e2f935f" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>T</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a7b16abdbc060debe27a1ebd7bf6e8738" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>test_bucket</name></member>
+      <member refid="class_semi_sort_cuckoo_filter_1a6fd9d12f02d33c531dc4068e4d83f5a5" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>~SemiSortCuckooFilter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

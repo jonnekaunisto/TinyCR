@@ -1,0 +1,411 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="class_bloom_filter" kind="class" language="C++" prot="public">
+    <compoundname>BloomFilter</compoundname>
+    <templateparamlist>
+      <param>
+        <type>class Key</type>
+      </param>
+      <param>
+        <type>int</type>
+        <declname>L</declname>
+        <defname>L</defname>
+        <defval>1</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_bloom_filter_1abc84502b91a79c4144b8cba21bda891a" prot="public" static="no" mutable="no">
+        <type>vector&lt; Hasher32&lt; Key &gt; &gt;</type>
+        <definition>vector&lt;Hasher32&lt;Key&gt; &gt; BloomFilter&lt; Key, L &gt;::h</definition>
+        <argsstring></argsstring>
+        <name>h</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="12" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bloom_filter_1a0f830d3e507383e97ec6ab80a224a909" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t BloomFilter&lt; Key, L &gt;::capacity</definition>
+        <argsstring></argsstring>
+        <name>capacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="13" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bloom_filter_1aab014ea87932110886ba3a267cd567ee" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t BloomFilter&lt; Key, L &gt;::m</definition>
+        <argsstring></argsstring>
+        <name>m</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="14" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bloom_filter_1a09e6edac2c6d3a523a1d473345df99c4" prot="public" static="no" mutable="no">
+        <type>vector&lt; uint64_t &gt;</type>
+        <definition>vector&lt;uint64_t&gt; BloomFilter&lt; Key, L &gt;::mem</definition>
+        <argsstring></argsstring>
+        <name>mem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="15" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bloom_filter_1acb8ca196e0bfb98d5bd81a2d4b0a919e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BloomFilter&lt; Key, L &gt;::k</definition>
+        <argsstring></argsstring>
+        <name>k</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="16" column="7" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_bloom_filter_1a7c7d67f2c8c209a1248f91786f2cbdb8" prot="public" static="yes" mutable="no">
+        <type>const static uint64_t</type>
+        <definition>const static uint64_t BloomFilter&lt; Key, L &gt;::MASK</definition>
+        <argsstring></argsstring>
+        <name>MASK</name>
+        <initializer>= uint64_t(-1) &gt;&gt; (64 - L)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="18" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_bloom_filter_1a474b15e2822101c46a86a0eecd3fb7f6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t BloomFilter&lt; Key, L &gt;::multiply_high_u32</definition>
+        <argsstring>(uint32_t x, uint32_t y) const</argsstring>
+        <name>multiply_high_u32</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="20" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bloom_filter_1a195e8c13db2d5987120fb8b535d3ece6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t BloomFilter&lt; Key, L &gt;::fast_map_to_buckets</definition>
+        <argsstring>(uint32_t x) const</argsstring>
+        <name>fast_map_to_buckets</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="24" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="24" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bloom_filter_1a6131c10e031785c03d72f4265b8c73ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BloomFilter&lt; Key, L &gt;::increaseAt</definition>
+        <argsstring>(uint32_t index)</argsstring>
+        <name>increaseAt</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="28" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="28" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bloom_filter_1afc277d4392394512be6b2bfed7322991" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BloomFilter&lt; Key, L &gt;::decreaseAt</definition>
+        <argsstring>(uint32_t index)</argsstring>
+        <name>decreaseAt</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>return if the corresponding bloom filter slot should be emptied </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="39" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="39" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bloom_filter_1ab6650ad6f61afd859675eddd3adabc97" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BloomFilter&lt; Key, L &gt;::memSet</definition>
+        <argsstring>(uint32_t index, uint64_t value)</argsstring>
+        <name>memSet</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="50" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="50" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bloom_filter_1a31bb651fdcf64043da87d5a29642bc46" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t BloomFilter&lt; Key, L &gt;::getAt</definition>
+        <argsstring>(uint32_t index) const</argsstring>
+        <name>getAt</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="69" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="69" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bloom_filter_1aaae22033d3227bcbaaac2dac900cc54b" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BloomFilter&lt; Key, L &gt;::BloomFilter</definition>
+        <argsstring>(uint32_t capacity=4096, float FP=0.001, int8_t numberOfHashes=-1)</argsstring>
+        <name>BloomFilter</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>capacity</declname>
+          <defval>4096</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>FP</declname>
+          <defval>0.001</defval>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>numberOfHashes</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+<para>if numberOfHashes = -1, let the algorithm find out the best k </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="89" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="89" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bloom_filter_1afa13fac99e0ac1e193c480da3365cd5a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BloomFilter&lt; Key, L &gt;::BloomFilter</definition>
+        <argsstring>(vector&lt; Hasher32&lt; Key &gt;&gt; &amp;_h, uint32_t _capacity, uint32_t _m, vector&lt; uint64_t &gt; &amp;_mem)</argsstring>
+        <name>BloomFilter</name>
+        <param>
+          <type>vector&lt; Hasher32&lt; Key &gt;&gt; &amp;</type>
+          <declname>_h</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>_capacity</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>_m</declname>
+        </param>
+        <param>
+          <type>vector&lt; uint64_t &gt; &amp;</type>
+          <declname>_mem</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="116" column="3" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="116" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bloom_filter_1a46382647cd6d75d9920b2875c9d1a775" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BloomFilter&lt; Key, L &gt;::insert</definition>
+        <argsstring>(const Key &amp;key)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>const Key &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="124" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="124" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bloom_filter_1a3f2e8a2e70980935f4da7e57ffd7be84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t BloomFilter&lt; Key, L &gt;::erase</definition>
+        <argsstring>(const Key &amp;key)</argsstring>
+        <name>erase</name>
+        <param>
+          <type>const Key &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>return the bit pattern to erase: if the i-th is 1, then erase the i-th mapped bit for the Bloom filter </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="131" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="131" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bloom_filter_1a05ff98f53a9f74748cd8a7810ba85bd9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BloomFilter&lt; Key, L &gt;::isMember</definition>
+        <argsstring>(const Key &amp;key) const</argsstring>
+        <name>isMember</name>
+        <param>
+          <type>const Key &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="144" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="144" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bloom_filter_1a74d5fcb640f9ed950a01ac164c320168" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BloomFilter&lt; Key, L &gt;::mask</definition>
+        <argsstring>(const Key &amp;k, uint64_t toErase)</argsstring>
+        <name>mask</name>
+        <param>
+          <type>const Key &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>toErase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="152" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="152" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bloom_filter_1a9628b21eb8a62220bb360a1ca6ab89a8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t BloomFilter&lt; Key, L &gt;::getCapacity</definition>
+        <argsstring>() const</argsstring>
+        <name>getCapacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="160" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="160" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bloom_filter_1a228f49f040afbaf7003188011641b494" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t BloomFilter&lt; Key, L &gt;::getMemoryCost</definition>
+        <argsstring>() const</argsstring>
+        <name>getMemoryCost</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="164" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="164" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bloom_filter_1a6cbda430416dcbb77be405a4f7122395" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t BloomFilter&lt; Key, L &gt;::getK</definition>
+        <argsstring>() const</argsstring>
+        <name>getK</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="168" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="168" bodyend="170"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="9" column="18" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="9" bodyend="171"/>
+    <listofallmembers>
+      <member refid="class_bloom_filter_1aaae22033d3227bcbaaac2dac900cc54b" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>BloomFilter</name></member>
+      <member refid="class_bloom_filter_1afa13fac99e0ac1e193c480da3365cd5a" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>BloomFilter</name></member>
+      <member refid="class_bloom_filter_1a0f830d3e507383e97ec6ab80a224a909" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>capacity</name></member>
+      <member refid="class_bloom_filter_1afc277d4392394512be6b2bfed7322991" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>decreaseAt</name></member>
+      <member refid="class_bloom_filter_1a3f2e8a2e70980935f4da7e57ffd7be84" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>erase</name></member>
+      <member refid="class_bloom_filter_1a195e8c13db2d5987120fb8b535d3ece6" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>fast_map_to_buckets</name></member>
+      <member refid="class_bloom_filter_1a31bb651fdcf64043da87d5a29642bc46" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>getAt</name></member>
+      <member refid="class_bloom_filter_1a9628b21eb8a62220bb360a1ca6ab89a8" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>getCapacity</name></member>
+      <member refid="class_bloom_filter_1a6cbda430416dcbb77be405a4f7122395" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>getK</name></member>
+      <member refid="class_bloom_filter_1a228f49f040afbaf7003188011641b494" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>getMemoryCost</name></member>
+      <member refid="class_bloom_filter_1abc84502b91a79c4144b8cba21bda891a" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>h</name></member>
+      <member refid="class_bloom_filter_1a6131c10e031785c03d72f4265b8c73ea" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>increaseAt</name></member>
+      <member refid="class_bloom_filter_1a46382647cd6d75d9920b2875c9d1a775" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>insert</name></member>
+      <member refid="class_bloom_filter_1a05ff98f53a9f74748cd8a7810ba85bd9" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>isMember</name></member>
+      <member refid="class_bloom_filter_1acb8ca196e0bfb98d5bd81a2d4b0a919e" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>k</name></member>
+      <member refid="class_bloom_filter_1aab014ea87932110886ba3a267cd567ee" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>m</name></member>
+      <member refid="class_bloom_filter_1a7c7d67f2c8c209a1248f91786f2cbdb8" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>MASK</name></member>
+      <member refid="class_bloom_filter_1a74d5fcb640f9ed950a01ac164c320168" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>mask</name></member>
+      <member refid="class_bloom_filter_1a09e6edac2c6d3a523a1d473345df99c4" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>mem</name></member>
+      <member refid="class_bloom_filter_1ab6650ad6f61afd859675eddd3adabc97" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>memSet</name></member>
+      <member refid="class_bloom_filter_1a474b15e2822101c46a86a0eecd3fb7f6" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>multiply_high_u32</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

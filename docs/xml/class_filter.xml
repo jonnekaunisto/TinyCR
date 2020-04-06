@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="class_filter" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>Filter</compoundname>
+    <derivedcompoundref refid="class_semi_sort_cuckoo_filter" prot="public" virt="non-virtual">SemiSortCuckooFilter&lt; fp_t &gt;</derivedcompoundref>
+    <templateparamlist>
+      <param>
+        <type>typename fp_t</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_filter_1ae21e5de97e1dcd3b933b04ff500fc76f" prot="public" static="no" mutable="no">
+        <type>long long</type>
+        <definition>long long Filter&lt; fp_t &gt;::n</definition>
+        <argsstring></argsstring>
+        <name>n</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="21" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_filter_1aa3e04b6e93f4e775cab62f6873165ce8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Filter&lt; fp_t &gt;::m</definition>
+        <argsstring></argsstring>
+        <name>m</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="22" column="13" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_filter_1a18471781d29d15e33aeecfbddfb698d7" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t Filter&lt; fp_t &gt;::memory_consumption</definition>
+        <argsstring></argsstring>
+        <name>memory_consumption</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="23" column="18" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_filter_1a86a9e4b9cb444e03eaf9d26a6c98e7c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Filter&lt; fp_t &gt;::init</definition>
+        <argsstring>(int _n, int _m, int _max_kick_steps, int fp_length)=0</argsstring>
+        <name>init</name>
+        <reimplementedby refid="class_semi_sort_cuckoo_filter_1a494149396edb1daa504fbcb27b660b4b">init</reimplementedby>
+        <reimplementedby refid="class_semi_sort_cuckoo_filter_1a494149396edb1daa504fbcb27b660b4b">init</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>_n</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_m</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_max_kick_steps</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>fp_length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="24" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_filter_1a89f80c0d52189f85463573bd90d5e0cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Filter&lt; fp_t &gt;::clear</definition>
+        <argsstring>()=0</argsstring>
+        <name>clear</name>
+        <reimplementedby refid="class_semi_sort_cuckoo_filter_1af9e5abfebdaa6082dedfd63238aacdcb">clear</reimplementedby>
+        <reimplementedby refid="class_semi_sort_cuckoo_filter_1af9e5abfebdaa6082dedfd63238aacdcb">clear</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="25" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_filter_1afa4039e0e8c2d59fb1d78ffa80b36660" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int Filter&lt; fp_t &gt;::insert</definition>
+        <argsstring>(uint64_t ele)=0</argsstring>
+        <name>insert</name>
+        <reimplementedby refid="class_semi_sort_cuckoo_filter_1ada9d489394b54b45127e6f84535a2a71">insert</reimplementedby>
+        <reimplementedby refid="class_semi_sort_cuckoo_filter_1ada9d489394b54b45127e6f84535a2a71">insert</reimplementedby>
+        <reimplementedby refid="class_vacuum_filter_1a65bb831863c9592cc292ba989ae79bd7">insert</reimplementedby>
+        <reimplementedby refid="class_vacuum_filter_1a65bb831863c9592cc292ba989ae79bd7">insert</reimplementedby>
+        <param>
+          <type>uint64_t</type>
+          <declname>ele</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="26" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_filter_1ac156e01d71270f546e3d61d23ab1571a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool Filter&lt; fp_t &gt;::lookup</definition>
+        <argsstring>(uint64_t ele)=0</argsstring>
+        <name>lookup</name>
+        <reimplementedby refid="class_semi_sort_cuckoo_filter_1aed9dadce58f182a848c79d85837a50a4">lookup</reimplementedby>
+        <reimplementedby refid="class_semi_sort_cuckoo_filter_1aed9dadce58f182a848c79d85837a50a4">lookup</reimplementedby>
+        <param>
+          <type>uint64_t</type>
+          <declname>ele</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="27" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_filter_1a18f33475ce5935d5f68933bb6ce7090a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool Filter&lt; fp_t &gt;::del</definition>
+        <argsstring>(uint64_t ele)=0</argsstring>
+        <name>del</name>
+        <reimplementedby refid="class_semi_sort_cuckoo_filter_1a313298f9a27133b95d33bf5ab94bac32">del</reimplementedby>
+        <reimplementedby refid="class_semi_sort_cuckoo_filter_1a313298f9a27133b95d33bf5ab94bac32">del</reimplementedby>
+        <param>
+          <type>uint64_t</type>
+          <declname>ele</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="28" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_filter_1a743b28ca8d18be65ce2ddac007333f5b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>virtual double Filter&lt; fp_t &gt;::get_load_factor</definition>
+        <argsstring>()</argsstring>
+        <name>get_load_factor</name>
+        <reimplementedby refid="class_semi_sort_cuckoo_filter_1af4b125b2b613d265bfc241da0fce43f0">get_load_factor</reimplementedby>
+        <reimplementedby refid="class_semi_sort_cuckoo_filter_1af4b125b2b613d265bfc241da0fce43f0">get_load_factor</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="29" column="24" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_filter_1a42510370d608796a9c504b905b9f30fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>virtual double Filter&lt; fp_t &gt;::get_full_bucket_factor</definition>
+        <argsstring>()</argsstring>
+        <name>get_full_bucket_factor</name>
+        <reimplementedby refid="class_semi_sort_cuckoo_filter_1ac3dc2e32041333b666b473e6d1a42b37">get_full_bucket_factor</reimplementedby>
+        <reimplementedby refid="class_semi_sort_cuckoo_filter_1ac3dc2e32041333b666b473e6d1a42b37">get_full_bucket_factor</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="30" column="24" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_filter_1a29519bd08a029da1535518457d75e3c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void Filter&lt; fp_t &gt;::debug_test</definition>
+        <argsstring>()</argsstring>
+        <name>debug_test</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="31" column="22" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_filter_1a7aafc90781629925050ed44078630106" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t Filter&lt; fp_t &gt;::position_hash</definition>
+        <argsstring>(long long ele)</argsstring>
+        <name>position_hash</name>
+        <param>
+          <type>long long</type>
+          <declname>ele</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="34" column="18" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="34" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Filter&lt; fp_t &gt;</label>
+        <link refid="class_filter"/>
+      </node>
+      <node id="3">
+        <label>VacuumFilter&lt; fp_t &gt;</label>
+        <link refid="class_vacuum_filter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SemiSortCuckooFilter&lt; fp_t &gt;</label>
+        <link refid="class_semi_sort_cuckoo_filter"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="19" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="18" bodyend="38"/>
+    <listofallmembers>
+      <member refid="class_filter_1a89f80c0d52189f85463573bd90d5e0cd" prot="public" virt="pure-virtual"><scope>Filter</scope><name>clear</name></member>
+      <member refid="class_filter_1a29519bd08a029da1535518457d75e3c2" prot="public" virt="virtual"><scope>Filter</scope><name>debug_test</name></member>
+      <member refid="class_filter_1a18f33475ce5935d5f68933bb6ce7090a" prot="public" virt="pure-virtual"><scope>Filter</scope><name>del</name></member>
+      <member refid="class_filter_1a42510370d608796a9c504b905b9f30fb" prot="public" virt="virtual"><scope>Filter</scope><name>get_full_bucket_factor</name></member>
+      <member refid="class_filter_1a743b28ca8d18be65ce2ddac007333f5b" prot="public" virt="virtual"><scope>Filter</scope><name>get_load_factor</name></member>
+      <member refid="class_filter_1a86a9e4b9cb444e03eaf9d26a6c98e7c2" prot="public" virt="pure-virtual"><scope>Filter</scope><name>init</name></member>
+      <member refid="class_filter_1afa4039e0e8c2d59fb1d78ffa80b36660" prot="public" virt="pure-virtual"><scope>Filter</scope><name>insert</name></member>
+      <member refid="class_filter_1ac156e01d71270f546e3d61d23ab1571a" prot="public" virt="pure-virtual"><scope>Filter</scope><name>lookup</name></member>
+      <member refid="class_filter_1aa3e04b6e93f4e775cab62f6873165ce8" prot="public" virt="non-virtual"><scope>Filter</scope><name>m</name></member>
+      <member refid="class_filter_1a18471781d29d15e33aeecfbddfb698d7" prot="public" virt="non-virtual"><scope>Filter</scope><name>memory_consumption</name></member>
+      <member refid="class_filter_1ae21e5de97e1dcd3b933b04ff500fc76f" prot="public" virt="non-virtual"><scope>Filter</scope><name>n</name></member>
+      <member refid="class_filter_1a7aafc90781629925050ed44078630106" prot="public" virt="non-virtual"><scope>Filter</scope><name>position_hash</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

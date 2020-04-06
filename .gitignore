@@ -44,3 +44,5 @@ src/mockCA
 __pycache__
 
 build
+
+.venv

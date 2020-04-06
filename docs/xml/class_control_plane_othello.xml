@@ -1,0 +1,1953 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="class_control_plane_othello" kind="class" language="C++" prot="public">
+    <compoundname>ControlPlaneOthello</compoundname>
+    <includes refid="control__plane__othello_8h" local="no">control_plane_othello.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class K</type>
+      </param>
+      <param>
+        <type>class V</type>
+      </param>
+      <param>
+        <type>uint8_t</type>
+        <declname>L</declname>
+        <defname>L</defname>
+        <defval>sizeof(V) * 8</defval>
+      </param>
+      <param>
+        <type>uint8_t</type>
+        <declname>DL</declname>
+        <defname>DL</defname>
+        <defval>0</defval>
+      </param>
+      <param>
+        <type>bool</type>
+        <declname>maintainDP</declname>
+        <defname>maintainDP</defname>
+        <defval>true</defval>
+      </param>
+      <param>
+        <type>bool</type>
+        <declname>maintainDisjointSet</declname>
+        <defname>maintainDisjointSet</defname>
+        <defval>true</defval>
+      </param>
+      <param>
+        <type>bool</type>
+        <declname>randomized</declname>
+        <defname>randomized</defname>
+        <defval>false</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="class_control_plane_othello_1a57adcdcbb2c00da3e1d16cea07e20274" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class K1</type>
+          </param>
+          <param>
+            <type>class V1</type>
+          </param>
+          <param>
+            <type>uint8_t</type>
+            <declname>L1</declname>
+            <defname>L1</defname>
+          </param>
+          <param>
+            <type>uint8_t</type>
+            <declname>DL1</declname>
+            <defname>DL1</defname>
+          </param>
+        </templateparamlist>
+        <type>friend class</type>
+        <definition>friend class DataPlaneOthello</definition>
+        <argsstring></argsstring>
+        <name>DataPlaneOthello</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="41" column="20" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="class_control_plane_othello_1af4510df0cfb3141911ed358a681f3dfa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class K1</type>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>l2</declname>
+            <defname>l2</defname>
+          </param>
+          <param>
+            <type>uint8_t</type>
+            <declname>DL1</declname>
+            <defname>DL1</defname>
+          </param>
+        </templateparamlist>
+        <type>friend class</type>
+        <definition>friend class OthelloFilterControlPlane</definition>
+        <argsstring></argsstring>
+        <name>OthelloFilterControlPlane</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="43" column="18" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_control_plane_othello_1abe719ca231778366d03f91e27b440b35" prot="public" static="yes" mutable="no">
+        <type>const static int</type>
+        <definition>const static int ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::MAX_REHASH</definition>
+        <argsstring></argsstring>
+        <name>MAX_REHASH</name>
+        <initializer>= 50</initializer>
+        <briefdescription>
+<para>Maximum number of rehash tries before report an error. If this limit is reached, Othello build fails. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="47" column="20" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1a430d4266275b0bc961227f5a4d02d027" prot="public" static="yes" mutable="no">
+        <type>const static int</type>
+        <definition>const static int ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::VDL</definition>
+        <argsstring></argsstring>
+        <name>VDL</name>
+        <initializer>= L + DL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="48" column="20" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1acc8164acf06f30283cbb1f89cf8071e3" prot="public" static="yes" mutable="no">
+        <type>const static uint64_t</type>
+        <definition>const static uint64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::VDEMASK</definition>
+        <argsstring></argsstring>
+        <name>VDEMASK</name>
+        <initializer>= ~(uint64_t(-1) &lt;&lt; VDL)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="51" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1aed4b2c7fbcaea5c4b152c08a4484cb59" prot="public" static="yes" mutable="no">
+        <type>const static uint64_t</type>
+        <definition>const static uint64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::DEMASK</definition>
+        <argsstring></argsstring>
+        <name>DEMASK</name>
+        <initializer>= ~(uint64_t(-1) &lt;&lt; DL)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="52" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1a6569288ea11f240a4434bafb134ae4c2" prot="public" static="yes" mutable="no">
+        <type>const static uint64_t</type>
+        <definition>const static uint64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::VMASK</definition>
+        <argsstring></argsstring>
+        <name>VMASK</name>
+        <initializer>= ~(uint64_t(-1) &lt;&lt; L)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="53" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1a1c7a6cb45c090560e7632a39a01bc1d7" prot="public" static="yes" mutable="no">
+        <type>const static uint64_t</type>
+        <definition>const static uint64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::VDMASK</definition>
+        <argsstring></argsstring>
+        <name>VDMASK</name>
+        <initializer>= (VDEMASK &lt;&lt; 1) &amp; VDEMASK</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="54" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_control_plane_othello_1aaf3405c4ccbb852b8a80a23d3013912f" prot="public" static="no" mutable="no">
+        <type>vector&lt; uint64_t &gt;</type>
+        <definition>vector&lt;uint64_t&gt; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::mem</definition>
+        <argsstring></argsstring>
+        <name>mem</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="59" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1a00726b12a2a74d22818248311380c78d" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::ma</definition>
+        <argsstring></argsstring>
+        <name>ma</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="60" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1a14c1092a188d24d51e6100a05535fcd9" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::mb</definition>
+        <argsstring></argsstring>
+        <name>mb</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="61" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1a1164e122b07bd2dbc4cd87baa33c8a71" prot="public" static="no" mutable="no">
+        <type>Hasher64&lt; K &gt;</type>
+        <definition>Hasher64&lt;K&gt; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::hab</definition>
+        <argsstring></argsstring>
+        <name>hab</name>
+        <initializer>= Hasher64&lt;K&gt;((uint64_t(InputBase::rand()) &lt;&lt; 32) + InputBase::rand())</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="62" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1af40cb9917674a431e53fd2b503a0c7c9" prot="public" static="no" mutable="no">
+        <type>Hasher32&lt; K &gt;</type>
+        <definition>Hasher32&lt;K&gt; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::hd</definition>
+        <argsstring></argsstring>
+        <name>hd</name>
+        <initializer>= Hasher32&lt;K&gt;(uint32_t(InputBase::rand()))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="63" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1a8510cb612eb1ecad9f5f652de4da8f89" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::maintainingDP</definition>
+        <argsstring></argsstring>
+        <name>maintainingDP</name>
+        <initializer>= maintainDP</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="65" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1a0d8c0fc19979f97f53777a86dc047022" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::keyCnt</definition>
+        <argsstring></argsstring>
+        <name>keyCnt</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="290" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1acf9f01637723be3eacb1a22b341555ee" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::minimalKeyCapacity</definition>
+        <argsstring></argsstring>
+        <name>minimalKeyCapacity</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="290" column="20" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1a94b16024bb82bf1f9a1a686890c01114" prot="public" static="no" mutable="no">
+        <type>vector&lt; K &gt;</type>
+        <definition>vector&lt;K&gt; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::keys</definition>
+        <argsstring></argsstring>
+        <name>keys</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="334" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="334" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1aec89d45c4d471b4a52f735ce2f8a60cc" prot="public" static="no" mutable="no">
+        <type>vector&lt; V &gt;</type>
+        <definition>vector&lt;V&gt; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="335" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="335" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1af2dced1dbed55458a9b373820f044c55" prot="public" static="no" mutable="no">
+        <type>vector&lt; uint32_t &gt;</type>
+        <definition>vector&lt;uint32_t&gt; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::indMem</definition>
+        <argsstring></argsstring>
+        <name>indMem</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="336" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="336" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1aac66f2ed68a4352423a2d73f320a6c39" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_othello_c_p_cell" kindref="compound">OthelloCPCell</ref> &gt;</type>
+        <definition>vector&lt;OthelloCPCell&gt; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::head</definition>
+        <argsstring></argsstring>
+        <name>head</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>subscript: hashValue, value: keyIndex </para>
+        </briefdescription>
+        <detaileddescription>
+<para>multiple keys may share a same end (hash value) first and next1, next2 maintain linked lists, each containing all keys with the same hash in either of their ends </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="363" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1afe56fd8c4cfa26e24394dbf4e4d040c6" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_othello_c_p_cell" kindref="compound">OthelloCPCell</ref> &gt;</type>
+        <definition>vector&lt;OthelloCPCell&gt; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::nextAtA</definition>
+        <argsstring></argsstring>
+        <name>nextAtA</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+<para>subscript: keyIndex, value: keyIndex </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="364" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="364" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1a22058a108b94c9adfd3e961bfabdc2c0" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="struct_othello_c_p_cell" kindref="compound">OthelloCPCell</ref> &gt;</type>
+        <definition>vector&lt;OthelloCPCell&gt; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::nextAtB</definition>
+        <argsstring></argsstring>
+        <name>nextAtB</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="365" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="365" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_control_plane_othello_1a06c998e7d42fe07d0f9747b2b78acfc9" prot="public" static="no" mutable="no">
+        <type>DisjointSet</type>
+        <definition>DisjointSet ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::connectivityForest</definition>
+        <argsstring></argsstring>
+        <name>connectivityForest</name>
+        <briefdescription>
+<para>h2(keys[i]) = h2(keys[next2[i]]); </para>
+        </briefdescription>
+        <detaileddescription>
+<para>store the hash values that are connected by key edges </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="367" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="367" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_control_plane_othello_1a3d9785a6e7a62d535470e579e13a93a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::setSeed</definition>
+        <argsstring>(int seed)</argsstring>
+        <name>setSeed</name>
+        <param>
+          <type>int</type>
+          <declname>seed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="67" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="67" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a5a7a169a39306706c376694b47bcc819" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::changeSeed</definition>
+        <argsstring>()</argsstring>
+        <name>changeSeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="72" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a1aad907bcc21223ba180a111354fa901" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::multiply_high_u32</definition>
+        <argsstring>(uint32_t x, uint32_t y) const</argsstring>
+        <name>multiply_high_u32</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="74" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="74" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1ae4276eef4468ae10131abd7c5fac382c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::fast_map_to_A</definition>
+        <argsstring>(uint32_t x) const</argsstring>
+        <name>fast_map_to_A</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="78" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="78" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a1dc629610c971eb1fa8c0cdcc3b854d9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::fast_map_to_B</definition>
+        <argsstring>(uint32_t x) const</argsstring>
+        <name>fast_map_to_B</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="86" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="86" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a4b609c0bfae957af25237cbcab3cf1bf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::getIndices</definition>
+        <argsstring>(const K &amp;k, uint32_t &amp;aInd, uint32_t &amp;bInd) const</argsstring>
+        <name>getIndices</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>uint32_t &amp;</type>
+          <declname>aInd</declname>
+        </param>
+        <param>
+          <type>uint32_t &amp;</type>
+          <declname>bInd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>aInd</parametername>
+<parametername>bInd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>return indices of k into array A&amp;B </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="92" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="92" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1adec591e48d4d2bae9408fb5f11736320" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::memResize</definition>
+        <argsstring>()</argsstring>
+        <name>memResize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the number of uint64_t elements to hold ma + mb valueType elements </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="99" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="99" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1aea9bf4ab36c087072d6546db2d796a5a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::memSet</definition>
+        <argsstring>(uint32_t index, uint64_t value)</argsstring>
+        <name>memSet</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the index-th element to be value. if the index &gt; ma, it is the (index - ma)-th element in array B <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in array A or array B </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="107" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="107" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a492f6423114cf3eac94c9e7c58c1f6f5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::memGet</definition>
+        <argsstring>(uint32_t index) const</argsstring>
+        <name>memGet</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in array A or array B </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the index-th element. if the index &gt; ma, it is the (index - ma)-th element in array B </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="131" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="131" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a4ee6230a09e260896e4d0f6d829f16e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::memValueSet</definition>
+        <argsstring>(uint32_t index, uint64_t value)</argsstring>
+        <name>memValueSet</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="151" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="151" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a663526156d1d01a008e0446fcdd7fbd4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::memValueGet</definition>
+        <argsstring>(uint32_t index) const</argsstring>
+        <name>memValueGet</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="172" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="172" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a8e140f2f73de673b5f55a3df645dda0f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::getMa</definition>
+        <argsstring>() const</argsstring>
+        <name>getMa</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="192" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="192" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a83bd41d95f969fede47417d2b9270cef" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::getMb</definition>
+        <argsstring>() const</argsstring>
+        <name>getMb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="196" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="196" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a05bdf0a1f098dbef506fc692f1c69137" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Hasher64&lt; K &gt;</type>
+        <definition>Hasher64&lt;K&gt; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::getH</definition>
+        <argsstring>() const</argsstring>
+        <name>getH</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="200" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="200" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a78dcc4beb15e3797e554e71e89499e2b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Hasher32&lt; K &gt;</type>
+        <definition>Hasher32&lt;K&gt; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::getHd</definition>
+        <argsstring>() const</argsstring>
+        <name>getHd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="204" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="204" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1aaa7383a313da57dda4bb7ead9a46cc40" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::query</definition>
+        <argsstring>(const K &amp;k, V &amp;out) const</argsstring>
+        <name>query</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>V &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the lookup value for k </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the lookup action is successful, but it does not mean the key is really a member </para>
+</simplesect>
+<simplesect kind="note"><para>No membership is checked. Use isMember to check the membership </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="212" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="212" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a9921044972fefc691e07cbf34eab7bba" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::ControlPlaneOthello</definition>
+        <argsstring>(uint32_t keyCapacity=256, float o_ratio=1)</argsstring>
+        <name>ControlPlaneOthello</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>keyCapacity</declname>
+          <defval>256</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>o_ratio</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="231" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="231" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a8b2e5da3c5dcd3fdaceb5653435ef105" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::resizeKey</definition>
+        <argsstring>(uint32_t targetCapacity, bool compact=false)</argsstring>
+        <name>resizeKey</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>targetCapacity</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>compact</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resize key and value related memory for the Othello to be able to hold keyCount keys <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>targetCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the target capacity </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Side effect: will change keyCnt, and if hash size is changed, a rebuild is performed </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="244" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="244" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a4a3fa7a0e3765a59e9c8d5814fc50502" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::setMinimalKeyCapacity</definition>
+        <argsstring>(uint32_t minimalKeyCapacity)</argsstring>
+        <name>setMinimalKeyCapacity</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>minimalKeyCapacity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="292" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="292" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a41ccc157a371010904c9593a6c2a21d5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="297" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="297" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a4d0534d0205629ca9acf100496a2e008" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::compose</definition>
+        <argsstring>(const unordered_map&lt; V, V &gt; &amp;migration)</argsstring>
+        <name>compose</name>
+        <param>
+          <type>const unordered_map&lt; V, V &gt; &amp;</type>
+          <declname>migration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="302" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="302" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1af707b7dcf0fa824c6eb8d397cfa52570" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::prepareDP</definition>
+        <argsstring>()</argsstring>
+        <name>prepareDP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="322" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="322" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a3305404618dcc7f8951b19289b7cd5f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>V</type>
+        <definition>V ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::randVal</definition>
+        <argsstring>(int i=0) const</argsstring>
+        <name>randVal</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="338" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="338" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a2f690001a8b0a88187b44309aae68bdd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::resetBuildState</definition>
+        <argsstring>()</argsstring>
+        <name>resetBuildState</name>
+        <briefdescription>
+<para>Forget all previous build states and get prepared for a new build. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="348" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="348" bodyend="357"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1af90fc3b63bb599a7b6edab5f1753972a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::addEdge</definition>
+        <argsstring>(uint32_t key, uint32_t ha, uint32_t hb)</argsstring>
+        <name>addEdge</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ha</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>hb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>update the disjoint set and the connected forest so that include all the old keys and the newly inserted key <simplesect kind="note"><para>this method won&apos;t change the node value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="372" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="372" bodyend="379"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a7d494ff4312346693f1bc4fe16c05fd8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::testHash</definition>
+        <argsstring>()</argsstring>
+        <name>testHash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>test if this hash pair is acyclic, and build: the connected forest and the disjoint set of connected relation the disjoint set will be only useful to determine the root of a connected component</para>
+<para>Assume: all build related memory are cleared before Side effect: the disjoint set and the connected forest are changed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="432" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="432" bodyend="455"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1adc4fcb321e1d4efedde64ff7c95f1ce5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>fillValue</declname>
+            <defname>fillValue</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>fillIndex</declname>
+            <defname>fillIndex</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>keepDigest</declname>
+            <defname>keepDigest</defname>
+            <defval>false</defval>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::fillTreeDFS</definition>
+        <argsstring>(uint32_t root)</argsstring>
+        <name>fillTreeDFS</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>root</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fill the values of a connected tree starting at the root node and avoid searching keyId Assume:<orderedlist>
+<listitem><para>the value of root is properly set before the function call</para>
+</listitem><listitem><para>the values are in the value array</para>
+</listitem><listitem><para>the root is always from array A Side effect: all node in this tree is set and if updateToFilled </para>
+</listitem></orderedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="464" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="464" bodyend="495"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1ae6a21434f8c549aa202bc917e1f9c4e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>fillValue</declname>
+            <defname>fillValue</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>fillIndex</declname>
+            <defname>fillIndex</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>keepDigest</declname>
+            <defname>keepDigest</defname>
+            <defval>false</defval>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::fillSingle</definition>
+        <argsstring>(uint32_t keyId, uint32_t nodeToFill, uint32_t oppositeNode)</argsstring>
+        <name>fillSingle</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>keyId</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>nodeToFill</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>oppositeNode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="498" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="498" bodyend="523"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a6ab2413a6ac439467063026c5859d7cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>fillValue</declname>
+            <defname>fillValue</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>fillIndex</declname>
+            <defname>fillIndex</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>keepDigest</declname>
+            <defname>keepDigest</defname>
+            <defval>false</defval>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::fixSingle</definition>
+        <argsstring>(uint32_t nodeToFix, uint64_t x, uint32_t ix)</argsstring>
+        <name>fixSingle</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>nodeToFix</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>fix the value and index at single node by xoring x <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the xor&apos;ed number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="528" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="528" bodyend="553"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1aa2b988d0c4624715d39a6f8fd7ec163d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>fillValue</declname>
+            <defname>fillValue</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>fillIndex</declname>
+            <defname>fillIndex</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>keepDigest</declname>
+            <defname>keepDigest</defname>
+            <defval>false</defval>
+          </param>
+        </templateparamlist>
+        <type>int64_t</type>
+        <definition>int64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::fixHalfTreeDFS</definition>
+        <argsstring>(uint32_t keyId, uint32_t root, uint32_t hb)</argsstring>
+        <name>fixHalfTreeDFS</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>keyId</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>root</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>hb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fix the values of a connected tree starting at the root node and avoid searching keyId Assume:<orderedlist>
+<listitem><para>the value of root is not properly set before the function call</para>
+</listitem><listitem><para>the values are in the value array</para>
+</listitem><listitem><para>the root is always from array A Side effect: all node in this tree is set and if updateToFilled <simplesect kind="return"><para>the xor template: &gt; 0 starting from the A node &lt; 0 from the B node == 0 doesn&apos;t matter </para>
+</simplesect>
+</para>
+</listitem></orderedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="566" column="11" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="566" bodyend="630"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1ac80d382c8c787597114cccb946b18e2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>fillValue</declname>
+            <defname>fillValue</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>fillIndex</declname>
+            <defname>fillIndex</defname>
+          </param>
+          <param>
+            <type>bool</type>
+            <declname>keepDigest</declname>
+            <defname>keepDigest</defname>
+            <defval>false</defval>
+          </param>
+        </templateparamlist>
+        <type>int64_t</type>
+        <definition>int64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::fixHalfTreeDFS_on_demand</definition>
+        <argsstring>(uint32_t keyId, uint32_t root, uint32_t hb, vector&lt; uint32_t &gt; &amp;flipped_index)</argsstring>
+        <name>fixHalfTreeDFS_on_demand</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>keyId</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>root</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>hb</declname>
+        </param>
+        <param>
+          <type>vector&lt; uint32_t &gt; &amp;</type>
+          <declname>flipped_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="634" column="11" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="634" bodyend="709"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a59c7319adef8cd9b2bdd8fb10241a81d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; uint32_t &gt;</type>
+        <definition>vector&lt;uint32_t&gt; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::getConnectedComponent</definition>
+        <argsstring>(uint32_t skip, uint32_t root)</argsstring>
+        <name>getConnectedComponent</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>skip</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>root</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="711" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="711" bodyend="741"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1aff99f09fe9c7eba6dc8a3ebc6a5294cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::isConnectedDFS</definition>
+        <argsstring>(uint32_t ha0, uint32_t hb0)</argsstring>
+        <name>isConnectedDFS</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ha0</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>hb0</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>test the two nodes are connected or not Assume the Othello is properly built <simplesect kind="note"><para>cannot use disjoint set if because disjoint set cannot maintain valid after key deletion. So a traverse is performed </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ha0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hb0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if connected </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="749" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="749" bodyend="781"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a58cd82573a97b86005611adbe55e07da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::connectBFS</definition>
+        <argsstring>(uint32_t root)</argsstring>
+        <name>connectBFS</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>root</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ensure the disjoint set is properly maintained after the construction. the workflow is: mark the representatives of all connected nodes as root <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="786" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="786" bodyend="822"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a0d2d4eacc2f67e0325cf938d69c32621" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::connectBFS_on_demand</definition>
+        <argsstring>(uint32_t root, vector&lt; uint32_t &gt; &amp;flipped_index)</argsstring>
+        <name>connectBFS_on_demand</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>root</declname>
+        </param>
+        <param>
+          <type>vector&lt; uint32_t &gt; &amp;</type>
+          <declname>flipped_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="824" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="824" bodyend="864"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1af59f02d3a8f74a3dab8c5dd163216c63" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>keepDigest</declname>
+            <defname>keepDigest</defname>
+            <defval>false</defval>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::fillValue</definition>
+        <argsstring>()</argsstring>
+        <name>fillValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fill <emphasis>Othello</emphasis> so that the query returns values as defined</para>
+<para>Assume: edges and disjoint set are properly set up. Side effect: all values are properly set </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="871" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="871" bodyend="881"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1ab95906a3bf53de4d81221dbd44edc059" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::fillOnlyValue</definition>
+        <argsstring>()</argsstring>
+        <name>fillOnlyValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="883" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="883" bodyend="885"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1af8947acec7f8a3e4d5e259a88297f3da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::tryBuild</definition>
+        <argsstring>()</argsstring>
+        <name>tryBuild</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Begin a new build Side effect: 1) discard all memory except keys and values. 2) build fail, or all the values and disjoint set are properly set </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="890" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="890" bodyend="908"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1ab9afb6bba6c1b6ad17fdb53577bf4f0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::build</definition>
+        <argsstring>()</argsstring>
+        <name>build</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>try really hard to build, until success or tryCount &gt;= MAX_REHASH</para>
+<para>Side effect: 1) discard all memory except keys and values. 2) build fail, or all the values and disjoint set are properly set </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="914" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="914" bodyend="947"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1aeb814a60b551f256f86f6aca894cd924" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::queryIndex</definition>
+        <argsstring>(const K &amp;k) const</argsstring>
+        <name>queryIndex</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the index of k in the array of keys </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="952" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="952" bodyend="959"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a94d4ef0f210e55783859a2429aa37278" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::queryIndex</definition>
+        <argsstring>(const K &amp;&amp;k) const</argsstring>
+        <name>queryIndex</name>
+        <param>
+          <type>const K &amp;&amp;</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="961" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="961" bodyend="963"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a7d64d2d2eca2d83013231799a9ffe8f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::isEmpty</definition>
+        <argsstring>(int index)</argsstring>
+        <name>isEmpty</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="965" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="965" bodyend="967"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a88d8bfd7bf8ab2e13baf7986dc6a4769" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>bool</type>
+            <declname>DoNotRebuild</declname>
+            <defname>DoNotRebuild</defname>
+            <defval>false</defval>
+          </param>
+        </templateparamlist>
+        <type>int64_t</type>
+        <definition>int64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::insert</definition>
+        <argsstring>(pair&lt; K, V &gt; &amp;&amp;kv)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>pair&lt; K, V &gt; &amp;&amp;</type>
+          <declname>kv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Insert a key-value pair <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>cyclic add: 1 &lt;&lt; VDL acyclic add: the xor template: &gt; 0 starting from the A node &lt; 0 from the B node == 0 doesn&apos;t matter </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="978" column="18" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="978" bodyend="1013"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a48876fb27b668f113626fb5462d8b2a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::insert_on_demand</definition>
+        <argsstring>(pair&lt; K, V &gt; kv, vector&lt; uint32_t &gt; &amp;flipped_index)</argsstring>
+        <name>insert_on_demand</name>
+        <param>
+          <type>pair&lt; K, V &gt;</type>
+          <declname>kv</declname>
+        </param>
+        <param>
+          <type>vector&lt; uint32_t &gt; &amp;</type>
+          <declname>flipped_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1019" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1019" bodyend="1046"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1ac284f72359848275e9eb096f63387de4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::valueFlip</definition>
+        <argsstring>(pair&lt; K, V &gt; kv)</argsstring>
+        <name>valueFlip</name>
+        <param>
+          <type>pair&lt; K, V &gt;</type>
+          <declname>kv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1050" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1050" bodyend="1053"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1aaccc45bae4325b9f447e3de300b399d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::valueFlip_on_demand</definition>
+        <argsstring>(pair&lt; K, V &gt; kv, vector&lt; uint32_t &gt; &amp;flipped_index)</argsstring>
+        <name>valueFlip_on_demand</name>
+        <param>
+          <type>pair&lt; K, V &gt;</type>
+          <declname>kv</declname>
+        </param>
+        <param>
+          <type>vector&lt; uint32_t &gt; &amp;</type>
+          <declname>flipped_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1055" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1055" bodyend="1058"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a6630b78c1477e02e02576b6dbfcf9a42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::eraseAt</definition>
+        <argsstring>(uint32_t keyId)</argsstring>
+        <name>eraseAt</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>keyId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>remove one key with the particular index keyId. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>uint32_t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>keyId. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>after this option, the number of keys, keyCnt decrease by 1. The key currently stored in keys[keyId] will be replaced by the last key of keys. </para>
+</simplesect>
+<simplesect kind="note"><para>remember to adjust the values array if necessary. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1068" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1068" bodyend="1072"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a57cbb98f7d0c741e91f49e19fb2f6a3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::updateMapping</definition>
+        <argsstring>(const K &amp;k, V &amp;val)</argsstring>
+        <name>updateMapping</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>V &amp;</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1074" column="18" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1074" bodyend="1076"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a30f8cb78af02604097a15a5368732ca3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::updateMapping</definition>
+        <argsstring>(const K &amp;&amp;k, V &amp;&amp;val)</argsstring>
+        <name>updateMapping</name>
+        <param>
+          <type>const K &amp;&amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>V &amp;&amp;</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1078" column="18" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1078" bodyend="1080"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a2042d9803c4111aebdfc689e730b641e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::updateValueAt</definition>
+        <argsstring>(uint32_t keyId, V val)</argsstring>
+        <name>updateValueAt</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>keyId</declname>
+        </param>
+        <param>
+          <type>V</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1082" column="18" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1082" bodyend="1095"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1ac26c32223bf70b76ef02551652009c08" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::updateValueAt_on_demand</definition>
+        <argsstring>(uint32_t keyId, V val, vector&lt; uint32_t &gt; &amp;flipped_index)</argsstring>
+        <name>updateValueAt_on_demand</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>keyId</declname>
+        </param>
+        <param>
+          <type>V</type>
+          <declname>val</declname>
+        </param>
+        <param>
+          <type>vector&lt; uint32_t &gt; &amp;</type>
+          <declname>flipped_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1097" column="18" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1097" bodyend="1110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a35442d22f6b7ba3845b327826249b101" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const vector&lt; K &gt; &amp;</type>
+        <definition>const vector&lt;K&gt;&amp; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::getKeys</definition>
+        <argsstring>() const</argsstring>
+        <name>getKeys</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1116" column="23" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1116" bodyend="1118"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a1bb72285ead76a24fe4d37086015e7d8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const vector&lt; V &gt; &amp;</type>
+        <definition>const vector&lt;V&gt;&amp; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::getValues</definition>
+        <argsstring>() const</argsstring>
+        <name>getValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1120" column="23" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1120" bodyend="1122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1acb941b9e1ac187876f102e921a1f7e89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; V &gt; &amp;</type>
+        <definition>vector&lt;V&gt;&amp; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::getValues</definition>
+        <argsstring>()</argsstring>
+        <name>getValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1124" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1124" bodyend="1126"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a8c37996bf4e0b81deaad9f63bffd1eb7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const vector&lt; uint32_t &gt; &amp;</type>
+        <definition>const vector&lt;uint32_t&gt;&amp; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::getIndexMemory</definition>
+        <argsstring>() const</argsstring>
+        <name>getIndexMemory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1128" column="23" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1128" bodyend="1130"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1ab36701aa8b1f8c956ddd047aff2b54a4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1132" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1132" bodyend="1134"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a78540b42e692f6c6cc000e4b9c21097b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::isMember</definition>
+        <argsstring>(const K &amp;x) const</argsstring>
+        <name>isMember</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1136" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1136" bodyend="1140"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1ad127acdb7c401a1b84545fae2a8ba08c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::erase_on_demand</definition>
+        <argsstring>(const K &amp;k, vector&lt; uint32_t &gt; &amp;flipped_index, uint32_t keyId=-1)</argsstring>
+        <name>erase_on_demand</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>vector&lt; uint32_t &gt; &amp;</type>
+          <declname>flipped_index</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>keyId</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1142" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1142" bodyend="1228"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a6b10dadfa83140b4e2d4196b6a72572a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::erase</definition>
+        <argsstring>(const K &amp;k, uint32_t keyId=-1)</argsstring>
+        <name>erase</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>keyId</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1230" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1230" bodyend="1307"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a0f2750f24eda910fa685508e442f9d36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::checkIntegrity</definition>
+        <argsstring>() const</argsstring>
+        <name>checkIntegrity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1309" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1309" bodyend="1320"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a79b98af1336db4a9d0c1dfdd013c4357" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::reportDataPlaneMemUsage</definition>
+        <argsstring>() const</argsstring>
+        <name>reportDataPlaneMemUsage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1326" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1326" bodyend="1329"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1add4098b05ea008c296c3de9fef5c0fc1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; uint32_t &gt;</type>
+        <definition>vector&lt;uint32_t&gt; ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::getCnt</definition>
+        <argsstring>() const</argsstring>
+        <name>getCnt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1332" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1332" bodyend="1341"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1a1346e66e73c39b85a6144aca84463a12" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::outputMappedValues</definition>
+        <argsstring>(ofstream &amp;fout) const</argsstring>
+        <name>outputMappedValues</name>
+        <param>
+          <type>ofstream &amp;</type>
+          <declname>fout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1343" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1343" bodyend="1357"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1aa9ffc4433e5db2dd27764274577f21bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::getStaticCnt</definition>
+        <argsstring>()</argsstring>
+        <name>getStaticCnt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1359" column="7" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1359" bodyend="1361"/>
+      </memberdef>
+      <memberdef kind="function" id="class_control_plane_othello_1acddfd1a05662c5313e28c45bc7d4a80e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t ControlPlaneOthello&lt; K, V, L, DL, maintainDP, maintainDisjointSet, randomized &gt;::getMemoryCost</definition>
+        <argsstring>() const</argsstring>
+        <name>getMemoryCost</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1363" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1363" bodyend="1366"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Control plane Othello can track connections (Add [amortized], Delete, Membership Judgment) in O(1) time, and can iterate on the keys in exactly n elements.</para>
+<para>Implementation: just add an array indMem to be maintained. always ensure that registered keys can be queried to get the index of it in the keys array</para>
+<para>How to ensure: add to tail when add, and store the value as well as the index to othello when delete, move key-value and update corresponding index</para>
+<para><simplesect kind="note"><para>The valueType must be compatible with all int operations</para>
+</simplesect>
+If you wish to export the control plane to a data plane query structure at a fast speed and at any time, then set willExport to true. Additional computation and memory overheads will apply on insert, while lookups will be faster.</para>
+<para>If you wish to maintain the disjoint set, the insertion will become faster but the deletion is slower, in the sense that memory accesses are more expensive than computation </para>
+    </detaileddescription>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="40" column="26" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="40" bodyend="1369"/>
+    <listofallmembers>
+      <member refid="class_control_plane_othello_1af90fc3b63bb599a7b6edab5f1753972a" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>addEdge</name></member>
+      <member refid="class_control_plane_othello_1ab9afb6bba6c1b6ad17fdb53577bf4f0b" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>build</name></member>
+      <member refid="class_control_plane_othello_1a5a7a169a39306706c376694b47bcc819" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>changeSeed</name></member>
+      <member refid="class_control_plane_othello_1a0f2750f24eda910fa685508e442f9d36" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>checkIntegrity</name></member>
+      <member refid="class_control_plane_othello_1a41ccc157a371010904c9593a6c2a21d5" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>clear</name></member>
+      <member refid="class_control_plane_othello_1a4d0534d0205629ca9acf100496a2e008" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>compose</name></member>
+      <member refid="class_control_plane_othello_1a58cd82573a97b86005611adbe55e07da" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>connectBFS</name></member>
+      <member refid="class_control_plane_othello_1a0d2d4eacc2f67e0325cf938d69c32621" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>connectBFS_on_demand</name></member>
+      <member refid="class_control_plane_othello_1a06c998e7d42fe07d0f9747b2b78acfc9" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>connectivityForest</name></member>
+      <member refid="class_control_plane_othello_1a9921044972fefc691e07cbf34eab7bba" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>ControlPlaneOthello</name></member>
+      <member refid="class_control_plane_othello_1a57adcdcbb2c00da3e1d16cea07e20274" prot="private" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>DataPlaneOthello</name></member>
+      <member refid="class_control_plane_othello_1aed4b2c7fbcaea5c4b152c08a4484cb59" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>DEMASK</name></member>
+      <member refid="class_control_plane_othello_1a6b10dadfa83140b4e2d4196b6a72572a" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>erase</name></member>
+      <member refid="class_control_plane_othello_1ad127acdb7c401a1b84545fae2a8ba08c" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>erase_on_demand</name></member>
+      <member refid="class_control_plane_othello_1a6630b78c1477e02e02576b6dbfcf9a42" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>eraseAt</name></member>
+      <member refid="class_control_plane_othello_1ae4276eef4468ae10131abd7c5fac382c" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>fast_map_to_A</name></member>
+      <member refid="class_control_plane_othello_1a1dc629610c971eb1fa8c0cdcc3b854d9" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>fast_map_to_B</name></member>
+      <member refid="class_control_plane_othello_1ab95906a3bf53de4d81221dbd44edc059" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>fillOnlyValue</name></member>
+      <member refid="class_control_plane_othello_1ae6a21434f8c549aa202bc917e1f9c4e7" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>fillSingle</name></member>
+      <member refid="class_control_plane_othello_1adc4fcb321e1d4efedde64ff7c95f1ce5" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>fillTreeDFS</name></member>
+      <member refid="class_control_plane_othello_1af59f02d3a8f74a3dab8c5dd163216c63" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>fillValue</name></member>
+      <member refid="class_control_plane_othello_1aa2b988d0c4624715d39a6f8fd7ec163d" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>fixHalfTreeDFS</name></member>
+      <member refid="class_control_plane_othello_1ac80d382c8c787597114cccb946b18e2c" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>fixHalfTreeDFS_on_demand</name></member>
+      <member refid="class_control_plane_othello_1a6ab2413a6ac439467063026c5859d7cd" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>fixSingle</name></member>
+      <member refid="class_control_plane_othello_1add4098b05ea008c296c3de9fef5c0fc1" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>getCnt</name></member>
+      <member refid="class_control_plane_othello_1a59c7319adef8cd9b2bdd8fb10241a81d" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>getConnectedComponent</name></member>
+      <member refid="class_control_plane_othello_1a05bdf0a1f098dbef506fc692f1c69137" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>getH</name></member>
+      <member refid="class_control_plane_othello_1a78dcc4beb15e3797e554e71e89499e2b" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>getHd</name></member>
+      <member refid="class_control_plane_othello_1a8c37996bf4e0b81deaad9f63bffd1eb7" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>getIndexMemory</name></member>
+      <member refid="class_control_plane_othello_1a4b609c0bfae957af25237cbcab3cf1bf" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>getIndices</name></member>
+      <member refid="class_control_plane_othello_1a35442d22f6b7ba3845b327826249b101" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>getKeys</name></member>
+      <member refid="class_control_plane_othello_1a8e140f2f73de673b5f55a3df645dda0f" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>getMa</name></member>
+      <member refid="class_control_plane_othello_1a83bd41d95f969fede47417d2b9270cef" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>getMb</name></member>
+      <member refid="class_control_plane_othello_1acddfd1a05662c5313e28c45bc7d4a80e" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>getMemoryCost</name></member>
+      <member refid="class_control_plane_othello_1aa9ffc4433e5db2dd27764274577f21bb" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>getStaticCnt</name></member>
+      <member refid="class_control_plane_othello_1a1bb72285ead76a24fe4d37086015e7d8" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>getValues</name></member>
+      <member refid="class_control_plane_othello_1acb941b9e1ac187876f102e921a1f7e89" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>getValues</name></member>
+      <member refid="class_control_plane_othello_1a1164e122b07bd2dbc4cd87baa33c8a71" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>hab</name></member>
+      <member refid="class_control_plane_othello_1af40cb9917674a431e53fd2b503a0c7c9" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>hd</name></member>
+      <member refid="class_control_plane_othello_1aac66f2ed68a4352423a2d73f320a6c39" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>head</name></member>
+      <member refid="class_control_plane_othello_1af2dced1dbed55458a9b373820f044c55" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>indMem</name></member>
+      <member refid="class_control_plane_othello_1a88d8bfd7bf8ab2e13baf7986dc6a4769" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>insert</name></member>
+      <member refid="class_control_plane_othello_1a48876fb27b668f113626fb5462d8b2a9" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>insert_on_demand</name></member>
+      <member refid="class_control_plane_othello_1aff99f09fe9c7eba6dc8a3ebc6a5294cd" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>isConnectedDFS</name></member>
+      <member refid="class_control_plane_othello_1a7d64d2d2eca2d83013231799a9ffe8f5" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>isEmpty</name></member>
+      <member refid="class_control_plane_othello_1a78540b42e692f6c6cc000e4b9c21097b" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>isMember</name></member>
+      <member refid="class_control_plane_othello_1a0d8c0fc19979f97f53777a86dc047022" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>keyCnt</name></member>
+      <member refid="class_control_plane_othello_1a94b16024bb82bf1f9a1a686890c01114" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>keys</name></member>
+      <member refid="class_control_plane_othello_1a00726b12a2a74d22818248311380c78d" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>ma</name></member>
+      <member refid="class_control_plane_othello_1a8510cb612eb1ecad9f5f652de4da8f89" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>maintainingDP</name></member>
+      <member refid="class_control_plane_othello_1abe719ca231778366d03f91e27b440b35" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>MAX_REHASH</name></member>
+      <member refid="class_control_plane_othello_1a14c1092a188d24d51e6100a05535fcd9" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>mb</name></member>
+      <member refid="class_control_plane_othello_1aaf3405c4ccbb852b8a80a23d3013912f" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>mem</name></member>
+      <member refid="class_control_plane_othello_1a492f6423114cf3eac94c9e7c58c1f6f5" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>memGet</name></member>
+      <member refid="class_control_plane_othello_1adec591e48d4d2bae9408fb5f11736320" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>memResize</name></member>
+      <member refid="class_control_plane_othello_1aea9bf4ab36c087072d6546db2d796a5a" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>memSet</name></member>
+      <member refid="class_control_plane_othello_1a663526156d1d01a008e0446fcdd7fbd4" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>memValueGet</name></member>
+      <member refid="class_control_plane_othello_1a4ee6230a09e260896e4d0f6d829f16e5" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>memValueSet</name></member>
+      <member refid="class_control_plane_othello_1acf9f01637723be3eacb1a22b341555ee" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>minimalKeyCapacity</name></member>
+      <member refid="class_control_plane_othello_1a1aad907bcc21223ba180a111354fa901" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>multiply_high_u32</name></member>
+      <member refid="class_control_plane_othello_1afe56fd8c4cfa26e24394dbf4e4d040c6" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>nextAtA</name></member>
+      <member refid="class_control_plane_othello_1a22058a108b94c9adfd3e961bfabdc2c0" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>nextAtB</name></member>
+      <member refid="class_control_plane_othello_1af4510df0cfb3141911ed358a681f3dfa" prot="private" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>OthelloFilterControlPlane</name></member>
+      <member refid="class_control_plane_othello_1a1346e66e73c39b85a6144aca84463a12" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>outputMappedValues</name></member>
+      <member refid="class_control_plane_othello_1af707b7dcf0fa824c6eb8d397cfa52570" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>prepareDP</name></member>
+      <member refid="class_control_plane_othello_1aaa7383a313da57dda4bb7ead9a46cc40" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>query</name></member>
+      <member refid="class_control_plane_othello_1aeb814a60b551f256f86f6aca894cd924" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>queryIndex</name></member>
+      <member refid="class_control_plane_othello_1a94d4ef0f210e55783859a2429aa37278" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>queryIndex</name></member>
+      <member refid="class_control_plane_othello_1a3305404618dcc7f8951b19289b7cd5f0" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>randVal</name></member>
+      <member refid="class_control_plane_othello_1a79b98af1336db4a9d0c1dfdd013c4357" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>reportDataPlaneMemUsage</name></member>
+      <member refid="class_control_plane_othello_1a2f690001a8b0a88187b44309aae68bdd" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>resetBuildState</name></member>
+      <member refid="class_control_plane_othello_1a8b2e5da3c5dcd3fdaceb5653435ef105" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>resizeKey</name></member>
+      <member refid="class_control_plane_othello_1a4a3fa7a0e3765a59e9c8d5814fc50502" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>setMinimalKeyCapacity</name></member>
+      <member refid="class_control_plane_othello_1a3d9785a6e7a62d535470e579e13a93a0" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>setSeed</name></member>
+      <member refid="class_control_plane_othello_1ab36701aa8b1f8c956ddd047aff2b54a4" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>size</name></member>
+      <member refid="class_control_plane_othello_1a7d494ff4312346693f1bc4fe16c05fd8" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>testHash</name></member>
+      <member refid="class_control_plane_othello_1af8947acec7f8a3e4d5e259a88297f3da" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>tryBuild</name></member>
+      <member refid="class_control_plane_othello_1a57cbb98f7d0c741e91f49e19fb2f6a3e" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>updateMapping</name></member>
+      <member refid="class_control_plane_othello_1a30f8cb78af02604097a15a5368732ca3" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>updateMapping</name></member>
+      <member refid="class_control_plane_othello_1a2042d9803c4111aebdfc689e730b641e" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>updateValueAt</name></member>
+      <member refid="class_control_plane_othello_1ac26c32223bf70b76ef02551652009c08" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>updateValueAt_on_demand</name></member>
+      <member refid="class_control_plane_othello_1ac284f72359848275e9eb096f63387de4" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>valueFlip</name></member>
+      <member refid="class_control_plane_othello_1aaccc45bae4325b9f447e3de300b399d3" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>valueFlip_on_demand</name></member>
+      <member refid="class_control_plane_othello_1aec89d45c4d471b4a52f735ce2f8a60cc" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>values</name></member>
+      <member refid="class_control_plane_othello_1acc8164acf06f30283cbb1f89cf8071e3" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>VDEMASK</name></member>
+      <member refid="class_control_plane_othello_1a430d4266275b0bc961227f5a4d02d027" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>VDL</name></member>
+      <member refid="class_control_plane_othello_1a1c7a6cb45c090560e7632a39a01bc1d7" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>VDMASK</name></member>
+      <member refid="class_control_plane_othello_1a6569288ea11f240a4434bafb134ae4c2" prot="public" virt="non-virtual"><scope>ControlPlaneOthello</scope><name>VMASK</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
