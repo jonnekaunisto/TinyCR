@@ -82,12 +82,16 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Download and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="ref.html">Reference Manual</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="TinyCR.html">TinyCR</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">CRIoT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DASS.html">DASS</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../LICENSE.html">LICENSE</a></li>
 </ul>
 
             
@@ -272,7 +276,7 @@
 
 <dl class="function">
 <dt id="_CPPv4N16CRIoT_Control_VO5queryE1K">
-<span id="_CPPv3N16CRIoT_Control_VO5queryE1K"></span><span id="_CPPv2N16CRIoT_Control_VO5queryE1K"></span><span id="CRIoT_Control_VO::query__K"></span><span class="target" id="class_c_r_io_t___control___v_o_1a27dcdbaf7d5adec9b19308020f9ad3c4"></span>V <code class="sig-name descname">query</code><span class="sig-paren">(</span>K <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO5queryE1K" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N16CRIoT_Control_VO5queryE1K"></span><span id="_CPPv2N16CRIoT_Control_VO5queryE1K"></span><span id="CRIoT_Control_VO::query__K"></span><span class="target" id="class_c_r_io_t___control___v_o_1a704e85fbf832dd3e5753da65cb580e73"></span>V <code class="sig-name descname">query</code><span class="sig-paren">(</span>K <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO5queryE1K" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Queries the value of the key. <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>The value of the key. </p>
 </dd>
@@ -293,20 +297,6 @@
 <dd><div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric">Public Functions</p>
 <dl class="function">
-<dt id="_CPPv4N13CRIoT_Data_VO5queryEK1K">
-<span id="_CPPv3N13CRIoT_Data_VO5queryEK1K"></span><span id="_CPPv2N13CRIoT_Data_VO5queryEK1K"></span><span id="CRIoT_Data_VO::query__KC"></span><span class="target" id="class_c_r_io_t___data___v_o_1a8c25289184a20529e49870e7c8bb34c1"></span>V <code class="sig-name descname">query</code><span class="sig-paren">(</span><em class="property">const</em> K <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO5queryEK1K" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Queries a key from the structure. <dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>The value associated with the key. </p>
-</dd>
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">key</span></code>: Key to be queried. </p></li>
-</ul>
-</dd>
-</dl>
-</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="_CPPv4N13CRIoT_Data_VO11decode_fullER6vectorI7uint8_tE">
 <span id="_CPPv3N13CRIoT_Data_VO11decode_fullER6vectorI7uint8_tE"></span><span id="_CPPv2N13CRIoT_Data_VO11decode_fullER6vectorI7uint8_tE"></span><span id="CRIoT_Data_VO::decode_full__vector:uint8_t:R"></span><span class="target" id="class_c_r_io_t___data___v_o_1ae7cf87dbe2abda5c0a74b1a51f4234e7"></span>void <code class="sig-name descname">decode_full</code><span class="sig-paren">(</span>vector&lt;uint8_t&gt; &amp;<em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO11decode_fullER6vectorI7uint8_tE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Decodes the full update received. <dl class="simple">
@@ -324,6 +314,34 @@
 <dd><p>Decodes the summary Parts are decoded in this order: the type of action, key, value, flipped_indexes size, flipped indexes. type of action can be add(0), remove(1), unrevoke(2), revoke(3) <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">summary</span></code>: The vector of bytes of summary. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N13CRIoT_Data_VO5queryEK1K">
+<span id="_CPPv3N13CRIoT_Data_VO5queryEK1K"></span><span id="_CPPv2N13CRIoT_Data_VO5queryEK1K"></span><span id="CRIoT_Data_VO::query__KC"></span><span class="target" id="class_c_r_io_t___data___v_o_1a8c25289184a20529e49870e7c8bb34c1"></span>V <code class="sig-name descname">query</code><span class="sig-paren">(</span><em class="property">const</em> K <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO5queryEK1K" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Queries a key from the structure. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The value associated with the key. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">key</span></code>: Key to be queried. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N13CRIoT_Data_VO11batch_queryEK6vectorI1KE">
+<span id="_CPPv3N13CRIoT_Data_VO11batch_queryEK6vectorI1KE"></span><span id="_CPPv2N13CRIoT_Data_VO11batch_queryEK6vectorI1KE"></span><span id="CRIoT_Data_VO::batch_query__vector:K:C"></span><span class="target" id="class_c_r_io_t___data___v_o_1ad2cb2d520e2338f56cbb43ce782c1601"></span>vector&lt;V&gt; <code class="sig-name descname">batch_query</code><span class="sig-paren">(</span><em class="property">const</em> vector&lt;K&gt; <em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO11batch_queryEK6vectorI1KE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Queries keys in a batch <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Values of the keys queried </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keys</span></code>: Keys to be queried </p></li>
 </ul>
 </dd>
 </dl>

@@ -65,10 +65,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Constructor for <ref refid="class_d_a_s_s___tracker" kindref="compound">DASS_Tracker</ref> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vo_control</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An instance of <ref refid="class_d_a_s_s___tracker" kindref="compound">DASS_Tracker</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="22" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="22" bodyend="26"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="26" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="26" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="class_d_a_s_s___verifier_1af6fdf8ae77d23f328c27e332d02940aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -82,10 +92,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Install <ref refid="class_d_a_s_s___tracker" kindref="compound">DASS_Tracker</ref> from another <ref refid="class_d_a_s_s___tracker" kindref="compound">DASS_Tracker</ref> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vo_control</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An instance of <ref refid="class_d_a_s_s___tracker" kindref="compound">DASS_Tracker</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="28" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="28" bodyend="32"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="36" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="36" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="class_d_a_s_s___verifier_1afe65f78ea9e9f3fcd70ceecc08315761" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -99,10 +119,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Install <ref refid="class_d_a_s_s___tracker" kindref="compound">DASS_Tracker</ref> from another <ref refid="class_d_a_s_s___tracker" kindref="compound">DASS_Tracker</ref> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vo_control</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An instance of <ref refid="class_d_a_s_s___tracker" kindref="compound">DASS_Tracker</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="34" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="34" bodyend="38"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="46" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="46" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="class_d_a_s_s___verifier_1a581cf3b7226c8c2216d136687785fe48" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>V</type>
@@ -116,10 +146,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Queries the value of a kye <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key to be queried </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value of the key </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="40" column="7" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="40" bodyend="59"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="57" column="7" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="57" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="class_d_a_s_s___verifier_1ac9b9f6988abdd726a7307bf6f144c106" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>vector&lt; V &gt;</type>
@@ -133,10 +175,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Queries keys in a batch <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>keys</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Keys to be queried </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Values of the keys queried </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="61" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="61" bodyend="85"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="83" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="83" bodyend="107"/>
       </memberdef>
       <memberdef kind="function" id="class_d_a_s_s___verifier_1ae7fd9aef8aed744aee50f13585d7b05a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>float</type>
@@ -150,10 +204,22 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Measures batch query performance <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>keys</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The keys to be inserted </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The time it took to query the keys </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="87" column="11" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="87" bodyend="96"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="114" column="11" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="114" bodyend="123"/>
       </memberdef>
       <memberdef kind="function" id="class_d_a_s_s___verifier_1a30a2d723c456073e586a22d871c646ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -163,10 +229,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Gets the memory cost of the structure <simplesect kind="return"><para>The memory consumption </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="98" column="14" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="98" bodyend="101"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="129" column="14" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="129" bodyend="132"/>
       </memberdef>
       <memberdef kind="function" id="class_d_a_s_s___verifier_1a73d74388b8d38183ffb7a8073ce9ba2f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -184,10 +253,28 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Inserts a kv pair with flipped indexes <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key value par </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flipped_indexes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The flipped indexes received </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="105" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="105" bodyend="145"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="139" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="139" bodyend="179"/>
       </memberdef>
       <memberdef kind="function" id="class_d_a_s_s___verifier_1aa310546bc046af737b4143cfe22a1f7e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -205,10 +292,28 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Sets value of a key <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kv</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key value pair set </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flipped_indexes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The flipped indexes received </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="147" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="147" bodyend="187"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="186" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="186" bodyend="226"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -250,7 +355,7 @@
         <link refid="class_data_plane_othello"/>
       </node>
     </collaborationgraph>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="15" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="14" bodyend="188"/>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" line="15" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h" bodystart="14" bodyend="227"/>
     <listofallmembers>
       <member refid="class_d_a_s_s___verifier_1ac9b9f6988abdd726a7307bf6f144c106" prot="public" virt="non-virtual"><scope>DASS_Verifier</scope><name>batch_query</name></member>
       <member refid="class_d_a_s_s___verifier_1ae7fd9aef8aed744aee50f13585d7b05a" prot="public" virt="non-virtual"><scope>DASS_Verifier</scope><name>batch_query_performance</name></member>

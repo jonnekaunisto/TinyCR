@@ -22,7 +22,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="344" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="344" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="349" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="349" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -37,7 +37,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="345" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="345" bodyend="345"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="350" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="350" bodyend="350"/>
       </memberdef>
       <memberdef kind="function" id="class_c_r_io_t___data___v_o_1a5832feb1f2663e6ba89a822fdba3f8dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="347" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="347" bodyend="350"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="352" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="352" bodyend="355"/>
       </memberdef>
       <memberdef kind="function" id="class_c_r_io_t___data___v_o_1aabfaccdf5d322191630dd450c1971951" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -71,7 +71,61 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="352" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="352" bodyend="355"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="357" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="357" bodyend="360"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_r_io_t___data___v_o_1ae7cf87dbe2abda5c0a74b1a51f4234e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CRIoT_Data_VO&lt; K, V &gt;::decode_full</definition>
+        <argsstring>(vector&lt; uint8_t &gt; &amp;s)</argsstring>
+        <name>decode_full</name>
+        <param>
+          <type>vector&lt; uint8_t &gt; &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Decodes the full update received. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data received from the server </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="366" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="366" bodyend="481"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_r_io_t___data___v_o_1ad2fa18539411ac9f6f78e9177d27d2f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void CRIoT_Data_VO&lt; K, V &gt;::decode_summary</definition>
+        <argsstring>(vector&lt; uint8_t &gt; summary)</argsstring>
+        <name>decode_summary</name>
+        <param>
+          <type>vector&lt; uint8_t &gt;</type>
+          <declname>summary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Decodes the summary Parts are decoded in this order: the type of action, key, value, flipped_indexes size, flipped indexes. type of action can be add(0), remove(1), unrevoke(2), revoke(3) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>summary</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The vector of bytes of summary. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="490" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="490" bodyend="567"/>
       </memberdef>
       <memberdef kind="function" id="class_c_r_io_t___data___v_o_1a8c25289184a20529e49870e7c8bb34c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>V</type>
@@ -100,61 +154,36 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="362" column="7" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="362" bodyend="365"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="574" column="7" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="574" bodyend="577"/>
       </memberdef>
-      <memberdef kind="function" id="class_c_r_io_t___data___v_o_1ae7cf87dbe2abda5c0a74b1a51f4234e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void CRIoT_Data_VO&lt; K, V &gt;::decode_full</definition>
-        <argsstring>(vector&lt; uint8_t &gt; &amp;s)</argsstring>
-        <name>decode_full</name>
+      <memberdef kind="function" id="class_c_r_io_t___data___v_o_1ad2cb2d520e2338f56cbb43ce782c1601" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; V &gt;</type>
+        <definition>vector&lt;V&gt; CRIoT_Data_VO&lt; K, V &gt;::batch_query</definition>
+        <argsstring>(const vector&lt; K &gt; keys)</argsstring>
+        <name>batch_query</name>
         <param>
-          <type>vector&lt; uint8_t &gt; &amp;</type>
-          <declname>s</declname>
+          <type>const vector&lt; K &gt;</type>
+          <declname>keys</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Decodes the full update received. <parameterlist kind="param"><parameteritem>
+<para>Queries keys in a batch <parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>s</parametername>
+<parametername>keys</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>The data received from the server </para>
+<para>Keys to be queried </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
+<simplesect kind="return"><para>Values of the keys queried </para>
+</simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="371" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="371" bodyend="486"/>
-      </memberdef>
-      <memberdef kind="function" id="class_c_r_io_t___data___v_o_1ad2fa18539411ac9f6f78e9177d27d2f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void CRIoT_Data_VO&lt; K, V &gt;::decode_summary</definition>
-        <argsstring>(vector&lt; uint8_t &gt; summary)</argsstring>
-        <name>decode_summary</name>
-        <param>
-          <type>vector&lt; uint8_t &gt;</type>
-          <declname>summary</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Decodes the summary Parts are decoded in this order: the type of action, key, value, flipped_indexes size, flipped indexes. type of action can be add(0), remove(1), unrevoke(2), revoke(3) <parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>summary</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>The vector of bytes of summary. </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="495" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="495" bodyend="572"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="584" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="584" bodyend="587"/>
       </memberdef>
       <memberdef kind="function" id="class_c_r_io_t___data___v_o_1aca7d21140b0a13891312ae098e5e33ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -193,7 +222,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="579" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="579" bodyend="582"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="594" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="594" bodyend="597"/>
       </memberdef>
       <memberdef kind="function" id="class_c_r_io_t___data___v_o_1ace63445a03bd8ef75388b94fdd593185" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -232,15 +261,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="589" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="589" bodyend="592"/>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="604" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="604" bodyend="607"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="342" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="341" bodyend="593"/>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="347" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="346" bodyend="608"/>
     <listofallmembers>
+      <member refid="class_c_r_io_t___data___v_o_1ad2cb2d520e2338f56cbb43ce782c1601" prot="public" virt="non-virtual"><scope>CRIoT_Data_VO</scope><name>batch_query</name></member>
       <member refid="class_c_r_io_t___data___v_o_1a7e0fe039f28a120d0d1c8e1d2eb83ae9" prot="public" virt="non-virtual"><scope>CRIoT_Data_VO</scope><name>CRIoT_Data_VO</name></member>
       <member refid="class_c_r_io_t___data___v_o_1a5832feb1f2663e6ba89a822fdba3f8dc" prot="public" virt="non-virtual"><scope>CRIoT_Data_VO</scope><name>CRIoT_Data_VO</name></member>
       <member refid="class_c_r_io_t___data___v_o_1ae7cf87dbe2abda5c0a74b1a51f4234e7" prot="public" virt="non-virtual"><scope>CRIoT_Data_VO</scope><name>decode_full</name></member>

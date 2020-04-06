@@ -128,16 +128,18 @@
     <member refid="class_c_r_io_t___control___v_o_1af7ba55e61aec857eb2ad8ca6e0353d8c" kind="function"><name>batch_insert</name></member>
     <member refid="class_c_r_io_t___control___v_o_1a6b2c4ad1e520942a2c123b2231cdc4e8" kind="function"><name>setValue</name></member>
     <member refid="class_c_r_io_t___control___v_o_1ad546e2742b314fa3e3939ef218964f52" kind="function"><name>erase</name></member>
-    <member refid="class_c_r_io_t___control___v_o_1a27dcdbaf7d5adec9b19308020f9ad3c4" kind="function"><name>query</name></member>
+    <member refid="class_c_r_io_t___control___v_o_1a704e85fbf832dd3e5753da65cb580e73" kind="function"><name>query</name></member>
+    <member refid="class_c_r_io_t___control___v_o_1a755e101c9b1cc18c47fa3fe3002c4191" kind="function"><name>batch_query</name></member>
   </compound>
   <compound refid="class_c_r_io_t___data___v_o" kind="class"><name>CRIoT_Data_VO</name>
     <member refid="class_c_r_io_t___data___v_o_1a7929d974f1cf6c1f34965a8b241c68a1" kind="variable"><name>vo_data</name></member>
     <member refid="class_c_r_io_t___data___v_o_1a7e0fe039f28a120d0d1c8e1d2eb83ae9" kind="function"><name>CRIoT_Data_VO</name></member>
     <member refid="class_c_r_io_t___data___v_o_1a5832feb1f2663e6ba89a822fdba3f8dc" kind="function"><name>CRIoT_Data_VO</name></member>
     <member refid="class_c_r_io_t___data___v_o_1aabfaccdf5d322191630dd450c1971951" kind="function"><name>rebuild</name></member>
-    <member refid="class_c_r_io_t___data___v_o_1a8c25289184a20529e49870e7c8bb34c1" kind="function"><name>query</name></member>
     <member refid="class_c_r_io_t___data___v_o_1ae7cf87dbe2abda5c0a74b1a51f4234e7" kind="function"><name>decode_full</name></member>
     <member refid="class_c_r_io_t___data___v_o_1ad2fa18539411ac9f6f78e9177d27d2f0" kind="function"><name>decode_summary</name></member>
+    <member refid="class_c_r_io_t___data___v_o_1a8c25289184a20529e49870e7c8bb34c1" kind="function"><name>query</name></member>
+    <member refid="class_c_r_io_t___data___v_o_1ad2cb2d520e2338f56cbb43ce782c1601" kind="function"><name>batch_query</name></member>
     <member refid="class_c_r_io_t___data___v_o_1aca7d21140b0a13891312ae098e5e33ba" kind="function"><name>insert</name></member>
     <member refid="class_c_r_io_t___data___v_o_1ace63445a03bd8ef75388b94fdd593185" kind="function"><name>setValue</name></member>
   </compound>
@@ -167,6 +169,7 @@
     <member refid="class_d_a_s_s___tracker_1aa0d7f4a58b908d2053b7aca942154d20" kind="function"><name>erase</name></member>
     <member refid="class_d_a_s_s___tracker_1a15b9c8788c73ed135f9778b95cd7c5cb" kind="function"><name>othello_flipped_indexes</name></member>
     <member refid="class_d_a_s_s___tracker_1a91d58666b83b27a19ef23c6a6673d09a" kind="function"><name>query</name></member>
+    <member refid="class_d_a_s_s___tracker_1a6be2149fce4a082b5d5767f70a374249" kind="function"><name>batch_query</name></member>
   </compound>
   <compound refid="class_d_a_s_s___verifier" kind="class"><name>DASS_Verifier</name>
     <member refid="class_d_a_s_s___verifier_1a7ce8ae75eb4f0d4c6919fcbfd5272032" kind="variable"><name>othello</name></member>
@@ -295,6 +298,7 @@
     <member refid="class_tiny_c_r_client_1abd3d30a7daf2a88e9379431718664b8e" kind="function"><name>TinyCRClient</name></member>
     <member refid="class_tiny_c_r_client_1a03dbd8469c2d68ae585c1cf7f57b8887" kind="function"><name>startClient</name></member>
     <member refid="class_tiny_c_r_client_1a5b49216722f8112ee80783741fba819e" kind="function"><name>queryCertificate</name></member>
+    <member refid="class_tiny_c_r_client_1a0a36d300bdca5a5988650b72d4f9cf23" kind="function"><name>queryCertificates</name></member>
     <member refid="class_tiny_c_r_client_1a79ad8255dd48671b6e54af8ca26a3fca" kind="function"><name>getLatencyStatistic</name></member>
     <member refid="class_tiny_c_r_client_1ab873f82f7f798b3c35487e140e321d11" kind="function"><name>requestInitialSummary</name></member>
     <member refid="class_tiny_c_r_client_1a40768432da8830f28984d222d08831ec" kind="function"><name>readFullSummary</name></member>
@@ -321,9 +325,12 @@
     <member refid="class_tiny_c_r_server_1aa2c7b0df8bd99d9ddb3ff49483e476cc" kind="function"><name>TinyCRServer</name></member>
     <member refid="class_tiny_c_r_server_1a15064da9a2c44f6acb0f5aaf31665406" kind="function"><name>startServer</name></member>
     <member refid="class_tiny_c_r_server_1a7d9942966ce21eb213cea1ea21fb6c61" kind="function"><name>addCertificate</name></member>
+    <member refid="class_tiny_c_r_server_1afa06004b850a36dc073fc0bd631f8142" kind="function"><name>addCertificates</name></member>
     <member refid="class_tiny_c_r_server_1a84e05294a646d97ca397bd797b30ce71" kind="function"><name>removeCertificate</name></member>
     <member refid="class_tiny_c_r_server_1a86a2e610a5b34ff29464eecf9b453c30" kind="function"><name>unrevokeCertificate</name></member>
     <member refid="class_tiny_c_r_server_1ae17dc1e64b42ce7130573ca3ffb3e6f1" kind="function"><name>revokeCertificate</name></member>
+    <member refid="class_tiny_c_r_server_1acdff56d8b14ca90dca07d034cfb23605" kind="function"><name>queryCertificate</name></member>
+    <member refid="class_tiny_c_r_server_1a55244e1ac7ee7cf9391412ea507aabea" kind="function"><name>queryCertificates</name></member>
     <member refid="class_tiny_c_r_server_1ab0d6221d449dfbc50f07b15c4630924e" kind="function"><name>getLatencyStatistic</name></member>
     <member refid="class_tiny_c_r_server_1a0d8160e3de18de8e8a40790c72da4afd" kind="function"><name>convertSockaddrToStr</name></member>
     <member refid="class_tiny_c_r_server_1aa002140e212ec0bb1ab825f0aebbe4a6" kind="function"><name>sendFullUpdate</name></member>

@@ -395,14 +395,14 @@
         </inbodydescription>
         <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="324" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="324" bodyend="327"/>
       </memberdef>
-      <memberdef kind="function" id="class_c_r_io_t___control___v_o_1a27dcdbaf7d5adec9b19308020f9ad3c4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="class_c_r_io_t___control___v_o_1a704e85fbf832dd3e5753da65cb580e73" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>V</type>
         <definition>V CRIoT_Control_VO&lt; K, V &gt;::query</definition>
-        <argsstring>(K k)</argsstring>
+        <argsstring>(K key)</argsstring>
         <name>query</name>
         <param>
           <type>K</type>
-          <declname>k</declname>
+          <declname>key</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -424,14 +424,32 @@
         </inbodydescription>
         <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="334" column="7" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="334" bodyend="337"/>
       </memberdef>
+      <memberdef kind="function" id="class_c_r_io_t___control___v_o_1a755e101c9b1cc18c47fa3fe3002c4191" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; V &gt;</type>
+        <definition>vector&lt;V&gt; CRIoT_Control_VO&lt; K, V &gt;::batch_query</definition>
+        <argsstring>(K keys)</argsstring>
+        <name>batch_query</name>
+        <param>
+          <type>K</type>
+          <declname>keys</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="339" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="339" bodyend="342"/>
+      </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="22" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="21" bodyend="338"/>
+    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="22" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="21" bodyend="343"/>
     <listofallmembers>
       <member refid="class_c_r_io_t___control___v_o_1af7ba55e61aec857eb2ad8ca6e0353d8c" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>batch_insert</name></member>
+      <member refid="class_c_r_io_t___control___v_o_1a755e101c9b1cc18c47fa3fe3002c4191" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>batch_query</name></member>
       <member refid="class_c_r_io_t___control___v_o_1aa4b84ebdb79844a0c760322cd88aad4b" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>CRIoT_Control_VO</name></member>
       <member refid="class_c_r_io_t___control___v_o_1a9a185d09802e944f4aeab12b669b1a85" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>CRIoT_Control_VO</name></member>
       <member refid="class_c_r_io_t___control___v_o_1a5c6f0090a55557ea3897fd15a17a54f1" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>encode_full</name></member>
@@ -442,7 +460,7 @@
       <member refid="class_c_r_io_t___control___v_o_1abbcf6fbeae98efe3917b1faca22600fe" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>insert</name></member>
       <member refid="class_c_r_io_t___control___v_o_1aea687a68f16ec895ef44497a4255b269" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>loadfactor</name></member>
       <member refid="class_c_r_io_t___control___v_o_1a8ee5b056fa2c989b8e6170b9449615d5" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>o_ratio</name></member>
-      <member refid="class_c_r_io_t___control___v_o_1a27dcdbaf7d5adec9b19308020f9ad3c4" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>query</name></member>
+      <member refid="class_c_r_io_t___control___v_o_1a704e85fbf832dd3e5753da65cb580e73" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>query</name></member>
       <member refid="class_c_r_io_t___control___v_o_1a6b2c4ad1e520942a2c123b2231cdc4e8" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>setValue</name></member>
       <member refid="class_c_r_io_t___control___v_o_1a1573eba12be6ae370112ba3f87b3a1fe" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>vo_control</name></member>
       <member refid="class_c_r_io_t___control___v_o_1af38de74ece2675d87d9c23ed2ac73dc8" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>vo_data</name></member>

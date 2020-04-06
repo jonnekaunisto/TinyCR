@@ -34,7 +34,9 @@
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CRIoT" href="CRIoT.html" />
+    <link rel="prev" title="Reference Manual" href="ref.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -78,11 +80,20 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">TinyCR</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Download and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ref.html">Reference Manual</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">TinyCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CRIoT.html">CRIoT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DASS.html">DASS</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../LICENSE.html">LICENSE</a></li>
+</ul>
+
             
           
         </div>
@@ -125,6 +136,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ref.html">Reference Manual</a> &raquo;</li>
         
       <li>TinyCR</li>
     
@@ -178,6 +191,20 @@
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">key</span></code>: Key, which should be queried </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12TinyCRClient17queryCertificatesE1K">
+<span id="_CPPv3N12TinyCRClient17queryCertificatesE1K"></span><span id="_CPPv2N12TinyCRClient17queryCertificatesE1K"></span><span id="TinyCRClient::queryCertificates__K"></span><span class="target" id="class_tiny_c_r_client_1a0a36d300bdca5a5988650b72d4f9cf23"></span>vector&lt;V&gt; <code class="sig-name descname">queryCertificates</code><span class="sig-paren">(</span>K <em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRClient17queryCertificatesE1K" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Queries multiple keys <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The values of the keys </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keys</span></code>: Keys to be queried </p></li>
 </ul>
 </dd>
 </dl>
@@ -283,6 +310,34 @@
 </dd></dl>
 
 <dl class="function">
+<dt id="_CPPv4N12TinyCRServer16queryCertificateERK1K">
+<span id="_CPPv3N12TinyCRServer16queryCertificateERK1K"></span><span id="_CPPv2N12TinyCRServer16queryCertificateERK1K"></span><span id="TinyCRServer::queryCertificate__KCR"></span><span class="target" id="class_tiny_c_r_server_1acdff56d8b14ca90dca07d034cfb23605"></span>bool <code class="sig-name descname">queryCertificate</code><span class="sig-paren">(</span><em class="property">const</em> K &amp;<em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer16queryCertificateERK1K" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Query a certificate <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>bool indicating if the key is revoked or unrevoked </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">key</span></code>: Key, which should be queried </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12TinyCRServer17queryCertificatesE1K">
+<span id="_CPPv3N12TinyCRServer17queryCertificatesE1K"></span><span id="_CPPv2N12TinyCRServer17queryCertificatesE1K"></span><span id="TinyCRServer::queryCertificates__K"></span><span class="target" id="class_tiny_c_r_server_1a55244e1ac7ee7cf9391412ea507aabea"></span>vector&lt;V&gt; <code class="sig-name descname">queryCertificates</code><span class="sig-paren">(</span>K <em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer17queryCertificatesE1K" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Queries multiple keys <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The values of the keys </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">keys</span></code>: Keys to be queried </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="_CPPv4N12TinyCRServer19getLatencyStatisticENSt6stringE">
 <span id="_CPPv3N12TinyCRServer19getLatencyStatisticENSt6stringE"></span><span id="_CPPv2N12TinyCRServer19getLatencyStatisticENSt6stringE"></span><span id="TinyCRServer::getLatencyStatistic__ss"></span><span class="target" id="class_tiny_c_r_server_1ab0d6221d449dfbc50f07b15c4630924e"></span>double <code class="sig-name descname">getLatencyStatistic</code><span class="sig-paren">(</span>std::string <em>statistic</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer19getLatencyStatisticENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Average latnecy of a successful DASS update. <dl class="simple">
@@ -306,6 +361,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CRIoT.html" class="btn btn-neutral float-right" title="CRIoT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ref.html" class="btn btn-neutral float-left" title="Reference Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
