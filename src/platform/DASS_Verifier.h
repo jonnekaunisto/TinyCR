@@ -19,24 +19,41 @@ public:
 
     DASS_Verifier(){}
 
+    /**
+     * Constructor for DASS_Tracker
+     * @param vo_control An instance of DASS_Tracker
+     */
     DASS_Verifier(DASS_Tracker<K, V> &vo_control)
     {
         this->vf = vo_control.vf;
         this->othello = DataPlaneOthello<K, V, 1, 0>(vo_control.othello);
     }
 
+    /**
+     * Install DASS_Tracker from another DASS_Tracker
+     * @param vo_control An instance of DASS_Tracker
+     */
     void install(DASS_Tracker<K, V> &vo_control)
     {
         this->vf = vo_control.vf;
         this->othello = DataPlaneOthello<K, V, 1, 0>(vo_control.othello);
     }
 
+    /**
+     * Install DASS_Tracker from another DASS_Tracker
+     * @param vo_control An instance of DASS_Tracker
+     */
     void operator = (DASS_Verifier<K, V> const &vo_data)
     {
         this->vf = vo_data.vf;
         this->othello = DataPlaneOthello<K, V, 1, 0>(vo_data.othello);
     }
 
+    /**
+     * Queries the value of a kye
+     * @param key Key to be queried
+     * @returns Value of the key
+     */
     V query(const K key)
     {
         bool vf_query;
@@ -58,6 +75,11 @@ public:
     
     }
 
+    /**
+     * Queries keys in a batch
+     * @param keys Keys to be queried
+     * @returns Values of the keys queried
+     */
     vector<V> batch_query(const vector<K> &keys)
     {
         vector<V> results;
@@ -84,6 +106,11 @@ public:
         return results;
     }
 
+    /**
+     * Measures batch query performance
+     * @param keys The keys to be inserted
+     * @returns The time it took to query the keys
+     */
     float batch_query_performance(const vector<K> &keys)
     {
         unsigned long s = clock();
@@ -95,13 +122,20 @@ public:
         return update_diff/(float)keys.size();
     }
 
+    /**
+     * Gets the memory cost of the structure
+     * @returns The memory consumption
+     */
     uint64_t getMemoryCost()
     {
         return vf.memory_consumption + othello.getMemoryCost();
     }
 
-
-    /*dynamic functions*/
+    /**
+     * Inserts a kv pair with flipped indexes
+     * @param kv Key value par
+     * @param flipped_indexes The flipped indexes received
+     */
     void insert(pair<K, V> kv, vector<uint32_t> &flipped_indexes)
     {
         V v;
@@ -144,6 +178,11 @@ public:
         }
     }
 
+    /**
+     * Sets value of a key
+     * @param kv The key value pair set
+     * @param flipped_indexes The flipped indexes received
+     */
     void setValue(pair<K, V> kv, vector<uint32_t> &flipped_indexes)
     {
 

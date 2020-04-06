@@ -37,8 +37,18 @@ public:
     float load_factor = 0.95;
     float o_ratio = 1;
 
-    DASS_Tracker(){}
+    DASS_Tracker(){
+        TNK_table = new vector<K>[0];
+        FPK_table = new vector<K>[0];
+    }
 
+    /**
+     * Constructor for DASS_Tracker
+     * @param n_pos Number of positive keys
+     * @param n_neg Number of negative keys
+     * @param lf Load factor
+     * @param othello_ratio Othello ratio
+     */
     DASS_Tracker(uint32_t n_pos, uint32_t n_neg, float lf = 0.95, float othello_ratio = 1)
     {
         this->load_factor = lf;
@@ -55,6 +65,10 @@ public:
         FPK_table = new vector<K>[vf.n];
     }
     
+    /**
+     * Constructor for DASS_Tracker
+     * @param obj An instance of DASS_Tracker
+     */
     DASS_Tracker(DASS_Tracker const &obj)
     {
         this->n_positive_keys = obj.n_positive_keys;
@@ -622,6 +636,12 @@ public:
         }
     }
 
+    /**
+     * Generates the flipped indexes
+     * @param pre_mem The fliped indexes before
+     * @param post_mem The flipped indexes after
+     * @returns The resulting flipped indexes
+     */
     vector<uint32_t> othello_flipped_indexes(vector<uint64_t>& pre_mem, vector<uint64_t>& post_mem)
     {
         vector<uint32_t> flipped_indexes{};
@@ -663,6 +683,37 @@ public:
         {
             return (V)0;
         }
+    }
+
+    /**
+     * Queries keys in a batch
+     * @param keys Keys to be queried
+     * @returns Values of the keys queried
+     */
+    vector<V> batch_query(vector<K> keys)
+    {
+        vector<V> results;
+        for(int i = 0; i<keys.size();i++)
+        {
+            bool vf_query;
+            
+            if(vf.lookup(keys[i]))
+                vf_query = true;
+            else
+                vf_query = false;
+            if (vf_query)
+            {
+                V v;
+                othello.query(keys[i],v);
+
+                results.push_back(v);
+            }
+            else
+            {
+                results.push_back((V)0);
+            }
+        }
+        return results;
     }
 
 };

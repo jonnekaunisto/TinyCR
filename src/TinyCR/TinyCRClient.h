@@ -42,6 +42,7 @@ public:
         std::thread updatesThread (listenForUpdates, this);
         updatesThread.join();
     }
+
     /**
      * Query a certificate
      * @param key Key, which should be queried
@@ -53,6 +54,19 @@ public:
         bool result = dassVerifier.query(key) == 1;
         queryLock.unlock();
         return result;
+    }
+
+    /**
+     * Queries multiple keys
+     * @param keys Keys to be queried
+     * @returns The values of the keys
+     */
+    vector<V> queryCertificates(K keys)
+    {
+        queryLock.lock();
+        vector<V> results = dassVerifier.batch_query(keys);
+        queryLock.lock();
+        return results;
     }
 
     /**

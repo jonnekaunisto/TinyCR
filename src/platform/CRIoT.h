@@ -331,9 +331,14 @@ public:
 	 * @param key The key to be queried.
 	 * @returns The value of the key.
 	 */
-    V query(K k)
+    V query(K key)
     {
-        return vo_control.query(k);
+        return vo_control.query(key);
+    }
+
+    vector<V> batch_query(K keys)
+    {
+        return vo_control.batch_query(keys);
     }
 };
 
@@ -352,16 +357,6 @@ public:
     void rebuild(DASS_Verifier<K, V> &rebuild_patch)
     {
         vo_data = rebuild_patch;
-    }
-
-    /**
-     * Queries a key from the structure.
-     * @param key Key to be queried.
-     * @returns The value associated with the key.
-     */
-    V query(const K key)
-    {
-        return vo_data.query(key);
     }
 
     /**
@@ -569,6 +564,26 @@ public:
         {
             std::cout << "Encountered unknown action: " << action << std::endl; 
         }
+    }
+
+    /**
+     * Queries a key from the structure.
+     * @param key Key to be queried.
+     * @returns The value associated with the key.
+     */
+    V query(const K key)
+    {
+        return vo_data.query(key);
+    }
+
+    /**
+     * Queries keys in a batch
+     * @param keys Keys to be queried
+     * @returns Values of the keys queried
+     */
+    vector<V> batch_query(const vector<K> keys)
+    {
+        return vo_data.query(keys);
     }
 
     /**

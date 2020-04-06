@@ -6,8 +6,10 @@
  */
 int main()
 {
-    int positive_keysize = 100000;
-	int negative_keysize = 1000000;
+	int total_init_certs = 1000000;
+    int positive_keysize = total_init_certs * 0.01;
+	int negative_keysize = total_init_certs * 0.99;
+	int total_insert_certs = 1000;
 
     // Some place holder keys
     vector <uint64_t> positive_keys;
@@ -29,6 +31,20 @@ int main()
 
     DASS_Verifier<uint64_t, uint32_t> dassVerifier;
     dassVerifier.install(dassTracker);
+
+	int insert_pos_high = total_init_certs + 1 + 0.99 * total_insert_certs;
+	int insert_pos_low = total_init_certs + 1;
+	std::cout << "inserting: " << insert_pos_low << ":" << insert_pos_high << std::endl;
+	for(uint64_t i = insert_pos_low; i < insert_pos_high; i++)
+	{
+		
+		vector<uint32_t> flipped_indexes = dassTracker.insert(std::pair<uint64_t, uint32_t>(i, 1));
+		if(flipped_indexes.size() == 1 && flipped_indexes[0] == 0xffffffff)
+        {
+            /*rebuild*/
+            dassTracker.rebuild(dassTracker.load_factor, dassTracker.o_ratio); 
+		}
+	}
 
 
     return 0;

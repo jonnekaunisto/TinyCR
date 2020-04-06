@@ -88,6 +88,12 @@ public:
         } 
     }
 
+    bool addCertificates(vector<pair<K,V>> kv_pairs)
+    {
+        bool status = dassTracker.batch_insert(kv_pairs);
+        return sendFullUpdates();
+    }
+
     /**
      * Removes and existing certificate
      * NOT IMPLEMENTED
@@ -109,7 +115,7 @@ public:
      */
     bool unrevokeCertificate(K k)
     {
-        pair<K, V> kv(k, 1);
+        pair<K, V> kv(k, 0);
         StopWatch stopWatch = StopWatch();
         bool status = dassTracker.setValue(kv);
         statistics.addLatency("calc_latency", stopWatch.stop());
@@ -130,11 +136,31 @@ public:
      */
     bool revokeCertificate(K k)
     {
-        pair<K, V> kv(k, 0);
+        pair<K, V> kv(k, 1);
         StopWatch stopWatch = StopWatch();
         dassTracker.setValue(kv);
         statistics.addLatency("calc_latency", stopWatch.stop());
         return sendSummaryUpdate(kv, uint8_t(3));
+    }
+
+    /**
+     * Query a certificate
+     * @param key Key, which should be queried
+     * @returns bool indicating if the key is revoked or unrevoked
+     */
+    bool queryCertificate(const K &key)
+    {
+        return dassTracker.query(key) == 1;
+    }
+
+    /**
+     * Queries multiple keys
+     * @param keys Keys to be queried
+     * @returns The values of the keys
+     */
+    vector<V> queryCertificates(K keys)
+    {
+        return dassTracker.batch_query(keys);
     }
 
     /**
