@@ -18,7 +18,11 @@ jobs:
       with:
         python-version: 3.7
     - name: make
-      run: make
+      run: |
+        mkdir build
+        cd build
+        cmake -G "Unix Makefiles" ..
+        make
       working-directory: ./src
     - name: Install dependencies
       run: |
