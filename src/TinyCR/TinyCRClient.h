@@ -186,7 +186,7 @@ private:
                 {
                     std::cout << "Doing a summary Update: " << sizeof(msg) << std::endl;
                     StopWatch stopWatchDelta = StopWatch();
-                    tinyCRClient->dassVerifier.decode_summary(msg);
+                    tinyCRClient->dassVerifier.decode_batch_summary(msg);
                     tinyCRClient->statistics.addLatency("delta_updating_latency", stopWatchDelta.stop());
                     new_sock << "SummaryDone";
                 }

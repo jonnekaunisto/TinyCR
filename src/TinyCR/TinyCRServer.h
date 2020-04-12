@@ -32,7 +32,7 @@ public:
      * @param positive_keys The list of unrevoked keys.
      * @param negative_keys The list of revoked keys.
      */
-    TinyCRServer(int port, vector<K> positive_keys, vector<K> negative_keys)
+    TinyCRServer(int port, std::vector<K> positive_keys, std::vector<K> negative_keys)
     {
         this->port = port;
         this->positive_keys = positive_keys;
@@ -78,9 +78,13 @@ public:
         StopWatch stopWatch = StopWatch();
         bool status = dassTracker.insert(kv);
         statistics.addLatency("calc_latency", stopWatch.stop());
+        std::vector<pair<K, V>> kvs;
+        kvs.push_back(kv);
+        std::vector<uint8_t> actions;
+        actions.push_back(AddAction);
         if (status)
         {
-            return sendSummaryUpdate(kv, uint8_t(0));
+            return sendSummaryUpdate(kvs, actions);
         }
         else
         {
@@ -88,9 +92,18 @@ public:
         } 
     }
 
-    bool addCertificates(vector<pair<K,V>> kv_pairs)
+    bool addCertificates(std::vector<pair<K,V>> kv_pairs)
     {
         bool status = dassTracker.batch_insert(kv_pairs);
+        if (status)
+        {
+            std::vector<uint8_t> actions;
+            for(int i =0; i < kv_pairs.size(); i++)
+            {
+                actions.push_back(AddAction);
+            }
+            return sendSummaryUpdate(kv_pairs, actions);
+        }
         return sendFullUpdates();
     }
 
@@ -105,7 +118,10 @@ public:
         StopWatch stopWatch = StopWatch();
         dassTracker.erase(k);
         statistics.addLatency("calc_latency", stopWatch.stop());
-        return sendSummaryUpdate(pair<K, V>(k, 0), uint8_t(1));
+        pair<K, V> kv (k, 0);
+        std::vector<pair<K, V>> kvs;
+        kvs.push_back(kv);
+        return sendSummaryUpdate(kvs, std::vector<uint8_t>(RemoveAction));
     }
 
     /**
@@ -119,9 +135,13 @@ public:
         StopWatch stopWatch = StopWatch();
         bool status = dassTracker.setValue(kv);
         statistics.addLatency("calc_latency", stopWatch.stop());
+        std::vector<pair<K,V>> kvs;
+        kvs.push_back(kv);
+        std::vector<uint8_t> actions;
+        actions.push_back(UnrevokeAction);
         if (status) 
         {
-            return sendSummaryUpdate(kv, uint8_t(2));
+            return sendSummaryUpdate(kvs, actions);
         }
         else
         {
@@ -140,7 +160,11 @@ public:
         StopWatch stopWatch = StopWatch();
         dassTracker.setValue(kv);
         statistics.addLatency("calc_latency", stopWatch.stop());
-        return sendSummaryUpdate(kv, uint8_t(3));
+        std::vector<pair<K, V>> kvs;
+        kvs.push_back(kv);
+        std::vector<uint8_t> actions;
+        actions.push_back(RevokeAction);
+        return sendSummaryUpdate(kvs, actions);
     }
 
     /**
@@ -158,7 +182,7 @@ public:
      * @param keys Keys to be queried
      * @returns The values of the keys
      */
-    vector<V> queryCertificates(K keys)
+    std::vector<V> queryCertificates(K keys)
     {
         return dassTracker.batch_query(keys);
     }
@@ -180,8 +204,8 @@ private:
     bool running;
     std::chrono::duration<double> lastRTT;
     std::list<std::string> connectedDevices; //doubly linked list of connected  devices
-    vector<K> positive_keys;
-    vector<K> negative_keys;
+    std::vector<K> positive_keys;
+    std::vector<K> negative_keys;
     CRIoT_Control_VO<K, V> dassTracker;
     std::thread summaryUpdatesThread;
     std::thread connectionListenerThread;
@@ -211,7 +235,7 @@ private:
 
     static std::string addCommand(std::string data, TinyCRServer *tinyCRServer)
     {
-        std::regex addRgx("([a-z]{3}) ([0-9]+) ([0-9]+)");
+        std::regex addRgx("([a-z]{3})(?: ([0-9]+) ([0-9]+))+");
         std::smatch matches;
         if(!std::regex_search(data, matches, addRgx)) 
         {
@@ -355,7 +379,7 @@ private:
         int msg_size = 0;
         /*send the CRC packets*/
         StopWatch stopWatchEncode = StopWatch();
-        vector<vector<uint8_t>> v = dassTracker.encode_full();
+        std::vector<std::vector<uint8_t>> v = dassTracker.encode_full();
         double time = stopWatchEncode.stop();
         std::cout << "Full encode latency: " << time << std::endl;
         statistics.addLatency("full_encoding_latency", time);
@@ -424,7 +448,7 @@ private:
      * @param action Action that is being done to the key value pair.
      * @return Status of sending the update.
      */
-    bool sendSummaryUpdate(pair<K,V> kv, uint8_t action)
+    bool sendSummaryUpdate(std::vector<pair<K,V>> kvs, std::vector<uint8_t> actions)
     {
         if(connectedDevices.empty()){
             return true;
@@ -432,7 +456,7 @@ private:
 
         std::cout << "Sending Delta Summary..." << std::endl;
         StopWatch stopWatch = StopWatch();
-        vector<uint8_t> v = dassTracker.encode_summary(kv, action);
+        std::vector<uint8_t> v = dassTracker.encode_batch_summary(kvs, actions);
         statistics.addLatency("delta_encoding_latency", stopWatch.stop());
             
         for (std::string host : connectedDevices)            
@@ -484,7 +508,7 @@ private:
         try
         {
             StopWatch stopWatch = StopWatch();
-            vector<vector<uint8_t>> v = dassTracker.encode_full();
+            std::vector<std::vector<uint8_t>> v = dassTracker.encode_full();
             statistics.addLatency("full_encoding_latency", stopWatch.stop());
             for (std::string host : connectedDevices)            
             {
