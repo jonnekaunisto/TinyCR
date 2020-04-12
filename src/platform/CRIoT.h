@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <map>
+#include <stdexcept>
 #include <vector>
 #include <time.h>
 #include <random>
@@ -16,6 +17,11 @@
 #include "DASS_Tracker.h"
 #include "../utils/helpers.h"
 using namespace std;
+
+enum Action 
+{
+    AddAction = 0, RemoveAction = 1, UnrevokeAction = 2, RevokeAction = 3
+};
 
 template<typename K, class V>
 class CRIoT_Control_VO
@@ -190,6 +196,26 @@ public:
         v.push_back(vf_T_v);
 
         return v;
+    }
+
+    vector<uint8_t> encode_batch_summary(vector<pair<K, V>> key_value_pairs, vector<uint8_t> actions)
+    {
+        if (key_value_pairs.size() != actions.size())
+        {
+            std::cout << "key: " << key_value_pairs.size() << std::endl;
+            std::cout << "actions " << actions.size() << std::endl;
+            throw std::invalid_argument("key_value_pairs is not the same size as actions");
+        }
+
+        vector<uint8_t> encoded;
+        encoded.push_back(uint8_t(actions.size()));
+
+        for(int i = 0; i < actions.size(); i++)
+        {
+            vector<uint8_t> sub_encoded = encode_summary(key_value_pairs[i], actions[i]);
+            encoded.insert(encoded.end(), sub_encoded.begin(), sub_encoded.end());
+        }
+        return encoded;
     }
 
     /**
@@ -480,6 +506,98 @@ public:
         cout<<"vf finish" << std::endl;
     }
 
+    void decode_batch_summary(vector<uint8_t> summary)
+    {
+        unsigned int num_actions = unsigned(summary[0]);
+        int offset = 1;
+
+        for(int i = 0; i < num_actions; i++)
+        {
+            decode_sub_summary(summary, offset);
+        }
+    }
+
+
+    void decode_sub_summary(vector<uint8_t> summary, int &offset)
+    {
+        uint8_t action = summary[offset];
+        std::cout << "action: " << unsigned(action) << std::endl;
+        offset += 1;
+        
+        int K_size = sizeof(K);
+        auto k_chars = vector<uint8_t>();
+        for(int i = 0; i < K_size; i++){
+            k_chars.push_back(summary[i + offset]);
+        }
+        K k;
+        k = combine_chars_as_uint(k_chars, k);
+        std::cout << "k: " << k << std::endl;
+
+        offset += K_size;
+
+        int V_size = sizeof(V);
+        auto v_chars = vector<uint8_t>();
+        for(int i = 0; i < V_size; i++){
+            v_chars.push_back(summary[i + offset]);
+        }
+        V v;
+        v = combine_chars_as_uint(v_chars, v);
+        std::cout << "v: " << v << std::endl;
+
+
+        offset += V_size;
+        int flipped_indexes_size = summary[offset];
+        offset += 1;
+
+        vector<uint32_t> new_flipped_indexes = vector<uint32_t>();
+        for(int i = 0; i < flipped_indexes_size; i++)
+        {
+            auto flipped_chars = vector<uint8_t>();
+            for(int j = 0; j < sizeof(uint32_t); j++)
+            {
+                flipped_chars.push_back(summary[j + offset]);
+            }
+            uint32_t f;
+            f = combine_chars_as_uint(flipped_chars, f);
+            new_flipped_indexes.push_back(f);
+            offset += sizeof(uint32_t);
+        }
+
+        std::cout << "flipped indexes size: " << flipped_indexes_size << std::endl;
+        //std::cout << new_flipped_indexes << std::endl;
+        for(int i=0; i < new_flipped_indexes.size(); i++)
+        {
+              std::cout << new_flipped_indexes.at(i) << " ";
+        }
+        std::cout << std::endl;
+
+        vector<uint32_t>& new_flipped_indexes_ref = new_flipped_indexes;
+
+        //add
+        if(action == AddAction)
+        {
+            pair<K,V> kv(k, v);
+            insert(kv, new_flipped_indexes_ref);
+        }
+        //remove
+        else if(action == RemoveAction)
+        {
+            //nothing
+            std::cout << "THIS FUNCTIONS IS NOT FILLED IN" << std::endl;
+        }
+        //unrevoke(2), revoke(3)
+        else if(action == UnrevokeAction || action == RevokeAction)
+        {
+            pair<K,V> kv(k, v);
+            pair<K,V> kv_ref = kv;
+            setValue(kv_ref, new_flipped_indexes_ref);
+        }
+        else
+        {
+            std::cout << "Encountered unknown action: " << unsigned(action) << std::endl; 
+        }
+    }
+
     /**
      * Decodes the summary
      * Parts are decoded in this order: the type of action, key, value, 
@@ -533,7 +651,6 @@ public:
         }
 
         std::cout << "flipped indexes size: " << flipped_indexes_size << std::endl;
-        //std::cout << new_flipped_indexes << std::endl;
         for(int i=0; i < new_flipped_indexes.size(); i++)
         {
               std::cout << new_flipped_indexes.at(i) << " ";
