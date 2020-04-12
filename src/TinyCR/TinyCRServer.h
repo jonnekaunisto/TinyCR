@@ -92,6 +92,11 @@ public:
         } 
     }
 
+    /**
+     * Adds multiple certificates at the same time.
+     * @param kv_pairs A vector of pairs that will be inserted.
+     * @returns Return a boolean for the success of the addition.
+     */
     bool addCertificates(std::vector<pair<K,V>> kv_pairs)
     {
         bool status = dassTracker.batch_insert(kv_pairs);
@@ -371,6 +376,10 @@ private:
         exit(1);
     }
 
+    /**
+     * Sends a full update through the socket
+     * @param socket The socket which the full update will be sent through
+     */
     void sendFullUpdate(Socket socket)
     {
         StopWatch stopWatchFullRTT = StopWatch();
@@ -499,6 +508,10 @@ private:
         return true;
     }
 
+    /**
+     * Sends full updates to all registered clients
+     * @returns The success of the action
+     */
     bool sendFullUpdates()
     {
         if(connectedDevices.empty()){
