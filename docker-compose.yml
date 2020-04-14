@@ -1,0 +1,37 @@
+version: '3'
+services:
+  server:
+    build: .
+    command: ["/TinyCR/src/build/server"]
+    ports:
+      - "50000:50000"
+    networks:
+        # you may set custom IP addresses
+        front:
+            ipv4_address: 172.16.238.10 
+            ipv6_address: "2001:3984:3989::10"
+
+  client:
+    build: .
+    command: ["/TinyCR/src/build/client", "172.16.238.10"]
+    deploy:
+        resources:
+            limits:
+                memory: 50M
+    depends_on:
+        - "server"
+    networks:
+        - front
+        
+
+networks:
+    front:
+        # use the bridge driver, but enable IPv6
+        driver: bridge
+        driver_opts:
+            com.docker.network.enable_ipv6: "true"
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.16.238.0/24
+                - subnet: "2001:3984:3989::/64"

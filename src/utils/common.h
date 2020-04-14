@@ -94,7 +94,10 @@ std::string human(uint64_t word);
 
 #include <sched.h>
 #include <unistd.h>
+
+#ifdef __GLIBC__
 #include <execinfo.h>
+#endif
 
 int stick_this_thread_to_core(int core_id);
 

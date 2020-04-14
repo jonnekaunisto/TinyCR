@@ -41,6 +41,12 @@ public:
         requestInitialSummary();
         std::thread updatesThread (listenForUpdates, this);
         updatesThread.join();
+        return true;
+    }
+
+    void setServerIP(std::string serverIP)
+    {
+        this->serverIP = serverIP;
     }
 
     /**
@@ -94,16 +100,22 @@ private:
      */
     void requestInitialSummary()
     {
-        vector<uint8_t> msg;
-        try
+        for(int i =0;;i++)
         {
-            /*initialize connnection to server*/
-            ClientSocket client_socket (serverIP, 30000);
-            readFullSummary(client_socket);
-        }
-        catch ( SocketException& e )
-        {
-            std::cout << "Exception was caught while requesting initial summary:" << e.description() << std::endl;
+            vector<uint8_t> msg;
+            try
+            {
+                /*initialize connnection to server*/
+                ClientSocket client_socket (serverIP, 30000);
+                readFullSummary(client_socket);
+                break;
+            }
+            catch ( SocketException& e )
+            {
+                std::cout << "Exception was caught while requesting initial summary:" << e.description() << std::endl;
+                std::cout << "Retrying #" << i << std::endl;
+                sleep(5);
+            }
         }
     }
 

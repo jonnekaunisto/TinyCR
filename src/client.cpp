@@ -105,8 +105,13 @@ static void listenForCommands()
 /*
  * Runs the client, no command line inputs
  */
-int main()
+int main(int argc, char *argv[])
 {
+	if (argc == 2)
+	{
+		client.setServerIP(argv[1]);
+	}
+
 	commandsMap["show"] = &showCommand;
 	commandsMap["get"] = &getCommand;
 	std::thread clientThread (runClientThread);

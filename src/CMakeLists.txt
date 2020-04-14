@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4)
+cmake_minimum_required(VERSION 3.15.5)
 
 # set the project name
 project(TinyCR VERSION 1.0 LANGUAGES CXX)
@@ -25,4 +25,4 @@ target_link_libraries(platform_test socketLibrary utilsLibrary)
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-SET(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-pg -g -Ofast -std=c++11 -pthread")
+SET(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-g -Ofast -std=c++11 -pthread")

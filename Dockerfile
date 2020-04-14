@@ -1,27 +1,26 @@
-FROM ubuntu:16.04
+FROM alpine:latest
 
 RUN mkdir /TinyCR
 ADD . /TinyCR
 WORKDIR /TinyCR
 
-RUN apt-get update && apt-get install -y build-essential \
-    sudo \
-    clang-3.6 \
-    clang-format-3.6 \
-    wget \
-    git
+RUN apk update && \
+    apk upgrade && \
+    apk --update add \
+        gcc \
+        g++ \
+        build-base \
+        cmake \
+        bash \
+        libstdc++ \
+        cppcheck && \
+    rm -rf /var/cache/apk/*
 
-RUN cd /usr/local/src \ 
-    && wget https://cmake.org/files/v3.4/cmake-3.4.3.tar.gz \
-    && tar xvf cmake-3.4.3.tar.gz \ 
-    && cd cmake-3.4.3 \
-    && ./bootstrap \
-    && make \
-    && make install \
-    && cd .. \
-    && rm -rf cmake*
+RUN cd /TinyCR/src \
+    && mkdir build \
+    && cd build \
+    && cmake .. \
+    && make
 
 
-#RUN cd /usr/local/src \
-#    && mkdir build \
-#    && cd build \
+CMD ["/TinyCR/src/build/server"]

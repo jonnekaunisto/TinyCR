@@ -40,6 +40,7 @@ void sync_printf(const char *format, ...) {
 }
 
 void printStackTrace(int sig) {
+  #ifdef __GLIBC__
   void *array[10];
   size_t size;
   
@@ -49,6 +50,7 @@ void printStackTrace(int sig) {
   // print out all the frames to stderr
   fprintf(stderr, "Error: signal %d:\n", sig);
   backtrace_symbols_fd(array, size, STDERR_FILENO);
+  #endif
   exit(1);
 }
 
