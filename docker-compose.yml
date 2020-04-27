@@ -1,28 +1,44 @@
-version: '3'
+version: '3.3'
 services:
   server:
     build: .
-    command: ["/TinyCR/src/build/server"]
+    container_name: tinycrserver
+    command: ["/TinyCR/src/build/server", "100000", "9900000"]
     ports:
       - "50000:50000"
     networks:
-        # you may set custom IP addresses
         front:
-            ipv4_address: 172.16.238.10 
+            ipv4_address: 172.16.238.2
             ipv6_address: "2001:3984:3989::10"
 
   client:
     build: .
-    command: ["/TinyCR/src/build/client", "172.16.238.10"]
+    container_name: tinycrclient
+    command: ["/TinyCR/src/build/client", "172.16.238.2"]
     deploy:
         resources:
             limits:
                 memory: 50M
     depends_on:
         - "server"
+        - "test-framework"
     networks:
         - front
+
+  test-framework:
+    image: python:3.7-alpine
+    command: ["python", "/tests/docker_test.py"]
+    container_name: tinycrtest
+    depends_on:
+        - "server"
+    networks:
+        front:
+            ipv4_address: 172.16.238.3
+    volumes:
+      - "./tests:/tests"
         
+
+     
 
 networks:
     front:

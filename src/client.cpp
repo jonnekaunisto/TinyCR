@@ -58,6 +58,10 @@ std::string getCommand(std::string data)
 	return std::to_string(client.getLatencyStatistic(matches[1])) + "\n";
 }
 
+std::string pingCommand(std::string data)
+{
+	return "pong";
+}
 
 static void listenForCommands()
 {
@@ -114,6 +118,7 @@ int main(int argc, char *argv[])
 
 	commandsMap["show"] = &showCommand;
 	commandsMap["get"] = &getCommand;
+	commandsMap["ping"] = &pingCommand;
 	std::thread clientThread (runClientThread);
 	listenForCommands();
 

@@ -46,6 +46,7 @@ public:
         commandsMap["exi"] = &exitCommand;
         commandsMap["ping"] = &pingCommand;
         commandsMap["get"] = &statisticsCommand;
+        commandsMap["show"] = &showCommand;
 
         statistics.addStatistic("calc_latency");
         statistics.addStatistic("full_encoding_latency");
@@ -199,7 +200,7 @@ public:
      */
     double getLatencyStatistic(std::string statistic)
     {
-        statistics.getAverageLatency(statistic);
+        return statistics.getAverageLatency(statistic);
     }
 
 private:
@@ -303,6 +304,31 @@ private:
         return response;
     }
 
+    static std::string showCommand(std::string data, TinyCRServer *tinyCRServer)
+    {
+        std::regex rgx("show ([0-9]+)");
+
+        std::smatch matches;
+        if(!std::regex_search(data, matches, rgx)) 
+        {
+            return "Inputs are badly formed\n";	
+        }
+
+        uint32_t num = stoul(matches[1]);
+
+        bool v = tinyCRServer->queryCertificate(num);
+        std::string response = matches[1];
+        if(v)
+        {
+            response += " is revoked\n";
+        }
+        else
+        {
+            response +=  " is unrevoked\n";
+        }
+        return response;
+    }
+
     static std::string exitCommand(std::string data, TinyCRServer *tinyCRServer)
     {
         tinyCRServer->running = false;
@@ -364,7 +390,7 @@ private:
                 }   
                 else
                 {
-                    new_sock << "Bad input";
+                    new_sock << "Not a valid command";
                 }
             }
             catch (SocketException &e)

@@ -571,6 +571,7 @@ public:
                 }
             }
         }
+        return flipped_indexes;
     }
 
     /**

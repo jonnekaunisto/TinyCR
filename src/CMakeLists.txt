@@ -15,9 +15,6 @@ target_link_libraries(server socketLibrary utilsLibrary)
 add_executable(client client.cpp)
 target_link_libraries(client socketLibrary utilsLibrary)
 
-add_executable(mockCA mockCA.cpp) 
-target_link_libraries(mockCA socketLibrary)
-
 add_executable(platform_test platform_test.cpp)
 target_link_libraries(platform_test socketLibrary utilsLibrary)
 
