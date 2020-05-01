@@ -11,6 +11,7 @@ TinyCRClient<uint64_t, uint32_t>client("localhost");
 
 typedef std::string (*CommandFunction)(std::string data);
 std::unordered_map<std::string, CommandFunction> commandsMap;
+bool running = true;
 
 
 /*
@@ -63,6 +64,12 @@ std::string pingCommand(std::string data)
 	return "pong";
 }
 
+std::string exitCommand(std::string data)
+{
+	running = false;
+	return "exited";
+}
+
 static void listenForCommands()
 {
 	ServerSocket server(COMMAND_PORT);
@@ -70,7 +77,7 @@ static void listenForCommands()
 	//implement something to take commands and stuff
 	std::regex commandRgx("(^\\w+)");
 
-	while(true)
+	while(running)
 	{
 		try
         {
@@ -119,8 +126,9 @@ int main(int argc, char *argv[])
 	commandsMap["show"] = &showCommand;
 	commandsMap["get"] = &getCommand;
 	commandsMap["ping"] = &pingCommand;
+	commandsMap["exi"] = &exitCommand;
 	std::thread clientThread (runClientThread);
 	listenForCommands();
 
-	clientThread.join();
+	//clientThread.join();
 }

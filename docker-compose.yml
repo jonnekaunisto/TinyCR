@@ -2,7 +2,6 @@ version: '3.3'
 services:
   server:
     build: .
-    container_name: tinycrserver
     command: ["/TinyCR/src/build/server", "100000", "9900000"]
     ports:
       - "50000:50000"
@@ -13,7 +12,6 @@ services:
 
   client:
     build: .
-    container_name: tinycrclient
     command: ["/TinyCR/src/build/client", "172.16.238.2"]
     deploy:
         resources:
@@ -28,7 +26,6 @@ services:
   test-framework:
     image: python:3.7-alpine
     command: ["python", "/tests/docker_test.py"]
-    container_name: tinycrtest
     depends_on:
         - "server"
     networks:

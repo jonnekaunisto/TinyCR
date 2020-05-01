@@ -86,7 +86,8 @@ def run_docker_test():
     print("-"*15)
     clients = discover_clients(10)
 
-    print(clients, flush=True)
+    print("Clients connected: ", flush=True)
+    print(", ".join(clients))
 
     wait_until_server_ready()
 
@@ -104,22 +105,21 @@ def run_docker_test():
             raise Exception("Not unrevoked when supposed to be unrevoked")
     print(f"{bcolors.OKGREEN} Success{bcolors.ENDC}", flush=True)
 
-    insert_pos_high = total_init_certs + 1 + int(0.99 * total_insert_certs)
-    insert_pos_low = total_init_certs + 1
-    print("Inserting positive certificates: {}:{}".format(insert_pos_low, insert_pos_high), end='', flush=True)
-    for i in range(insert_pos_low, insert_pos_high):
+    insert_neg_high = total_init_certs + 1 + int(0.99 * total_insert_certs)
+    insert_neg_low = total_init_certs + 1
+    print("Inserting negative certificates: {}:{}".format(insert_neg_low, insert_neg_high), end='', flush=True)
+    for i in range(insert_neg_low, insert_neg_high):
         send_to_server("add {} 1".format(i))
 
     print(f"{bcolors.OKGREEN} Success{bcolors.ENDC}", flush=True)
         
-    insert_neg_high = total_init_certs + 1 + total_insert_certs
-    insert_neg_low = total_init_certs + 1 + int(0.99 * total_insert_certs) + 1
-    print("Inserting negative certificates: {}:{}".format(insert_neg_low, insert_neg_high), end='', flush=True)
-    for i in range(insert_neg_low, insert_neg_high):
+    insert_pos_high = total_init_certs + 1 + total_insert_certs
+    insert_pos_low = total_init_certs + 1 + int(0.99 * total_insert_certs) + 1
+    print("Inserting positive certificates: {}:{}".format(insert_pos_low, insert_pos_high), end='', flush=True)
+    for i in range(insert_pos_low, insert_pos_high):
         send_to_server("add {} 0".format(i))
 
     print(f"{bcolors.OKGREEN} Success{bcolors.ENDC}", flush=True)
-
 
     print("Validating on-device revoked certificates", end="", flush=True)
     for i in range(1, int(0.01*total_init_certs), 1000):
@@ -137,11 +137,43 @@ def run_docker_test():
             raise Exception("Not unrevoked when supposed to be unrevoked")
     print(f"{bcolors.OKGREEN} Success{bcolors.ENDC}", flush=True)
 
-    
 
-    
+    print("Moving negative keys to positive", end="", flush=True)
+    for i in range(insert_neg_low, insert_neg_high):
+        send_to_server("unr {}".format(i))
+    print(f"{bcolors.OKGREEN} Success{bcolors.ENDC}", flush=True)
 
+    print("Moving positive keys to negative", end="", flush=True)
+    for i in range(insert_pos_low, insert_pos_high):
+        send_to_server("rev {}".format(i))
+    print(f"{bcolors.OKGREEN} Success{bcolors.ENDC}", flush=True)
+
+
+    print("Validating on-device unrevoked certificates", end="", flush=True)
+    for i in range(insert_neg_low, insert_neg_high):
+        response = send_to_random_client(clients, "show {}".format(i))
+        if "is unrevoked" not in response:
+            print(response)
+            raise Exception("Not unrevoked when supposed to be unrevoked, after unrevoking a certificate")
+    print(f"{bcolors.OKGREEN} Success{bcolors.ENDC}", flush=True)
+
+
+    print("Validating on-device revoked certificates", end="", flush=True)
+    for i in range(insert_pos_low, insert_pos_high):
+        response = send_to_random_client(clients, "show {}".format(i))
+        if "is revoked" not in response:
+            print(response)
+            raise Exception("Not revoked when supposed to be revoked after revoking a certificate")
+    print(f"{bcolors.OKGREEN} Success{bcolors.ENDC}", flush=True)
+
+
+    send_to_server("exi")
+    for client in clients:
+        send_to(client, client_port, "exi")
+    
 
 
 if __name__ == "__main__":
     run_docker_test()
+    print("="*15)
+    print(f"{bcolors.OKGREEN}Test Success{bcolors.ENDC}", flush=True)
