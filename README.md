@@ -1,14 +1,38 @@
 # TinyCR
 
 ## Running Tests
+
+Running tests requires docker
+
 ```bash
-cd tests
-python3 -m pytest -s
+docker-compose up --scale client=5
+```
+
+## Testing out the system interactively
+
+Running interactively with multiple clients requires docker
+
+```bash
+docker-compose up --scale test-framework=0 client=5
+docker-compose logs
+```
+
+Running with single client can be done without docker
+
+```bash
+server &
+client &
+```
+
+Communicate with server using the mockCA
+```bash
+python mockCA.py
 ```
 
 ## Usage
 
 Go to source directory and make build dir
+
 ```bash
 cd src
 mkdir build
@@ -16,35 +40,40 @@ cd build
 ```
 
 Run cmake
+
 ```bash
 cmake -G "Unix Makefiles" ..
 ```
 
 To compile the binaries.
+
 ```bash
 make
 ```
 
 To run the server
+
 ```bash
 ./server
 ```
 
 To run the client.
+
 ```bash
 ./client
 ```
 
 To communicate with the server.
+
 ```bash
 ./mockCA
 ```
 
 To communicate with the client.
+
 ```bash
 ./mockCA localhost 60000
 ```
-
 
 ## Server Socket Interface
 
@@ -57,6 +86,7 @@ To communicate with the client.
 | exi          | Exits the server safely.                                                                                              | N/A                      | N/A                   |
 
 ## Client Socket Interface
+
 | Command Name | Description                                   | Arg 1           |
 |--------------|-----------------------------------------------|-----------------|
 | show         | Queries the value in associated with the key. | The key number. |

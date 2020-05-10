@@ -17,7 +17,7 @@
 #include <sys/stat.h>
 #include <netdb.h>
 #include <unistd.h>
-#include <sys/signal.h>
+#include <signal.h>
 
 
 class ClientSock {

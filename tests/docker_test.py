@@ -45,6 +45,7 @@ def send_to(ip, port, message):
     return data
 
 def wait_until_server_ready():
+    i = 1
     while(True):
         time.sleep(1)
         try:
@@ -52,7 +53,8 @@ def wait_until_server_ready():
             if data == "pong":
                 break
         except:
-            print("Not reachable")
+            print("Retrying connecting to server #" + str(i))
+        i += 1
 
 def discover_clients(num_clients):
     clients = []
@@ -92,13 +94,13 @@ def run_docker_test():
     wait_until_server_ready()
 
     print("Validating server certificates", end="", flush=True)
-    for i in range(1, int(0.01*total_init_certs), 10000):
+    for i in range(1, int(0.01*total_init_certs), 1000):
         response = send_to_server("show {}".format(i))
         if "is revoked" not in response:
             print(response)
             raise Exception("Not revoked when supposed to be revoked")
 
-    for i in range(int(0.01*total_init_certs), total_init_certs, 10000):
+    for i in range(int(0.01*total_init_certs), total_init_certs, 1000):
         response = send_to_server("show {}".format(i))
         if "is unrevoked" not in response:
             print(response)
