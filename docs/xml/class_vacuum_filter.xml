@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="535" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="535" bodyend="583"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="535" column="17" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="535" bodyend="583"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="586" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="586" bodyend="666"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="586" column="9" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="586" bodyend="666"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -92,7 +92,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="532" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="531" bodyend="668"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="532" column="1" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="531" bodyend="668"/>
     <listofallmembers>
       <member refid="class_vacuum_filter_1ad494e9b2dd35c8ebf9a662b9065039f6" prot="private" virt="virtual"><scope>VacuumFilter</scope><name>alternate</name></member>
       <member refid="class_semi_sort_cuckoo_filter_1af0bc4da84cb2f2f4518cece201a0b609" prot="public" virt="non-virtual"><scope>VacuumFilter</scope><name>balance</name></member>

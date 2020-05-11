@@ -22,7 +22,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" line="83" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" bodystart="83" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="93" column="19" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_tiny_c_r_client_1aff860946b6b4a842184d2af979381c0a" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" line="85" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" bodystart="85" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="95" column="17" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="95" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_tiny_c_r_client_1a4fc1058ae6ad5fddce415e47cc04013c" prot="private" static="no" mutable="no">
         <type>std::thread</type>
@@ -48,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" line="86" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" bodystart="86" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="96" column="17" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="96" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_tiny_c_r_client_1ad2d42372d70fa9ba7a35cd95f76a6335" prot="private" static="no" mutable="no">
         <type>std::mutex</type>
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" line="87" column="16" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" bodystart="87" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="97" column="16" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="97" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_tiny_c_r_client_1a6e6b56231298c251741c9dc2fee97880" prot="private" static="no" mutable="no">
         <type>LatencyStatistics</type>
@@ -74,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" line="89" column="23" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" bodystart="89" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="99" column="23" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="99" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -103,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" line="28" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" bodystart="28" bodyend="34"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="28" column="5" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="28" bodyend="34"/>
       </memberdef>
       <memberdef kind="function" id="class_tiny_c_r_client_1a03dbd8469c2d68ae585c1cf7f57b8887" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -117,21 +117,48 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" line="39" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" bodystart="39" bodyend="44"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="39" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="39" bodyend="45"/>
       </memberdef>
-      <memberdef kind="function" id="class_tiny_c_r_client_1a5b49216722f8112ee80783741fba819e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="class_tiny_c_r_client_1a1a1423e52ab8422256cb69e3c2a665be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void TinyCRClient&lt; K, V &gt;::setServerIP</definition>
+        <argsstring>(std::string serverIP)</argsstring>
+        <name>setServerIP</name>
+        <param>
+          <type>std::string</type>
+          <declname>serverIP</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the server ip that the client should connect to <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>serverIP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ip address of the server in string form </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="51" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="51" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_c_r_client_1ac90540c2b0ad4969040330380744ded1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool TinyCRClient&lt; K, V &gt;::queryCertificate</definition>
-        <argsstring>(const K &amp;key)</argsstring>
+        <argsstring>(const K key)</argsstring>
         <name>queryCertificate</name>
         <param>
-          <type>const K &amp;</type>
+          <type>const K</type>
           <declname>key</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Query a certificate <parameterlist kind="param"><parameteritem>
+<para>Query a certificate, thread safe <parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>key</parametername>
 </parameternamelist>
@@ -146,7 +173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" line="51" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" bodystart="51" bodyend="57"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="61" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="61" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="class_tiny_c_r_client_1a0a36d300bdca5a5988650b72d4f9cf23" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>vector&lt; V &gt;</type>
@@ -175,7 +202,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" line="64" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" bodystart="64" bodyend="70"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="74" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="74" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="class_tiny_c_r_client_1a79ad8255dd48671b6e54af8ca26a3fca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -204,7 +231,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" line="77" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" bodystart="77" bodyend="80"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="87" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="87" bodyend="90"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -220,7 +247,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" line="95" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" bodystart="95" bodyend="108"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="105" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="105" bodyend="124"/>
       </memberdef>
       <memberdef kind="function" id="class_tiny_c_r_client_1a40768432da8830f28984d222d08831ec" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -247,7 +274,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" line="114" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" bodystart="114" bodyend="138"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="130" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="130" bodyend="154"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-func">
@@ -267,24 +294,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" line="143" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" bodystart="143" bodyend="201"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="159" column="17" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="159" bodyend="217"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" line="22" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h" bodystart="21" bodyend="202"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" line="22" column="1" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h" bodystart="21" bodyend="218"/>
     <listofallmembers>
       <member refid="class_tiny_c_r_client_1a2395f5c55570e7758038a2e78e6307a5" prot="private" virt="non-virtual"><scope>TinyCRClient</scope><name>dassVerifier</name></member>
       <member refid="class_tiny_c_r_client_1a79ad8255dd48671b6e54af8ca26a3fca" prot="public" virt="non-virtual"><scope>TinyCRClient</scope><name>getLatencyStatistic</name></member>
       <member refid="class_tiny_c_r_client_1a12c7498e661e48d69b27cb583af6d303" prot="private" virt="non-virtual"><scope>TinyCRClient</scope><name>listenForUpdates</name></member>
-      <member refid="class_tiny_c_r_client_1a5b49216722f8112ee80783741fba819e" prot="public" virt="non-virtual"><scope>TinyCRClient</scope><name>queryCertificate</name></member>
+      <member refid="class_tiny_c_r_client_1ac90540c2b0ad4969040330380744ded1" prot="public" virt="non-virtual"><scope>TinyCRClient</scope><name>queryCertificate</name></member>
       <member refid="class_tiny_c_r_client_1a0a36d300bdca5a5988650b72d4f9cf23" prot="public" virt="non-virtual"><scope>TinyCRClient</scope><name>queryCertificates</name></member>
       <member refid="class_tiny_c_r_client_1ad2d42372d70fa9ba7a35cd95f76a6335" prot="private" virt="non-virtual"><scope>TinyCRClient</scope><name>queryLock</name></member>
       <member refid="class_tiny_c_r_client_1a40768432da8830f28984d222d08831ec" prot="private" virt="non-virtual"><scope>TinyCRClient</scope><name>readFullSummary</name></member>
       <member refid="class_tiny_c_r_client_1ab873f82f7f798b3c35487e140e321d11" prot="private" virt="non-virtual"><scope>TinyCRClient</scope><name>requestInitialSummary</name></member>
       <member refid="class_tiny_c_r_client_1aff860946b6b4a842184d2af979381c0a" prot="private" virt="non-virtual"><scope>TinyCRClient</scope><name>serverIP</name></member>
+      <member refid="class_tiny_c_r_client_1a1a1423e52ab8422256cb69e3c2a665be" prot="public" virt="non-virtual"><scope>TinyCRClient</scope><name>setServerIP</name></member>
       <member refid="class_tiny_c_r_client_1a03dbd8469c2d68ae585c1cf7f57b8887" prot="public" virt="non-virtual"><scope>TinyCRClient</scope><name>startClient</name></member>
       <member refid="class_tiny_c_r_client_1a6e6b56231298c251741c9dc2fee97880" prot="private" virt="non-virtual"><scope>TinyCRClient</scope><name>statistics</name></member>
       <member refid="class_tiny_c_r_client_1a4fc1058ae6ad5fddce415e47cc04013c" prot="private" virt="non-virtual"><scope>TinyCRClient</scope><name>summaryUpdatesThread</name></member>

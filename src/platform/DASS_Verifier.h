@@ -1,7 +1,3 @@
-/**
- * Holds Binary Data Plane classes
- * @author Xiaofeng Shi 
- */
 #ifndef BINARY_DATA_PLANE_H
 #define BINARY_DATA_PLANE_H
 
@@ -10,6 +6,9 @@
 #include "DASS_Tracker.h"
 #include "cuckoo.h"
 
+/**
+ * Client side structure for quering keys and updating it's key set.
+ */
 template<typename K, class V>
 class DASS_Verifier
 {
@@ -20,8 +19,8 @@ public:
     DASS_Verifier(){}
 
     /**
-     * Constructor for DASS_Tracker
-     * @param vo_control An instance of DASS_Tracker
+     * Constructor for DASS_Verifier.
+     * @param vo_control An instance of DASS_Tracker.
      */
     DASS_Verifier(DASS_Tracker<K, V> &vo_control)
     {
@@ -30,8 +29,8 @@ public:
     }
 
     /**
-     * Install DASS_Tracker from another DASS_Tracker
-     * @param vo_control An instance of DASS_Tracker
+     * Install DASS_Verifier from DASS_Tracker.
+     * @param vo_control An instance of DASS_Tracker.
      */
     void install(DASS_Tracker<K, V> &vo_control)
     {
@@ -40,8 +39,8 @@ public:
     }
 
     /**
-     * Install DASS_Tracker from another DASS_Tracker
-     * @param vo_control An instance of DASS_Tracker
+     * Install DASS_Verifier from another DASS_Verifier.
+     * @param vo_control An instance of DASS_Verifier.
      */
     void operator = (DASS_Verifier<K, V> const &vo_data)
     {
@@ -50,9 +49,9 @@ public:
     }
 
     /**
-     * Queries the value of a kye
-     * @param key Key to be queried
-     * @returns Value of the key
+     * Queries the value of a key.
+     * @param key Key to be queried.
+     * @returns Value of the key.
      */
     V query(const K key)
     {
@@ -72,15 +71,14 @@ public:
         {
             return (V)0;
         }
-    
     }
 
     /**
-     * Queries keys in a batch
-     * @param keys Keys to be queried
-     * @returns Values of the keys queried
+     * Queries keys in a batch.
+     * @param keys Keys to be queried.
+     * @returns Values of the keys queried.
      */
-    vector<V> batch_query(const vector<K> &keys)
+    vector<V> batch_query(const vector<K> keys)
     {
         vector<V> results;
         for(int i = 0; i<keys.size();i++)
@@ -107,9 +105,9 @@ public:
     }
 
     /**
-     * Measures batch query performance
-     * @param keys The keys to be inserted
-     * @returns The time it took to query the keys
+     * Measures batch query performance.
+     * @param keys The keys to be inserted.
+     * @returns The time it took to query the keys.
      */
     float batch_query_performance(const vector<K> &keys)
     {
@@ -123,8 +121,8 @@ public:
     }
 
     /**
-     * Gets the memory cost of the structure
-     * @returns The memory consumption
+     * Gets the memory cost of the structure.
+     * @returns The memory consumption of the structure..
      */
     uint64_t getMemoryCost()
     {
@@ -132,9 +130,9 @@ public:
     }
 
     /**
-     * Inserts a kv pair with flipped indexes
-     * @param kv Key value par
-     * @param flipped_indexes The flipped indexes received
+     * Inserts a kv pair with flipped indexes.
+     * @param kv Key value pair to be inserted.
+     * @param flipped_indexes The flipped indexes resulting from this insertion.
      */
     void insert(pair<K, V> kv, vector<uint32_t> &flipped_indexes)
     {
@@ -179,9 +177,9 @@ public:
     }
 
     /**
-     * Sets value of a key
-     * @param kv The key value pair set
-     * @param flipped_indexes The flipped indexes received
+     * Sets value of a key.
+     * @param kv The key value pair that is to be set.
+     * @param flipped_indexes The flipped indexes resulting from this operation.
      */
     void setValue(pair<K, V> kv, vector<uint32_t> &flipped_indexes)
     {

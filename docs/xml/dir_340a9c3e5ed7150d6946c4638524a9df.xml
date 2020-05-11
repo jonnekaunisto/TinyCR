@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="dir_340a9c3e5ed7150d6946c4638524a9df" kind="dir">
-    <compoundname>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR</compoundname>
+    <compoundname>/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR</compoundname>
     <innerfile refid="_tiny_c_r_client_8h">TinyCRClient.h</innerfile>
     <innerfile refid="_tiny_c_r_server_8h">TinyCRServer.h</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/"/>
   </compounddef>
 </doxygen>

@@ -3,13 +3,13 @@
   <compounddef id="_c_make_lists_8txt" kind="file" language="C++">
     <compoundname>CMakeLists.txt</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="_c_make_lists_8txt_1a10b72cf46171c253ea62251b558ae736" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="_c_make_lists_8txt_1a011d530b6dd0bb0bf3fc720fc2985c94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>cmake_minimum_required</definition>
-        <argsstring>(VERSION 3.5) project(TinyCR VERSION 1.0 LANGUAGES CXX) include_directories($</argsstring>
+        <argsstring>(VERSION 3.15.5) project(TinyCR VERSION 1.0 LANGUAGES CXX) include_directories($</argsstring>
         <name>cmake_minimum_required</name>
         <param>
-          <type>VERSION 3.</type>
+          <type>VERSION 3.15.</type>
           <declname>5</declname>
         </param>
         <briefdescription>
@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/CMakeLists.txt" line="1" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/CMakeLists.txt" bodystart="1" bodyend="6"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/CMakeLists.txt" line="1" column="1" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/CMakeLists.txt" bodystart="1" bodyend="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -26,7 +26,7 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="normal">cmake_minimum_required(VERSION<sp/>3.5)</highlight></codeline>
+<codeline lineno="1"><highlight class="normal">cmake_minimum_required(VERSION<sp/>3.15.5)</highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>set<sp/>the<sp/>project<sp/>name</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal">project(TinyCR<sp/>VERSION<sp/>1.0<sp/>LANGUAGES<sp/>CXX)</highlight></codeline>
@@ -43,18 +43,15 @@
 <codeline lineno="15"><highlight class="normal">add_executable(client<sp/>client.cpp)</highlight></codeline>
 <codeline lineno="16"><highlight class="normal">target_link_libraries(client<sp/>socketLibrary<sp/>utilsLibrary)</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal">add_executable(mockCA<sp/>mockCA.cpp)<sp/></highlight></codeline>
-<codeline lineno="19"><highlight class="normal">target_link_libraries(mockCA<sp/>socketLibrary)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">add_executable(platform_test<sp/>platform_test.cpp)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">target_link_libraries(platform_test<sp/>socketLibrary<sp/>utilsLibrary)</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal">add_executable(platform_test<sp/>platform_test.cpp)</highlight></codeline>
-<codeline lineno="22"><highlight class="normal">target_link_libraries(platform_test<sp/>socketLibrary<sp/>utilsLibrary)</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>specify<sp/>the<sp/>C++<sp/>standard</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal">set(CMAKE_CXX_STANDARD<sp/>11)</highlight></codeline>
-<codeline lineno="27"><highlight class="normal">set(CMAKE_CXX_STANDARD_REQUIRED<sp/>True)</highlight></codeline>
-<codeline lineno="28"><highlight class="normal">SET(CMAKE_CXX_FLAGS<sp/>${CMAKE_CXX_FLAGS}<sp/></highlight><highlight class="stringliteral">&quot;-pg<sp/>-g<sp/>-Ofast<sp/>-std=c++11<sp/>-pthread&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>specify<sp/>the<sp/>C++<sp/>standard</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">set(CMAKE_CXX_STANDARD<sp/>11)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">set(CMAKE_CXX_STANDARD_REQUIRED<sp/>True)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">SET(CMAKE_CXX_FLAGS<sp/>${CMAKE_CXX_FLAGS}<sp/></highlight><highlight class="stringliteral">&quot;-g<sp/>-Ofast<sp/>-std=c++11<sp/>-pthread&quot;</highlight><highlight class="normal">)</highlight></codeline>
     </programlisting>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/CMakeLists.txt"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/CMakeLists.txt"/>
   </compounddef>
 </doxygen>

@@ -25,7 +25,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="12" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="11" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="12" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="11" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_bloom_filter_1a0f830d3e507383e97ec6ab80a224a909" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -38,7 +38,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="13" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="13" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="13" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_bloom_filter_1aab014ea87932110886ba3a267cd567ee" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="14" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="14" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="14" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="14" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_bloom_filter_1a09e6edac2c6d3a523a1d473345df99c4" prot="public" static="no" mutable="no">
         <type>vector&lt; uint64_t &gt;</type>
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="15" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="15" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="15" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_bloom_filter_1acb8ca196e0bfb98d5bd81a2d4b0a919e" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="16" column="7" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="16" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="16" column="7" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="16" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-attrib">
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="18" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="18" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="18" column="25" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -116,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="20" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="20" bodyend="22"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="20" column="19" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="20" bodyend="22"/>
       </memberdef>
       <memberdef kind="function" id="class_bloom_filter_1a195e8c13db2d5987120fb8b535d3ece6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint32_t</type>
@@ -133,7 +133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="24" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="24" bodyend="26"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="24" column="19" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="24" bodyend="26"/>
       </memberdef>
       <memberdef kind="function" id="class_bloom_filter_1a6131c10e031785c03d72f4265b8c73ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -150,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="28" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="28" bodyend="36"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="28" column="15" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="28" bodyend="36"/>
       </memberdef>
       <memberdef kind="function" id="class_bloom_filter_1afc277d4392394512be6b2bfed7322991" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -168,7 +168,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="39" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="39" bodyend="48"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="39" column="15" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="39" bodyend="48"/>
       </memberdef>
       <memberdef kind="function" id="class_bloom_filter_1ab6650ad6f61afd859675eddd3adabc97" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -189,7 +189,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="50" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="50" bodyend="67"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="50" column="15" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="50" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="class_bloom_filter_1a31bb651fdcf64043da87d5a29642bc46" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -206,7 +206,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="69" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="69" bodyend="85"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="69" column="19" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="69" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="class_bloom_filter_1aaae22033d3227bcbaaac2dac900cc54b" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
@@ -235,7 +235,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="89" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="89" bodyend="114"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="89" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="89" bodyend="114"/>
       </memberdef>
       <memberdef kind="function" id="class_bloom_filter_1afa13fac99e0ac1e193c480da3365cd5a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -264,7 +264,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="116" column="3" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="116" bodyend="122"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="116" column="3" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="116" bodyend="122"/>
       </memberdef>
       <memberdef kind="function" id="class_bloom_filter_1a46382647cd6d75d9920b2875c9d1a775" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -281,7 +281,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="124" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="124" bodyend="128"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="124" column="8" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="124" bodyend="128"/>
       </memberdef>
       <memberdef kind="function" id="class_bloom_filter_1a3f2e8a2e70980935f4da7e57ffd7be84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -299,7 +299,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="131" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="131" bodyend="142"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="131" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="131" bodyend="142"/>
       </memberdef>
       <memberdef kind="function" id="class_bloom_filter_1a05ff98f53a9f74748cd8a7810ba85bd9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -316,7 +316,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="144" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="144" bodyend="150"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="144" column="8" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="144" bodyend="150"/>
       </memberdef>
       <memberdef kind="function" id="class_bloom_filter_1a74d5fcb640f9ed950a01ac164c320168" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -337,7 +337,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="152" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="152" bodyend="158"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="152" column="8" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="152" bodyend="158"/>
       </memberdef>
       <memberdef kind="function" id="class_bloom_filter_1a9628b21eb8a62220bb360a1ca6ab89a8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint32_t</type>
@@ -350,7 +350,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="160" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="160" bodyend="162"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="160" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="160" bodyend="162"/>
       </memberdef>
       <memberdef kind="function" id="class_bloom_filter_1a228f49f040afbaf7003188011641b494" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -363,7 +363,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="164" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="164" bodyend="167"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="164" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="164" bodyend="167"/>
       </memberdef>
       <memberdef kind="function" id="class_bloom_filter_1a6cbda430416dcbb77be405a4f7122395" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint32_t</type>
@@ -376,14 +376,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="168" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="168" bodyend="170"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="168" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="168" bodyend="170"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" line="9" column="18" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/bloom_filter.h" bodystart="9" bodyend="171"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" line="9" column="18" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/bloom_filter.h" bodystart="9" bodyend="171"/>
     <listofallmembers>
       <member refid="class_bloom_filter_1aaae22033d3227bcbaaac2dac900cc54b" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>BloomFilter</name></member>
       <member refid="class_bloom_filter_1afa13fac99e0ac1e193c480da3365cd5a" prot="public" virt="non-virtual"><scope>BloomFilter</scope><name>BloomFilter</name></member>

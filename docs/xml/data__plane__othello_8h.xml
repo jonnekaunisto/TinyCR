@@ -3,16 +3,16 @@
   <compounddef id="data__plane__othello_8h" kind="file" language="C++">
     <compoundname>data_plane_othello.h</compoundname>
     <includes refid="control__plane__othello_8h" local="yes">control_plane_othello.h</includes>
-    <includedby refid="_d_a_s_s___tracker_8h" local="yes">/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h</includedby>
+    <includedby refid="_d_a_s_s___tracker_8h" local="yes">/Users/jkaunist/Desktop/Research/TinyCR/src/platform/DASS_Tracker.h</includedby>
     <incdepgraph>
-      <node id="3">
-        <label>../utils/common.h</label>
-      </node>
       <node id="1">
-        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h</label>
+        <label>/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h</label>
         <link refid="data__plane__othello_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+      </node>
+      <node id="3">
+        <label>../utils/common.h</label>
       </node>
       <node id="2">
         <label>control_plane_othello.h</label>
@@ -22,41 +22,41 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="1">
+        <label>/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h</label>
+        <link refid="data__plane__othello_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/Users/jkaunist/Desktop/Research/TinyCR/src/platform/DASS_Verifier.h</label>
+        <link refid="_d_a_s_s___verifier_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/Users/jkaunist/Desktop/Research/TinyCR/src/platform/DASS_Tracker.h</label>
+        <link refid="_d_a_s_s___tracker_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRClient.h</label>
+        <link refid="_tiny_c_r_client_8h_source"/>
+      </node>
       <node id="4">
-        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h</label>
+        <label>/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h</label>
         <link refid="_c_r_io_t_8h_source"/>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="5">
-        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRClient.h</label>
-        <link refid="_tiny_c_r_client_8h_source"/>
-      </node>
       <node id="6">
-        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR/TinyCRServer.h</label>
+        <label>/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR/TinyCRServer.h</label>
         <link refid="_tiny_c_r_server_8h_source"/>
-      </node>
-      <node id="3">
-        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Verifier.h</label>
-        <link refid="_d_a_s_s___verifier_8h_source"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h</label>
-        <link refid="data__plane__othello_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/DASS_Tracker.h</label>
-        <link refid="_d_a_s_s___tracker_8h_source"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="class_othello_filter_control_plane" prot="public">OthelloFilterControlPlane</innerclass>
@@ -326,6 +326,6 @@
 <codeline lineno="281" refid="class_othello_with_filter" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_othello_with_filter" kindref="compound">OthelloWithFilter</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_data_plane_othello" kindref="compound">DataPlaneOthello</ref>&lt;K,<sp/>V,<sp/>L,<sp/>DL&gt;<sp/>{</highlight></codeline>
 <codeline lineno="282"><highlight class="normal">};</highlight></codeline>
     </programlisting>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h"/>
   </compounddef>
 </doxygen>

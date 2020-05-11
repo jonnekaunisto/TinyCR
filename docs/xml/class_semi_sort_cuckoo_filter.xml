@@ -21,7 +21,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="44" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="44" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="44" column="9" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_semi_sort_cuckoo_filter_1aabfdc9c9322e669745987af9f2c5340a" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="45" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="45" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="45" column="9" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_semi_sort_cuckoo_filter_1aff6876172d78f2b34673f65ee4baccdf" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="46" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="46" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="46" column="9" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_semi_sort_cuckoo_filter_1ae0323f61e8b2115a32b33f42d759a09f" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="47" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="47" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="47" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_semi_sort_cuckoo_filter_1a052e34ae9ba211d4ec70c063e1174c59" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="48" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="48" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="48" column="9" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_semi_sort_cuckoo_filter_1a4f8fd7b6d0f2d1a51a7a266fb94e926b" prot="public" static="no" mutable="no">
         <type>default_random_engine</type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="49" column="27" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="49" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="49" column="27" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_semi_sort_cuckoo_filter_1ada41c8a510c593b3656f8cd075dac9f2" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="50" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="50" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="50" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_semi_sort_cuckoo_filter_1af0bc4da84cb2f2f4518cece201a0b609" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="51" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="51" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="51" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_semi_sort_cuckoo_filter_1ad727ae38fa52ff0cdd0a2ad72e2f935f" prot="public" static="no" mutable="no">
         <type>uint32_t *</type>
@@ -127,7 +127,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="52" column="14" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="52" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="52" column="14" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_semi_sort_cuckoo_filter_1ae4f631172440379f5a0fda1b35b47a22" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -140,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="53" column="14" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="53" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="53" column="14" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_semi_sort_cuckoo_filter_1a34a03b29e12b88d8e07b4917a1baefdf" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -153,7 +153,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="54" column="14" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="54" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="54" column="14" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_semi_sort_cuckoo_filter_1a3eaef77860b399bbbfda02ac3b92454a" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -166,7 +166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="55" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="55" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="55" column="9" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_semi_sort_cuckoo_filter_1a5b627f577f5000388c72076de4f52cbf" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -179,7 +179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="56" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="56" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="56" column="9" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="56" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_semi_sort_cuckoo_filter_1ae039a3855295b185ff3b7018549e160a" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -192,7 +192,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="57" column="9" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="57" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="57" column="9" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -207,7 +207,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="60" column="10"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="60" column="10"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1ad9be620741e66177f974e5d1f38dd25c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>int</type>
@@ -230,7 +230,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="63" column="17"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="63" column="17"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1ab3d3bb5e951c1fbc726c9878f395c174" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>pair&lt; int, int &gt;</type>
@@ -247,7 +247,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="65" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="65" bodyend="77"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="65" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="65" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1a6fd9d12f02d33c531dc4068e4d83f5a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -260,7 +260,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="79" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="79" bodyend="82"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="79" column="5" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="79" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1a9b428314533f7b626ae5904059199233" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -326,7 +326,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="87" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="87" bodyend="119"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="87" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="87" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1a9bb7debe5fbd3be76e80f9cfe0b1b4aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -343,7 +343,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="121" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="121" bodyend="142"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="121" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="121" bodyend="142"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1a494149396edb1daa504fbcb27b660b4b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -373,7 +373,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="144" column="18" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="144" bodyend="202"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="144" column="18" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="144" bodyend="202"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1af9e5abfebdaa6082dedfd63238aacdcb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -388,7 +388,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="207" column="18" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="207" bodyend="212"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="207" column="18" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="207" bodyend="212"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1a51dfdfde4659b56d36f9212f597c0803" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>fp_t</type>
@@ -406,7 +406,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="217" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="217" bodyend="227"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="217" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="217" bodyend="227"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1a90778eb94a0573688ab7c3d38ba5a636" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -428,7 +428,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="232" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="232" bodyend="280"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="232" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="232" bodyend="280"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1a7046d257c49faa639284efb07d3e299c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -449,7 +449,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="282" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="282" bodyend="285"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="282" column="17" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="282" bodyend="285"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1a6e660b20725194de6894506d41711a85" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -470,7 +470,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="287" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="287" bodyend="346"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="287" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="287" bodyend="346"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1adc02f33bc19b3fe280a31384bde5b0eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -487,7 +487,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="348" column="16" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="348" bodyend="351"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="348" column="16" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="348" bodyend="351"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1a0ff3982981e9de41e8de10488bca9d72" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -504,7 +504,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="353" column="16" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="353" bodyend="356"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="353" column="16" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="353" bodyend="356"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1a9041e03d1d1856d94539f9f4a9e21a61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>int</type>
@@ -525,7 +525,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="358" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="358" bodyend="374"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="358" column="17" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="358" bodyend="374"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1ada9d489394b54b45127e6f84535a2a71" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>int</type>
@@ -545,7 +545,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="376" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="376" bodyend="379"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="376" column="17" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="376" bodyend="379"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1a0936dcad4bac0f234680fe08f8213cda" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>int</type>
@@ -566,7 +566,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="381" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="381" bodyend="399"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="381" column="17" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="381" bodyend="399"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1aed9dadce58f182a848c79d85837a50a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>bool</type>
@@ -584,7 +584,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="401" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="401" bodyend="424"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="401" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="401" bodyend="424"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1adca36c292235fa9f845f0656bf271dbd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>int</type>
@@ -605,7 +605,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="426" column="17" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="426" bodyend="443"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="426" column="17" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="426" bodyend="443"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1a313298f9a27133b95d33bf5ab94bac32" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>bool</type>
@@ -623,7 +623,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="445" column="18" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="445" bodyend="464"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="445" column="18" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="445" bodyend="464"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1af4b125b2b613d265bfc241da0fce43f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>double</type>
@@ -637,7 +637,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="466" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="466" bodyend="469"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="466" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="466" bodyend="469"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1ac3dc2e32041333b666b473e6d1a42b37" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>double</type>
@@ -651,7 +651,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="471" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="471" bodyend="474"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="471" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="471" bodyend="474"/>
       </memberdef>
       <memberdef kind="function" id="class_semi_sort_cuckoo_filter_1a7b16abdbc060debe27a1ebd7bf6e8738" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -664,7 +664,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="476" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="476" bodyend="527"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="476" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="476" bodyend="527"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -701,7 +701,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" line="42" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/cuckoo.h" bodystart="41" bodyend="528"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" line="42" column="1" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/cuckoo.h" bodystart="41" bodyend="528"/>
     <listofallmembers>
       <member refid="class_semi_sort_cuckoo_filter_1ad9be620741e66177f974e5d1f38dd25c" prot="public" virt="pure-virtual"><scope>SemiSortCuckooFilter</scope><name>alternate</name></member>
       <member refid="class_semi_sort_cuckoo_filter_1af0bc4da84cb2f2f4518cece201a0b609" prot="public" virt="non-virtual"><scope>SemiSortCuckooFilter</scope><name>balance</name></member>

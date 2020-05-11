@@ -84,6 +84,7 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Download and Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started/getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="implementation_details/implementation_details.html">Implementation Details</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ref/ref.html">Reference Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LICENSE.html">LICENSE</a></li>
 </ul>
@@ -164,7 +165,9 @@
 </li>
       <li><a href="ref/CRIoT.html#_CPPv4N16CRIoT_Control_VO12batch_insertENSt6vectorI4pairI1K1VEEE">CRIoT_Control_VO::batch_insert (C++ function)</a>
 </li>
-      <li><a href="ref/CRIoT.html#_CPPv4N16CRIoT_Control_VO16CRIoT_Control_VOER6vectorI1KER6vectorI1KEff">CRIoT_Control_VO::CRIoT_Control_VO (C++ function)</a>
+      <li><a href="ref/CRIoT.html#_CPPv4N16CRIoT_Control_VO16CRIoT_Control_VOE6vectorI1KE6vectorI1KEff">CRIoT_Control_VO::CRIoT_Control_VO (C++ function)</a>
+</li>
+      <li><a href="ref/CRIoT.html#_CPPv4N16CRIoT_Control_VO20encode_batch_summaryE6vectorI4pairI1K1VEE6vectorI7uint8_tE">CRIoT_Control_VO::encode_batch_summary (C++ function)</a>
 </li>
       <li><a href="ref/CRIoT.html#_CPPv4N16CRIoT_Control_VO11encode_fullEv">CRIoT_Control_VO::encode_full (C++ function)</a>
 </li>
@@ -176,23 +179,31 @@
 </li>
       <li><a href="ref/CRIoT.html#_CPPv4N16CRIoT_Control_VO6insertE4pairI1K1VE">CRIoT_Control_VO::insert (C++ function)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ref/CRIoT.html#_CPPv4N16CRIoT_Control_VO5queryE1K">CRIoT_Control_VO::query (C++ function)</a>
 </li>
       <li><a href="ref/CRIoT.html#_CPPv4N16CRIoT_Control_VO8setValueE4pairI1K1VE">CRIoT_Control_VO::setValue (C++ function)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ref/CRIoT.html#_CPPv4I00E13CRIoT_Data_VO">CRIoT_Data_VO (C++ class)</a>
 </li>
       <li><a href="ref/CRIoT.html#_CPPv4N13CRIoT_Data_VO11batch_queryEK6vectorI1KE">CRIoT_Data_VO::batch_query (C++ function)</a>
 </li>
+      <li><a href="ref/CRIoT.html#_CPPv4N13CRIoT_Data_VO13CRIoT_Data_VOER13DASS_VerifierI1K1VE">CRIoT_Data_VO::CRIoT_Data_VO (C++ function)</a>
+</li>
+      <li><a href="ref/CRIoT.html#_CPPv4N13CRIoT_Data_VO20decode_batch_summaryE6vectorI7uint8_tE">CRIoT_Data_VO::decode_batch_summary (C++ function)</a>
+</li>
       <li><a href="ref/CRIoT.html#_CPPv4N13CRIoT_Data_VO11decode_fullER6vectorI7uint8_tE">CRIoT_Data_VO::decode_full (C++ function)</a>
+</li>
+      <li><a href="ref/CRIoT.html#_CPPv4N13CRIoT_Data_VO18decode_sub_summaryE6vectorI7uint8_tERi">CRIoT_Data_VO::decode_sub_summary (C++ function)</a>
 </li>
       <li><a href="ref/CRIoT.html#_CPPv4N13CRIoT_Data_VO14decode_summaryE6vectorI7uint8_tE">CRIoT_Data_VO::decode_summary (C++ function)</a>
 </li>
       <li><a href="ref/CRIoT.html#_CPPv4N13CRIoT_Data_VO6insertE4pairI1K1VER6vectorI8uint32_tE">CRIoT_Data_VO::insert (C++ function)</a>
 </li>
       <li><a href="ref/CRIoT.html#_CPPv4N13CRIoT_Data_VO5queryEK1K">CRIoT_Data_VO::query (C++ function)</a>
+</li>
+      <li><a href="ref/CRIoT.html#_CPPv4N13CRIoT_Data_VO7rebuildER13DASS_VerifierI1K1VE">CRIoT_Data_VO::rebuild (C++ function)</a>
 </li>
       <li><a href="ref/CRIoT.html#_CPPv4N13CRIoT_Data_VO8setValueER4pairI1K1VER6vectorI8uint32_tE">CRIoT_Data_VO::setValue (C++ function)</a>
 </li>
@@ -232,7 +243,7 @@
 </li>
       <li><a href="ref/DASS.html#_CPPv4I00E13DASS_Verifier">DASS_Verifier (C++ class)</a>
 </li>
-      <li><a href="ref/DASS.html#_CPPv4N13DASS_Verifier11batch_queryERK6vectorI1KE">DASS_Verifier::batch_query (C++ function)</a>
+      <li><a href="ref/DASS.html#_CPPv4N13DASS_Verifier11batch_queryEK6vectorI1KE">DASS_Verifier::batch_query (C++ function)</a>
 </li>
       <li><a href="ref/DASS.html#_CPPv4N13DASS_Verifier23batch_query_performanceERK6vectorI1KE">DASS_Verifier::batch_query_performance (C++ function)</a>
 </li>
@@ -260,9 +271,11 @@
 </li>
       <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRClient19getLatencyStatisticENSt6stringE">TinyCRClient::getLatencyStatistic (C++ function)</a>
 </li>
-      <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRClient16queryCertificateERK1K">TinyCRClient::queryCertificate (C++ function)</a>
+      <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRClient16queryCertificateEK1K">TinyCRClient::queryCertificate (C++ function)</a>
 </li>
       <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRClient17queryCertificatesE1K">TinyCRClient::queryCertificates (C++ function)</a>
+</li>
+      <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRClient11setServerIPENSt6stringE">TinyCRClient::setServerIP (C++ function)</a>
 </li>
       <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRClient11startClientEv">TinyCRClient::startClient (C++ function)</a>
 </li>
@@ -274,9 +287,11 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRServer15addCertificatesENSt6vectorI4pairI1K1VEEE">TinyCRServer::addCertificates (C++ function)</a>
+</li>
       <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRServer19getLatencyStatisticENSt6stringE">TinyCRServer::getLatencyStatistic (C++ function)</a>
 </li>
-      <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRServer16queryCertificateERK1K">TinyCRServer::queryCertificate (C++ function)</a>
+      <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRServer16queryCertificateEK1K">TinyCRServer::queryCertificate (C++ function)</a>
 </li>
       <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRServer17queryCertificatesE1K">TinyCRServer::queryCertificates (C++ function)</a>
 </li>
@@ -286,7 +301,7 @@
 </li>
       <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRServer11startServerEv">TinyCRServer::startServer (C++ function)</a>
 </li>
-      <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRServer12TinyCRServerEi6vectorI1KE6vectorI1KE">TinyCRServer::TinyCRServer (C++ function)</a>
+      <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRServer12TinyCRServerEiNSt6vectorI1KEENSt6vectorI1KEE">TinyCRServer::TinyCRServer (C++ function)</a>
 </li>
       <li><a href="ref/TinyCR.html#_CPPv4N12TinyCRServer19unrevokeCertificateE1K">TinyCRServer::unrevokeCertificate (C++ function)</a>
 </li>

@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Reference Manual" href="../ref/ref.html" />
+    <link rel="next" title="TinyCR" href="../ref/TinyCR.html" />
     <link rel="prev" title="Getting Started" href="../getting_started/getting_started.html" /> 
 </head>
 
@@ -83,12 +83,23 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Download and Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html">Getting Started</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../getting_started/getting_started.html">Getting Started</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#client">Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#server">Server</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../ref/TinyCR.html">TinyCR</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#client">Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#server">Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../implementation_details/implementation_details.html">Implementation Details</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ref/ref.html">Reference Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LICENSE.html">LICENSE</a></li>
 </ul>
 
             
@@ -134,6 +145,8 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
+          <li><a href="../getting_started/getting_started.html">Getting Started</a> &raquo;</li>
+        
       <li>Examples</li>
     
     
@@ -154,10 +167,195 @@
            <div itemprop="articleBody">
             
   <div class="section" id="examples">
-<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>Examples<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Examples</p>
+<span id="id1"></span><h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="client">
+<h2>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;TinyCR/TinyCRClient.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;Socket/ClientSocket.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;Socket/SocketException.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;regex&gt;</span><span class="cp"></span>
+<span class="cp">#define COMMAND_PORT 60000</span>
+
+<span class="n">TinyCRClient</span><span class="o">&lt;</span><span class="kt">uint64_t</span><span class="p">,</span> <span class="kt">uint32_t</span><span class="o">&gt;</span><span class="n">client</span><span class="p">(</span><span class="s">&quot;localhost&quot;</span><span class="p">);</span>
+
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="p">(</span><span class="o">*</span><span class="n">CommandFunction</span><span class="p">)(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">data</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">CommandFunction</span><span class="o">&gt;</span> <span class="n">commandsMap</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">running</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+
+
+<span class="cm">/*</span>
+<span class="cm"> * Function for running the client in a thread</span>
+<span class="cm"> */</span>
+<span class="kt">void</span> <span class="nf">runClientThread</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">client</span><span class="p">.</span><span class="n">startClient</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">showCommand</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">regex</span> <span class="n">rgx</span><span class="p">(</span><span class="s">&quot;show ([0-9]+)&quot;</span><span class="p">);</span>
+
+	<span class="n">std</span><span class="o">::</span><span class="n">smatch</span> <span class="n">matches</span><span class="p">;</span>
+	<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">regex_search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">matches</span><span class="p">,</span> <span class="n">rgx</span><span class="p">))</span> 
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="s">&quot;Inputs are badly formed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>	
+	<span class="p">}</span>
+
+	<span class="kt">uint32_t</span> <span class="n">num</span> <span class="o">=</span> <span class="n">stoul</span><span class="p">(</span><span class="n">matches</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+
+	<span class="kt">bool</span> <span class="n">v</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">queryCertificate</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">response</span> <span class="o">=</span> <span class="n">matches</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+	<span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">response</span> <span class="o">+=</span> <span class="s">&quot; is revoked</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">else</span>
+	<span class="p">{</span>
+		<span class="n">response</span> <span class="o">+=</span>  <span class="s">&quot; is unrevoked</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="n">response</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">getCommand</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">regex</span> <span class="n">rgx</span><span class="p">(</span><span class="s">&quot;get (</span><span class="se">\\</span><span class="s">w+)&quot;</span><span class="p">);</span>
+
+	<span class="n">std</span><span class="o">::</span><span class="n">smatch</span> <span class="n">matches</span><span class="p">;</span>
+	<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">regex_search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">matches</span><span class="p">,</span> <span class="n">rgx</span><span class="p">))</span> 
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="s">&quot;Inputs are badly formed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>	
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">getLatencyStatistic</span><span class="p">(</span><span class="n">matches</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">pingCommand</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">return</span> <span class="s">&quot;pong&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">exitCommand</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">running</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="k">return</span> <span class="s">&quot;exited&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="n">listenForCommands</span><span class="p">()</span>
+<span class="p">{</span>
+	<span class="n">ServerSocket</span> <span class="n">server</span><span class="p">(</span><span class="n">COMMAND_PORT</span><span class="p">);</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Listening For Commands on Port: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">COMMAND_PORT</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="c1">//implement something to take commands and stuff</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">regex</span> <span class="n">commandRgx</span><span class="p">(</span><span class="s">&quot;(^</span><span class="se">\\</span><span class="s">w+)&quot;</span><span class="p">);</span>
+
+	<span class="k">while</span><span class="p">(</span><span class="n">running</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="k">try</span>
+        <span class="p">{</span>
+			<span class="n">ServerSocket</span> <span class="n">new_sock</span><span class="p">;</span>
+			<span class="n">server</span><span class="p">.</span><span class="n">accept</span><span class="p">(</span><span class="n">new_sock</span><span class="p">);</span>
+			<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">data</span><span class="p">;</span>
+            <span class="n">new_sock</span> <span class="o">&gt;&gt;</span> <span class="n">data</span><span class="p">;</span>
+
+			<span class="n">std</span><span class="o">::</span><span class="n">smatch</span> <span class="n">matches</span><span class="p">;</span>
+			<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">regex_search</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">matches</span><span class="p">,</span> <span class="n">commandRgx</span><span class="p">))</span> 
+			<span class="p">{</span>
+				<span class="n">new_sock</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Command not recognized&quot;</span><span class="p">;</span>
+				<span class="k">continue</span><span class="p">;</span>
+			<span class="p">}</span>
+
+			<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">command</span> <span class="o">=</span> <span class="n">matches</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+
+			<span class="k">if</span><span class="p">(</span><span class="n">commandsMap</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">command</span><span class="p">)</span> <span class="o">!=</span> <span class="n">commandsMap</span><span class="p">.</span><span class="n">end</span><span class="p">())</span>
+			<span class="p">{</span>
+				<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">response</span> <span class="o">=</span><span class="n">commandsMap</span><span class="p">[</span><span class="n">command</span><span class="p">](</span><span class="n">data</span><span class="p">);</span>
+				<span class="n">new_sock</span> <span class="o">&lt;&lt;</span> <span class="n">response</span><span class="p">;</span>
+			<span class="p">}</span>   
+			<span class="k">else</span>
+			<span class="p">{</span>
+				<span class="n">new_sock</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Bad input&quot;</span><span class="p">;</span>
+			<span class="p">}</span>
+	
+		<span class="p">}</span>
+		<span class="k">catch</span> <span class="p">(</span><span class="n">SocketException</span> <span class="o">&amp;</span><span class="n">e</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Exception was caught:&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">description</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+		<span class="p">}</span>  
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Runs the client, no command line inputs</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">client</span><span class="p">.</span><span class="n">setServerIP</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+	<span class="p">}</span>
+
+	<span class="n">commandsMap</span><span class="p">[</span><span class="s">&quot;show&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">showCommand</span><span class="p">;</span>
+	<span class="n">commandsMap</span><span class="p">[</span><span class="s">&quot;get&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">getCommand</span><span class="p">;</span>
+	<span class="n">commandsMap</span><span class="p">[</span><span class="s">&quot;ping&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">pingCommand</span><span class="p">;</span>
+	<span class="n">commandsMap</span><span class="p">[</span><span class="s">&quot;exi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">exitCommand</span><span class="p">;</span>
+	<span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">clientThread</span> <span class="p">(</span><span class="n">runClientThread</span><span class="p">);</span>
+	<span class="n">listenForCommands</span><span class="p">();</span>
+
+	<span class="c1">//clientThread.join();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="server">
+<h2>Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;TinyCR/TinyCRServer.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Function for running the server in a thread</span>
+<span class="cm"> */</span>
+<span class="kt">void</span> <span class="nf">runServerThread</span><span class="p">(</span><span class="n">TinyCRServer</span><span class="o">&lt;</span><span class="kt">uint64_t</span><span class="p">,</span> <span class="kt">uint32_t</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">server</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">server</span><span class="o">-&gt;</span><span class="n">startServer</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Runs the server with appropriate input paremeters.</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">positive_keysize</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">negative_keysize</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">positive_keysize</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+        <span class="n">negative_keysize</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Some place holder keys</span>
+    <span class="n">vector</span> <span class="o">&lt;</span><span class="kt">uint64_t</span><span class="o">&gt;</span> <span class="n">positive_keys</span><span class="p">;</span>
+    <span class="n">vector</span> <span class="o">&lt;</span><span class="kt">uint64_t</span><span class="o">&gt;</span> <span class="n">negative_keys</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">positive_keysize</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">positive_keys</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="n">i</span> <span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">negative_keysize</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">negative_keys</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">positive_keysize</span><span class="p">);</span>
+        <span class="n">i</span> <span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">TinyCRServer</span><span class="o">&lt;</span><span class="kt">uint64_t</span><span class="p">,</span> <span class="kt">uint32_t</span><span class="o">&gt;</span><span class="n">server</span><span class="p">(</span><span class="mi">30000</span><span class="p">,</span> <span class="n">positive_keys</span><span class="p">,</span> <span class="n">negative_keys</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Server Initialized&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">serverThread</span> <span class="p">(</span><span class="n">runServerThread</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">server</span><span class="p">);</span>
+
+    <span class="n">serverThread</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -169,7 +367,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../ref/ref.html" class="btn btn-neutral float-right" title="Reference Manual" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../ref/TinyCR.html" class="btn btn-neutral float-right" title="TinyCR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../getting_started/getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

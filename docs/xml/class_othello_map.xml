@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1375" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1375" bodyend="1375"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/control_plane_othello.h" line="1375" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/control_plane_othello.h" bodystart="1375" bodyend="1375"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -65,7 +65,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1373" column="49" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1373" bodyend="1376"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/control_plane_othello.h" line="1373" column="49" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/control_plane_othello.h" bodystart="1373" bodyend="1376"/>
     <listofallmembers>
       <member refid="class_control_plane_othello_1af90fc3b63bb599a7b6edab5f1753972a" prot="public" virt="non-virtual"><scope>OthelloMap</scope><name>addEdge</name></member>
       <member refid="class_control_plane_othello_1ab9afb6bba6c1b6ad17fdb53577bf4f0b" prot="public" virt="non-virtual"><scope>OthelloMap</scope><name>build</name></member>

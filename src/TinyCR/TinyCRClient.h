@@ -44,17 +44,21 @@ public:
         return true;
     }
 
+    /**
+     * Sets the server ip that the client should connect to
+     * @param serverIP The ip address of the server in string form
+     */
     void setServerIP(std::string serverIP)
     {
         this->serverIP = serverIP;
     }
 
     /**
-     * Query a certificate
+     * Query a certificate, thread safe
      * @param key Key, which should be queried
      * @returns bool indicating if the key is revoked or unrevoked
      */
-    bool queryCertificate(const K &key)
+    bool queryCertificate(const K key)
     {
         queryLock.lock();
         bool result = dassVerifier.query(key) == 1;

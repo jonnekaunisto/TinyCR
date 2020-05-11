@@ -7,6 +7,99 @@
     <includes local="no">thread</includes>
     <includes local="no">stdlib.h</includes>
     <incdepgraph>
+      <node id="19">
+        <label>data_plane_othello.h</label>
+        <link refid="data__plane__othello_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>../utils/hashutil.h</label>
+      </node>
+      <node id="15">
+        <label>DASS_Verifier.h</label>
+        <link refid="_d_a_s_s___verifier_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>arpa/inet.h</label>
+      </node>
+      <node id="22">
+        <label>assert.h</label>
+      </node>
+      <node id="27">
+        <label>cstdint</label>
+      </node>
+      <node id="25">
+        <label>../utils/helpers.h</label>
+      </node>
+      <node id="39">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1">
+        <label>/Users/jkaunist/Desktop/Research/TinyCR/src/server.cpp</label>
+        <link refid="server_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>stdexcept</label>
+      </node>
+      <node id="16">
+        <label>DASS_Tracker.h</label>
+        <link refid="_d_a_s_s___tracker_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>string</label>
+      </node>
+      <node id="9">
+        <label>map</label>
+      </node>
+      <node id="34">
+        <label>regex</label>
+      </node>
+      <node id="13">
+        <label>fstream</label>
+      </node>
+      <node id="17">
+        <label>../utils/common.h</label>
+      </node>
+      <node id="4">
+        <label>../Socket/ClientSocket.h</label>
+      </node>
+      <node id="12">
+        <label>random</label>
+      </node>
+      <node id="26">
+        <label>cstdio</label>
+      </node>
       <node id="7">
         <label>../platform/CRIoT.h</label>
         <link refid="_c_r_io_t_8h_source"/>
@@ -14,9 +107,9 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
         <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
@@ -28,26 +121,67 @@
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
         </childnode>
       </node>
-      <node id="23">
-        <label>../utils/hashutil.h</label>
+      <node id="2">
+        <label>vector</label>
       </node>
-      <node id="32">
-        <label>arpa/inet.h</label>
+      <node id="20">
+        <label>bloom_filter.h</label>
+        <link refid="bloom__filter_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
       </node>
-      <node id="21">
-        <label>assert.h</label>
-      </node>
-      <node id="26">
-        <label>cstdint</label>
-      </node>
-      <node id="24">
-        <label>../utils/helpers.h</label>
+      <node id="5">
+        <label>../Socket/ServerSocket.h</label>
       </node>
       <node id="38">
-        <label>stdlib.h</label>
+        <label>utility</label>
+      </node>
+      <node id="11">
+        <label>time.h</label>
+      </node>
+      <node id="23">
+        <label>math.h</label>
+      </node>
+      <node id="8">
+        <label>iostream</label>
+      </node>
+      <node id="37">
+        <label>unordered_map</label>
+      </node>
+      <node id="35">
+        <label>mutex</label>
+      </node>
+      <node id="36">
+        <label>chrono</label>
+      </node>
+      <node id="30">
+        <label>../utils/perf_tool.h</label>
+      </node>
+      <node id="32">
+        <label>netinet/ip.h</label>
+      </node>
+      <node id="31">
+        <label>thread</label>
+      </node>
+      <node id="29">
+        <label>algorithm</label>
+      </node>
+      <node id="18">
+        <label>control_plane_othello.h</label>
+        <link refid="control__plane__othello_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>../Socket/SocketException.h</label>
+      </node>
+      <node id="28">
+        <label>cstring</label>
       </node>
       <node id="3">
         <label>TinyCR/TinyCRServer.h</label>
@@ -59,8 +193,6 @@
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
         </childnode>
         <childnode refid="30" relation="include">
         </childnode>
@@ -78,106 +210,19 @@
         </childnode>
         <childnode refid="37" relation="include">
         </childnode>
-      </node>
-      <node id="13">
-        <label>string</label>
-      </node>
-      <node id="9">
-        <label>map</label>
-      </node>
-      <node id="33">
-        <label>regex</label>
-      </node>
-      <node id="12">
-        <label>fstream</label>
-      </node>
-      <node id="16">
-        <label>../utils/common.h</label>
-      </node>
-      <node id="19">
-        <label>bloom_filter.h</label>
-        <link refid="bloom__filter_8h_source"/>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>../Socket/ClientSocket.h</label>
-      </node>
-      <node id="11">
-        <label>random</label>
-      </node>
-      <node id="25">
-        <label>cstdio</label>
-      </node>
-      <node id="2">
-        <label>vector</label>
-      </node>
-      <node id="5">
-        <label>../Socket/ServerSocket.h</label>
-      </node>
-      <node id="37">
-        <label>utility</label>
-      </node>
-      <node id="14">
-        <label>DASS_Verifier.h</label>
-        <link refid="_d_a_s_s___verifier_8h_source"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-      </node>
-      <node id="18">
-        <label>data_plane_othello.h</label>
-        <link refid="data__plane__othello_8h_source"/>
-        <childnode refid="17" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/server.cpp</label>
-        <link refid="server_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="30" relation="include">
-        </childnode>
         <childnode refid="38" relation="include">
         </childnode>
       </node>
-      <node id="10">
-        <label>time.h</label>
-      </node>
-      <node id="22">
-        <label>math.h</label>
-      </node>
-      <node id="17">
-        <label>control_plane_othello.h</label>
-        <link refid="control__plane__othello_8h_source"/>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>iostream</label>
-      </node>
-      <node id="36">
-        <label>unordered_map</label>
-      </node>
-      <node id="20">
+      <node id="21">
         <label>cuckoo.h</label>
         <link refid="cuckoo_8h_source"/>
-        <childnode refid="21" relation="include">
-        </childnode>
         <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
         </childnode>
         <childnode refid="24" relation="include">
         </childnode>
@@ -189,49 +234,9 @@
         </childnode>
         <childnode refid="28" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="29" relation="include">
         </childnode>
-      </node>
-      <node id="34">
-        <label>mutex</label>
-      </node>
-      <node id="35">
-        <label>chrono</label>
-      </node>
-      <node id="29">
-        <label>../utils/perf_tool.h</label>
-      </node>
-      <node id="31">
-        <label>netinet/ip.h</label>
-      </node>
-      <node id="30">
-        <label>thread</label>
-      </node>
-      <node id="28">
-        <label>algorithm</label>
-      </node>
-      <node id="6">
-        <label>../Socket/SocketException.h</label>
-      </node>
-      <node id="27">
-        <label>cstring</label>
-      </node>
-      <node id="15">
-        <label>DASS_Tracker.h</label>
-        <link refid="_d_a_s_s___tracker_8h_source"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
     </incdepgraph>
@@ -251,7 +256,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/server.cpp" line="9" column="6" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/server.cpp" bodystart="9" bodyend="12"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/server.cpp" line="9" column="6" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/server.cpp" bodystart="9" bodyend="12"/>
       </memberdef>
       <memberdef kind="function" id="server_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -273,7 +278,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/server.cpp" line="17" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/server.cpp" bodystart="17" bodyend="45"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/server.cpp" line="17" column="5" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/server.cpp" bodystart="17" bodyend="45"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -327,6 +332,6 @@
 <codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>serverThread.join();</highlight></codeline>
 <codeline lineno="45"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/server.cpp"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/server.cpp"/>
   </compounddef>
 </doxygen>

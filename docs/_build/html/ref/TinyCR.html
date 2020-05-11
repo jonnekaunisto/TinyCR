@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="CRIoT" href="CRIoT.html" />
-    <link rel="prev" title="Reference Manual" href="ref.html" /> 
+    <link rel="next" title="Implementation Details" href="../implementation_details/implementation_details.html" />
+    <link rel="prev" title="Examples" href="../examples/examples.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,14 +83,14 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Download and Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="ref.html">Reference Manual</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../getting_started/getting_started.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">TinyCR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CRIoT.html">CRIoT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DASS.html">DASS</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../implementation_details/implementation_details.html">Implementation Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ref.html">Reference Manual</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../LICENSE.html">LICENSE</a></li>
 </ul>
 
@@ -137,7 +137,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="ref.html">Reference Manual</a> &raquo;</li>
+          <li><a href="../getting_started/getting_started.html">Getting Started</a> &raquo;</li>
         
       <li>TinyCR</li>
     
@@ -160,12 +160,12 @@
             
   <div class="section" id="tinycr">
 <h1>TinyCR<a class="headerlink" href="#tinycr" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4I00E12TinyCRClient">
-<span id="_CPPv3I00E12TinyCRClient"></span><span id="_CPPv2I00E12TinyCRClient"></span><span class="target" id="class_tiny_c_r_client"></span>template&lt;typename <code class="sig-name descname">K</code>, class <code class="sig-name descname">V</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">TinyCRClient</code><a class="headerlink" href="#_CPPv4I00E12TinyCRClient" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3I00E12TinyCRClient"></span><span id="_CPPv2I00E12TinyCRClient"></span>template&lt;typename <code class="sig-name descname">K</code>, class <code class="sig-name descname">V</code>&gt;<br /><span class="target" id="class_tiny_c_r_client"></span><em class="property">class </em><code class="sig-name descname">TinyCRClient</code><a class="headerlink" href="#_CPPv4I00E12TinyCRClient" title="Permalink to this definition">¶</a><br /></dt>
 <dd><div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric">Public Functions</p>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12TinyCRClient12TinyCRClientENSt6stringE">
 <span id="_CPPv3N12TinyCRClient12TinyCRClientENSt6stringE"></span><span id="_CPPv2N12TinyCRClient12TinyCRClientENSt6stringE"></span><span id="TinyCRClient::TinyCRClient__ss"></span><span class="target" id="class_tiny_c_r_client_1abd3d30a7daf2a88e9379431718664b8e"></span><code class="sig-name descname">TinyCRClient</code><span class="sig-paren">(</span>std::string <em>serverIP</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRClient12TinyCRClientENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructor for <a class="reference internal" href="#class_tiny_c_r_client"><span class="std std-ref">TinyCRClient</span></a> <dl class="simple">
@@ -177,16 +177,28 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12TinyCRClient11startClientEv">
 <span id="_CPPv3N12TinyCRClient11startClientEv"></span><span id="_CPPv2N12TinyCRClient11startClientEv"></span><span id="TinyCRClient::startClient"></span><span class="target" id="class_tiny_c_r_client_1a03dbd8469c2d68ae585c1cf7f57b8887"></span>bool <code class="sig-name descname">startClient</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRClient11startClientEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Start client, get request from server and listen to updates. </p>
 </dd></dl>
 
-<dl class="function">
-<dt id="_CPPv4N12TinyCRClient16queryCertificateERK1K">
-<span id="_CPPv3N12TinyCRClient16queryCertificateERK1K"></span><span id="_CPPv2N12TinyCRClient16queryCertificateERK1K"></span><span id="TinyCRClient::queryCertificate__KCR"></span><span class="target" id="class_tiny_c_r_client_1a5b49216722f8112ee80783741fba819e"></span>bool <code class="sig-name descname">queryCertificate</code><span class="sig-paren">(</span><em class="property">const</em> K &amp;<em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRClient16queryCertificateERK1K" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Query a certificate <dl class="simple">
+<dl class="cpp function">
+<dt id="_CPPv4N12TinyCRClient11setServerIPENSt6stringE">
+<span id="_CPPv3N12TinyCRClient11setServerIPENSt6stringE"></span><span id="_CPPv2N12TinyCRClient11setServerIPENSt6stringE"></span><span id="TinyCRClient::setServerIP__ss"></span><span class="target" id="class_tiny_c_r_client_1a1a1423e52ab8422256cb69e3c2a665be"></span>void <code class="sig-name descname">setServerIP</code><span class="sig-paren">(</span>std::string <em>serverIP</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRClient11setServerIPENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the server ip that the client should connect to <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">serverIP</span></code>: The ip address of the server in string form </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N12TinyCRClient16queryCertificateEK1K">
+<span id="_CPPv3N12TinyCRClient16queryCertificateEK1K"></span><span id="_CPPv2N12TinyCRClient16queryCertificateEK1K"></span><span id="TinyCRClient::queryCertificate__KC"></span><span class="target" id="class_tiny_c_r_client_1ac90540c2b0ad4969040330380744ded1"></span>bool <code class="sig-name descname">queryCertificate</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I00E12TinyCRClient" title="TinyCRClient::K">K</a> <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRClient16queryCertificateEK1K" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Query a certificate, thread safe <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>bool indicating if the key is revoked or unrevoked </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
@@ -197,9 +209,9 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12TinyCRClient17queryCertificatesE1K">
-<span id="_CPPv3N12TinyCRClient17queryCertificatesE1K"></span><span id="_CPPv2N12TinyCRClient17queryCertificatesE1K"></span><span id="TinyCRClient::queryCertificates__K"></span><span class="target" id="class_tiny_c_r_client_1a0a36d300bdca5a5988650b72d4f9cf23"></span>vector&lt;V&gt; <code class="sig-name descname">queryCertificates</code><span class="sig-paren">(</span>K <em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRClient17queryCertificatesE1K" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N12TinyCRClient17queryCertificatesE1K"></span><span id="_CPPv2N12TinyCRClient17queryCertificatesE1K"></span><span id="TinyCRClient::queryCertificates__K"></span><span class="target" id="class_tiny_c_r_client_1a0a36d300bdca5a5988650b72d4f9cf23"></span>vector&lt;<a class="reference internal" href="#_CPPv4I00E12TinyCRClient" title="TinyCRClient::V">V</a>&gt; <code class="sig-name descname">queryCertificates</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00E12TinyCRClient" title="TinyCRClient::K">K</a> <em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRClient17queryCertificatesE1K" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Queries multiple keys <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>The values of the keys </p>
 </dd>
@@ -211,7 +223,7 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12TinyCRClient19getLatencyStatisticENSt6stringE">
 <span id="_CPPv3N12TinyCRClient19getLatencyStatisticENSt6stringE"></span><span id="_CPPv2N12TinyCRClient19getLatencyStatisticENSt6stringE"></span><span id="TinyCRClient::getLatencyStatistic__ss"></span><span class="target" id="class_tiny_c_r_client_1a79ad8255dd48671b6e54af8ca26a3fca"></span>double <code class="sig-name descname">getLatencyStatistic</code><span class="sig-paren">(</span>std::string <em>statistic</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRClient19getLatencyStatisticENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Get statistic with the name of the statistic <dl class="simple">
@@ -228,14 +240,14 @@
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4I00E12TinyCRServer">
-<span id="_CPPv3I00E12TinyCRServer"></span><span id="_CPPv2I00E12TinyCRServer"></span><span class="target" id="class_tiny_c_r_server"></span>template&lt;typename <code class="sig-name descname">K</code>, class <code class="sig-name descname">V</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">TinyCRServer</code><a class="headerlink" href="#_CPPv4I00E12TinyCRServer" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3I00E12TinyCRServer"></span><span id="_CPPv2I00E12TinyCRServer"></span>template&lt;typename <code class="sig-name descname">K</code>, class <code class="sig-name descname">V</code>&gt;<br /><span class="target" id="class_tiny_c_r_server"></span><em class="property">class </em><code class="sig-name descname">TinyCRServer</code><a class="headerlink" href="#_CPPv4I00E12TinyCRServer" title="Permalink to this definition">¶</a><br /></dt>
 <dd><div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric">Public Functions</p>
-<dl class="function">
-<dt id="_CPPv4N12TinyCRServer12TinyCRServerEi6vectorI1KE6vectorI1KE">
-<span id="_CPPv3N12TinyCRServer12TinyCRServerEi6vectorI1KE6vectorI1KE"></span><span id="_CPPv2N12TinyCRServer12TinyCRServerEi6vectorI1KE6vectorI1KE"></span><span id="TinyCRServer::TinyCRServer__i.vector:K:.vector:K:"></span><span class="target" id="class_tiny_c_r_server_1aa2c7b0df8bd99d9ddb3ff49483e476cc"></span><code class="sig-name descname">TinyCRServer</code><span class="sig-paren">(</span>int <em>port</em>, vector&lt;K&gt; <em>positive_keys</em>, vector&lt;K&gt; <em>negative_keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer12TinyCRServerEi6vectorI1KE6vectorI1KE" title="Permalink to this definition">¶</a><br /></dt>
+<dl class="cpp function">
+<dt id="_CPPv4N12TinyCRServer12TinyCRServerEiNSt6vectorI1KEENSt6vectorI1KEE">
+<span id="_CPPv3N12TinyCRServer12TinyCRServerEiNSt6vectorI1KEENSt6vectorI1KEE"></span><span id="_CPPv2N12TinyCRServer12TinyCRServerEiNSt6vectorI1KEENSt6vectorI1KEE"></span><span id="TinyCRServer::TinyCRServer__i.std::vector:K:.std::vector:K:"></span><span class="target" id="class_tiny_c_r_server_1a354a77596efd89e0f3e4151181125c45"></span><code class="sig-name descname">TinyCRServer</code><span class="sig-paren">(</span>int <em>port</em>, std::vector&lt;<a class="reference internal" href="#_CPPv4I00E12TinyCRServer" title="TinyCRServer::K">K</a>&gt; <em>positive_keys</em>, std::vector&lt;<a class="reference internal" href="#_CPPv4I00E12TinyCRServer" title="TinyCRServer::K">K</a>&gt; <em>negative_keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer12TinyCRServerEiNSt6vectorI1KEENSt6vectorI1KEE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructor for <a class="reference internal" href="#class_tiny_c_r_server"><span class="std std-ref">TinyCRServer</span></a> <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">port</span></code>: The port that the server should run on </p></li>
@@ -247,15 +259,15 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12TinyCRServer11startServerEv">
 <span id="_CPPv3N12TinyCRServer11startServerEv"></span><span id="_CPPv2N12TinyCRServer11startServerEv"></span><span id="TinyCRServer::startServer"></span><span class="target" id="class_tiny_c_r_server_1a15064da9a2c44f6acb0f5aaf31665406"></span>void <code class="sig-name descname">startServer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer11startServerEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Starts tiny CR server. Send delta updates on changes, monitor port for new devices and start a socket server for communication from the Certificate Authority. </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12TinyCRServer14addCertificateE4pairI1K1VE">
-<span id="_CPPv3N12TinyCRServer14addCertificateE4pairI1K1VE"></span><span id="_CPPv2N12TinyCRServer14addCertificateE4pairI1K1VE"></span><span id="TinyCRServer::addCertificate__pair:K.V:"></span><span class="target" id="class_tiny_c_r_server_1a7d9942966ce21eb213cea1ea21fb6c61"></span>bool <code class="sig-name descname">addCertificate</code><span class="sig-paren">(</span>pair&lt;K, V&gt; <em>kv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer14addCertificateE4pairI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N12TinyCRServer14addCertificateE4pairI1K1VE"></span><span id="_CPPv2N12TinyCRServer14addCertificateE4pairI1K1VE"></span><span id="TinyCRServer::addCertificate__pair:K.V:"></span><span class="target" id="class_tiny_c_r_server_1a7d9942966ce21eb213cea1ea21fb6c61"></span>bool <code class="sig-name descname">addCertificate</code><span class="sig-paren">(</span>pair&lt;<a class="reference internal" href="#_CPPv4I00E12TinyCRServer" title="TinyCRServer::K">K</a>, <a class="reference internal" href="#_CPPv4I00E12TinyCRServer" title="TinyCRServer::V">V</a>&gt; <em>kv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer14addCertificateE4pairI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Adds a new certificate, value 1 corresponds to valid certificate and 0 to invalid <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>Status of adding the certificate. </p>
 </dd>
@@ -267,51 +279,65 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
+<dt id="_CPPv4N12TinyCRServer15addCertificatesENSt6vectorI4pairI1K1VEEE">
+<span id="_CPPv3N12TinyCRServer15addCertificatesENSt6vectorI4pairI1K1VEEE"></span><span id="_CPPv2N12TinyCRServer15addCertificatesENSt6vectorI4pairI1K1VEEE"></span><span id="TinyCRServer::addCertificates__std::vector:pair:K.V::"></span><span class="target" id="class_tiny_c_r_server_1ae3a1ac4cd371ef18a1f49481493bef6f"></span>bool <code class="sig-name descname">addCertificates</code><span class="sig-paren">(</span>std::vector&lt;pair&lt;<a class="reference internal" href="#_CPPv4I00E12TinyCRServer" title="TinyCRServer::K">K</a>, <a class="reference internal" href="#_CPPv4I00E12TinyCRServer" title="TinyCRServer::V">V</a>&gt;&gt; <em>kv_pairs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer15addCertificatesENSt6vectorI4pairI1K1VEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Adds multiple certificates at the same time. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Return a boolean for the success of the addition. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kv_pairs</span></code>: A vector of pairs that will be inserted. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
 <dt id="_CPPv4N12TinyCRServer17removeCertificateE1K">
-<span id="_CPPv3N12TinyCRServer17removeCertificateE1K"></span><span id="_CPPv2N12TinyCRServer17removeCertificateE1K"></span><span id="TinyCRServer::removeCertificate__K"></span><span class="target" id="class_tiny_c_r_server_1a84e05294a646d97ca397bd797b30ce71"></span>bool <code class="sig-name descname">removeCertificate</code><span class="sig-paren">(</span>K <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer17removeCertificateE1K" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N12TinyCRServer17removeCertificateE1K"></span><span id="_CPPv2N12TinyCRServer17removeCertificateE1K"></span><span id="TinyCRServer::removeCertificate__K"></span><span class="target" id="class_tiny_c_r_server_1a3e8665179a54b47429d0b2915448426d"></span>bool <code class="sig-name descname">removeCertificate</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00E12TinyCRServer" title="TinyCRServer::K">K</a> <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer17removeCertificateE1K" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Removes and existing certificate NOT IMPLEMENTED <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>Status of removing the certificate. </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">k</span></code>: The key that should be removed. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">key</span></code>: The key that should be removed. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12TinyCRServer19unrevokeCertificateE1K">
-<span id="_CPPv3N12TinyCRServer19unrevokeCertificateE1K"></span><span id="_CPPv2N12TinyCRServer19unrevokeCertificateE1K"></span><span id="TinyCRServer::unrevokeCertificate__K"></span><span class="target" id="class_tiny_c_r_server_1a86a2e610a5b34ff29464eecf9b453c30"></span>bool <code class="sig-name descname">unrevokeCertificate</code><span class="sig-paren">(</span>K <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer19unrevokeCertificateE1K" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N12TinyCRServer19unrevokeCertificateE1K"></span><span id="_CPPv2N12TinyCRServer19unrevokeCertificateE1K"></span><span id="TinyCRServer::unrevokeCertificate__K"></span><span class="target" id="class_tiny_c_r_server_1a76aa6e972ac57d616c56433b9a28871a"></span>bool <code class="sig-name descname">unrevokeCertificate</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00E12TinyCRServer" title="TinyCRServer::K">K</a> <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer19unrevokeCertificateE1K" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Unrevoke an existing certificate <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>Status of unrevoking the certificate. </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">k</span></code>: Key that should be unrevoked. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">key</span></code>: Key that should be unrevoked. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12TinyCRServer17revokeCertificateE1K">
-<span id="_CPPv3N12TinyCRServer17revokeCertificateE1K"></span><span id="_CPPv2N12TinyCRServer17revokeCertificateE1K"></span><span id="TinyCRServer::revokeCertificate__K"></span><span class="target" id="class_tiny_c_r_server_1ae17dc1e64b42ce7130573ca3ffb3e6f1"></span>bool <code class="sig-name descname">revokeCertificate</code><span class="sig-paren">(</span>K <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer17revokeCertificateE1K" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N12TinyCRServer17revokeCertificateE1K"></span><span id="_CPPv2N12TinyCRServer17revokeCertificateE1K"></span><span id="TinyCRServer::revokeCertificate__K"></span><span class="target" id="class_tiny_c_r_server_1a3d8fb328a072e0a4260de9487759e2bc"></span>bool <code class="sig-name descname">revokeCertificate</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00E12TinyCRServer" title="TinyCRServer::K">K</a> <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer17revokeCertificateE1K" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Revoke and existing certificate <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>Status of revoking the certificate. </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">k</span></code>: Key that should be revoked. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">key</span></code>: Key that should be revoked. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
-<dt id="_CPPv4N12TinyCRServer16queryCertificateERK1K">
-<span id="_CPPv3N12TinyCRServer16queryCertificateERK1K"></span><span id="_CPPv2N12TinyCRServer16queryCertificateERK1K"></span><span id="TinyCRServer::queryCertificate__KCR"></span><span class="target" id="class_tiny_c_r_server_1acdff56d8b14ca90dca07d034cfb23605"></span>bool <code class="sig-name descname">queryCertificate</code><span class="sig-paren">(</span><em class="property">const</em> K &amp;<em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer16queryCertificateERK1K" title="Permalink to this definition">¶</a><br /></dt>
+<dl class="cpp function">
+<dt id="_CPPv4N12TinyCRServer16queryCertificateEK1K">
+<span id="_CPPv3N12TinyCRServer16queryCertificateEK1K"></span><span id="_CPPv2N12TinyCRServer16queryCertificateEK1K"></span><span id="TinyCRServer::queryCertificate__KC"></span><span class="target" id="class_tiny_c_r_server_1a67754012864394a92495d45c3d2449e7"></span>bool <code class="sig-name descname">queryCertificate</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I00E12TinyCRServer" title="TinyCRServer::K">K</a> <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer16queryCertificateEK1K" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Query a certificate <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>bool indicating if the key is revoked or unrevoked </p>
 </dd>
@@ -323,9 +349,9 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12TinyCRServer17queryCertificatesE1K">
-<span id="_CPPv3N12TinyCRServer17queryCertificatesE1K"></span><span id="_CPPv2N12TinyCRServer17queryCertificatesE1K"></span><span id="TinyCRServer::queryCertificates__K"></span><span class="target" id="class_tiny_c_r_server_1a55244e1ac7ee7cf9391412ea507aabea"></span>vector&lt;V&gt; <code class="sig-name descname">queryCertificates</code><span class="sig-paren">(</span>K <em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer17queryCertificatesE1K" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N12TinyCRServer17queryCertificatesE1K"></span><span id="_CPPv2N12TinyCRServer17queryCertificatesE1K"></span><span id="TinyCRServer::queryCertificates__K"></span><span class="target" id="class_tiny_c_r_server_1a9b52d4e12aeefd2deb392c6194fb3954"></span>std::vector&lt;<a class="reference internal" href="#_CPPv4I00E12TinyCRServer" title="TinyCRServer::V">V</a>&gt; <code class="sig-name descname">queryCertificates</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00E12TinyCRServer" title="TinyCRServer::K">K</a> <em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer17queryCertificatesE1K" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Queries multiple keys <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>The values of the keys </p>
 </dd>
@@ -337,10 +363,10 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12TinyCRServer19getLatencyStatisticENSt6stringE">
 <span id="_CPPv3N12TinyCRServer19getLatencyStatisticENSt6stringE"></span><span id="_CPPv2N12TinyCRServer19getLatencyStatisticENSt6stringE"></span><span id="TinyCRServer::getLatencyStatistic__ss"></span><span class="target" id="class_tiny_c_r_server_1ab0d6221d449dfbc50f07b15c4630924e"></span>double <code class="sig-name descname">getLatencyStatistic</code><span class="sig-paren">(</span>std::string <em>statistic</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12TinyCRServer19getLatencyStatisticENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Average latnecy of a successful DASS update. <dl class="simple">
+<dd><p>Average latency of a successful DASS update. <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>The value of the statistic </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
@@ -364,10 +390,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="CRIoT.html" class="btn btn-neutral float-right" title="CRIoT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../implementation_details/implementation_details.html" class="btn btn-neutral float-right" title="Implementation Details" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ref.html" class="btn btn-neutral float-left" title="Reference Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../examples/examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

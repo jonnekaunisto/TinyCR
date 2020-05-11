@@ -51,7 +51,7 @@
         <link refid="class_data_plane_othello"/>
       </node>
     </collaborationgraph>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="281" column="52" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="281" bodyend="282"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="281" column="52" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="281" bodyend="282"/>
     <listofallmembers>
       <member refid="class_data_plane_othello_1a81d99d12e7c1a7bbfbe72e1639d45071" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>DataPlaneOthello</name></member>
       <member refid="class_data_plane_othello_1a3827304b9d862d669da647c656a59e9c" prot="public" virt="non-virtual"><scope>OthelloWithFilter</scope><name>DataPlaneOthello</name></member>

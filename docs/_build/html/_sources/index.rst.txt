@@ -6,8 +6,7 @@
 Welcome to TinyCR's documentation!
 ==================================
 
-TINYCR is a blaa blaa blaa blaa blaa blaaa blaa blaa blaa blaa blaa blaaa
-blaa blaa blaa blaa blaa blaaablaa blaa blaa blaa blaa blaaablaa blaa blaa 
+TinyCR is an on-device IoT certificate revokation checking system, which requires small memory and has low latency.
 
 .. toctree::
    :maxdepth: 1
@@ -16,6 +15,7 @@ blaa blaa blaa blaa blaa blaaablaa blaa blaa blaa blaa blaaablaa blaa blaa
    install
    getting_started/getting_started
    examples/examples
+   implementation_details/implementation_details
    ref/ref
    LICENSE
    
@@ -25,5 +25,4 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`

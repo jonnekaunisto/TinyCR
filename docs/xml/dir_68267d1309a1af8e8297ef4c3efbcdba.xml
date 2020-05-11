@@ -1,18 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
-    <compoundname>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src</compoundname>
-    <innerdir refid="dir_3bc03cc55d4aa6566f37b02a8017003e">/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/obj</innerdir>
-    <innerdir refid="dir_4b68c2fef3e151b6b93d5e93b14f1857">/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform</innerdir>
-    <innerdir refid="dir_340a9c3e5ed7150d6946c4638524a9df">/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/TinyCR</innerdir>
+    <compoundname>/Users/jkaunist/Desktop/Research/TinyCR/src</compoundname>
+    <innerdir refid="dir_4b68c2fef3e151b6b93d5e93b14f1857">/Users/jkaunist/Desktop/Research/TinyCR/src/platform</innerdir>
+    <innerdir refid="dir_340a9c3e5ed7150d6946c4638524a9df">/Users/jkaunist/Desktop/Research/TinyCR/src/TinyCR</innerdir>
     <innerfile refid="client_8cpp">client.cpp</innerfile>
-    <innerfile refid="mock_c_a_8cpp">mockCA.cpp</innerfile>
     <innerfile refid="platform__test_8cpp">platform_test.cpp</innerfile>
     <innerfile refid="server_8cpp">server.cpp</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/"/>
   </compounddef>
 </doxygen>

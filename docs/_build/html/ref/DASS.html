@@ -85,6 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Download and Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../implementation_details/implementation_details.html">Implementation Details</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="ref.html">Reference Manual</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="TinyCR.html">TinyCR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CRIoT.html">CRIoT</a></li>
@@ -160,124 +161,120 @@
             
   <div class="section" id="dass">
 <h1>DASS<a class="headerlink" href="#dass" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4I00E13DASS_Verifier">
-<span id="_CPPv3I00E13DASS_Verifier"></span><span id="_CPPv2I00E13DASS_Verifier"></span><span class="target" id="class_d_a_s_s___verifier"></span>template&lt;typename <code class="sig-name descname">K</code>, class <code class="sig-name descname">V</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">DASS_Verifier</code><a class="headerlink" href="#_CPPv4I00E13DASS_Verifier" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Holds Binary Data Plane classes <dl class="simple">
-<dt><strong>Author</strong></dt><dd><p>Xiaofeng Shi </p>
-</dd>
-</dl>
-</p>
+<span id="_CPPv3I00E13DASS_Verifier"></span><span id="_CPPv2I00E13DASS_Verifier"></span>template&lt;typename <code class="sig-name descname">K</code>, class <code class="sig-name descname">V</code>&gt;<br /><span class="target" id="class_d_a_s_s___verifier"></span><em class="property">class </em><code class="sig-name descname">DASS_Verifier</code><a class="headerlink" href="#_CPPv4I00E13DASS_Verifier" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Client side structure for quering keys and updating it’s key set. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric">Public Functions</p>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N13DASS_Verifier13DASS_VerifierER12DASS_TrackerI1K1VE">
-<span id="_CPPv3N13DASS_Verifier13DASS_VerifierER12DASS_TrackerI1K1VE"></span><span id="_CPPv2N13DASS_Verifier13DASS_VerifierER12DASS_TrackerI1K1VE"></span><span id="DASS_Verifier::DASS_Verifier__DASS_Tracker:K.V:R"></span><span class="target" id="class_d_a_s_s___verifier_1ae110ff729d95da2770e805c434cffbf8"></span><code class="sig-name descname">DASS_Verifier</code><span class="sig-paren">(</span>DASS_Tracker&lt;K, V&gt; &amp;<em>vo_control</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier13DASS_VerifierER12DASS_TrackerI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Constructor for <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a> <dl class="simple">
+<span id="_CPPv3N13DASS_Verifier13DASS_VerifierER12DASS_TrackerI1K1VE"></span><span id="_CPPv2N13DASS_Verifier13DASS_VerifierER12DASS_TrackerI1K1VE"></span><span id="DASS_Verifier::DASS_Verifier__DASS_Tracker:K.V:R"></span><span class="target" id="class_d_a_s_s___verifier_1ae110ff729d95da2770e805c434cffbf8"></span><code class="sig-name descname">DASS_Verifier</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00E12DASS_Tracker" title="DASS_Tracker">DASS_Tracker</a>&lt;<a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::K">K</a>, <a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::V">V</a>&gt; &amp;<em>vo_control</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier13DASS_VerifierER12DASS_TrackerI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor for <a class="reference internal" href="#class_d_a_s_s___verifier"><span class="std std-ref">DASS_Verifier</span></a>. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">vo_control</span></code>: An instance of <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vo_control</span></code>: An instance of <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a>. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N13DASS_Verifier7installER12DASS_TrackerI1K1VE">
-<span id="_CPPv3N13DASS_Verifier7installER12DASS_TrackerI1K1VE"></span><span id="_CPPv2N13DASS_Verifier7installER12DASS_TrackerI1K1VE"></span><span id="DASS_Verifier::install__DASS_Tracker:K.V:R"></span><span class="target" id="class_d_a_s_s___verifier_1af6fdf8ae77d23f328c27e332d02940aa"></span>void <code class="sig-name descname">install</code><span class="sig-paren">(</span>DASS_Tracker&lt;K, V&gt; &amp;<em>vo_control</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier7installER12DASS_TrackerI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Install <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a> from another <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a> <dl class="simple">
+<span id="_CPPv3N13DASS_Verifier7installER12DASS_TrackerI1K1VE"></span><span id="_CPPv2N13DASS_Verifier7installER12DASS_TrackerI1K1VE"></span><span id="DASS_Verifier::install__DASS_Tracker:K.V:R"></span><span class="target" id="class_d_a_s_s___verifier_1af6fdf8ae77d23f328c27e332d02940aa"></span>void <code class="sig-name descname">install</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00E12DASS_Tracker" title="DASS_Tracker">DASS_Tracker</a>&lt;<a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::K">K</a>, <a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::V">V</a>&gt; &amp;<em>vo_control</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier7installER12DASS_TrackerI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Install <a class="reference internal" href="#class_d_a_s_s___verifier"><span class="std std-ref">DASS_Verifier</span></a> from <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a>. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">vo_control</span></code>: An instance of <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vo_control</span></code>: An instance of <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a>. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N13DASS_VerifieraSERK13DASS_VerifierI1K1VE">
-<span id="_CPPv3N13DASS_VerifieraSERK13DASS_VerifierI1K1VE"></span><span id="_CPPv2N13DASS_VerifieraSERK13DASS_VerifierI1K1VE"></span><span id="DASS_Verifier::assign-operator__DASS_Verifier:K.V:CR"></span><span class="target" id="class_d_a_s_s___verifier_1afe65f78ea9e9f3fcd70ceecc08315761"></span>void <code class="sig-name descname">operator=</code><span class="sig-paren">(</span>DASS_Verifier&lt;K, V&gt;<em class="property">const</em>  &amp;<em>vo_data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_VerifieraSERK13DASS_VerifierI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Install <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a> from another <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a> <dl class="simple">
+<span id="_CPPv3N13DASS_VerifieraSERK13DASS_VerifierI1K1VE"></span><span id="_CPPv2N13DASS_VerifieraSERK13DASS_VerifierI1K1VE"></span><span id="DASS_Verifier::assign-operator__DASS_Verifier:K.V:CR"></span><span class="target" id="class_d_a_s_s___verifier_1afe65f78ea9e9f3fcd70ceecc08315761"></span>void <code class="sig-name descname">operator=</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier">DASS_Verifier</a>&lt;<a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::K">K</a>, <a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::V">V</a>&gt; <em class="property">const</em> &amp;<em>vo_data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_VerifieraSERK13DASS_VerifierI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Install <a class="reference internal" href="#class_d_a_s_s___verifier"><span class="std std-ref">DASS_Verifier</span></a> from another <a class="reference internal" href="#class_d_a_s_s___verifier"><span class="std std-ref">DASS_Verifier</span></a>. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">vo_control</span></code>: An instance of <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vo_control</span></code>: An instance of <a class="reference internal" href="#class_d_a_s_s___verifier"><span class="std std-ref">DASS_Verifier</span></a>. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N13DASS_Verifier5queryEK1K">
-<span id="_CPPv3N13DASS_Verifier5queryEK1K"></span><span id="_CPPv2N13DASS_Verifier5queryEK1K"></span><span id="DASS_Verifier::query__KC"></span><span class="target" id="class_d_a_s_s___verifier_1a581cf3b7226c8c2216d136687785fe48"></span>V <code class="sig-name descname">query</code><span class="sig-paren">(</span><em class="property">const</em> K <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier5queryEK1K" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Queries the value of a kye <dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>Value of the key </p>
+<span id="_CPPv3N13DASS_Verifier5queryEK1K"></span><span id="_CPPv2N13DASS_Verifier5queryEK1K"></span><span id="DASS_Verifier::query__KC"></span><span class="target" id="class_d_a_s_s___verifier_1a581cf3b7226c8c2216d136687785fe48"></span><a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::V">V</a> <code class="sig-name descname">query</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::K">K</a> <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier5queryEK1K" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Queries the value of a key. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Value of the key. </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">key</span></code>: Key to be queried </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">key</span></code>: Key to be queried. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
-<dt id="_CPPv4N13DASS_Verifier11batch_queryERK6vectorI1KE">
-<span id="_CPPv3N13DASS_Verifier11batch_queryERK6vectorI1KE"></span><span id="_CPPv2N13DASS_Verifier11batch_queryERK6vectorI1KE"></span><span id="DASS_Verifier::batch_query__vector:K:CR"></span><span class="target" id="class_d_a_s_s___verifier_1ac9b9f6988abdd726a7307bf6f144c106"></span>vector&lt;V&gt; <code class="sig-name descname">batch_query</code><span class="sig-paren">(</span><em class="property">const</em> vector&lt;K&gt; &amp;<em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier11batch_queryERK6vectorI1KE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Queries keys in a batch <dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>Values of the keys queried </p>
+<dl class="cpp function">
+<dt id="_CPPv4N13DASS_Verifier11batch_queryEK6vectorI1KE">
+<span id="_CPPv3N13DASS_Verifier11batch_queryEK6vectorI1KE"></span><span id="_CPPv2N13DASS_Verifier11batch_queryEK6vectorI1KE"></span><span id="DASS_Verifier::batch_query__vector:K:C"></span><span class="target" id="class_d_a_s_s___verifier_1a6f860fc3f5e37520bf499aa41715fa5d"></span>vector&lt;<a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::V">V</a>&gt; <code class="sig-name descname">batch_query</code><span class="sig-paren">(</span><em class="property">const</em> vector&lt;<a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::K">K</a>&gt; <em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier11batch_queryEK6vectorI1KE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Queries keys in a batch. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Values of the keys queried. </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">keys</span></code>: Keys to be queried </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keys</span></code>: Keys to be queried. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N13DASS_Verifier23batch_query_performanceERK6vectorI1KE">
-<span id="_CPPv3N13DASS_Verifier23batch_query_performanceERK6vectorI1KE"></span><span id="_CPPv2N13DASS_Verifier23batch_query_performanceERK6vectorI1KE"></span><span id="DASS_Verifier::batch_query_performance__vector:K:CR"></span><span class="target" id="class_d_a_s_s___verifier_1ae7fd9aef8aed744aee50f13585d7b05a"></span>float <code class="sig-name descname">batch_query_performance</code><span class="sig-paren">(</span><em class="property">const</em> vector&lt;K&gt; &amp;<em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier23batch_query_performanceERK6vectorI1KE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Measures batch query performance <dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>The time it took to query the keys </p>
+<span id="_CPPv3N13DASS_Verifier23batch_query_performanceERK6vectorI1KE"></span><span id="_CPPv2N13DASS_Verifier23batch_query_performanceERK6vectorI1KE"></span><span id="DASS_Verifier::batch_query_performance__vector:K:CR"></span><span class="target" id="class_d_a_s_s___verifier_1ae7fd9aef8aed744aee50f13585d7b05a"></span>float <code class="sig-name descname">batch_query_performance</code><span class="sig-paren">(</span><em class="property">const</em> vector&lt;<a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::K">K</a>&gt; &amp;<em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier23batch_query_performanceERK6vectorI1KE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Measures batch query performance. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The time it took to query the keys. </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">keys</span></code>: The keys to be inserted </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keys</span></code>: The keys to be inserted. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N13DASS_Verifier13getMemoryCostEv">
 <span id="_CPPv3N13DASS_Verifier13getMemoryCostEv"></span><span id="_CPPv2N13DASS_Verifier13getMemoryCostEv"></span><span id="DASS_Verifier::getMemoryCost"></span><span class="target" id="class_d_a_s_s___verifier_1a30a2d723c456073e586a22d871c646ce"></span>uint64_t <code class="sig-name descname">getMemoryCost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier13getMemoryCostEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Gets the memory cost of the structure <dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>The memory consumption </p>
+<dd><p>Gets the memory cost of the structure. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The memory consumption of the structure.. </p>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N13DASS_Verifier6insertE4pairI1K1VER6vectorI8uint32_tE">
-<span id="_CPPv3N13DASS_Verifier6insertE4pairI1K1VER6vectorI8uint32_tE"></span><span id="_CPPv2N13DASS_Verifier6insertE4pairI1K1VER6vectorI8uint32_tE"></span><span id="DASS_Verifier::insert__pair:K.V:.vector:uint32_t:R"></span><span class="target" id="class_d_a_s_s___verifier_1a73d74388b8d38183ffb7a8073ce9ba2f"></span>void <code class="sig-name descname">insert</code><span class="sig-paren">(</span>pair&lt;K, V&gt; <em>kv</em>, vector&lt;uint32_t&gt; &amp;<em>flipped_indexes</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier6insertE4pairI1K1VER6vectorI8uint32_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Inserts a kv pair with flipped indexes <dl class="simple">
+<span id="_CPPv3N13DASS_Verifier6insertE4pairI1K1VER6vectorI8uint32_tE"></span><span id="_CPPv2N13DASS_Verifier6insertE4pairI1K1VER6vectorI8uint32_tE"></span><span id="DASS_Verifier::insert__pair:K.V:.vector:uint32_t:R"></span><span class="target" id="class_d_a_s_s___verifier_1a73d74388b8d38183ffb7a8073ce9ba2f"></span>void <code class="sig-name descname">insert</code><span class="sig-paren">(</span>pair&lt;<a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::K">K</a>, <a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::V">V</a>&gt; <em>kv</em>, vector&lt;uint32_t&gt; &amp;<em>flipped_indexes</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier6insertE4pairI1K1VER6vectorI8uint32_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Inserts a kv pair with flipped indexes. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">kv</span></code>: Key value par </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">flipped_indexes</span></code>: The flipped indexes received </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kv</span></code>: Key value pair to be inserted. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flipped_indexes</span></code>: The flipped indexes resulting from this insertion. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N13DASS_Verifier8setValueE4pairI1K1VER6vectorI8uint32_tE">
-<span id="_CPPv3N13DASS_Verifier8setValueE4pairI1K1VER6vectorI8uint32_tE"></span><span id="_CPPv2N13DASS_Verifier8setValueE4pairI1K1VER6vectorI8uint32_tE"></span><span id="DASS_Verifier::setValue__pair:K.V:.vector:uint32_t:R"></span><span class="target" id="class_d_a_s_s___verifier_1aa310546bc046af737b4143cfe22a1f7e"></span>void <code class="sig-name descname">setValue</code><span class="sig-paren">(</span>pair&lt;K, V&gt; <em>kv</em>, vector&lt;uint32_t&gt; &amp;<em>flipped_indexes</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier8setValueE4pairI1K1VER6vectorI8uint32_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Sets value of a key <dl class="simple">
+<span id="_CPPv3N13DASS_Verifier8setValueE4pairI1K1VER6vectorI8uint32_tE"></span><span id="_CPPv2N13DASS_Verifier8setValueE4pairI1K1VER6vectorI8uint32_tE"></span><span id="DASS_Verifier::setValue__pair:K.V:.vector:uint32_t:R"></span><span class="target" id="class_d_a_s_s___verifier_1aa310546bc046af737b4143cfe22a1f7e"></span>void <code class="sig-name descname">setValue</code><span class="sig-paren">(</span>pair&lt;<a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::K">K</a>, <a class="reference internal" href="#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier::V">V</a>&gt; <em>kv</em>, vector&lt;uint32_t&gt; &amp;<em>flipped_indexes</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13DASS_Verifier8setValueE4pairI1K1VER6vectorI8uint32_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets value of a key. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">kv</span></code>: The key value pair set </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">flipped_indexes</span></code>: The flipped indexes received </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kv</span></code>: The key value pair that is to be set. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flipped_indexes</span></code>: The flipped indexes resulting from this operation. </p></li>
 </ul>
 </dd>
 </dl>
@@ -287,29 +284,30 @@
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4I00E12DASS_Tracker">
-<span id="_CPPv3I00E12DASS_Tracker"></span><span id="_CPPv2I00E12DASS_Tracker"></span><span class="target" id="class_d_a_s_s___tracker"></span>template&lt;typename <code class="sig-name descname">K</code>, class <code class="sig-name descname">V</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">DASS_Tracker</code><a class="headerlink" href="#_CPPv4I00E12DASS_Tracker" title="Permalink to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<span id="_CPPv3I00E12DASS_Tracker"></span><span id="_CPPv2I00E12DASS_Tracker"></span>template&lt;typename <code class="sig-name descname">K</code>, class <code class="sig-name descname">V</code>&gt;<br /><span class="target" id="class_d_a_s_s___tracker"></span><em class="property">class </em><code class="sig-name descname">DASS_Tracker</code><a class="headerlink" href="#_CPPv4I00E12DASS_Tracker" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The server side structure which modifies keys and generates flipped indexes for changes. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric">Public Functions</p>
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12DASS_Tracker12DASS_TrackerE8uint32_t8uint32_tff">
-<span id="_CPPv3N12DASS_Tracker12DASS_TrackerE8uint32_t8uint32_tff"></span><span id="_CPPv2N12DASS_Tracker12DASS_TrackerE8uint32_t8uint32_tff"></span><span id="DASS_Tracker::DASS_Tracker__uint32_t.uint32_t.float.float"></span><span class="target" id="class_d_a_s_s___tracker_1acbab044fc2dd73eecb6d6362ad08d95a"></span><code class="sig-name descname">DASS_Tracker</code><span class="sig-paren">(</span>uint32_t <em>n_pos</em>, uint32_t <em>n_neg</em>, float <em>lf</em> = 0.95, float <em>othello_ratio</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker12DASS_TrackerE8uint32_t8uint32_tff" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N12DASS_Tracker12DASS_TrackerE8uint32_t8uint32_tff"></span><span id="_CPPv2N12DASS_Tracker12DASS_TrackerE8uint32_t8uint32_tff"></span><span id="DASS_Tracker::DASS_Tracker__uint32_t.uint32_t.float.float"></span><span class="target" id="class_d_a_s_s___tracker_1a9472aeb9fd54caf8a5b9a83614e3f5ae"></span><code class="sig-name descname">DASS_Tracker</code><span class="sig-paren">(</span>uint32_t <em>n_positive_keys</em>, uint32_t <em>n_negative_keys</em>, float <em>load_factor</em> = 0.95, float <em>othello_ratio</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker12DASS_TrackerE8uint32_t8uint32_tff" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructor for <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a> <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">n_pos</span></code>: Number of positive keys </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">n_neg</span></code>: Number of negative keys </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lf</span></code>: Load factor </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">othello_ratio</span></code>: Othello ratio </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_positive_keys</span></code>: Number of positive keys are going to be inserted. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_negative_keys</span></code>: Number of negative keys are going to be inserted. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_factor</span></code>: How full the structure should be at initialization. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">othello_ratio</span></code>: Othello ratio. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12DASS_Tracker12DASS_TrackerERK12DASS_Tracker">
-<span id="_CPPv3N12DASS_Tracker12DASS_TrackerERK12DASS_Tracker"></span><span id="_CPPv2N12DASS_Tracker12DASS_TrackerERK12DASS_Tracker"></span><span id="DASS_Tracker::DASS_Tracker__DASS_TrackerCR"></span><span class="target" id="class_d_a_s_s___tracker_1a7c7379750de72998ab03fa78a16cb629"></span><code class="sig-name descname">DASS_Tracker</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N12DASS_Tracker12DASS_TrackerERK12DASS_Tracker" title="DASS_Tracker::DASS_Tracker">DASS_Tracker</a><em class="property">const</em>  &amp;<em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker12DASS_TrackerERK12DASS_Tracker" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N12DASS_Tracker12DASS_TrackerERK12DASS_Tracker"></span><span id="_CPPv2N12DASS_Tracker12DASS_TrackerERK12DASS_Tracker"></span><span id="DASS_Tracker::DASS_Tracker__DASS_TrackerCR"></span><span class="target" id="class_d_a_s_s___tracker_1a7c7379750de72998ab03fa78a16cb629"></span><code class="sig-name descname">DASS_Tracker</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N12DASS_Tracker12DASS_TrackerERK12DASS_Tracker" title="DASS_Tracker::DASS_Tracker">DASS_Tracker</a> <em class="property">const</em> &amp;<em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker12DASS_TrackerERK12DASS_Tracker" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constructor for <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a> <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">obj</span></code>: An instance of <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a> </p></li>
@@ -319,70 +317,70 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12DASS_Tracker5clearEv">
 <span id="_CPPv3N12DASS_Tracker5clearEv"></span><span id="_CPPv2N12DASS_Tracker5clearEv"></span><span id="DASS_Tracker::clear"></span><span class="target" id="class_d_a_s_s___tracker_1a8beb4bedd05915e10cf07435daa0f6b5"></span>void <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker5clearEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Clears the vacuum filter. </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12DASS_Tracker7rebuildEff">
-<span id="_CPPv3N12DASS_Tracker7rebuildEff"></span><span id="_CPPv2N12DASS_Tracker7rebuildEff"></span><span id="DASS_Tracker::rebuild__float.float"></span><span class="target" id="class_d_a_s_s___tracker_1a8d5330870e0a9aea5861c60754b599bf"></span>void <code class="sig-name descname">rebuild</code><span class="sig-paren">(</span>float <em>lf</em>, float <em>othello_ratio</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker7rebuildEff" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N12DASS_Tracker7rebuildEff"></span><span id="_CPPv2N12DASS_Tracker7rebuildEff"></span><span id="DASS_Tracker::rebuild__float.float"></span><span class="target" id="class_d_a_s_s___tracker_1acba49ba20a7ddd836ef29ee54577265d"></span>void <code class="sig-name descname">rebuild</code><span class="sig-paren">(</span>float <em>load_factor</em>, float <em>othello_ratio</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker7rebuildEff" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Rebuilds the Tracker <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">lf</span></code>: TODO:write what this is </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">othello_ratio</span></code>: The othello ratio </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_factor</span></code>: How loaded the structure should be. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">othello_ratio</span></code>: The othello ratio. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12DASS_Tracker4initE8uint32_t8uint32_tff">
-<span id="_CPPv3N12DASS_Tracker4initE8uint32_t8uint32_tff"></span><span id="_CPPv2N12DASS_Tracker4initE8uint32_t8uint32_tff"></span><span id="DASS_Tracker::init__uint32_t.uint32_t.float.float"></span><span class="target" id="class_d_a_s_s___tracker_1ae9e8387f18b380a2658f063b13132e09"></span>void <code class="sig-name descname">init</code><span class="sig-paren">(</span>uint32_t <em>n_pos</em>, uint32_t <em>n_neg</em>, float <em>lf</em> = 0.95, float <em>othello_ratio</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker4initE8uint32_t8uint32_tff" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>A constructor for <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a> <dl class="simple">
+<span id="_CPPv3N12DASS_Tracker4initE8uint32_t8uint32_tff"></span><span id="_CPPv2N12DASS_Tracker4initE8uint32_t8uint32_tff"></span><span id="DASS_Tracker::init__uint32_t.uint32_t.float.float"></span><span class="target" id="class_d_a_s_s___tracker_1a1802541ce9116d3c6394384bd305ad56"></span>void <code class="sig-name descname">init</code><span class="sig-paren">(</span>uint32_t <em>n_positive_keys</em>, uint32_t <em>n_negative_keys</em>, float <em>load_factor</em> = 0.95, float <em>othello_ratio</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker4initE8uint32_t8uint32_tff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An initializer for <a class="reference internal" href="#class_d_a_s_s___tracker"><span class="std std-ref">DASS_Tracker</span></a>. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">n_pos</span></code>: The number of positive keys. </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">n_neg</span></code>: The number of negative keys. </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lf</span></code>: TODO:write what this is </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">othello_ratio</span></code>: The othello ratio </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_positive_keys</span></code>: The number of positive keys. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_negative_keys</span></code>: The number of negative keys. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_factor</span></code>: How loaded the structure should be. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">othello_ratio</span></code>: The othello ratio. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12DASS_Tracker14optimal_fp_lenEv">
 <span id="_CPPv3N12DASS_Tracker14optimal_fp_lenEv"></span><span id="_CPPv2N12DASS_Tracker14optimal_fp_lenEv"></span><span id="DASS_Tracker::optimal_fp_len"></span><span class="target" id="class_d_a_s_s___tracker_1a637fdec78c77611bc2958e596d9f9f89"></span>int <code class="sig-name descname">optimal_fp_len</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker14optimal_fp_lenEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Calculates the optimal fp len <dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>The optimal fp len </p>
+<dd><p>Calculates the optimal fp len. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The optimal fp le. </p>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12DASS_Tracker12batch_insertERK6vectorI1KERK6vectorI1KE">
-<span id="_CPPv3N12DASS_Tracker12batch_insertERK6vectorI1KERK6vectorI1KE"></span><span id="_CPPv2N12DASS_Tracker12batch_insertERK6vectorI1KERK6vectorI1KE"></span><span id="DASS_Tracker::batch_insert__vector:K:CR.vector:K:CR"></span><span class="target" id="class_d_a_s_s___tracker_1af270fb181a785241bd52cd139e6ac030"></span>bool <code class="sig-name descname">batch_insert</code><span class="sig-paren">(</span><em class="property">const</em> vector&lt;K&gt; &amp;<em>positive_keys</em>, <em class="property">const</em> vector&lt;K&gt; &amp;<em>negative_keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker12batch_insertERK6vectorI1KERK6vectorI1KE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Inserts keys in batch <dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>false is if the structure was rebuilt and true if it wasn’t </p>
+<span id="_CPPv3N12DASS_Tracker12batch_insertERK6vectorI1KERK6vectorI1KE"></span><span id="_CPPv2N12DASS_Tracker12batch_insertERK6vectorI1KERK6vectorI1KE"></span><span id="DASS_Tracker::batch_insert__vector:K:CR.vector:K:CR"></span><span class="target" id="class_d_a_s_s___tracker_1af270fb181a785241bd52cd139e6ac030"></span>bool <code class="sig-name descname">batch_insert</code><span class="sig-paren">(</span><em class="property">const</em> vector&lt;<a class="reference internal" href="#_CPPv4I00E12DASS_Tracker" title="DASS_Tracker::K">K</a>&gt; &amp;<em>positive_keys</em>, <em class="property">const</em> vector&lt;<a class="reference internal" href="#_CPPv4I00E12DASS_Tracker" title="DASS_Tracker::K">K</a>&gt; &amp;<em>negative_keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker12batch_insertERK6vectorI1KERK6vectorI1KE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Inserts keys in batch. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>false is if the structure was rebuilt and true if it wasn’t. </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">positive_keys</span></code>: A vector of positive keys </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">negative_keys</span></code>: A vector of negative keys </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">positive_keys</span></code>: A vector of positive keys to be inserted. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">negative_keys</span></code>: A vector of negative keys to be inserted. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12DASS_Tracker6insertE4pairI1K1VE">
-<span id="_CPPv3N12DASS_Tracker6insertE4pairI1K1VE"></span><span id="_CPPv2N12DASS_Tracker6insertE4pairI1K1VE"></span><span id="DASS_Tracker::insert__pair:K.V:"></span><span class="target" id="class_d_a_s_s___tracker_1a4c79ab7debf717134d11b2ddc71bf2dc"></span>vector&lt;uint32_t&gt; <code class="sig-name descname">insert</code><span class="sig-paren">(</span>pair&lt;K, V&gt; <em>kv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker6insertE4pairI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Inserts a key value pair <dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>The flipped indexes from this insertion. </p>
+<span id="_CPPv3N12DASS_Tracker6insertE4pairI1K1VE"></span><span id="_CPPv2N12DASS_Tracker6insertE4pairI1K1VE"></span><span id="DASS_Tracker::insert__pair:K.V:"></span><span class="target" id="class_d_a_s_s___tracker_1a4c79ab7debf717134d11b2ddc71bf2dc"></span>vector&lt;uint32_t&gt; <code class="sig-name descname">insert</code><span class="sig-paren">(</span>pair&lt;<a class="reference internal" href="#_CPPv4I00E12DASS_Tracker" title="DASS_Tracker::K">K</a>, <a class="reference internal" href="#_CPPv4I00E12DASS_Tracker" title="DASS_Tracker::V">V</a>&gt; <em>kv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker6insertE4pairI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Inserts a key value pair. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The flipped indexes resulting from this insertion. </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">kv</span></code>: Key value pair to be inserted. </p></li>
@@ -392,10 +390,10 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12DASS_Tracker8setValueE4pairI1K1VE">
-<span id="_CPPv3N12DASS_Tracker8setValueE4pairI1K1VE"></span><span id="_CPPv2N12DASS_Tracker8setValueE4pairI1K1VE"></span><span id="DASS_Tracker::setValue__pair:K.V:"></span><span class="target" id="class_d_a_s_s___tracker_1a5b16d6a8d1abc8af7ba75476404ab2a8"></span>vector&lt;uint32_t&gt; <code class="sig-name descname">setValue</code><span class="sig-paren">(</span>pair&lt;K, V&gt; <em>kv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker8setValueE4pairI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Sets the value of a key <dl class="simple">
+<span id="_CPPv3N12DASS_Tracker8setValueE4pairI1K1VE"></span><span id="_CPPv2N12DASS_Tracker8setValueE4pairI1K1VE"></span><span id="DASS_Tracker::setValue__pair:K.V:"></span><span class="target" id="class_d_a_s_s___tracker_1a5b16d6a8d1abc8af7ba75476404ab2a8"></span>vector&lt;uint32_t&gt; <code class="sig-name descname">setValue</code><span class="sig-paren">(</span>pair&lt;<a class="reference internal" href="#_CPPv4I00E12DASS_Tracker" title="DASS_Tracker::K">K</a>, <a class="reference internal" href="#_CPPv4I00E12DASS_Tracker" title="DASS_Tracker::V">V</a>&gt; <em>kv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker8setValueE4pairI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the value of a key. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">kv</span></code>: Key value of the key to be set to a value. </p></li>
 </ul>
@@ -404,36 +402,36 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12DASS_Tracker5eraseE1K">
-<span id="_CPPv3N12DASS_Tracker5eraseE1K"></span><span id="_CPPv2N12DASS_Tracker5eraseE1K"></span><span id="DASS_Tracker::erase__K"></span><span class="target" id="class_d_a_s_s___tracker_1aa0d7f4a58b908d2053b7aca942154d20"></span>void <code class="sig-name descname">erase</code><span class="sig-paren">(</span>K <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker5eraseE1K" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Erases a key <dl class="simple">
+<span id="_CPPv3N12DASS_Tracker5eraseE1K"></span><span id="_CPPv2N12DASS_Tracker5eraseE1K"></span><span id="DASS_Tracker::erase__K"></span><span class="target" id="class_d_a_s_s___tracker_1a4099606549b4e7d98ae7989591c17b6f"></span>void <code class="sig-name descname">erase</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00E12DASS_Tracker" title="DASS_Tracker::K">K</a> <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker5eraseE1K" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Erases a key. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">k</span></code>: The key to be erased. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">key</span></code>: The key to be erased. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12DASS_Tracker23othello_flipped_indexesER6vectorI8uint64_tER6vectorI8uint64_tE">
 <span id="_CPPv3N12DASS_Tracker23othello_flipped_indexesER6vectorI8uint64_tER6vectorI8uint64_tE"></span><span id="_CPPv2N12DASS_Tracker23othello_flipped_indexesER6vectorI8uint64_tER6vectorI8uint64_tE"></span><span id="DASS_Tracker::othello_flipped_indexes__vector:uint64_t:R.vector:uint64_t:R"></span><span class="target" id="class_d_a_s_s___tracker_1a15b9c8788c73ed135f9778b95cd7c5cb"></span>vector&lt;uint32_t&gt; <code class="sig-name descname">othello_flipped_indexes</code><span class="sig-paren">(</span>vector&lt;uint64_t&gt; &amp;<em>pre_mem</em>, vector&lt;uint64_t&gt; &amp;<em>post_mem</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker23othello_flipped_indexesER6vectorI8uint64_tER6vectorI8uint64_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Generates the flipped indexes <dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>The resulting flipped indexes </p>
+<dd><p>Generates the flipped indexes. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The resulting flipped indexes. </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pre_mem</span></code>: The fliped indexes before </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">post_mem</span></code>: The flipped indexes after </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pre_mem</span></code>: The indexes before. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">post_mem</span></code>: The indexes after. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12DASS_Tracker5queryEK1K">
-<span id="_CPPv3N12DASS_Tracker5queryEK1K"></span><span id="_CPPv2N12DASS_Tracker5queryEK1K"></span><span id="DASS_Tracker::query__KC"></span><span class="target" id="class_d_a_s_s___tracker_1a91d58666b83b27a19ef23c6a6673d09a"></span>V <code class="sig-name descname">query</code><span class="sig-paren">(</span><em class="property">const</em> K <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker5queryEK1K" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N12DASS_Tracker5queryEK1K"></span><span id="_CPPv2N12DASS_Tracker5queryEK1K"></span><span id="DASS_Tracker::query__KC"></span><span class="target" id="class_d_a_s_s___tracker_1a91d58666b83b27a19ef23c6a6673d09a"></span><a class="reference internal" href="#_CPPv4I00E12DASS_Tracker" title="DASS_Tracker::V">V</a> <code class="sig-name descname">query</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I00E12DASS_Tracker" title="DASS_Tracker::K">K</a> <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker5queryEK1K" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Queries the value of the key. <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>The value of the key. </p>
 </dd>
@@ -445,14 +443,14 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N12DASS_Tracker11batch_queryE6vectorI1KE">
-<span id="_CPPv3N12DASS_Tracker11batch_queryE6vectorI1KE"></span><span id="_CPPv2N12DASS_Tracker11batch_queryE6vectorI1KE"></span><span id="DASS_Tracker::batch_query__vector:K:"></span><span class="target" id="class_d_a_s_s___tracker_1a6be2149fce4a082b5d5767f70a374249"></span>vector&lt;V&gt; <code class="sig-name descname">batch_query</code><span class="sig-paren">(</span>vector&lt;K&gt; <em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker11batch_queryE6vectorI1KE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Queries keys in a batch <dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>Values of the keys queried </p>
+<span id="_CPPv3N12DASS_Tracker11batch_queryE6vectorI1KE"></span><span id="_CPPv2N12DASS_Tracker11batch_queryE6vectorI1KE"></span><span id="DASS_Tracker::batch_query__vector:K:"></span><span class="target" id="class_d_a_s_s___tracker_1a6be2149fce4a082b5d5767f70a374249"></span>vector&lt;<a class="reference internal" href="#_CPPv4I00E12DASS_Tracker" title="DASS_Tracker::V">V</a>&gt; <code class="sig-name descname">batch_query</code><span class="sig-paren">(</span>vector&lt;<a class="reference internal" href="#_CPPv4I00E12DASS_Tracker" title="DASS_Tracker::K">K</a>&gt; <em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12DASS_Tracker11batch_queryE6vectorI1KE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Queries keys in a batch. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Values of the keys queried. </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">keys</span></code>: Keys to be queried </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keys</span></code>: Keys to be queried. </p></li>
 </ul>
 </dd>
 </dl>

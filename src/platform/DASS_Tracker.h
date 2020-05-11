@@ -13,11 +13,9 @@
 #include "cuckoo.h"
 using namespace std;
 
-
-/*
-    CuckooFilter Othello:
-    CuckooFilter + Othello
-*/
+/**
+ * The server side structure which modifies keys and generates flipped indexes for changes.
+ */
 template<typename K, class V>
 class DASS_Tracker
 {
@@ -44,14 +42,14 @@ public:
 
     /**
      * Constructor for DASS_Tracker
-     * @param n_pos Number of positive keys
-     * @param n_neg Number of negative keys
-     * @param lf Load factor
-     * @param othello_ratio Othello ratio
+     * @param n_positive_keys Number of positive keys are going to be inserted.
+     * @param n_negative_keys Number of negative keys are going to be inserted.
+     * @param load_factor How full the structure should be at initialization.
+     * @param othello_ratio Othello ratio.
      */
-    DASS_Tracker(uint32_t n_pos, uint32_t n_neg, float lf = 0.95, float othello_ratio = 1)
+    DASS_Tracker(uint32_t n_positive_keys, uint32_t n_negative_keys, float load_factor = 0.95, float othello_ratio = 1)
     {
-        this->load_factor = lf;
+        this->load_factor = load_factor;
         this->o_ratio = othello_ratio;
         fp_len = optimal_fp_len();
         int n = this->n_positive_keys;
@@ -87,10 +85,10 @@ public:
 
     /**
      * Rebuilds the Tracker
-     * @param lf TODO:write what this is
-     * @param othello_ratio The othello ratio
+     * @param load_factor How loaded the structure should be.
+     * @param othello_ratio The othello ratio.
      */
-    void rebuild(float lf, float othello_ratio)
+    void rebuild(float load_factor, float othello_ratio)
     {
         clear();
         
@@ -98,26 +96,26 @@ public:
         vector<K> negative_keys(NK.begin(), NK.end());
         PK.clear();
         NK.clear();
-        init(positive_keys.size(), negative_keys.size(), lf, othello_ratio);
+        init(positive_keys.size(), negative_keys.size(), load_factor, othello_ratio);
         batch_insert(positive_keys, negative_keys);
     }
 
     /**
-     * A constructor for DASS_Tracker
-     * @param n_pos The number of positive keys.
-     * @param n_neg The number of negative keys.
-     * @param lf TODO:write what this is
-     * @param othello_ratio The othello ratio
+     * An initializer for DASS_Tracker.
+     * @param n_positive_keys The number of positive keys.
+     * @param n_negative_keys The number of negative keys.
+     * @param load_factor How loaded the structure should be.
+     * @param othello_ratio The othello ratio.
      */
-    void init(uint32_t n_pos, uint32_t n_neg, float lf = 0.95, float othello_ratio = 1)
+    void init(uint32_t n_positive_keys, uint32_t n_negative_keys, float load_factor = 0.95, float othello_ratio = 1)
     { 
-        this->load_factor = lf;
+        this->load_factor = load_factor;
         this->o_ratio = othello_ratio;
 
-        this->n_positive_keys = n_pos;
-        this->n_negative_keys = n_neg;
+        this->n_positive_keys = n_positive_keys;
+        this->n_negative_keys = n_negative_keys;
         this->key_ratio = this->n_positive_keys/(float)this->n_negative_keys;
-        std::cout << "npos: " << n_pos << " n_neg: " << n_neg << "\n";
+        std::cout << "npos: " << n_positive_keys << " n_neg: " << n_negative_keys << "\n";
         fp_len = optimal_fp_len();
         std::cout << fp_len << "\n";
         int n = this->n_positive_keys;
@@ -136,8 +134,8 @@ public:
     }
 
     /**
-     * Calculates the optimal fp len
-     * @returns The optimal fp len
+     * Calculates the optimal fp len.
+     * @returns The optimal fp le.
      */
     int optimal_fp_len()
     {
@@ -150,10 +148,10 @@ public:
     }
 
     /**
-     * Inserts keys in batch
-     * @param positive_keys A vector of positive keys
-     * @param negative_keys A vector of negative keys
-     * @returns false is if the structure was rebuilt and true if it wasn't
+     * Inserts keys in batch.
+     * @param positive_keys A vector of positive keys to be inserted.
+     * @param negative_keys A vector of negative keys to be inserted.
+     * @returns false is if the structure was rebuilt and true if it wasn't.
      */
     bool batch_insert(const vector<K> &positive_keys, const vector<K> &negative_keys)
     {
@@ -230,9 +228,9 @@ public:
 
     /*dynamic features of vf_othello*/
     /**
-     * Inserts a key value pair
+     * Inserts a key value pair.
      * @param kv Key value pair to be inserted.
-     * @returns The flipped indexes from this insertion.
+     * @returns The flipped indexes resulting from this insertion.
      */
     vector<uint32_t> insert(pair<K, V> kv)
     {
@@ -362,7 +360,7 @@ public:
     }
 
     /**
-     * Sets the value of a key
+     * Sets the value of a key.
      * @param kv Key value of the key to be set to a value.
      */
     vector<uint32_t> setValue(pair<K, V> kv)
@@ -575,16 +573,16 @@ public:
     }
 
     /**
-     * Erases a key
-     * @param k The key to be erased.
+     * Erases a key.
+     * @param key The key to be erased.
      */
-    void erase(K k)
+    void erase(K key)
     {
-        if(query(k) == 1)
+        if(query(key) == 1)
         {
-            PK.erase(k);
-            vf.del(k);
-            pair<int, int> pos_pair = vf.position_pair(k);
+            PK.erase(key);
+            vf.del(key);
+            pair<int, int> pos_pair = vf.position_pair(key);
             int pos1 = pos_pair.first;
             int pos2 = pos_pair.second;
             
@@ -619,29 +617,29 @@ public:
             }
 
 
-            othello.erase(k);
+            othello.erase(key);
         }
         else
         {
-            NK.erase(k);
+            NK.erase(key);
             //used to have vf.query(k) == 1
-            if(vf.lookup(k) == 1)
+            if(vf.lookup(key) == 1)
             {
-                pair<int, int> pos_pair = vf.position_pair(k);
+                pair<int, int> pos_pair = vf.position_pair(key);
                 int pos1 = pos_pair.first;
                 int pos2 = pos_pair.second;
-                FPK_table[pos1].erase(remove(FPK_table[pos1].begin(), FPK_table[pos1].end(), k), FPK_table[pos1].end());
-                FPK_table[pos2].erase(remove(FPK_table[pos2].begin(), FPK_table[pos2].end(), k), FPK_table[pos2].end());
-                othello.erase(k);
+                FPK_table[pos1].erase(remove(FPK_table[pos1].begin(), FPK_table[pos1].end(), key), FPK_table[pos1].end());
+                FPK_table[pos2].erase(remove(FPK_table[pos2].begin(), FPK_table[pos2].end(), key), FPK_table[pos2].end());
+                othello.erase(key);
             }
         }
     }
 
     /**
-     * Generates the flipped indexes
-     * @param pre_mem The fliped indexes before
-     * @param post_mem The flipped indexes after
-     * @returns The resulting flipped indexes
+     * Generates the flipped indexes.
+     * @param pre_mem The indexes before.
+     * @param post_mem The indexes after.
+     * @returns The resulting flipped indexes.
      */
     vector<uint32_t> othello_flipped_indexes(vector<uint64_t>& pre_mem, vector<uint64_t>& post_mem)
     {
@@ -687,9 +685,9 @@ public:
     }
 
     /**
-     * Queries keys in a batch
-     * @param keys Keys to be queried
-     * @returns Values of the keys queried
+     * Queries keys in a batch.
+     * @param keys Keys to be queried.
+     * @returns Values of the keys queried.
      */
     vector<V> batch_query(vector<K> keys)
     {

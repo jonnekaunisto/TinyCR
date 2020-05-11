@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="class_c_r_io_t___control___v_o" kind="class" language="C++" prot="public">
     <compoundname>CRIoT_Control_VO</compoundname>
+    <includes refid="_c_r_io_t_8h" local="no">CRIoT.h</includes>
     <templateparamlist>
       <param>
         <type>typename K</type>
@@ -22,7 +23,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="24" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="24" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="36" column="19" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_c_r_io_t___control___v_o_1af38de74ece2675d87d9c23ed2ac73dc8" prot="public" static="no" mutable="no">
         <type><ref refid="class_d_a_s_s___verifier" kindref="compound">DASS_Verifier</ref>&lt; K, V &gt;</type>
@@ -35,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="25" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="25" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="37" column="19" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_c_r_io_t___control___v_o_1a31d51c7cd6c1ba699f26c55616579f89" prot="public" static="no" mutable="no">
         <type>vector&lt; uint32_t &gt;</type>
@@ -49,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="26" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="26" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="38" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_c_r_io_t___control___v_o_1aea687a68f16ec895ef44497a4255b269" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -63,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="28" column="11" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="28" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="40" column="11" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_c_r_io_t___control___v_o_1a8ee5b056fa2c989b8e6170b9449615d5" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -77,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="29" column="11" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="29" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="41" column="11" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -92,24 +93,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="31" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="31" bodyend="31"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="43" column="5" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="43" bodyend="43"/>
       </memberdef>
-      <memberdef kind="function" id="class_c_r_io_t___control___v_o_1a9a185d09802e944f4aeab12b669b1a85" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="class_c_r_io_t___control___v_o_1ab0d9fc9ab07fb3efb1cf62539ea840e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>CRIoT_Control_VO&lt; K, V &gt;::CRIoT_Control_VO</definition>
-        <argsstring>(vector&lt; K &gt; &amp;pks, vector&lt; K &gt; &amp;nks, float lf=0.95, float othello_ratio=1)</argsstring>
+        <argsstring>(vector&lt; K &gt; positive_keys, vector&lt; K &gt; negative_keys, float load_factor=0.95, float othello_ratio=1)</argsstring>
         <name>CRIoT_Control_VO</name>
         <param>
-          <type>vector&lt; K &gt; &amp;</type>
-          <declname>pks</declname>
+          <type>vector&lt; K &gt;</type>
+          <declname>positive_keys</declname>
         </param>
         <param>
-          <type>vector&lt; K &gt; &amp;</type>
-          <declname>nks</declname>
+          <type>vector&lt; K &gt;</type>
+          <declname>negative_keys</declname>
         </param>
         <param>
           <type>float</type>
-          <declname>lf</declname>
+          <declname>load_factor</declname>
           <defval>0.95</defval>
         </param>
         <param>
@@ -120,28 +121,28 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Constructor for CRIoT Control VO <parameterlist kind="param"><parameteritem>
+<para>Constructor for CRIoT Control VO. <parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>pks</parametername>
+<parametername>positive_keys</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>A vector of positive keys </para>
+<para>A vector of positive keys to be inserted. </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>nks</parametername>
+<parametername>negative_keys</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>A vector of negative keys </para>
+<para>A vector of negative keys to be inserted. </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>lf</parametername>
+<parametername>load_factor</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Load factor </para>
+<para>How loaded the structure will be at initialization. </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -149,7 +150,7 @@
 <parametername>othello_ratio</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Othello Ratio </para>
+<para>Othello Ratio. </para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -157,24 +158,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="40" column="5" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="40" bodyend="47"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="52" column="5" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="52" bodyend="59"/>
       </memberdef>
-      <memberdef kind="function" id="class_c_r_io_t___control___v_o_1a7f44a4f065d1e74d8547b7ecf9db50ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="class_c_r_io_t___control___v_o_1a8c9d7156a140af088db651dafd281763" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void CRIoT_Control_VO&lt; K, V &gt;::init</definition>
-        <argsstring>(vector&lt; K &gt; &amp;pks, vector&lt; K &gt; &amp;nks, float lf=0.95, float othello_ratio=1)</argsstring>
+        <argsstring>(vector&lt; K &gt; &amp;positive_keys, vector&lt; K &gt; &amp;negative_keys, float load_factor=0.95, float othello_ratio=1)</argsstring>
         <name>init</name>
         <param>
           <type>vector&lt; K &gt; &amp;</type>
-          <declname>pks</declname>
+          <declname>positive_keys</declname>
         </param>
         <param>
           <type>vector&lt; K &gt; &amp;</type>
-          <declname>nks</declname>
+          <declname>negative_keys</declname>
         </param>
         <param>
           <type>float</type>
-          <declname>lf</declname>
+          <declname>load_factor</declname>
           <defval>0.95</defval>
         </param>
         <param>
@@ -185,28 +186,28 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Alternate constructor for CRIoT Control VO <parameterlist kind="param"><parameteritem>
+<para>Alternate constructor for CRIoT Control VO. <parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>pks</parametername>
+<parametername>positive_keys</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>A vector of positive keys </para>
+<para>A vector of positive keys to be inserted. </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>nks</parametername>
+<parametername>negative_keys</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>A vector of negative keys </para>
+<para>A vector of negative keys to be inserted. </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>lf</parametername>
+<parametername>load_factor</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Load factor </para>
+<para>How loaded the structure will be at initialization. </para>
 </parameterdescription>
 </parameteritem>
 <parameteritem>
@@ -222,7 +223,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="56" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="56" bodyend="63"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="68" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="68" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="class_c_r_io_t___control___v_o_1a5c6f0090a55557ea3897fd15a17a54f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>vector&lt; vector&lt; uint8_t &gt; &gt;</type>
@@ -232,13 +233,54 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Encodes the data plane CRC as string arrays. <simplesect kind="return"><para>The encoded bytes </para>
+<para>Encodes the data plane CRC as string arrays. <simplesect kind="return"><para>The encoded bytes. </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="69" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="69" bodyend="193"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="81" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="81" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c_r_io_t___control___v_o_1a1bccc13e58d09a165eed42fe9c23f3df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>vector&lt; uint8_t &gt;</type>
+        <definition>vector&lt;uint8_t&gt; CRIoT_Control_VO&lt; K, V &gt;::encode_batch_summary</definition>
+        <argsstring>(vector&lt; pair&lt; K, V &gt;&gt; key_value_pairs, vector&lt; uint8_t &gt; actions)</argsstring>
+        <name>encode_batch_summary</name>
+        <param>
+          <type>vector&lt; pair&lt; K, V &gt;&gt;</type>
+          <declname>key_value_pairs</declname>
+        </param>
+        <param>
+          <type>vector&lt; uint8_t &gt;</type>
+          <declname>actions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Encodes the batch summary, with all the updates. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key_value_pairs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The key value pairs that are modified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>actions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The actions doen to the key value pairs. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>All of the information encoded. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="213" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="213" bodyend="231"/>
       </memberdef>
       <memberdef kind="function" id="class_c_r_io_t___control___v_o_1acae35820e7e22451ead29a4b6a86aeb1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>vector&lt; uint8_t &gt;</type>
@@ -279,7 +321,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="204" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="204" bodyend="252"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="242" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="242" bodyend="290"/>
       </memberdef>
       <memberdef kind="function" id="class_c_r_io_t___control___v_o_1abbcf6fbeae98efe3917b1faca22600fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -308,7 +350,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="259" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="259" bodyend="273"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="297" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="297" bodyend="311"/>
       </memberdef>
       <memberdef kind="function" id="class_c_r_io_t___control___v_o_1af7ba55e61aec857eb2ad8ca6e0353d8c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -337,7 +379,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="280" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="280" bodyend="297"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="318" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="318" bodyend="335"/>
       </memberdef>
       <memberdef kind="function" id="class_c_r_io_t___control___v_o_1a6b2c4ad1e520942a2c123b2231cdc4e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -366,23 +408,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="305" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="305" bodyend="317"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="343" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="343" bodyend="355"/>
       </memberdef>
-      <memberdef kind="function" id="class_c_r_io_t___control___v_o_1ad546e2742b314fa3e3939ef218964f52" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="class_c_r_io_t___control___v_o_1aadd853dcc02fbc144ff8ed85c82f03e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void CRIoT_Control_VO&lt; K, V &gt;::erase</definition>
-        <argsstring>(K k)</argsstring>
+        <argsstring>(K key)</argsstring>
         <name>erase</name>
         <param>
           <type>K</type>
-          <declname>k</declname>
+          <declname>key</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
 <para>Erases a key from the structure. TODO: IMPLEMENT <parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>k</parametername>
+<parametername>key</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>The key to be erased. </para>
@@ -393,7 +435,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="324" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="324" bodyend="327"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="362" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="362" bodyend="365"/>
       </memberdef>
       <memberdef kind="function" id="class_c_r_io_t___control___v_o_1a704e85fbf832dd3e5753da65cb580e73" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>V</type>
@@ -422,7 +464,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="334" column="7" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="334" bodyend="337"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="372" column="7" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="372" bodyend="375"/>
       </memberdef>
       <memberdef kind="function" id="class_c_r_io_t___control___v_o_1a755e101c9b1cc18c47fa3fe3002c4191" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>vector&lt; V &gt;</type>
@@ -439,24 +481,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="339" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="339" bodyend="342"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="377" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="377" bodyend="380"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>The server side structure which encodes full and delta updates. </para>
     </detaileddescription>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" line="22" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/CRIoT.h" bodystart="21" bodyend="343"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" line="34" column="1" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/CRIoT.h" bodystart="33" bodyend="381"/>
     <listofallmembers>
       <member refid="class_c_r_io_t___control___v_o_1af7ba55e61aec857eb2ad8ca6e0353d8c" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>batch_insert</name></member>
       <member refid="class_c_r_io_t___control___v_o_1a755e101c9b1cc18c47fa3fe3002c4191" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>batch_query</name></member>
       <member refid="class_c_r_io_t___control___v_o_1aa4b84ebdb79844a0c760322cd88aad4b" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>CRIoT_Control_VO</name></member>
-      <member refid="class_c_r_io_t___control___v_o_1a9a185d09802e944f4aeab12b669b1a85" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>CRIoT_Control_VO</name></member>
+      <member refid="class_c_r_io_t___control___v_o_1ab0d9fc9ab07fb3efb1cf62539ea840e2" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>CRIoT_Control_VO</name></member>
+      <member refid="class_c_r_io_t___control___v_o_1a1bccc13e58d09a165eed42fe9c23f3df" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>encode_batch_summary</name></member>
       <member refid="class_c_r_io_t___control___v_o_1a5c6f0090a55557ea3897fd15a17a54f1" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>encode_full</name></member>
       <member refid="class_c_r_io_t___control___v_o_1acae35820e7e22451ead29a4b6a86aeb1" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>encode_summary</name></member>
-      <member refid="class_c_r_io_t___control___v_o_1ad546e2742b314fa3e3939ef218964f52" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>erase</name></member>
+      <member refid="class_c_r_io_t___control___v_o_1aadd853dcc02fbc144ff8ed85c82f03e9" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>erase</name></member>
       <member refid="class_c_r_io_t___control___v_o_1a31d51c7cd6c1ba699f26c55616579f89" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>flipped_indexes</name></member>
-      <member refid="class_c_r_io_t___control___v_o_1a7f44a4f065d1e74d8547b7ecf9db50ab" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>init</name></member>
+      <member refid="class_c_r_io_t___control___v_o_1a8c9d7156a140af088db651dafd281763" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>init</name></member>
       <member refid="class_c_r_io_t___control___v_o_1abbcf6fbeae98efe3917b1faca22600fe" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>insert</name></member>
       <member refid="class_c_r_io_t___control___v_o_1aea687a68f16ec895ef44497a4255b269" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>loadfactor</name></member>
       <member refid="class_c_r_io_t___control___v_o_1a8ee5b056fa2c989b8e6170b9449615d5" prot="public" virt="non-virtual"><scope>CRIoT_Control_VO</scope><name>o_ratio</name></member>

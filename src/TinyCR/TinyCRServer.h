@@ -116,15 +116,15 @@ public:
     /**
      * Removes and existing certificate
      * NOT IMPLEMENTED
-     * @param k The key that should be removed.
+     * @param key The key that should be removed.
      * @return Status of removing the certificate.
      */
-    bool removeCertificate(K k)
+    bool removeCertificate(K key)
     {
         StopWatch stopWatch = StopWatch();
-        dassTracker.erase(k);
+        dassTracker.erase(key);
         statistics.addLatency("calc_latency", stopWatch.stop());
-        pair<K, V> kv (k, 0);
+        pair<K, V> kv (key, 0);
         std::vector<pair<K, V>> kvs;
         kvs.push_back(kv);
         return sendSummaryUpdate(kvs, std::vector<uint8_t>(RemoveAction));
@@ -132,12 +132,12 @@ public:
 
     /**
      * Unrevoke an existing certificate
-     * @param k Key that should be unrevoked.
+     * @param key Key that should be unrevoked.
      * @return Status of unrevoking the certificate.
      */
-    bool unrevokeCertificate(K k)
+    bool unrevokeCertificate(K key)
     {
-        pair<K, V> kv(k, 0);
+        pair<K, V> kv(key, 0);
         StopWatch stopWatch = StopWatch();
         bool status = dassTracker.setValue(kv);
         statistics.addLatency("calc_latency", stopWatch.stop());
@@ -157,12 +157,12 @@ public:
 
     /**
      * Revoke and existing certificate
-     * @param k Key that should be revoked.
+     * @param key Key that should be revoked.
      * @return Status of revoking the certificate.
      */
-    bool revokeCertificate(K k)
+    bool revokeCertificate(K key)
     {
-        pair<K, V> kv(k, 1);
+        pair<K, V> kv(key, 1);
         StopWatch stopWatch = StopWatch();
         dassTracker.setValue(kv);
         statistics.addLatency("calc_latency", stopWatch.stop());
@@ -178,7 +178,7 @@ public:
      * @param key Key, which should be queried
      * @returns bool indicating if the key is revoked or unrevoked
      */
-    bool queryCertificate(const K &key)
+    bool queryCertificate(const K key)
     {
         return dassTracker.query(key) == 1;
     }
@@ -194,7 +194,7 @@ public:
     }
 
     /**
-     * Average latnecy of a successful DASS update.
+     * Average latency of a successful DASS update.
      * @param statistic The name of the statistic
      * @return The value of the statistic
      */

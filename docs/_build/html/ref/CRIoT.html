@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="DASS" href="DASS.html" />
-    <link rel="prev" title="TinyCR" href="TinyCR.html" /> 
+    <link rel="prev" title="Reference Manual" href="ref.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,6 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Download and Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../implementation_details/implementation_details.html">Implementation Details</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="ref.html">Reference Manual</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="TinyCR.html">TinyCR</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">CRIoT</a></li>
@@ -160,34 +161,35 @@
             
   <div class="section" id="criot">
 <h1>CRIoT<a class="headerlink" href="#criot" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4I00E16CRIoT_Control_VO">
-<span id="_CPPv3I00E16CRIoT_Control_VO"></span><span id="_CPPv2I00E16CRIoT_Control_VO"></span><span class="target" id="class_c_r_io_t___control___v_o"></span>template&lt;typename <code class="sig-name descname">K</code>, class <code class="sig-name descname">V</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">CRIoT_Control_VO</code><a class="headerlink" href="#_CPPv4I00E16CRIoT_Control_VO" title="Permalink to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<span id="_CPPv3I00E16CRIoT_Control_VO"></span><span id="_CPPv2I00E16CRIoT_Control_VO"></span>template&lt;typename <code class="sig-name descname">K</code>, class <code class="sig-name descname">V</code>&gt;<br /><span class="target" id="class_c_r_io_t___control___v_o"></span><em class="property">class </em><code class="sig-name descname">CRIoT_Control_VO</code><a class="headerlink" href="#_CPPv4I00E16CRIoT_Control_VO" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The server side structure which encodes full and delta updates. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric">Public Functions</p>
-<dl class="function">
-<dt id="_CPPv4N16CRIoT_Control_VO16CRIoT_Control_VOER6vectorI1KER6vectorI1KEff">
-<span id="_CPPv3N16CRIoT_Control_VO16CRIoT_Control_VOER6vectorI1KER6vectorI1KEff"></span><span id="_CPPv2N16CRIoT_Control_VO16CRIoT_Control_VOER6vectorI1KER6vectorI1KEff"></span><span id="CRIoT_Control_VO::CRIoT_Control_VO__vector:K:R.vector:K:R.float.float"></span><span class="target" id="class_c_r_io_t___control___v_o_1a9a185d09802e944f4aeab12b669b1a85"></span><code class="sig-name descname">CRIoT_Control_VO</code><span class="sig-paren">(</span>vector&lt;K&gt; &amp;<em>pks</em>, vector&lt;K&gt; &amp;<em>nks</em>, float <em>lf</em> = 0.95, float <em>othello_ratio</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO16CRIoT_Control_VOER6vectorI1KER6vectorI1KEff" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Constructor for CRIoT Control VO <dl class="simple">
+<dl class="cpp function">
+<dt id="_CPPv4N16CRIoT_Control_VO16CRIoT_Control_VOE6vectorI1KE6vectorI1KEff">
+<span id="_CPPv3N16CRIoT_Control_VO16CRIoT_Control_VOE6vectorI1KE6vectorI1KEff"></span><span id="_CPPv2N16CRIoT_Control_VO16CRIoT_Control_VOE6vectorI1KE6vectorI1KEff"></span><span id="CRIoT_Control_VO::CRIoT_Control_VO__vector:K:.vector:K:.float.float"></span><span class="target" id="class_c_r_io_t___control___v_o_1ab0d9fc9ab07fb3efb1cf62539ea840e2"></span><code class="sig-name descname">CRIoT_Control_VO</code><span class="sig-paren">(</span>vector&lt;<a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::K">K</a>&gt; <em>positive_keys</em>, vector&lt;<a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::K">K</a>&gt; <em>negative_keys</em>, float <em>load_factor</em> = 0.95, float <em>othello_ratio</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO16CRIoT_Control_VOE6vectorI1KE6vectorI1KEff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor for CRIoT Control VO. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pks</span></code>: A vector of positive keys </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nks</span></code>: A vector of negative keys </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lf</span></code>: Load factor </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">othello_ratio</span></code>: Othello Ratio </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">positive_keys</span></code>: A vector of positive keys to be inserted. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">negative_keys</span></code>: A vector of negative keys to be inserted. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_factor</span></code>: How loaded the structure will be at initialization. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">othello_ratio</span></code>: Othello Ratio. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N16CRIoT_Control_VO4initER6vectorI1KER6vectorI1KEff">
-<span id="_CPPv3N16CRIoT_Control_VO4initER6vectorI1KER6vectorI1KEff"></span><span id="_CPPv2N16CRIoT_Control_VO4initER6vectorI1KER6vectorI1KEff"></span><span id="CRIoT_Control_VO::init__vector:K:R.vector:K:R.float.float"></span><span class="target" id="class_c_r_io_t___control___v_o_1a7f44a4f065d1e74d8547b7ecf9db50ab"></span>void <code class="sig-name descname">init</code><span class="sig-paren">(</span>vector&lt;K&gt; &amp;<em>pks</em>, vector&lt;K&gt; &amp;<em>nks</em>, float <em>lf</em> = 0.95, float <em>othello_ratio</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO4initER6vectorI1KER6vectorI1KEff" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Alternate constructor for CRIoT Control VO <dl class="simple">
+<span id="_CPPv3N16CRIoT_Control_VO4initER6vectorI1KER6vectorI1KEff"></span><span id="_CPPv2N16CRIoT_Control_VO4initER6vectorI1KER6vectorI1KEff"></span><span id="CRIoT_Control_VO::init__vector:K:R.vector:K:R.float.float"></span><span class="target" id="class_c_r_io_t___control___v_o_1a8c9d7156a140af088db651dafd281763"></span>void <code class="sig-name descname">init</code><span class="sig-paren">(</span>vector&lt;<a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::K">K</a>&gt; &amp;<em>positive_keys</em>, vector&lt;<a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::K">K</a>&gt; &amp;<em>negative_keys</em>, float <em>load_factor</em> = 0.95, float <em>othello_ratio</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO4initER6vectorI1KER6vectorI1KEff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Alternate constructor for CRIoT Control VO. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pks</span></code>: A vector of positive keys </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">nks</span></code>: A vector of negative keys </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lf</span></code>: Load factor </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">positive_keys</span></code>: A vector of positive keys to be inserted. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">negative_keys</span></code>: A vector of negative keys to be inserted. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_factor</span></code>: How loaded the structure will be at initialization. </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">othello_ratio</span></code>: Othello Ratio </p></li>
 </ul>
 </dd>
@@ -195,19 +197,34 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N16CRIoT_Control_VO11encode_fullEv">
 <span id="_CPPv3N16CRIoT_Control_VO11encode_fullEv"></span><span id="_CPPv2N16CRIoT_Control_VO11encode_fullEv"></span><span id="CRIoT_Control_VO::encode_full"></span><span class="target" id="class_c_r_io_t___control___v_o_1a5c6f0090a55557ea3897fd15a17a54f1"></span>vector&lt;vector&lt;uint8_t&gt;&gt; <code class="sig-name descname">encode_full</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO11encode_fullEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Encodes the data plane CRC as string arrays. <dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>The encoded bytes </p>
+<dt><strong>Return</strong></dt><dd><p>The encoded bytes. </p>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
+<dt id="_CPPv4N16CRIoT_Control_VO20encode_batch_summaryE6vectorI4pairI1K1VEE6vectorI7uint8_tE">
+<span id="_CPPv3N16CRIoT_Control_VO20encode_batch_summaryE6vectorI4pairI1K1VEE6vectorI7uint8_tE"></span><span id="_CPPv2N16CRIoT_Control_VO20encode_batch_summaryE6vectorI4pairI1K1VEE6vectorI7uint8_tE"></span><span id="CRIoT_Control_VO::encode_batch_summary__vector:pair:K.V::.vector:uint8_t:"></span><span class="target" id="class_c_r_io_t___control___v_o_1a1bccc13e58d09a165eed42fe9c23f3df"></span>vector&lt;uint8_t&gt; <code class="sig-name descname">encode_batch_summary</code><span class="sig-paren">(</span>vector&lt;pair&lt;<a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::K">K</a>, <a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::V">V</a>&gt;&gt; <em>key_value_pairs</em>, vector&lt;uint8_t&gt; <em>actions</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO20encode_batch_summaryE6vectorI4pairI1K1VEE6vectorI7uint8_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Encodes the batch summary, with all the updates. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>All of the information encoded. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">key_value_pairs</span></code>: The key value pairs that are modified. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actions</span></code>: The actions doen to the key value pairs. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
 <dt id="_CPPv4N16CRIoT_Control_VO14encode_summaryE4pairI1K1VE7uint8_t">
-<span id="_CPPv3N16CRIoT_Control_VO14encode_summaryE4pairI1K1VE7uint8_t"></span><span id="_CPPv2N16CRIoT_Control_VO14encode_summaryE4pairI1K1VE7uint8_t"></span><span id="CRIoT_Control_VO::encode_summary__pair:K.V:.uint8_t"></span><span class="target" id="class_c_r_io_t___control___v_o_1acae35820e7e22451ead29a4b6a86aeb1"></span>vector&lt;uint8_t&gt; <code class="sig-name descname">encode_summary</code><span class="sig-paren">(</span>pair&lt;K, V&gt; <em>kv</em>, uint8_t <em>action</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO14encode_summaryE4pairI1K1VE7uint8_t" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N16CRIoT_Control_VO14encode_summaryE4pairI1K1VE7uint8_t"></span><span id="_CPPv2N16CRIoT_Control_VO14encode_summaryE4pairI1K1VE7uint8_t"></span><span id="CRIoT_Control_VO::encode_summary__pair:K.V:.uint8_t"></span><span class="target" id="class_c_r_io_t___control___v_o_1acae35820e7e22451ead29a4b6a86aeb1"></span>vector&lt;uint8_t&gt; <code class="sig-name descname">encode_summary</code><span class="sig-paren">(</span>pair&lt;<a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::K">K</a>, <a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::V">V</a>&gt; <em>kv</em>, uint8_t <em>action</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO14encode_summaryE4pairI1K1VE7uint8_t" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Encodes the summary for sending Parts are encoded in this order: the type of action, key, value, flipped_indexes size, flipped indexes. type of action can be add(0), remove(1), unrevoke(2), revoke(3) <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>The encoded summary of bytes. </p>
 </dd>
@@ -220,9 +237,9 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N16CRIoT_Control_VO6insertE4pairI1K1VE">
-<span id="_CPPv3N16CRIoT_Control_VO6insertE4pairI1K1VE"></span><span id="_CPPv2N16CRIoT_Control_VO6insertE4pairI1K1VE"></span><span id="CRIoT_Control_VO::insert__pair:K.V:"></span><span class="target" id="class_c_r_io_t___control___v_o_1abbcf6fbeae98efe3917b1faca22600fe"></span>bool <code class="sig-name descname">insert</code><span class="sig-paren">(</span>pair&lt;K, V&gt; <em>kv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO6insertE4pairI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N16CRIoT_Control_VO6insertE4pairI1K1VE"></span><span id="_CPPv2N16CRIoT_Control_VO6insertE4pairI1K1VE"></span><span id="CRIoT_Control_VO::insert__pair:K.V:"></span><span class="target" id="class_c_r_io_t___control___v_o_1abbcf6fbeae98efe3917b1faca22600fe"></span>bool <code class="sig-name descname">insert</code><span class="sig-paren">(</span>pair&lt;<a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::K">K</a>, <a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::V">V</a>&gt; <em>kv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO6insertE4pairI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Inserts a key value pair into the structure. <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>bool Indicating if the insert succeded without rebuild. </p>
 </dd>
@@ -234,9 +251,9 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N16CRIoT_Control_VO12batch_insertENSt6vectorI4pairI1K1VEEE">
-<span id="_CPPv3N16CRIoT_Control_VO12batch_insertENSt6vectorI4pairI1K1VEEE"></span><span id="_CPPv2N16CRIoT_Control_VO12batch_insertENSt6vectorI4pairI1K1VEEE"></span><span id="CRIoT_Control_VO::batch_insert__std::vector:pair:K.V::"></span><span class="target" id="class_c_r_io_t___control___v_o_1af7ba55e61aec857eb2ad8ca6e0353d8c"></span>bool <code class="sig-name descname">batch_insert</code><span class="sig-paren">(</span>std::vector&lt;pair&lt;K, V&gt;&gt; <em>kv_pairs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO12batch_insertENSt6vectorI4pairI1K1VEEE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N16CRIoT_Control_VO12batch_insertENSt6vectorI4pairI1K1VEEE"></span><span id="_CPPv2N16CRIoT_Control_VO12batch_insertENSt6vectorI4pairI1K1VEEE"></span><span id="CRIoT_Control_VO::batch_insert__std::vector:pair:K.V::"></span><span class="target" id="class_c_r_io_t___control___v_o_1af7ba55e61aec857eb2ad8ca6e0353d8c"></span>bool <code class="sig-name descname">batch_insert</code><span class="sig-paren">(</span>std::vector&lt;pair&lt;<a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::K">K</a>, <a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::V">V</a>&gt;&gt; <em>kv_pairs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO12batch_insertENSt6vectorI4pairI1K1VEEE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Inserts key value pairs in a batch. <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>If the structure needed to be rebuilt. </p>
 </dd>
@@ -248,9 +265,9 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N16CRIoT_Control_VO8setValueE4pairI1K1VE">
-<span id="_CPPv3N16CRIoT_Control_VO8setValueE4pairI1K1VE"></span><span id="_CPPv2N16CRIoT_Control_VO8setValueE4pairI1K1VE"></span><span id="CRIoT_Control_VO::setValue__pair:K.V:"></span><span class="target" id="class_c_r_io_t___control___v_o_1a6b2c4ad1e520942a2c123b2231cdc4e8"></span>bool <code class="sig-name descname">setValue</code><span class="sig-paren">(</span>pair&lt;K, V&gt; <em>kv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO8setValueE4pairI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N16CRIoT_Control_VO8setValueE4pairI1K1VE"></span><span id="_CPPv2N16CRIoT_Control_VO8setValueE4pairI1K1VE"></span><span id="CRIoT_Control_VO::setValue__pair:K.V:"></span><span class="target" id="class_c_r_io_t___control___v_o_1a6b2c4ad1e520942a2c123b2231cdc4e8"></span>bool <code class="sig-name descname">setValue</code><span class="sig-paren">(</span>pair&lt;<a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::K">K</a>, <a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::V">V</a>&gt; <em>kv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO8setValueE4pairI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Flips a key value pair in the structure. <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>bool Indicating if the flip succeded without rebuild. </p>
 </dd>
@@ -262,21 +279,21 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N16CRIoT_Control_VO5eraseE1K">
-<span id="_CPPv3N16CRIoT_Control_VO5eraseE1K"></span><span id="_CPPv2N16CRIoT_Control_VO5eraseE1K"></span><span id="CRIoT_Control_VO::erase__K"></span><span class="target" id="class_c_r_io_t___control___v_o_1ad546e2742b314fa3e3939ef218964f52"></span>void <code class="sig-name descname">erase</code><span class="sig-paren">(</span>K <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO5eraseE1K" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N16CRIoT_Control_VO5eraseE1K"></span><span id="_CPPv2N16CRIoT_Control_VO5eraseE1K"></span><span id="CRIoT_Control_VO::erase__K"></span><span class="target" id="class_c_r_io_t___control___v_o_1aadd853dcc02fbc144ff8ed85c82f03e9"></span>void <code class="sig-name descname">erase</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::K">K</a> <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO5eraseE1K" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Erases a key from the structure. TODO: IMPLEMENT <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">k</span></code>: The key to be erased. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">key</span></code>: The key to be erased. </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N16CRIoT_Control_VO5queryE1K">
-<span id="_CPPv3N16CRIoT_Control_VO5queryE1K"></span><span id="_CPPv2N16CRIoT_Control_VO5queryE1K"></span><span id="CRIoT_Control_VO::query__K"></span><span class="target" id="class_c_r_io_t___control___v_o_1a704e85fbf832dd3e5753da65cb580e73"></span>V <code class="sig-name descname">query</code><span class="sig-paren">(</span>K <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO5queryE1K" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N16CRIoT_Control_VO5queryE1K"></span><span id="_CPPv2N16CRIoT_Control_VO5queryE1K"></span><span id="CRIoT_Control_VO::query__K"></span><span class="target" id="class_c_r_io_t___control___v_o_1a704e85fbf832dd3e5753da65cb580e73"></span><a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::V">V</a> <code class="sig-name descname">query</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I00E16CRIoT_Control_VO" title="CRIoT_Control_VO::K">K</a> <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16CRIoT_Control_VO5queryE1K" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Queries the value of the key. <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>The value of the key. </p>
 </dd>
@@ -291,24 +308,74 @@
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="cpp class">
 <dt id="_CPPv4I00E13CRIoT_Data_VO">
-<span id="_CPPv3I00E13CRIoT_Data_VO"></span><span id="_CPPv2I00E13CRIoT_Data_VO"></span><span class="target" id="class_c_r_io_t___data___v_o"></span>template&lt;typename <code class="sig-name descname">K</code>, class <code class="sig-name descname">V</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">CRIoT_Data_VO</code><a class="headerlink" href="#_CPPv4I00E13CRIoT_Data_VO" title="Permalink to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<span id="_CPPv3I00E13CRIoT_Data_VO"></span><span id="_CPPv2I00E13CRIoT_Data_VO"></span>template&lt;typename <code class="sig-name descname">K</code>, class <code class="sig-name descname">V</code>&gt;<br /><span class="target" id="class_c_r_io_t___data___v_o"></span><em class="property">class </em><code class="sig-name descname">CRIoT_Data_VO</code><a class="headerlink" href="#_CPPv4I00E13CRIoT_Data_VO" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The client side structure for decoding full updates and delta updates. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric">Public Functions</p>
-<dl class="function">
-<dt id="_CPPv4N13CRIoT_Data_VO11decode_fullER6vectorI7uint8_tE">
-<span id="_CPPv3N13CRIoT_Data_VO11decode_fullER6vectorI7uint8_tE"></span><span id="_CPPv2N13CRIoT_Data_VO11decode_fullER6vectorI7uint8_tE"></span><span id="CRIoT_Data_VO::decode_full__vector:uint8_t:R"></span><span class="target" id="class_c_r_io_t___data___v_o_1ae7cf87dbe2abda5c0a74b1a51f4234e7"></span>void <code class="sig-name descname">decode_full</code><span class="sig-paren">(</span>vector&lt;uint8_t&gt; &amp;<em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO11decode_fullER6vectorI7uint8_tE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Decodes the full update received. <dl class="simple">
+<dl class="cpp function">
+<dt id="_CPPv4N13CRIoT_Data_VO13CRIoT_Data_VOER13DASS_VerifierI1K1VE">
+<span id="_CPPv3N13CRIoT_Data_VO13CRIoT_Data_VOER13DASS_VerifierI1K1VE"></span><span id="_CPPv2N13CRIoT_Data_VO13CRIoT_Data_VOER13DASS_VerifierI1K1VE"></span><span id="CRIoT_Data_VO::CRIoT_Data_VO__DASS_Verifier:K.V:R"></span><span class="target" id="class_c_r_io_t___data___v_o_1a5832feb1f2663e6ba89a822fdba3f8dc"></span><code class="sig-name descname">CRIoT_Data_VO</code><span class="sig-paren">(</span><a class="reference internal" href="DASS.html#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier">DASS_Verifier</a>&lt;<a class="reference internal" href="#_CPPv4I00E13CRIoT_Data_VO" title="CRIoT_Data_VO::K">K</a>, <a class="reference internal" href="#_CPPv4I00E13CRIoT_Data_VO" title="CRIoT_Data_VO::V">V</a>&gt; &amp;<em>install_patch</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO13CRIoT_Data_VOER13DASS_VerifierI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>COnstructor for CRIoT data <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code>: The data received from the server </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">install_patch</span></code>: The DASS verifier where to install from </p></li>
 </ul>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
+<dt id="_CPPv4N13CRIoT_Data_VO7rebuildER13DASS_VerifierI1K1VE">
+<span id="_CPPv3N13CRIoT_Data_VO7rebuildER13DASS_VerifierI1K1VE"></span><span id="_CPPv2N13CRIoT_Data_VO7rebuildER13DASS_VerifierI1K1VE"></span><span id="CRIoT_Data_VO::rebuild__DASS_Verifier:K.V:R"></span><span class="target" id="class_c_r_io_t___data___v_o_1aabfaccdf5d322191630dd450c1971951"></span>void <code class="sig-name descname">rebuild</code><span class="sig-paren">(</span><a class="reference internal" href="DASS.html#_CPPv4I00E13DASS_Verifier" title="DASS_Verifier">DASS_Verifier</a>&lt;<a class="reference internal" href="#_CPPv4I00E13CRIoT_Data_VO" title="CRIoT_Data_VO::K">K</a>, <a class="reference internal" href="#_CPPv4I00E13CRIoT_Data_VO" title="CRIoT_Data_VO::V">V</a>&gt; &amp;<em>rebuild_patch</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO7rebuildER13DASS_VerifierI1K1VE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Rebuilds the DASS from DASS verifier <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rebuild_patch</span></code>: The DASS verifier where to build from </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N13CRIoT_Data_VO11decode_fullER6vectorI7uint8_tE">
+<span id="_CPPv3N13CRIoT_Data_VO11decode_fullER6vectorI7uint8_tE"></span><span id="_CPPv2N13CRIoT_Data_VO11decode_fullER6vectorI7uint8_tE"></span><span id="CRIoT_Data_VO::decode_full__vector:uint8_t:R"></span><span class="target" id="class_c_r_io_t___data___v_o_1a176e6173ebe3c5583c27bd46def6028a"></span>void <code class="sig-name descname">decode_full</code><span class="sig-paren">(</span>vector&lt;uint8_t&gt; &amp;<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO11decode_fullER6vectorI7uint8_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Decodes the full update received. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: The data received from the server </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N13CRIoT_Data_VO20decode_batch_summaryE6vectorI7uint8_tE">
+<span id="_CPPv3N13CRIoT_Data_VO20decode_batch_summaryE6vectorI7uint8_tE"></span><span id="_CPPv2N13CRIoT_Data_VO20decode_batch_summaryE6vectorI7uint8_tE"></span><span id="CRIoT_Data_VO::decode_batch_summary__vector:uint8_t:"></span><span class="target" id="class_c_r_io_t___data___v_o_1a157f3005abf28fe3f5424ba179f5c55b"></span>void <code class="sig-name descname">decode_batch_summary</code><span class="sig-paren">(</span>vector&lt;uint8_t&gt; <em>summary</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO20decode_batch_summaryE6vectorI7uint8_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Decodes the batch summary <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">summary</span></code>: The summary that is to be decoded </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N13CRIoT_Data_VO18decode_sub_summaryE6vectorI7uint8_tERi">
+<span id="_CPPv3N13CRIoT_Data_VO18decode_sub_summaryE6vectorI7uint8_tERi"></span><span id="_CPPv2N13CRIoT_Data_VO18decode_sub_summaryE6vectorI7uint8_tERi"></span><span id="CRIoT_Data_VO::decode_sub_summary__vector:uint8_t:.iR"></span><span class="target" id="class_c_r_io_t___data___v_o_1a93f8b26836c09f93801ebcef6d6f2a76"></span>void <code class="sig-name descname">decode_sub_summary</code><span class="sig-paren">(</span>vector&lt;uint8_t&gt; <em>summary</em>, int &amp;<em>offset</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO18decode_sub_summaryE6vectorI7uint8_tERi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Helper function for decoding summary, decodes individual keys from batch summary <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">summary</span></code>: The batch summary to be decoded </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset</span></code>: Reference to the offset where where the next key starts </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
 <dt id="_CPPv4N13CRIoT_Data_VO14decode_summaryE6vectorI7uint8_tE">
 <span id="_CPPv3N13CRIoT_Data_VO14decode_summaryE6vectorI7uint8_tE"></span><span id="_CPPv2N13CRIoT_Data_VO14decode_summaryE6vectorI7uint8_tE"></span><span id="CRIoT_Data_VO::decode_summary__vector:uint8_t:"></span><span class="target" id="class_c_r_io_t___data___v_o_1ad2fa18539411ac9f6f78e9177d27d2f0"></span>void <code class="sig-name descname">decode_summary</code><span class="sig-paren">(</span>vector&lt;uint8_t&gt; <em>summary</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO14decode_summaryE6vectorI7uint8_tE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Decodes the summary Parts are decoded in this order: the type of action, key, value, flipped_indexes size, flipped indexes. type of action can be add(0), remove(1), unrevoke(2), revoke(3) <dl class="simple">
@@ -320,9 +387,9 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N13CRIoT_Data_VO5queryEK1K">
-<span id="_CPPv3N13CRIoT_Data_VO5queryEK1K"></span><span id="_CPPv2N13CRIoT_Data_VO5queryEK1K"></span><span id="CRIoT_Data_VO::query__KC"></span><span class="target" id="class_c_r_io_t___data___v_o_1a8c25289184a20529e49870e7c8bb34c1"></span>V <code class="sig-name descname">query</code><span class="sig-paren">(</span><em class="property">const</em> K <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO5queryEK1K" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N13CRIoT_Data_VO5queryEK1K"></span><span id="_CPPv2N13CRIoT_Data_VO5queryEK1K"></span><span id="CRIoT_Data_VO::query__KC"></span><span class="target" id="class_c_r_io_t___data___v_o_1a8c25289184a20529e49870e7c8bb34c1"></span><a class="reference internal" href="#_CPPv4I00E13CRIoT_Data_VO" title="CRIoT_Data_VO::V">V</a> <code class="sig-name descname">query</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I00E13CRIoT_Data_VO" title="CRIoT_Data_VO::K">K</a> <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO5queryEK1K" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Queries a key from the structure. <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>The value associated with the key. </p>
 </dd>
@@ -334,9 +401,9 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N13CRIoT_Data_VO11batch_queryEK6vectorI1KE">
-<span id="_CPPv3N13CRIoT_Data_VO11batch_queryEK6vectorI1KE"></span><span id="_CPPv2N13CRIoT_Data_VO11batch_queryEK6vectorI1KE"></span><span id="CRIoT_Data_VO::batch_query__vector:K:C"></span><span class="target" id="class_c_r_io_t___data___v_o_1ad2cb2d520e2338f56cbb43ce782c1601"></span>vector&lt;V&gt; <code class="sig-name descname">batch_query</code><span class="sig-paren">(</span><em class="property">const</em> vector&lt;K&gt; <em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO11batch_queryEK6vectorI1KE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N13CRIoT_Data_VO11batch_queryEK6vectorI1KE"></span><span id="_CPPv2N13CRIoT_Data_VO11batch_queryEK6vectorI1KE"></span><span id="CRIoT_Data_VO::batch_query__vector:K:C"></span><span class="target" id="class_c_r_io_t___data___v_o_1ad2cb2d520e2338f56cbb43ce782c1601"></span>vector&lt;<a class="reference internal" href="#_CPPv4I00E13CRIoT_Data_VO" title="CRIoT_Data_VO::V">V</a>&gt; <code class="sig-name descname">batch_query</code><span class="sig-paren">(</span><em class="property">const</em> vector&lt;<a class="reference internal" href="#_CPPv4I00E13CRIoT_Data_VO" title="CRIoT_Data_VO::K">K</a>&gt; <em>keys</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO11batch_queryEK6vectorI1KE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Queries keys in a batch <dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>Values of the keys queried </p>
 </dd>
@@ -348,9 +415,9 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N13CRIoT_Data_VO6insertE4pairI1K1VER6vectorI8uint32_tE">
-<span id="_CPPv3N13CRIoT_Data_VO6insertE4pairI1K1VER6vectorI8uint32_tE"></span><span id="_CPPv2N13CRIoT_Data_VO6insertE4pairI1K1VER6vectorI8uint32_tE"></span><span id="CRIoT_Data_VO::insert__pair:K.V:.vector:uint32_t:R"></span><span class="target" id="class_c_r_io_t___data___v_o_1aca7d21140b0a13891312ae098e5e33ba"></span>void <code class="sig-name descname">insert</code><span class="sig-paren">(</span>pair&lt;K, V&gt; <em>kv</em>, vector&lt;uint32_t&gt; &amp;<em>flipped_indexes</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO6insertE4pairI1K1VER6vectorI8uint32_tE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N13CRIoT_Data_VO6insertE4pairI1K1VER6vectorI8uint32_tE"></span><span id="_CPPv2N13CRIoT_Data_VO6insertE4pairI1K1VER6vectorI8uint32_tE"></span><span id="CRIoT_Data_VO::insert__pair:K.V:.vector:uint32_t:R"></span><span class="target" id="class_c_r_io_t___data___v_o_1aca7d21140b0a13891312ae098e5e33ba"></span>void <code class="sig-name descname">insert</code><span class="sig-paren">(</span>pair&lt;<a class="reference internal" href="#_CPPv4I00E13CRIoT_Data_VO" title="CRIoT_Data_VO::K">K</a>, <a class="reference internal" href="#_CPPv4I00E13CRIoT_Data_VO" title="CRIoT_Data_VO::V">V</a>&gt; <em>kv</em>, vector&lt;uint32_t&gt; &amp;<em>flipped_indexes</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO6insertE4pairI1K1VER6vectorI8uint32_tE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Inserts a key with a value. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">kv</span></code>: Key value pair to be inserted. </p></li>
@@ -361,9 +428,9 @@
 </p>
 </dd></dl>
 
-<dl class="function">
+<dl class="cpp function">
 <dt id="_CPPv4N13CRIoT_Data_VO8setValueER4pairI1K1VER6vectorI8uint32_tE">
-<span id="_CPPv3N13CRIoT_Data_VO8setValueER4pairI1K1VER6vectorI8uint32_tE"></span><span id="_CPPv2N13CRIoT_Data_VO8setValueER4pairI1K1VER6vectorI8uint32_tE"></span><span id="CRIoT_Data_VO::setValue__pair:K.V:R.vector:uint32_t:R"></span><span class="target" id="class_c_r_io_t___data___v_o_1ace63445a03bd8ef75388b94fdd593185"></span>void <code class="sig-name descname">setValue</code><span class="sig-paren">(</span>pair&lt;K, V&gt; &amp;<em>kv</em>, vector&lt;uint32_t&gt; &amp;<em>flipped_indexes</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO8setValueER4pairI1K1VER6vectorI8uint32_tE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N13CRIoT_Data_VO8setValueER4pairI1K1VER6vectorI8uint32_tE"></span><span id="_CPPv2N13CRIoT_Data_VO8setValueER4pairI1K1VER6vectorI8uint32_tE"></span><span id="CRIoT_Data_VO::setValue__pair:K.V:R.vector:uint32_t:R"></span><span class="target" id="class_c_r_io_t___data___v_o_1ace63445a03bd8ef75388b94fdd593185"></span>void <code class="sig-name descname">setValue</code><span class="sig-paren">(</span>pair&lt;<a class="reference internal" href="#_CPPv4I00E13CRIoT_Data_VO" title="CRIoT_Data_VO::K">K</a>, <a class="reference internal" href="#_CPPv4I00E13CRIoT_Data_VO" title="CRIoT_Data_VO::V">V</a>&gt; &amp;<em>kv</em>, vector&lt;uint32_t&gt; &amp;<em>flipped_indexes</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CRIoT_Data_VO8setValueER4pairI1K1VER6vectorI8uint32_tE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Sets a value. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">kv</span></code>: Key . </p></li>
@@ -390,7 +457,7 @@
         <a href="DASS.html" class="btn btn-neutral float-right" title="DASS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="TinyCR.html" class="btn btn-neutral float-left" title="TinyCR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ref.html" class="btn btn-neutral float-left" title="Reference Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

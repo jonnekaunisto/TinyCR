@@ -1,8 +1,17 @@
+.. _examples:
+
 Examples
 ==========================
 
 
-Examples
---------------
+Client
+-------
 
-Examples
+.. literalinclude:: ../../src/client.cpp
+    :language: cpp
+
+Server
+------
+
+.. literalinclude:: ../../src/server.cpp
+    :language: cpp

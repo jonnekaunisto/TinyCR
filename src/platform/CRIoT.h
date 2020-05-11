@@ -18,11 +18,17 @@
 #include "../utils/helpers.h"
 using namespace std;
 
+/**
+ * All actions that the server can do
+ */
 enum Action 
 {
     AddAction = 0, RemoveAction = 1, UnrevokeAction = 2, RevokeAction = 3
 };
 
+/**
+ * The server side structure which encodes full and delta updates.
+ */
 template<typename K, class V>
 class CRIoT_Control_VO
 {
@@ -37,40 +43,40 @@ public:
     CRIoT_Control_VO(){}
 
     /**
-     * Constructor for CRIoT Control VO
-     * @param pks A vector of positive keys
-     * @param nks A vector of negative keys
-     * @param lf Load factor
-     * @param othello_ratio Othello Ratio
+     * Constructor for CRIoT Control VO.
+     * @param positive_keys A vector of positive keys to be inserted.
+     * @param negative_keys A vector of negative keys to be inserted.
+     * @param load_factor How loaded the structure will be at initialization.
+     * @param othello_ratio Othello Ratio.
      */
-    CRIoT_Control_VO(vector<K> &pks, vector<K> &nks, float lf = 0.95, float othello_ratio = 1)
+    CRIoT_Control_VO(vector<K> positive_keys, vector<K> negative_keys, float load_factor = 0.95, float othello_ratio = 1)
     {
-        this->loadfactor = lf;
+        this->loadfactor = load_factor;
         this->o_ratio = othello_ratio;
-        vo_control.init(pks.size(), nks.size(), lf, o_ratio);
-        vo_control.batch_insert(pks, nks);
+        vo_control.init(positive_keys.size(), negative_keys.size(), load_factor, o_ratio);
+        vo_control.batch_insert(positive_keys, negative_keys);
         vo_data.install(vo_control);
     }
 
     /**
-     * Alternate constructor for CRIoT Control VO
-     * @param pks A vector of positive keys
-     * @param nks A vector of negative keys
-     * @param lf Load factor
+     * Alternate constructor for CRIoT Control VO.
+     * @param positive_keys A vector of positive keys to be inserted.
+     * @param negative_keys A vector of negative keys to be inserted.
+     * @param load_factor How loaded the structure will be at initialization.
      * @param othello_ratio Othello Ratio
      */
-    void init(vector<K> &pks, vector<K> &nks, float lf = 0.95, float othello_ratio = 1)
+    void init(vector<K> &positive_keys, vector<K> &negative_keys, float load_factor = 0.95, float othello_ratio = 1)
     {
-        this->loadfactor = lf;
+        this->loadfactor = loadfactor;
         this->o_ratio = othello_ratio;
-        vo_control.init(pks.size(), nks.size(), lf, o_ratio);
-        vo_control.batch_insert(pks, nks);
+        vo_control.init(positive_keys.size(), negative_keys.size(), load_factor, o_ratio);
+        vo_control.batch_insert(positive_keys, negative_keys);
         vo_data.install(vo_control);
     }
 
     /**
      * Encodes the data plane CRC as string arrays.
-     * @returns The encoded bytes
+     * @returns The encoded bytes.
      */
     vector<vector<uint8_t>> encode_full()
     {
@@ -198,6 +204,12 @@ public:
         return v;
     }
 
+    /**
+     * Encodes the batch summary, with all the updates.
+     * @param key_value_pairs The key value pairs that are modified.
+     * @param actions The actions doen to the key value pairs.
+     * @returns All of the information encoded.
+     */
     vector<uint8_t> encode_batch_summary(vector<pair<K, V>> key_value_pairs, vector<uint8_t> actions)
     {
         if (key_value_pairs.size() != actions.size())
@@ -345,11 +357,11 @@ public:
     /**
      * Erases a key from the structure.
      * TODO: IMPLEMENT
-     * @param k The key to be erased.
+     * @param key The key to be erased.
      */
-    void erase(K k)
+    void erase(K key)
     {
-        vo_control.erase(k);
+        vo_control.erase(key);
     }
 
     /**
@@ -368,6 +380,10 @@ public:
     }
 };
 
+
+/**
+ * The client side structure for decoding full updates and delta updates.
+ */
 template<typename K, class V>
 class CRIoT_Data_VO
 {
@@ -375,11 +391,19 @@ public:
     DASS_Verifier<K, V> vo_data;
     CRIoT_Data_VO(){}
 
+    /**
+     * COnstructor for CRIoT data
+     * @param install_patch The DASS verifier where to install from
+     */
     CRIoT_Data_VO(DASS_Verifier<K, V> &install_patch)
     {
         vo_data = install_patch;
     }
 
+    /**
+     * Rebuilds the DASS from DASS verifier
+     * @param rebuild_patch The DASS verifier where to build from
+     */
     void rebuild(DASS_Verifier<K, V> &rebuild_patch)
     {
         vo_data = rebuild_patch;
@@ -387,38 +411,38 @@ public:
 
     /**
      * Decodes the full update received.
-     * @param s The data received from the server
+     * @param data The data received from the server
      */
-    void decode_full(vector<uint8_t> &s)
+    void decode_full(vector<uint8_t> &data)
     {
         uint32_t offset = 1;
         /*read othello*/
         /*read mem size*/
-        uint32_t mem_size = combine_chars_as_uint32_t(s, offset);
+        uint32_t mem_size = combine_chars_as_uint32_t(data, offset);
         offset+=4;
 
         /*mem*/
         vector<uint64_t> mem;
         for(uint32_t j=0; j<mem_size; j++)
         {
-            uint64_t e = combine_chars_as_uint64_t(s, offset);
+            uint64_t e = combine_chars_as_uint64_t(data, offset);
             offset +=8;
             mem.push_back(e);
         }
 
         /*read ma, mb*/
-        uint32_t ma = combine_chars_as_uint32_t(s, offset);
+        uint32_t ma = combine_chars_as_uint32_t(data, offset);
         offset+=4;
-        uint32_t mb = combine_chars_as_uint32_t(s, offset);
+        uint32_t mb = combine_chars_as_uint32_t(data, offset);
         offset+=4;
 
         /*hab*/
-        uint64_t hab_para = combine_chars_as_uint64_t(s, offset);
+        uint64_t hab_para = combine_chars_as_uint64_t(data, offset);
         offset+=8;
         Hasher64<K> hab(hab_para);
 
         /*hd*/
-        uint32_t hd_para = combine_chars_as_uint32_t(s, offset);
+        uint32_t hd_para = combine_chars_as_uint32_t(data, offset);
         offset+=4;
         Hasher32<K> hd(hd_para);
 
@@ -429,18 +453,18 @@ public:
 
         /*read vf*/
         /*memory_consumption*/
-        uint64_t memory_consumption = combine_chars_as_uint64_t(s, offset);
+        uint64_t memory_consumption = combine_chars_as_uint64_t(data, offset);
         offset+=8;
 
         cout<<"memory_consumption: "<<memory_consumption<<endl;
         /*e*/
-        uint32_t ess_length = combine_chars_as_uint32_t(s, offset);
+        uint32_t ess_length = combine_chars_as_uint32_t(data, offset);
         cout<<"ess_length: "<<ess_length<<endl;
         offset+=4;
         char* eState_c = new char[ess_length];
         for(int i=0; i<ess_length; i++)
         {
-            memcpy(&eState_c[i], &s[offset], 1);
+            memcpy(&eState_c[i], &data[offset], 1);
             offset += 1;
         }
         stringstream eState;
@@ -450,44 +474,44 @@ public:
         delete[] eState_c;
 
         /*n*/
-        long long n = combine_chars_as_uint64_t(s, offset);
+        long long n = combine_chars_as_uint64_t(data, offset);
         offset+=8;
         cout<<"n: "<<n<<endl;
 
         /*m*/
-        int m = combine_chars_as_uint32_t(s, offset);
+        int m = combine_chars_as_uint32_t(data, offset);
         offset+=4;
 
         /*filled_cell*/
-        int filled_cell = combine_chars_as_uint32_t(s, offset);
+        int filled_cell = combine_chars_as_uint32_t(data, offset);
         offset+=4;
 
         /*max_kick_steps*/
-        int max_kick_steps = combine_chars_as_uint32_t(s, offset);
+        int max_kick_steps = combine_chars_as_uint32_t(data, offset);
         offset+=4;
 
         /*max_2_power*/
-        int max_2_power = combine_chars_as_uint32_t(s, offset);
+        int max_2_power = combine_chars_as_uint32_t(data, offset);
         offset+=4;
 
         /*big_seg*/
-        int big_seg = combine_chars_as_uint32_t(s, offset);
+        int big_seg = combine_chars_as_uint32_t(data, offset);
         offset+=4;
 
         /*isSmall*/
-        bool isSmall = (bool)s[offset];
+        bool isSmall = (bool)data[offset];
         offset += 1;
 
         /*len*/
         int len[4];
         for(int i=0; i<4; i++)
         {
-            len[i] = combine_chars_as_uint32_t(s, offset);
+            len[i] = combine_chars_as_uint32_t(data, offset);
             offset += 4;
         }
 
         /*fp_len*/
-        int fp_len = combine_chars_as_uint32_t(s, offset);
+        int fp_len = combine_chars_as_uint32_t(data, offset);
         offset+=4;
 
         /*T*/
@@ -495,7 +519,7 @@ public:
         uint32_t *T = new uint32_t[T_len];
         for(int i=0; i<T_len; i++)
         {
-            T[i] = combine_chars_as_uint32_t(s, offset);
+            T[i] = combine_chars_as_uint32_t(data, offset);
             offset+=4;
         }
 
@@ -506,6 +530,10 @@ public:
         cout<<"vf finish" << std::endl;
     }
 
+    /**
+     * Decodes the batch summary
+     * @param summary The summary that is to be decoded
+     */
     void decode_batch_summary(vector<uint8_t> summary)
     {
         unsigned int num_actions = unsigned(summary[0]);
@@ -517,7 +545,11 @@ public:
         }
     }
 
-
+    /**
+     * Helper function for decoding summary, decodes individual keys from batch summary
+     * @param summary The batch summary to be decoded
+     * @param offset Reference to the offset where where the next key starts
+     */
     void decode_sub_summary(vector<uint8_t> summary, int &offset)
     {
         uint8_t action = summary[offset];

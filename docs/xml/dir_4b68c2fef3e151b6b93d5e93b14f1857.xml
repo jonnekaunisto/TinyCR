@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="dir_4b68c2fef3e151b6b93d5e93b14f1857" kind="dir">
-    <compoundname>/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform</compoundname>
+    <compoundname>/Users/jkaunist/Desktop/Research/TinyCR/src/platform</compoundname>
     <innerfile refid="bloom__filter_8h">bloom_filter.h</innerfile>
     <innerfile refid="control__plane__othello_8h">control_plane_othello.h</innerfile>
     <innerfile refid="_c_r_io_t_8h">CRIoT.h</innerfile>
@@ -13,6 +13,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/"/>
   </compounddef>
 </doxygen>

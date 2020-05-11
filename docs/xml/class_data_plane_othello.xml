@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="18" column="3" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="18" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="18" column="3" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-attrib">
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="22" column="20" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="22" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="22" column="20" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_data_plane_othello_1adb9094eb7f414038da0702a7260e69ba" prot="public" static="yes" mutable="no">
         <type>const static int</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="23" column="20" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="23" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="23" column="20" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_data_plane_othello_1a989190795db904481f473d9cfcddb6d0" prot="public" static="yes" mutable="no">
         <type>const static uint64_t</type>
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="25" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="25" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="25" column="25" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_data_plane_othello_1a5c077c3e7541a5b7f868098159e60931" prot="public" static="yes" mutable="no">
         <type>const static uint64_t</type>
@@ -109,7 +109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="26" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="26" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="26" column="25" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_data_plane_othello_1a81b6fa54a151fe4769ed7f705c6de402" prot="public" static="yes" mutable="no">
         <type>const static uint64_t</type>
@@ -123,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="27" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="27" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="27" column="25" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_data_plane_othello_1a2512a1068f705dda7ed353c1911c404b" prot="public" static="yes" mutable="no">
         <type>const static uint64_t</type>
@@ -137,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="28" column="25" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="28" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="28" column="25" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -153,7 +153,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="33" column="10" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="33" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="33" column="10" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_data_plane_othello_1a33a37ac4711198dcba0c128f7d286191" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -167,7 +167,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="34" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="34" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="34" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_data_plane_othello_1a28da8d72b6c61d84d4b2d73f1d7e466a" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -181,7 +181,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="35" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="35" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="35" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_data_plane_othello_1ade7d38e41aa7740aec090f42bc6f24b7" prot="public" static="no" mutable="no">
         <type>Hasher64&lt; K &gt;</type>
@@ -194,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="36" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="36" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="36" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_data_plane_othello_1a0f8846aaa2db733557ab8bd6ed2cba76" prot="public" static="no" mutable="no">
         <type>Hasher32&lt; K &gt;</type>
@@ -207,7 +207,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="37" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="37" bodyend="-1"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="37" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -230,7 +230,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="39" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="39" bodyend="41"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="39" column="19" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="39" bodyend="41"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1adbb57c8c0dc7f8bf28e5fe62766ee07f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -247,7 +247,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="43" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="43" bodyend="49"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="43" column="19" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="43" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a213a4f63fd3d5454c9605701a8cbf0e8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -264,7 +264,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="51" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="51" bodyend="53"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="51" column="19" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="51" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a6b570d07c31e3e65b23af5c57d674b2e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -301,7 +301,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="57" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="57" bodyend="61"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="57" column="15" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="57" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1ad30c8a8350f78d9bc742662c490e03fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -340,7 +340,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="66" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="66" bodyend="85"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="66" column="15" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="66" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1af325036f380c5eb1f9c6b8cf2ced7458" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -369,7 +369,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="89" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="89" bodyend="105"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="89" column="19" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="89" bodyend="105"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a92e66f345dc6b593b1a56a4f13c78cfe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -390,7 +390,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="107" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="107" bodyend="126"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="107" column="15" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="107" bodyend="126"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a8f3f0552bbae7a651c77f5ad5fb57cc9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>uint64_t</type>
@@ -407,7 +407,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="128" column="19" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="128" bodyend="145"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="128" column="19" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="128" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a98eb35351f97b0801da0bdb44599e004" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -436,7 +436,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="148" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="148" bodyend="154"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="148" column="15" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="148" bodyend="154"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a1d3634cd4f33940c5dcd8b60967b72ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -453,7 +453,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="156" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="156" bodyend="159"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="156" column="15" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="156" bodyend="159"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a6c4e0c03f3e2f1ed1f0ecdd7ec384fa8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -470,7 +470,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="161" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="161" bodyend="164"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="161" column="15" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="161" bodyend="164"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a9e8e70324501979784f9e7d6c902cb61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -509,7 +509,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="169" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="169" bodyend="177"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="169" column="15" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="169" bodyend="177"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1afcb36ca773affca12e4a01b691f47f66" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -536,7 +536,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="185" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="185" bodyend="189"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="185" column="8" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="185" bodyend="189"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a15d82fd043a4c494de5a762b2b3f40ca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -577,7 +577,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="195" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="195" bodyend="213"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="195" column="15" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="195" bodyend="213"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1aa3b2247674df119b1b822295ac5e53f2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>V</type>
@@ -594,7 +594,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="215" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="215" bodyend="221"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="215" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="215" bodyend="221"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a5a205b5e2f83c0c2dae7791efb6eef97" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -611,7 +611,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="226" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="226" bodyend="235"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="226" column="8" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="226" bodyend="235"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a81d99d12e7c1a7bbfbe72e1639d45071" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -624,7 +624,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="238" column="10"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="238" column="10"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a3827304b9d862d669da647c656a59e9c" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -653,7 +653,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="241" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="241" bodyend="243"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="241" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="241" bodyend="243"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a5f734c4988a3d7be0dfdb5c70771b459" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -686,7 +686,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="245" column="3" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="245" bodyend="252"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="245" column="3" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="245" bodyend="252"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a80323c0b2ed58ec7884c9b13b452090b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -715,7 +715,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="255" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="255" bodyend="261"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="255" column="8" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="255" bodyend="261"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a626aaa9ae193439a9bef860f61fee204" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -744,7 +744,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="264" column="8" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="264" bodyend="272"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="264" column="8" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="264" bodyend="272"/>
       </memberdef>
       <memberdef kind="function" id="class_data_plane_othello_1a5acb6baa51dc038ce6dc6acbd8d15d97" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
         <type>uint64_t</type>
@@ -757,7 +757,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" line="274" column="20" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/data_plane_othello.h" bodystart="274" bodyend="276"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" line="274" column="20" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/data_plane_othello.h" bodystart="274" bodyend="276"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -767,7 +767,7 @@
 </simplesect>
 </para>
     </detaileddescription>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="8" column="1" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="8" bodyend="-1"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/control_plane_othello.h" line="8" column="1" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/control_plane_othello.h" bodystart="8" bodyend="-1"/>
     <listofallmembers>
       <member refid="class_data_plane_othello_1a81d99d12e7c1a7bbfbe72e1639d45071" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>DataPlaneOthello</name></member>
       <member refid="class_data_plane_othello_1a3827304b9d862d669da647c656a59e9c" prot="public" virt="non-virtual"><scope>DataPlaneOthello</scope><name>DataPlaneOthello</name></member>

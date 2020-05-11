@@ -25,7 +25,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1381" column="12" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1381" bodyend="1381"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/control_plane_othello.h" line="1381" column="12" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/control_plane_othello.h" bodystart="1381" bodyend="1381"/>
       </memberdef>
       <memberdef kind="function" id="class_othello_set_1a70b5f5576e1c18367227539379d2e001" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1383" column="15" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1383" bodyend="1385"/>
+        <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/control_plane_othello.h" line="1383" column="15" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/control_plane_othello.h" bodystart="1383" bodyend="1385"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -73,7 +73,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" line="1379" column="49" bodyfile="/Users/jkaunist/Desktop/Research/ClientServerSummaryFramework/src/platform/control_plane_othello.h" bodystart="1379" bodyend="1386"/>
+    <location file="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/control_plane_othello.h" line="1379" column="49" bodyfile="/Users/jkaunist/Desktop/Research/TinyCR/src/platform/control_plane_othello.h" bodystart="1379" bodyend="1386"/>
     <listofallmembers>
       <member refid="class_control_plane_othello_1af90fc3b63bb599a7b6edab5f1753972a" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>addEdge</name></member>
       <member refid="class_control_plane_othello_1ab9afb6bba6c1b6ad17fdb53577bf4f0b" prot="public" virt="non-virtual"><scope>OthelloSet</scope><name>build</name></member>
