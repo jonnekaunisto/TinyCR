@@ -91,3 +91,15 @@ To communicate with the client.
 | Command Name | Description                                   | Arg 1           |
 |--------------|-----------------------------------------------|-----------------|
 | show         | Queries the value in associated with the key. | The key number. |
+
+
+## License and Citation
+This demo software is knowingly designed to illustrate technique(s) intended to defeat a system's security. It is open-sourced and free-to-use for research purposes only. The technical details of the design can be found at:
+
+@inproceedings{shi2021tinycr,
+  title={{On-device IoT Certificate Revocation Checking with Small Memory and Low Latency}},
+  author={Shi, Xiaofeng and Shi, Shouqian and Wang, Minmei and Kaunisto, Jonne and Qian, Chen},
+  booktitle={Proceedings of ACM CCS},
+  year={2021}
+}
+
