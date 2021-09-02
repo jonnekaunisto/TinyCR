@@ -98,13 +98,13 @@ This demo software is knowingly designed to illustrate technique(s) intended to 
 
 @inproceedings{shi2021tinycr,
 
-  title={{On-device IoT Certificate Revocation Checking with Small Memory and Low Latency}},
+    title={{On-device IoT Certificate Revocation Checking with Small Memory and Low Latency}},
   
-  author={Shi, Xiaofeng and Shi, Shouqian and Wang, Minmei and Kaunisto, Jonne and Qian, Chen},
+    author={Shi, Xiaofeng and Shi, Shouqian and Wang, Minmei and Kaunisto, Jonne and Qian, Chen},
   
-  booktitle={Proceedings of ACM CCS},
+    booktitle={Proceedings of ACM CCS},
   
-  year={2021}
+    year={2021}
   
 }
 
